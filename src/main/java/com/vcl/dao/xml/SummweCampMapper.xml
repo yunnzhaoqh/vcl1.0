@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzp.dao.mapper.SummweCampMapper">
+
+    <select id="selectByExample" parameterType="java.util.Map" resultType="SummweCamp">
+        SELECT * FROM Summwe_Camp
+        <where>
+            <if test="ID != null and ID !=''">
+            and ID = #{ID}
+            </if>
+            <if test="NAME != null and NAME !=''">
+                and NAME = #{NAME}
+            </if>
+            <if test="STARTTIME != null and STARTTIME !=''">
+                and STARTTIME = #{STARTTIME}
+            </if>
+            <if test="ENDTIME != null and ENDTIME !=''">
+                and ENDTIME = #{ENDTIME}
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                and CREATETIME = #{CREATETIME}
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                and STATUS = #{STATUS}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="SummweCamp">
+        insert into  Summwe_Camp
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="ID != null and ID !=''">
+                 ID,
+            </if>
+            <if test="NAME != null and NAME !=''">
+                 NAME ,
+            </if>
+            <if test="STARTTIME != null and STARTTIME !=''">
+                 STARTTIME ,
+            </if>
+            <if test="ENDTIME != null and ENDTIME !=''">
+                 ENDTIME ,
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                 CREATETIME ,
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                 STATUS ,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="ID != null and ID !=''">
+                #{ID},
+            </if>
+            <if test="NAME != null and NAME !=''">
+                #{NAME} ,
+            </if>
+            <if test="STARTTIME != null and STARTTIME !=''">
+                #{STARTTIME} ,
+            </if>
+            <if test="ENDTIME != null and ENDTIME !=''">
+                #{ENDTIME} ,
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                #{CREATETIME} ,
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                #{STATUS},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="SummweCamp">
+        update Summwe_Camp
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+            <if test="ID != null and ID !=''">
+                ID = #{ID},
+            </if>
+            <if test="NAME != null and NAME !=''">
+                NAME =#{NAME},
+            </if>
+            <if test="STARTTIME != null and STARTTIME !=''">
+                STARTTIME=#{STARTTIME} ,
+            </if>
+            <if test="ENDTIME != null and ENDTIME !=''">
+                ENDTIME =#{ENDTIME},
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                CREATETIME =#{CREATETIME},
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                STATUS =#{STATUS},
+            </if>
+        </trim>
+    </update>
+    <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
+        update Summwe_Camp
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+                STATUS =0,
+        </trim>
+    </update>
+    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="SummweCamp">
+       select * from Summwe_Camp WHERE ID=#{ID}
+    </select>
+</mapper>

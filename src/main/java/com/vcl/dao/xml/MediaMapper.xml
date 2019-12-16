@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzp.dao.mapper.MediaMapper">
+
+    <select id="selectByExample" parameterType="java.util.Map" resultType="Media">
+        SELECT * FROM Media
+        <where>
+            <if test="ID != null and ID !=''">
+            and ID = #{ID}
+            </if>
+            <if test="TITLE != null and TITLE !=''">
+                and TITLE = #{TITLE}
+            </if>
+            <if test="RELEASE_DATE != null and RELEASE_DATE !=''">
+                and RELEASE_DATE = #{RELEASE_DATE}
+            </if>
+            <if test="CONTENT != null and CONTENT !=''">
+                and CONTENT = #{CONTENT}
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                and CREATETIME = #{CREATETIME}
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                and STATUS = #{STATUS}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Media">
+        insert into  Media
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="ID != null and ID !=''">
+                 ID,
+            </if>
+            <if test="TITLE != null and TITLE !=''">
+                TITLE ,
+            </if>
+            <if test="RELEASE_DATE != null and RELEASE_DATE !=''">
+                RELEASE_DATE ,
+            </if>
+            <if test="CONTENT != null and CONTENT !=''">
+                CONTENT ,
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                 CREATETIME ,
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                 STATUS ,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="ID != null and ID !=''">
+                #{ID},
+            </if>
+            <if test="TITLE != null and TITLE !=''">
+                #{PEOPLE_ID} ,
+            </if>
+            <if test="RELEASE_DATE != null and RELEASE_DATE !=''">
+                #{RELEASE_DATE} ,
+            </if>
+            <if test="CONTENT != null and CONTENT !=''">
+                #{CONTENT} ,
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                #{CREATETIME} ,
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                #{STATUS},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="Media">
+        update Media
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+            <if test="ID != null and ID !=''">
+                ID = #{ID},
+            </if>
+            <if test="TITLE != null and TITLE !=''">
+                TITLE =#{TITLE},
+            </if>
+            <if test="RELEASE_DATE != null and RELEASE_DATE !=''">
+                RELEASE_DATE=#{RELEASE_DATE} ,
+            </if>
+            <if test="CONTENT != null and CONTENT !=''">
+                CONTENT=#{CONTENT} ,
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                CREATETIME =#{CREATETIME},
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                STATUS =#{STATUS},
+            </if>
+        </trim>
+    </update>
+    <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
+        update Media
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+                STATUS =0,
+        </trim>
+    </update>
+    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Media">
+       select * from Media WHERE ID=#{ID}
+    </select>
+</mapper>

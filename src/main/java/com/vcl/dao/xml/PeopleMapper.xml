@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yzp.dao.mapper.PeopleMapper">
+
+    <select id="selectByExample" parameterType="java.util.Map" resultType="People">
+        SELECT * FROM People
+        <where>
+            <if test="ID != null and ID !=''">
+            and ID = #{ID}
+            </if>
+            <if test="NAME != null and NAME !=''">
+                and NAME = #{NAME}
+            </if>
+            <if test="GENDER != null and GENDER !=''">
+                and GENDER = #{GENDER}
+            </if>
+            <if test="AGE != null and AGE !=''">
+                and AGE = #{AGE}
+            </if>
+            <if test="PATH != null and PATH !=''">
+                and PATH = #{PATH}
+            </if>
+            <if test="TYPE != null and TYPE !=''">
+                and TYPE = #{TYPE}
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                and CREATETIME = #{CREATETIME}
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                and STATUS = #{STATUS}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="People">
+        insert into  People
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="ID != null and ID !=''">
+                 ID,
+            </if>
+            <if test="NAME != null and NAME !=''">
+                NAME ,
+            </if>
+            <if test="GENDER != null and GENDER !=''">
+                GENDER ,
+            </if>
+            <if test="AGE != null and AGE !=''">
+                AGE ,
+            </if>
+            <if test="PATH != null and PATH !=''">
+                PATH ,
+            </if>
+            <if test="TYPE != null and TYPE !=''">
+                TYPE ,
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                 CREATETIME ,
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                 STATUS ,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="ID != null and ID !=''">
+                #{ID},
+            </if>
+            <if test="NAME != null and NAME !=''">
+                #{NAME} ,
+            </if>
+            <if test="GENDER != null and GENDER !=''">
+                #{GENDER} ,
+            </if>
+            <if test="AGE != null and AGE !=''">
+                #{AGE} ,
+            </if>
+            <if test="PATH != null and PATH !=''">
+                #{PATH} ,
+            </if>
+             <if test="TYPE != null and TYPE !=''">
+                #{TYPE} ,
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                #{CREATETIME} ,
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                #{STATUS},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="People">
+        update People
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+            <if test="ID != null and ID !=''">
+                ID = #{ID},
+            </if>
+            <if test="NAME != null and NAME !=''">
+                NAME =#{NAME},
+            </if>
+            <if test="GENDER != null and GENDER !=''">
+                GENDER=#{GENDER} ,
+            </if>
+            <if test="AGE != null and AGE !=''">
+                AGE=#{AGE} ,
+            </if>
+            <if test="PATH != null and PATH !=''">
+                PATH =#{PATH},
+            </if>
+             <if test="TYPE != null and TYPE !=''">
+                 TYPE =#{TYPE},
+            </if>
+            <if test="CREATETIME != null and CREATETIME !=''">
+                CREATETIME =#{CREATETIME},
+            </if>
+            <if test="STATUS != null and STATUS !=''">
+                STATUS =#{STATUS},
+            </if>
+        </trim>
+    </update>
+    <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
+        update People
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+                STATUS =0,
+        </trim>
+    </update>
+    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="People">
+       select * from People WHERE ID=#{ID}
+    </select>
+</mapper>
