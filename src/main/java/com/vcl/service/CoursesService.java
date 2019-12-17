@@ -3,6 +3,8 @@ import com.vcl.pojo.Courses;
 import com.vcl.pojo.PageResult;
 
 import java.util.List;
+import java.util.Map;
+
 /**
  * 服务层接口
  * @author Administrator
@@ -56,6 +58,6 @@ public interface CoursesService {
 	 * @param pageSize 每页记录数
 	 * @return
 	 */
-	public PageResult findPage(Courses courses, int pageNum,int pageSize);
+	public PageResult findPage(Map courses, int pageNum, int pageSize);
 	
 }

@@ -1,5 +1,6 @@
 package com.vcl.service.impl;
 import java.util.List;
+import java.util.Map;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -26,7 +27,7 @@ public class CoursesServiceImpl implements CoursesService {
 	 */
 	@Override
 	public List<Courses> findAll() {
-		return coursesMapper.selectAll(null);
+		return coursesMapper.selectByExample(null);
 	}
 
 	/**
@@ -78,7 +79,7 @@ public class CoursesServiceImpl implements CoursesService {
 	
 	
 		@Override
-	public PageResult findPage(Courses courses, int pageNum, int pageSize) {
+	public PageResult findPage(Map courses, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		
 		Page<Courses> page= (Page<Courses>)coursesMapper.selectByExample(courses);

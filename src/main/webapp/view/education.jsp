@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,12 +11,12 @@
 
     <title>education</title>
 
-    <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/jquery.mCustomScrollbar.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/jquery.mCustomScrollbar.css" />
 
-    <link type="text/css" rel="stylesheet" href="/css/normal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
 
 </head>
 
@@ -75,8 +77,8 @@
     </header>
 
     <section class="banner-content">
-        <!-- <div class="banner" style="background-image: url(/images/education-banner.jpg);"></div> -->
-        <img src="/images/education-banner.jpg" alt="">
+        <!-- <div class="banner" style="background-image: url(/resources/images/education-banner.jpg);"></div> -->
+        <img src="/resources/images/education-banner.jpg" alt="">
     </section>
 
     <section class="education-container">
@@ -85,7 +87,7 @@
             <h3>We want to make you better communicators and problem solvers, to thrive in today’s world — and to shape tomorrow’s.</h3>
             <div class="items">
                 <div class="item">
-                    <div class="imgs" style="background-image: url(/images/temp/e-bg-1.jpg);">
+                    <div class="imgs" style="background-image: url(/resources/images/temp/e-bg-1.jpg);">
                         <div class="cover">
                             <span>SUMMWE CAMP</span>
                         </div>
@@ -118,7 +120,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="imgs" style="background-image: url(/images/temp/e-bg-2.jpg);">
+                    <div class="imgs" style="background-image: url(/resources/images/temp/e-bg-2.jpg);">
                         <div class="cover">
                             <span>COURSES</span>
                         </div>
@@ -181,7 +183,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="imgs" style="background-image: url(/images/temp/e-bg-3.jpg);">
+                    <div class="imgs" style="background-image: url(/resources/images/temp/e-bg-3.jpg);">
                         <div class="cover">
                             <span>REFERENCE</span>
                         </div>
@@ -251,14 +253,14 @@
                         <span>subscription</span>
                     </div>
                     <div class="type">Public Account</div>
-                    <img src="/images/vcl-red_13.png" alt="">
+                    <img src="/resources/images/vcl-red_13.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script>
         $(function(){
             // $(".list").mCustomScrollbar({

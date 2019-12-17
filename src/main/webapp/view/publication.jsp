@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,11 +11,11 @@
 
     <title>publication</title>
 
-    <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
 
-    <link type="text/css" rel="stylesheet" href="/css/normal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
 
 </head>
 
@@ -74,7 +76,7 @@
     </header>
 
     <section class="banner-content">
-        <img src="/images/publication-banner.jpg" alt="">
+        <img src="/resources/images/publication-banner.jpg" alt="">
     </section>
 
     <section class="publication-container">
@@ -113,7 +115,7 @@
                 </div>
                 <div class="item-right">
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
                             <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
@@ -125,7 +127,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
                             <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
@@ -136,7 +138,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
                             <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
@@ -147,7 +149,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
                             <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
@@ -159,7 +161,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
                             <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
@@ -172,7 +174,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
                             <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
@@ -184,7 +186,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
                             <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
@@ -245,13 +247,13 @@
                         <span>subscription</span>
                     </div>
                     <div class="type">Public Account</div>
-                    <img src="/images/vcl-red_13.png" alt="">
+                    <img src="/resources/images/vcl-red_13.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function(){
             $('.item-left .year').click(function () {

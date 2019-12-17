@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,11 +11,11 @@
 
     <title>people</title>
 
-    <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
 
-    <link type="text/css" rel="stylesheet" href="/css/normal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
 
 </head>
 
@@ -74,7 +76,7 @@
     </header>
 
     <section class="banner-content">
-        <img src="/images/people-banner.jpg" alt="">
+        <img src="/resources/images/people-banner.jpg" alt="">
     </section>
 
     <section class="activities-container people-container">
@@ -99,7 +101,7 @@
                 <div class="tabs-body">
                     <div class="type-content active">
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -109,7 +111,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -119,7 +121,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -129,7 +131,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -139,69 +141,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="type-content">
-                        <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -213,7 +153,7 @@
                     </div>
                     <div class="type-content">
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -223,7 +163,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -233,7 +173,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -243,7 +183,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -253,7 +193,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -263,17 +203,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -285,7 +215,7 @@
                     </div>
                     <div class="type-content">
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -295,7 +225,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -305,7 +235,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -315,7 +245,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -325,7 +255,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -335,7 +265,7 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -345,7 +275,19 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <div class="intro">
+                                <p class="job">Director</p>
+                                <p class="name">Baoquan Chen</p>
+                                <div class="link">
+                                    <a href="">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="type-content">
+                        <div class="people-item">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -355,7 +297,67 @@
                             </div>
                         </div>
                         <div class="people-item">
-                            <img src="/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <div class="intro">
+                                <p class="job">Director</p>
+                                <p class="name">Baoquan Chen</p>
+                                <div class="link">
+                                    <a href="">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people-item">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <div class="intro">
+                                <p class="job">Director</p>
+                                <p class="name">Baoquan Chen</p>
+                                <div class="link">
+                                    <a href="">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people-item">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <div class="intro">
+                                <p class="job">Director</p>
+                                <p class="name">Baoquan Chen</p>
+                                <div class="link">
+                                    <a href="">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people-item">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <div class="intro">
+                                <p class="job">Director</p>
+                                <p class="name">Baoquan Chen</p>
+                                <div class="link">
+                                    <a href="">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people-item">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <div class="intro">
+                                <p class="job">Director</p>
+                                <p class="name">Baoquan Chen</p>
+                                <div class="link">
+                                    <a href="">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people-item">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <div class="intro">
+                                <p class="job">Director</p>
+                                <p class="name">Baoquan Chen</p>
+                                <div class="link">
+                                    <a href="">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="people-item">
+                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -410,13 +412,13 @@
                         <span>subscription</span>
                     </div>
                     <div class="type">Public Account</div>
-                    <img src="/images/vcl-red_13.png" alt="">
+                    <img src="/resources/images/vcl-red_13.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function(){
             $('.tabs-header .item').click(function(){

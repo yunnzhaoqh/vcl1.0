@@ -5,7 +5,7 @@ import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Project;
 import com.vcl.pojo.Result;
 import com.vcl.service.ProjectService;
-import jdk.nashorn.internal.ir.annotations.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/project")
 public class ProjectController {
 
-	@Reference
+	@Autowired
 	private ProjectService projectService;
 	
 	/**

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,11 +11,11 @@
 
     <title>project</title>
 
-    <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
 
-    <link type="text/css" rel="stylesheet" href="/css/normal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
 
 </head>
 
@@ -74,7 +76,7 @@
     </header>
 
     <section class="banner-content">
-        <img src="/images/project-page-banner.jpg" alt="">
+        <img src="/resources/images/project-page-banner.jpg" alt="">
     </section>
 
     <section class="project-container">
@@ -85,13 +87,13 @@
                 <p style="text-align: center;">Ziyin Qu1*<span style="display: inline-block;width: 40px;height: 12px;"></span>Xinxin Zhang2*<span style="display: inline-block;width: 40px;height: 12px;"></span>Ming Gao3<span style="display: inline-block;width: 40px;height: 12px;"></span>Chenfanfu Jiang4<span style="display: inline-block;width: 40px;height: 12px;"></span>Baoquan Chen1</p>
                 <p style="text-align: center;">1Peking University<span style="display: inline-block;width: 40px;height: 12px;"></span>2Peking University<span style="display: inline-block;width: 40px;height: 12px;"></span>3Peking University sity</p>
                 <p style="text-align: center;margin: 30px 0;">
-                    <img src="/images/temp/project-page_05.jpg" alt="">
+                    <img src="/resources/images/temp/project-page_05.jpg" alt="">
                 </p>
                 <p style="text-align: center;">Figure1. Our generative model jointly analyzes the structure and geometry of shapes, encoding them into a single latent code. The highlighted triplets</p>
                 <p style="font-size: 18px;color: #000;font-weight: bold;margin-top: 45px;">Abtsract</p>
                 <p>In this paper, we introduce BiMocq2, an unconditionally stable, pure Eulerian-based advection scheme to efficiently preserve the advection accuracy of all physical quantities for long-term fluid simulations. Our approach is built upon the method of characteristic mapping (MCM). Instead of the costly evaluation of the temporal characteristic integral, we evolve the mapping function itself by solving an advection equation for the mappings. Dual mesh characteristics (DMC) method is adopted to more accurately update the mapping. Furthermore, to avoid visual artifacts like instant blur and temporal inconsistency introduced by reinitialization, we introduce multi-level mapping and back and forth error compensation. We conduct comprehensive 2D and 3D benchmark experiments to compare against alternative advection schemes. In particular, for the vortical flow and level set experiments, our method outperforms almost all state-of-art hybrid schemes, including FLIP, PolyPic and Particle Level Set, at the cost of only two Semi-Lagrangian advections. Additionally, our method does not rely on the particle-grid transfer operations, leading to a highly parallelizable pipeline. As a result, more than 45× performance acceleration can be achieved via even a straightforward porting of the code from CPU to GPU.</p>
                 <p style="text-align: center;margin: 30px 0;">
-                    <img src="/images/temp/project-page_09.jpg" alt="">
+                    <img src="/resources/images/temp/project-page_09.jpg" alt="">
                 </p>
                 <p style="text-align: center;">Fig. 18. Our method simulating explosions modeled with divergence control.The explosion was initiated with two burning sources at the bottom.</p>
                 <p style="font-size: 18px;color: #000;font-weight: bold;margin-top: 45px;">Future Work</p>
@@ -166,13 +168,13 @@
                         <span>subscription</span>
                     </div>
                     <div class="type">Public Account</div>
-                    <img src="/images/vcl-red_13.png" alt="">
+                    <img src="/resources/images/vcl-red_13.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function(){
             

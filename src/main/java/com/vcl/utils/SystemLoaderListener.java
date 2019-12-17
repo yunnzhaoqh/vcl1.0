@@ -11,14 +11,14 @@ import javax.servlet.ServletContextEvent;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
-
-public class SystemLoaderListener extends ContextLoaderListener {
+//extends ContextLoaderListener
+public class SystemLoaderListener  {
 
 //    Logger logger=  LogManager.getLogger(SystemLoaderListener.class);
-    static Resource db = new ClassPathResource("jdbc.properties");
-    static Resource config=new ClassPathResource("config.properties");
-    static final int QUEUE_SIZE = 20;
-    static Properties props;
+//    static Resource db = new ClassPathResource("jdbc.properties");
+//    static Resource config=new ClassPathResource("config.properties");
+//    static final int QUEUE_SIZE = 20;
+//    static Properties props;
 
 
     //系统初始化时执行的方法
@@ -40,7 +40,7 @@ public class SystemLoaderListener extends ContextLoaderListener {
     }
 
     private void initSystemContext(ServletContextEvent event) throws IOException {
-        LoggerManager.getLogger().info("系统初始化完毕");
+        LoggerManager.getLogger().info("系统初始化完毕------------------");
 //        props = PropertiesLoaderUtils.loadProperties(config);
 //        event.getServletContext().setAttribute(SystemConstants.IMAGE_CONTEXT,props.getProperty("IMAGES_SERVER"));
 //        SystemConstants.set(SystemConstants.IMAGES_SVAE_PATH,props.getProperty("IMAGES_SVAE_PATH"));

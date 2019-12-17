@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,11 +11,11 @@
 
     <title>join-us</title>
 
-    <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
 
-    <link type="text/css" rel="stylesheet" href="/css/normal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
 
 </head>
 
@@ -74,7 +76,7 @@
     </header>
 
     <section class="banner-content">
-        <img src="/images/join-us-banner.jpg" alt="">
+        <img src="/resources/images/join-us-banner.jpg" alt="">
     </section>
 
     <section class="join-us-container">
@@ -83,7 +85,7 @@
             <ul>
                 <li>
                     <div class="icon">
-                        <img src="/images/join-us-1.png" alt="">
+                        <img src="/resources/images/join-us-1.png" alt="">
                     </div>
                     <div class="item">
                         <div class="name">Intern</div>
@@ -95,7 +97,7 @@
                 </li>
                 <li>
                     <div class="icon">
-                        <img src="/images/join-us-2.png" alt="">
+                        <img src="/resources/images/join-us-2.png" alt="">
                     </div>
                     <div class="item">
                         <div class="name">Intern</div>
@@ -107,7 +109,7 @@
                 </li>
                 <li>
                     <div class="icon">
-                        <img src="/images/join-us-3.png" alt="">
+                        <img src="/resources/images/join-us-3.png" alt="">
                     </div>
                     <div class="item">
                         <div class="name">Intern</div>
@@ -119,7 +121,7 @@
                 </li>
                 <li>
                     <div class="icon">
-                        <img src="/images/join-us-4.png" alt="">
+                        <img src="/resources/images/join-us-4.png" alt="">
                     </div>
                     <div class="item">
                         <div class="name">Intern</div>
@@ -179,13 +181,13 @@
                         <span>subscription</span>
                     </div>
                     <div class="type">Public Account</div>
-                    <img src="/images/vcl-red_13.png" alt="">
+                    <img src="/resources/images/vcl-red_13.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function(){
             

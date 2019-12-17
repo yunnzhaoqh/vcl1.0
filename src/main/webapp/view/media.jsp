@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,15 +11,15 @@
 
     <title>media</title>
 
-    <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/bootstrap.min.css" />
 
-    <link type="text/css" rel="stylesheet" href="/css/normal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
     <style>
         body{
-            background-image: url(/images/earth-bg.png);
+            background-image: url(/resources/images/earth-bg.png);
             background-position: center 55px;
             background-size: 565px;
             background-repeat: no-repeat;
@@ -82,7 +84,7 @@
     </header>
 
     <section class="banner-content">
-        <img src="/images/media-banner.jpg" alt="">
+        <img src="/resources/images/media-banner.jpg" alt="">
     </section>
 
     <section class="media-container active">
@@ -91,7 +93,7 @@
             <div class="items">
                 <div class="item">
                     <div class="cover">
-                        <img src="/images/temp/activities_05.png" alt="">
+                        <img src="/resources/images/temp/activities_05.png" alt="">
                     </div>
                     <div class="info">
                         <div class="date">
@@ -103,7 +105,7 @@
                 </div>
                 <div class="item">
                     <div class="cover">
-                        <img src="/images/temp/activities_05.png" alt="">
+                        <img src="/resources/images/temp/activities_05.png" alt="">
                     </div>
                     <div class="info">
                         <div class="date">
@@ -115,7 +117,7 @@
                 </div>
                 <div class="item">
                     <div class="cover">
-                        <img src="/images/temp/activities_05.png" alt="">
+                        <img src="/resources/images/temp/activities_05.png" alt="">
                     </div>
                     <div class="info">
                         <div class="date">
@@ -127,7 +129,7 @@
                 </div>
                 <div class="item">
                     <div class="cover">
-                        <img src="/images/temp/activities_05.png" alt="">
+                        <img src="/resources/images/temp/activities_05.png" alt="">
                     </div>
                     <div class="info">
                         <div class="date">
@@ -139,7 +141,7 @@
                 </div>
                 <div class="item">
                     <div class="cover">
-                        <img src="/images/temp/activities_05.png" alt="">
+                        <img src="/resources/images/temp/activities_05.png" alt="">
                     </div>
                     <div class="info">
                         <div class="date">
@@ -151,7 +153,7 @@
                 </div>
                 <div class="item">
                     <div class="cover">
-                        <img src="/images/temp/activities_05.png" alt="">
+                        <img src="/resources/images/temp/activities_05.png" alt="">
                     </div>
                     <div class="info">
                         <div class="date">
@@ -187,13 +189,13 @@
 
                     会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。
                     <p style="text-align: center;margin: 30px 0;">
-                        <img src="/images/temp/Media-details_03.png" alt="">
+                        <img src="/resources/images/temp/Media-details_03.png" alt="">
                     </p>
                     2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。 
 
                     会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。
                     <p style="text-align: center;margin: 30px 0;">
-                        <img src="/images/temp/Media-details_03.png" alt="">
+                        <img src="/resources/images/temp/Media-details_03.png" alt="">
                     </p>
                     2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。 
 
@@ -243,15 +245,15 @@
                         <span>subscription</span>
                     </div>
                     <div class="type">Public Account</div>
-                    <img src="/images/vcl-red_13.png" alt="">
+                    <img src="/resources/images/vcl-red_13.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap-paginator.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap-paginator.js"></script>
     <script>
         $(function(){
             $('.media-container .item').click(function(){

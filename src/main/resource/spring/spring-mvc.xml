@@ -25,7 +25,7 @@
 
     <!-- 3.视图的解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/jsp/" />
+        <property name="prefix" value="/view/" />
         <property name="suffix" value=".jsp" />
     </bean>
     <!-- SpringMVC文件上传需要配置的节点-->
@@ -37,17 +37,18 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
-            <mvc:exclude-mapping path="//js/**"/>
-            <mvc:exclude-mapping path="/image/**"/>
-            <mvc:exclude-mapping path="//css/**"/>
+            <!--<mvc:exclude-mapping path="//js/**"/>-->
+            <!--<mvc:exclude-mapping path="//resources/images/**"/>-->
+            <!--<mvc:exclude-mapping path="//css/**"/>-->
+            <!--<mvc:exclude-mapping path="//fonts/**"/>-->
             <bean class="com.vcl.utils.SystemInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <mvc:resources mapping="//js/**" location="//js/"/>
-    <!--<mvc:resources mapping="/image/**" location="/image/"/>-->
-    <mvc:resources mapping="//css/**" location="//css/"/>
-    <!--<mvc:resources mapping="//css/**" location="//css/"/>-->
+    <!--释放静态资源路径-->
+    <mvc:annotation-driven />
+    <mvc:resources mapping="/resources/**/" location="/resources/"/>
+
     <!-- 支持返回json，用来处理json格式转换，避免IE执行ajax时，返回json出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">

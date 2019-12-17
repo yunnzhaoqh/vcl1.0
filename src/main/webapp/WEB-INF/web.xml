@@ -68,6 +68,7 @@
     <url-pattern>/</url-pattern><!--会拦截URL中带“/”的请求。-->
   </servlet-mapping>
 
+
   <!--&lt;!&ndash; 前端控制器（加载classpath:spring-mvc.xml 服务器启动创建servlet） &ndash;&gt;-->
   <!--<servlet>-->
     <!--<servlet-name>dispatcherServlet</servlet-name>-->
@@ -85,7 +86,14 @@
     <!--<servlet-name>dispatcherServlet</servlet-name>-->
     <!--<url-pattern>/</url-pattern>-->
   <!--</servlet-mapping>-->
-
+  <!--<servlet-mapping>-->
+    <!--<servlet-name> default</servlet-name>-->
+    <!--<url-pattern>/css/**</url-pattern>-->
+    <!--<url-pattern>/js/**</url-pattern>-->
+    <!--<url-pattern>/fints/**</url-pattern>-->
+    <!--<url-pattern>/resources/images/**</url-pattern>-->
+    <!--<url-pattern>/resources/layuiadmin/**</url-pattern>-->
+  <!--</servlet-mapping>-->
   <welcome-file-list>
     <welcome-file>/view/index.jsp</welcome-file>
   </welcome-file-list>

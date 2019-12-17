@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,12 +11,12 @@
 
     <title>activities</title>
 
-    <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/bootstrap.min.css" />
 
-    <link type="text/css" rel="stylesheet" href="/css/normal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
 
 </head>
 
@@ -75,8 +77,8 @@
     </header>
 
     <section class="banner-content">
-        <!-- <div class="banner" style="background-image: url(/images/activities-banner.jpg);"></div> -->
-        <img src="/images/activities-banner.jpg" alt="">
+        <!-- <div class="banner" style="background-image: url(/resources/images/activities-banner.jpg);"></div> -->
+        <img src="/resources/images/activities-banner.jpg" alt="">
     </section>
 
     <section class="activities-container">
@@ -95,7 +97,7 @@
                     <div class="type-content active">
                         <div class="item">
                             <div class="cover">
-                                <span style="background-image: url(/images/temp/activities_05.png);"></span>
+                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
                             </div>
                             <a class="info" href="/home/project" target="_blank">
                                 <div class="date">
@@ -108,7 +110,7 @@
                         </div>
                         <div class="item">
                             <div class="cover">
-                                <span style="background-image: url(/images/temp/activities_05.png);"></span>
+                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
                             </div>
                             <a class="info" href="/home/project" target="_blank">
                                 <div class="date">
@@ -121,7 +123,7 @@
                         </div>
                         <div class="item">
                             <div class="cover">
-                                <span style="background-image: url(/images/temp/activities_05.png);"></span>
+                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
                             </div>
                             <a class="info" href="/home/project" target="_blank">
                                 <div class="date">
@@ -134,7 +136,7 @@
                         </div>
                         <div class="item">
                             <div class="cover">
-                                <span style="background-image: url(/images/temp/activities_05.png);"></span>
+                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
                             </div>
                             <a class="info" href="">
                                 <div class="date">
@@ -153,7 +155,7 @@
                     <div class="type-content">
                         <div class="item">
                             <div class="cover">
-                                <span style="background-image: url(/images/temp/activities_05.png);"></span>
+                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
                             </div>
                             <a class="info" href="">
                                 <div class="date">
@@ -166,7 +168,7 @@
                         </div>
                         <div class="item">
                             <div class="cover">
-                                <span style="background-image: url(/images/temp/activities_05.png);"></span>
+                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
                             </div>
                             <a class="info" href="">
                                 <div class="date">
@@ -223,15 +225,15 @@
                         <span>subscription</span>
                     </div>
                     <div class="type">Public Account</div>
-                    <img src="/images/vcl-red_13.png" alt="">
+                    <img src="/resources/images/vcl-red_13.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap-paginator.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap-paginator.js"></script>
     <script>
         $(function(){
             $('.tabs-header .item').click(function(){

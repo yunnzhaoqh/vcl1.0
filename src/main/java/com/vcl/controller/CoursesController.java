@@ -1,11 +1,12 @@
 package com.vcl.controller;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.pojo.Courses;
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Result;
 import com.vcl.service.CoursesService;
-import jdk.nashorn.internal.ir.annotations.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/courses")
 public class CoursesController {
 
-	@Reference
+	@Autowired
 	private CoursesService coursesService;
 	
 	/**
@@ -105,7 +106,7 @@ public class CoursesController {
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public PageResult search(@RequestBody Courses courses, int page, int rows  ){
+	public PageResult search(@RequestBody Map courses, int page, int rows  ){
 		return coursesService.findPage(courses, page, rows);		
 	}
 	

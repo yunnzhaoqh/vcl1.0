@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,11 +11,11 @@
 
     <title>share</title>
 
-    <link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
 
-    <link type="text/css" rel="stylesheet" href="/css/normal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
 
 </head>
 
@@ -74,7 +76,7 @@
     </header>
 
     <section class="banner-content">
-        <img src="/images/publication-banner.jpg" alt="">
+        <img src="/resources/images/publication-banner.jpg" alt="">
     </section>
 
     <section class="publication-container">
@@ -113,7 +115,7 @@
                 </div>
                 <div class="item-right">
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">下载文件名称：学生作业软件库</li>
                             <li class="tips">下载内容介绍：Decomposed Optimization Time Integrator for Large-Step Elastodynamics</li>
@@ -124,7 +126,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">下载文件名称：学生作业软件库</li>
                             <li class="tips">下载内容介绍：Decomposed Optimization Time Integrator for Large-Step Elastodynamics</li>
@@ -135,7 +137,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">下载文件名称：学生作业软件库</li>
                             <li class="tips">下载内容介绍：Decomposed Optimization Time Integrator for Large-Step Elastodynamics</li>
@@ -146,7 +148,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">下载文件名称：学生作业软件库</li>
                             <li class="tips">下载内容介绍：Decomposed Optimization Time Integrator for Large-Step Elastodynamics</li>
@@ -157,7 +159,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">下载文件名称：学生作业软件库</li>
                             <li class="tips">下载内容介绍：Decomposed Optimization Time Integrator for Large-Step Elastodynamics</li>
@@ -168,7 +170,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">下载文件名称：学生作业软件库</li>
                             <li class="tips">下载内容介绍：Decomposed Optimization Time Integrator for Large-Step Elastodynamics</li>
@@ -179,7 +181,7 @@
                         </ul>
                     </div>
                     <div class="item">
-                        <div class="cover" style="background-image: url(/images/temp/publication_03.png);"></div>
+                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
                         <ul>
                             <li class="name">下载文件名称：学生作业软件库</li>
                             <li class="tips">下载内容介绍：Decomposed Optimization Time Integrator for Large-Step Elastodynamics</li>
@@ -239,13 +241,13 @@
                         <span>subscription</span>
                     </div>
                     <div class="type">Public Account</div>
-                    <img src="/images/vcl-red_13.png" alt="">
+                    <img src="/resources/images/vcl-red_13.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function(){
             $('.item-left .year').click(function () {

@@ -183,7 +183,7 @@ footer {
   z-index: 5;
   margin-top: 60px;
   height: 460px;
-  background-image: url('..//images/footer-bg.jpg');
+  background-image: url('..//resources/images/footer-bg.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -364,14 +364,14 @@ footer .account .type {
 }
 .activities-container .container::before {
   left: 0;
-  background-image: url('..//images/team-top-left-bg.png');
+  background-image: url('..//resources/images/team-top-left-bg.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
 }
 .activities-container .container::after {
   right: 0;
-  background-image: url('..//images/team-top-right-bg.png');
+  background-image: url('..//resources/images/team-top-right-bg.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -807,7 +807,7 @@ footer .account .type {
   display: inline-block;
   height: 79px;
   padding-left: 145px;
-  background-image: url('..//images/email-bg.png');
+  background-image: url('..//resources/images/email-bg.png');
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 110px 79px;
@@ -1053,7 +1053,7 @@ footer .account .type {
   background-repeat: no-repeat;
 }
 .project-container .download .item.pdf {
-  background-image: url(..//images/pdf-icon.jpg);
+  background-image: url(..//resources/images/pdf-icon.jpg);
 }
 .project-container .download .item ul {
   color: #333;
@@ -1242,7 +1242,7 @@ footer .account .type {
   background-repeat: no-repeat;
 }
 .publication-container .item-right .item .download .file.pdf {
-  background-image: url(..//images/pdf-icon-2.png);
+  background-image: url(..//resources/images/pdf-icon-2.png);
 }
 .shape-1 {
   position: absolute;
@@ -1250,7 +1250,7 @@ footer .account .type {
   top: 575px;
   width: 246px;
   height: 503px;
-  background-image: url('..//images/publication_02.png');
+  background-image: url('..//resources/images/publication_02.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -1261,7 +1261,7 @@ footer .account .type {
   top: 989px;
   width: 203px;
   height: 204px;
-  background-image: url('..//images/publication_05.png');
+  background-image: url('..//resources/images/publication_05.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
