@@ -25,7 +25,7 @@
     <header>
         <div class="title">
             <div class="content">
-                <h2>Visual Computing and Learning</h2>
+                <h2 id="titleName">Visual Computing and Learning</h2>
                 <div class="icon-content">
                     <div class="icon">
                         <span class="icon-1"></span>
@@ -78,7 +78,7 @@
 
     <section class="index-banner-content">
         <div class="swiper-container swiper-banner">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" id="indexImg">
                 <div class="swiper-slide">
                     <a href="">
                         <img src="/resources/images/banner-1.jpg" alt="">
@@ -98,7 +98,7 @@
             <!-- Add Pagination -->
             <div class="banner-title">
                 <div class="pagination"></div>
-                <div class="intro">
+                <div class="intro" id="indexContext">
                     <div class="item active">
                         <p>Jingyuan Courtyard 5 | VCL Research Seminar:</p>
                         <p>Learning to Understand 3D Object Parts</p>
@@ -132,7 +132,7 @@
             </div>
             <div class="item-right">
                 <h2>The Visual Computing and Learning (VCL)</h2>
-                <h4>Laboratory from <br>The Center on Frontiers of Computing Studies (CFCS)</h4>
+                <h4>Laboratory from<br>The Center on Frontiers of Computing Studies (CFCS)</h4>
                 <p class="tips">Leading by the Professor Chen Baoquan, our research group are working on the fields of graphics, 3D vision and robotics.</p>
                 <div class="intro">
                     <div class="item">
@@ -168,7 +168,7 @@
         <div class="index-title">Media</div>
         <div class="media-content">
             <div class="item">
-                <a class="des" href="">
+                <a class="des" href="/home/media?">
                     <div class="word-content">
                         <img src="/resources/images/temp/vcl-red_05.png" alt="">
                         <div class="word">
@@ -189,72 +189,72 @@
                     </div>
                 </a>
             </div>
-            <div class="item">
-                <a class="des" href="">
-                    <div class="imgs">
-                        <img src="/resources/images/temp/vcl-red_05.png" alt="">
-                    </div>
-                    <div class="word-content">
-                        <img src="/resources/images/temp/vcl-red_05.png" alt="">
-                        <div class="word">
-                            <div class="hidden">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>
-                                <div class="detail">
-                                    2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="item">
-                <a class="des" href="">
-                    <div class="word-content">
-                        <img src="/resources/images/temp/vcl-red_05.png" alt="">
-                        <div class="word">
-                            <div class="hidden">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>
-                                <div class="detail">
-                                    2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="imgs">
-                        <img src="/resources/images/temp/vcl-red_05.png" alt="">
-                    </div>
-                </a>
-            </div>
-            <div class="item">
-                <div class="des">
-                    <div class="imgs">
-                        <img src="/resources/images/temp/vcl-red_05.png" alt="">
-                    </div>
-                    <div class="word-content">
-                        <img src="/resources/images/temp/vcl-red_05.png" alt="">
-                        <div class="word">
-                            <div class="hidden">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>
-                                <div class="detail">
-                                    2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <%--<div class="item">--%>
+                <%--<a class="des" href="">--%>
+                    <%--<div class="imgs">--%>
+                        <%--<img src="/resources/images/temp/vcl-red_05.png" alt="">--%>
+                    <%--</div>--%>
+                    <%--<div class="word-content">--%>
+                        <%--<img src="/resources/images/temp/vcl-red_05.png" alt="">--%>
+                        <%--<div class="word">--%>
+                            <%--<div class="hidden">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>--%>
+                                <%--<div class="detail">--%>
+                                    <%--2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</a>--%>
+            <%--</div>--%>
+            <%--<div class="item">--%>
+                <%--<a class="des" href="">--%>
+                    <%--<div class="word-content">--%>
+                        <%--<img src="/resources/images/temp/vcl-red_05.png" alt="">--%>
+                        <%--<div class="word">--%>
+                            <%--<div class="hidden">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>--%>
+                                <%--<div class="detail">--%>
+                                    <%--2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="imgs">--%>
+                        <%--<img src="/resources/images/temp/vcl-red_05.png" alt="">--%>
+                    <%--</div>--%>
+                <%--</a>--%>
+            <%--</div>--%>
+            <%--<div class="item">--%>
+                <%--<div class="des">--%>
+                    <%--<div class="imgs">--%>
+                        <%--<img src="/resources/images/temp/vcl-red_05.png" alt="">--%>
+                    <%--</div>--%>
+                    <%--<div class="word-content">--%>
+                        <%--<img src="/resources/images/temp/vcl-red_05.png" alt="">--%>
+                        <%--<div class="word">--%>
+                            <%--<div class="hidden">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>--%>
+                                <%--<div class="detail">--%>
+                                    <%--2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
         </div>
         <div class="more">
             <a href="/home/activities" class="link">More Activities</a>

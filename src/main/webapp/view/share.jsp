@@ -57,13 +57,13 @@
                         <a href="/home/education">Education</a>
                         <div class="sub-menu">
                             <p>
-                                <a href="/home/education">Courses</a>
+                                <a href="/home/Courses">Courses</a>
                             </p>
                             <p>
-                                <a href="/home/education">Sum-camp</a>
+                                <a href="/home/SumCamp">Sum-camp</a>
                             </p>
                             <p>
-                                <a href="/home/education">Reference Course</a>
+                                <a href="/home/ReferenceCourse">Reference Course</a>
                             </p>
                         </div>
                     </li>

@@ -278,6 +278,11 @@
                 numberOfPages: 10,
                 //当单击操作按钮的时候, 执行该函数, 调用ajax渲染页面
                 onPageClicked: function (event, originalEvent, type, page) {
+                    console.log(page);
+                    console.log(type);
+                    console.log(originalEvent);
+                    console.log(event);
+                    console.log(123);
                     // 把当前点击的页码赋值给currentPage, 调用ajax,渲染页面
                     
                 }

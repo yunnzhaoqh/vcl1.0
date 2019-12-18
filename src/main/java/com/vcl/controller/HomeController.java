@@ -10,38 +10,38 @@ public class HomeController {
 
     @RequestMapping("/index")
     public String index(){
-        return "/home/index";
+        return "index";
     }
     @RequestMapping("/activities")
     public String activities(){
-        return "/home/activities";
+        return "activities";
     }
     @RequestMapping("/education")
     public String education(){
-        return "/home/education";
+        return "education";
     }
     @RequestMapping("/join-us")
     public String join_us(){
-        return "/home/join-us";
+        return "join-us";
     }
     @RequestMapping("/media")
     public String media(){
-        return "/home/media";
+        return "media";
     }
     @RequestMapping("/people")
     public String people(){
-        return "/home/people";
+        return "people";
     }
     @RequestMapping("/project")
     public String project(){
-        return "/home/project";
+        return "project";
     }
     @RequestMapping("/publication")
     public String publication(){
-        return "/home/publication";
+        return "publication";
     }
     @RequestMapping("/share")
     public String share(){
-        return "/home/share";
+        return "share";
     }
 }
