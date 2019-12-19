@@ -11,12 +11,12 @@
 
     <title>Visual Computing and Learning</title>
 
-    <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
-    <link type="text/css" rel="stylesheet" href="/resources/css/swiper.min.css" />
+    <link type="text/css" rel="stylesheet" href="../resources/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="../resources/css/swiper.min.css" />
 
-    <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
-    <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
-    <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="../resources/css/normal.css" />
+    <link type="text/css" rel="stylesheet" href="../resources/css/main.css" />
+    <link type="text/css" rel="stylesheet" href="../resources/css/index.css" />
 
 </head>
 
@@ -81,17 +81,17 @@
             <div class="swiper-wrapper" id="indexImg">
                 <div class="swiper-slide">
                     <a href="">
-                        <img src="/resources/images/banner-1.jpg" alt="">
+                        <img src="../resources/images/banner-1.jpg" alt="">
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="">
-                        <img src="/resources/images/banner-2.jpg" alt="">
+                        <img src="../resources/images/banner-2.jpg" alt="">
                     </a>
                 </div>
                 <div class="swiper-slide">
                     <a href="">
-                        <img src="/resources/images/banner-3.jpg" alt="">
+                        <img src="../resources/images/banner-3.jpg" alt="">
                     </a>
                 </div>
             </div>
@@ -122,7 +122,7 @@
     <section class="index-intro-content">
         <div class="content" style="max-width: 1200px;">
             <div class="item-left">
-                <img src="/resources/images/temp/vcl-red_03.png" alt="">
+                <img src="../resources/images/temp/vcl-red_03.png" alt="">
                 <p class="p1">We locate in the Jingyuan Jingyuan Courtyard 5.</p>
                 <p class="p2">
                     <span>Baoquan Chen</span>
@@ -170,7 +170,7 @@
             <div class="item">
                 <a class="des" href="/home/media?">
                     <div class="word-content">
-                        <img src="/resources/images/temp/vcl-red_05.png" alt="">
+                        <img src="../resources/images/temp/vcl-red_05.png" alt="">
                         <div class="word">
                             <div class="hidden">
                                 <div class="date">
@@ -185,7 +185,7 @@
                         </div>
                     </div>
                     <div class="imgs">
-                        <img src="/resources/images/temp/vcl-red_05.png" alt="">
+                        <img src="../resources/images/temp/vcl-red_05.png" alt="">
                     </div>
                 </a>
             </div>
@@ -269,7 +269,7 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -279,7 +279,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -289,7 +289,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -299,7 +299,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -309,7 +309,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -319,7 +319,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -329,7 +329,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
+                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
                             <div class="intro">
                                 <p class="job">Director</p>
                                 <p class="name">Baoquan Chen</p>
@@ -354,7 +354,7 @@
             <div class="items">
                 <div class="item">
                     <a href="/home/project" target="_blank">
-                        <img src="/resources/images/temp/vcl-red_04.jpg" alt="">
+                        <img src="../resources/images/temp/vcl-red_04.jpg" alt="">
                         <div class="cover">
                             <h4>A General Decoupled Learning Framework for Parameterized Image Operators</h4>
                             <h5>IEEE TPAMI 2019</h5>
@@ -363,7 +363,7 @@
                 </div>
                 <div class="item">
                     <a href="/home/project" target="_blank">
-                        <img src="/resources/images/temp/vcl-red_04.jpg" alt="">
+                        <img src="../resources/images/temp/vcl-red_04.jpg" alt="">
                         <div class="cover">
                             <h4>A General Decoupled Learning Framework for Parameterized Image Operators</h4>
                             <h5>IEEE TPAMI 2019</h5>
@@ -372,7 +372,7 @@
                 </div>
                 <div class="item">
                     <a href="/home/project" target="_blank">
-                        <img src="/resources/images/temp/vcl-red_04.jpg" alt="">
+                        <img src="../resources/images/temp/vcl-red_04.jpg" alt="">
                         <div class="cover">
                             <h4>A General Decoupled Learning Framework for Parameterized Image Operators</h4>
                             <h5>IEEE TPAMI 2019</h5>
@@ -395,20 +395,20 @@
                 <div class="">
                     <div class="cell">
                         <a href="">
-                            <img src="/resources/images/colla-1.png" alt="">
+                            <img src="../resources/images/colla-1.png" alt="">
                         </a>
                     </div>
                     <div class="cell">
                         <a href="">
-                            <img src="/resources/images/colla-2.png" alt="">
+                            <img src="../resources/images/colla-2.png" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="circle"></div>
             </div>
             <div class="item-right">
-                <div class="item active" style="background-image: url(/resources/images/temp/vcl-red_06.jpg);"></div>
-                <div class="item" style="background-image: url(/resources/images/temp/vcl-red_05.png);"></div>
+                <div class="item active" style="background-image: url(../resources/images/temp/vcl-red_06.jpg);"></div>
+                <div class="item" style="background-image: url(../resources/images/temp/vcl-red_05.png);"></div>
             </div>
         </div>
     </section>
@@ -453,14 +453,14 @@
                         <span>subscription</span>
                     </div>
                     <div class="type">Public Account</div>
-                    <img src="/resources/images/vcl-red_13.png" alt="">
+                    <img src="../resources/images/vcl-red_13.png" alt="">
                 </div>
             </div>
         </div>
     </footer>
 
-    <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="/resources/js/swiper.min.js"></script>
+    <script type="text/javascript" src="../resources/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../resources/js/swiper.min.js"></script>
     <script>
         var swiperBanner = new Swiper('.swiper-banner', {
             pagination: {
