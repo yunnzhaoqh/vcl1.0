@@ -4,45 +4,24 @@ import java.util.List;
 
 public class PageResult<T> {
     
-	private Long total;
+	private Long count;
 	private Long page;
 	private Long size;
-    private List<T> rows;
+    private List<T> data;
+    private int code;
+    private String msg;
 
-	public Long getTotal() {
-		return total;
-	}
 
-	public void setTotal(Long total) {
-		this.total = total;
-	}
 
-	public Long getPage() {
-		return page;
-	}
+    public PageResult(Long count, List<T> data) {
+        this.count = count;
+        this.data = data;
+    }
 
-	public void setPage(Long page) {
-		this.page = page;
-	}
-
-	public Long getSize() {
-		return size;
-	}
-
-	public void setSize(Long size) {
-		this.size = size;
-	}
-
-	public List<T> getRows() {
-		return rows;
-	}
-
-	public void setRows(List<T> rows) {
-		this.rows = rows;
-	}
-
-	public PageResult(Long total, List<T> rows) {
-		this.total = total;
-		this.rows = rows;
-	}
+    public PageResult(Long count, List<T> data, int code, String msg) {
+        this.count = count;
+        this.data = data;
+        this.code = code;
+        this.msg = msg;
+    }
 }

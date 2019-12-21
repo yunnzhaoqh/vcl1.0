@@ -31,20 +31,20 @@
           <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
           <input type="password" name="password" id="LAY-user-login-password" lay-verify="required" placeholder="密码" class="layui-input">
         </div>
-        <div class="layui-form-item">
-          <div class="layui-row">
-            <div class="layui-col-xs7">
-              <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
-              <input type="text" name="vercode" id="LAY-user-login-vercode" lay-verify="required" placeholder="图形验证码" class="layui-input">
-            </div>
-            <div class="layui-col-xs5">
-              <div style="margin-left: 10px;">
-<%--                <img src="https://www.oschina.net/action/user/captcha" class="layadmin-user-login-codeimg" id="LAY-user-get-vercode">--%>
-                <img src="/coustom/verification" class="layadmin-user-login-codeimg" id="LAY-user-get-vercode">
-              </div>
-            </div>
-          </div>
-        </div>
+<%--        <div class="layui-form-item">--%>
+<%--          <div class="layui-row">--%>
+<%--            <div class="layui-col-xs7">--%>
+<%--              <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>--%>
+<%--              <input type="text" name="vercode" id="LAY-user-login-vercode" lay-verify="required" placeholder="图形验证码" class="layui-input">--%>
+<%--            </div>--%>
+<%--            <div class="layui-col-xs5">--%>
+<%--              <div style="margin-left: 10px;">--%>
+<%--&lt;%&ndash;                <img src="https://www.oschina.net/action/user/captcha" class="layadmin-user-login-codeimg" id="LAY-user-get-vercode">&ndash;%&gt;--%>
+<%--                <img src="/coustom/login/verification" class="layadmin-user-login-codeimg" id="LAY-user-get-vercode">--%>
+<%--              </div>--%>
+<%--            </div>--%>
+<%--          </div>--%>
+<%--        </div>--%>
         <div class="layui-form-item" style="margin-bottom: 20px;">
           <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
 <%--          <a href="forget.jsp" class="layadmin-user-jump-change layadmin-link" style="margin-top: 7px;">忘记密码？</a>--%>
@@ -117,13 +117,13 @@
               var login_name = $.trim($('#LAY-user-login-username').val());
               var password = $.trim($('#LAY-user-login-password').val());
               var vercode = $.trim($('#LAY-user-login-vercode').val());
-              $.post('/coustom/user_login', {
+              $.post('/coustom/login_user', {
                   login_name: login_name,
                   password: password,
                   vercode: vercode
               },function (data) {
                   if(data.success){
-                      window.location.href = "/coustom/index";
+                      location.href = "/coustom/index";
                   }else{
                       layer.msg(data.message);
                   }

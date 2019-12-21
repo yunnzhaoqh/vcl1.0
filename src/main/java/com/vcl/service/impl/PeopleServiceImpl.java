@@ -1,10 +1,13 @@
 package com.vcl.service.impl;
 import java.util.List;
+import java.util.Map;
 
+import com.github.pagehelper.PageInfo;
 import com.vcl.dao.mapper.PeopleMapper;
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.People;
 import com.vcl.service.PeopleService;
+import com.vcl.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -34,10 +37,11 @@ public class PeopleServiceImpl implements PeopleService {
 	 * 按分页查询
 	 */
 	@Override
-	public PageResult findPage(int pageNum, int pageSize) {
-		PageHelper.startPage(pageNum, pageSize);		
-		Page<People> page=   (Page<People>) peopleMapper.selectByExample(null);
-		return new PageResult(page.getTotal(), page.getResult());
+	public PageResult findPage(Map map) {
+		PageHelper.startPage(Integer.parseInt(map.get("page").toString()), Integer.parseInt(map.get("limit").toString()));
+		List<People> peoples = peopleMapper.selectByExample(map);
+		PageInfo<People> pageInfo = new PageInfo<>(peoples);
+		return new PageResult(pageInfo.getTotal(),peoples,0,"");
 	}
 
 	/**
@@ -45,6 +49,8 @@ public class PeopleServiceImpl implements PeopleService {
 	 */
 	@Override
 	public void add(People people) {
+		people.setCreatetime(DateUtil.getDate(DateUtil.DateFormat5));
+		people.setStatus(1);
 		peopleMapper.insert(people);		
 	}
 

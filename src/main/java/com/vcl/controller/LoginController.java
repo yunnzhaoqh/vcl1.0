@@ -47,22 +47,22 @@ public class LoginController {
      * @param session
      * @return
      */
-    @RequestMapping("/user_login")
+    @RequestMapping("/login_user")
     @ResponseBody
     public Result login(HttpServletRequest request, HttpSession session){
         Map params = getMap(request);
         Result result = new Result();
-        if(StringUtils.isEmpty(params.get("vercode"))){
-            result.setSuccess(false);
-            result.setMessage("验证码不能为空");
-            return result;
-        }
-        String sessioncode = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-        if(!params.get("vercode").equals(sessioncode)){
-            result.setSuccess(false);
-            result.setMessage("验证码错误");
-            return result;
-        }
+//        if(StringUtils.isEmpty(params.get("vercode"))){
+//            result.setSuccess(false);
+//            result.setMessage("验证码不能为空");
+//            return result;
+//        }
+//        String sessioncode = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+//        if(!params.get("vercode").equals(sessioncode)){
+//            result.setSuccess(false);
+//            result.setMessage("验证码错误");
+//            return result;
+//        }
         if(StringUtils.isEmpty(params.get("login_name")) || StringUtils.isEmpty(params.get("password"))){
             result.setSuccess(false);
             result.setMessage("账号或密码不能为空");
@@ -71,16 +71,16 @@ public class LoginController {
         User user = userService.getUser(params.get("login_name").toString());
         if(user == null){
             result.setSuccess(false);
-            result.setMessage("账号或密码错误");
+            result.setMessage("用户不存在");
             return result;
         }
-        if("0".equals(user.getStatus())){
+        if(0 == user.getStatus()){
             result.setSuccess(false);
             result.setMessage("用户无效");
             return result;
         }
         String pwd = new Md5Hash(params.get("password").toString(),user.getLogin_name()).toString();
-        if(!user.getLogin_name().equals(pwd)){
+        if(!user.getPassword().equals(pwd)){
             result.setSuccess(false);
             result.setMessage("账号或密码错误");
             return result;
@@ -89,6 +89,14 @@ public class LoginController {
         result.setSuccess(true);
         result.setMessage("登录成功");
         return result;
+    }
+
+    @RequestMapping("login_out")
+    public String login_out(HttpSession session){
+        if(session.getAttribute("user") != null){
+            session.removeAttribute("user");
+        }
+        return "coustom/user/login";
     }
 
     /**
@@ -100,7 +108,7 @@ public class LoginController {
         return "coustom/index";
     }
 
-    @RequestMapping("/verification")
+    @RequestMapping("/login/verification")
     @ResponseBody
     public void verification(HttpServletRequest request, HttpServletResponse response) throws Exception{
         HttpSession session = request.getSession();

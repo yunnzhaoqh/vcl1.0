@@ -148,147 +148,147 @@
                 <dd data-name="progress">
                   <a lay-href="component/progress/index.html">进度条</a>
                 </dd>
-                <dd data-name="panel"> 
-                  <a lay-href="component/panel/index.html">面板</a>  
+                <dd data-name="panel">
+                  <a lay-href="component/panel/index.html">面板</a>
                 </dd>
-                <dd data-name="badge"> 
-                  <a lay-href="component/badge/index.html">徽章</a>  
+                <dd data-name="badge">
+                  <a lay-href="component/badge/index.html">徽章</a>
                 </dd>
-                <dd data-name="timeline"> 
-                  <a lay-href="component/timeline/index.html">时间线</a>  
+                <dd data-name="timeline">
+                  <a lay-href="component/timeline/index.html">时间线</a>
                 </dd>
-                <dd data-name="anim"> 
-                  <a lay-href="component/anim/index.html">动画</a>  
+                <dd data-name="anim">
+                  <a lay-href="component/anim/index.html">动画</a>
                 </dd>
-                <dd data-name="auxiliar"> 
-                  <a lay-href="component/auxiliar/index.html">辅助</a>  
+                <dd data-name="auxiliar">
+                  <a lay-href="component/auxiliar/index.html">辅助</a>
                 </dd>
-                <dd data-name="layer"> 
-                  <a href="javascript:;">通用弹层<span class="layui-nav-more"></span></a>  
-                  <dl class="layui-nav-child">  
-                    <dd data-name="list"> 
-                      <a lay-href="component/layer/list.html" lay-text="layer 功能演示">功能演示</a> 
-                    </dd>  
-                    <dd data-name="special-demo"> 
-                      <a lay-href="component/layer/special-demo.html" lay-text="layer 特殊示例">特殊示例</a> 
-                    </dd>  
-                    <dd data-name="theme"> 
-                      <a lay-href="component/layer/theme.html" lay-text="layer 风格定制">风格定制</a> 
-                    </dd>  
-                  </dl>  
-                </dd>
-                <dd data-name="laydate"> 
-                  <a href="javascript:;">日期时间</a>
-                  <dl class="layui-nav-child">  
-                    <dd data-name="demo1"> 
-                      <a lay-href="component/laydate/demo1.html" lay-text="layDate 功能演示一">功能演示一</a> 
+                <dd data-name="layer">
+                  <a href="javascript:;">通用弹层<span class="layui-nav-more"></span></a>
+                  <dl class="layui-nav-child">
+                    <dd data-name="list">
+                      <a lay-href="component/layer/list.html" lay-text="layer 功能演示">功能演示</a>
                     </dd>
-                    <dd data-name="demo2"> 
-                      <a lay-href="component/laydate/demo2.html" lay-text="layDate 功能演示二">功能演示二</a> 
+                    <dd data-name="special-demo">
+                      <a lay-href="component/layer/special-demo.html" lay-text="layer 特殊示例">特殊示例</a>
                     </dd>
-                    <dd data-name="theme"> 
-                      <a lay-href="component/laydate/theme.html" lay-text="layDate 设定主题">设定主题</a> 
-                    </dd>
-                    <dd data-name="special-demo"> 
-                      <a lay-href="component/laydate/special-demo.html" lay-text="layDate 特殊示例">特殊示例</a> 
-                    </dd>  
-                  </dl>  
-                </dd>
-                <dd data-name="table-static"> 
-                  <a lay-href="component/table/static.html">静态表格</a>
-                </dd>
-                <dd data-name="table"> 
-                  <a href="javascript:;">数据表格</a>
-                  <dl class="layui-nav-child">  
-                    <dd data-name="simple"> 
-                      <a lay-href="component/table/simple.html" lay-text="">简单数据表格</a> 
-                    </dd>
-                    <dd data-name="auto"> 
-                      <a lay-href="component/table/auto.html" lay-text="">列宽自动分配</a> 
-                    </dd>
-                    <dd data-name="data"> 
-                      <a lay-href="component/table/data.html" lay-text="">赋值已知数据</a> 
-                    </dd>
-                    <dd data-name="tostatic"> 
-                      <a lay-href="component/table/tostatic.html" lay-text="">转化静态表格</a> 
-                    </dd>
-                    <dd data-name="page"> 
-                      <a lay-href="component/table/page.html" lay-text="">开启分页</a> 
-                    </dd>
-                    <dd data-name="resetPage"> 
-                      <a lay-href="component/table/resetPage.html" lay-text="">自定义分页</a> 
-                    </dd>
-                    <dd data-name="height"> 
-                      <a lay-href="component/table/height.html" lay-text="">高度最大适应</a> 
-                    </dd>
-                    <dd data-name="checkbox"> 
-                      <a lay-href="component/table/checkbox.html" lay-text="">开启复选框</a> 
-                    </dd>
-                    <dd data-name="cellEdit"> 
-                      <a lay-href="component/table/cellEdit.html" lay-text="">开启单元格编辑</a> 
-                    </dd>
-                    <dd data-name="form"> 
-                      <a lay-href="component/table/form.html" lay-text="">加入表单元素</a> 
-                    </dd>
-                    <dd data-name="style"> 
-                      <a lay-href="component/table/style.html" lay-text="">设置单元格样式</a> 
-                    </dd>
-                    <dd data-name="fixed"> 
-                      <a lay-href="component/table/fixed.html" lay-text="">固定列</a> 
-                    </dd>
-                    <dd data-name="operate"> 
-                      <a lay-href="component/table/operate.html" lay-text="">数据操作</a> 
-                    </dd>
-                    <dd data-name="reload"> 
-                      <a lay-href="component/table/reload.html" lay-text="">数据表格的重载</a> 
-                    </dd>
-                    <dd data-name="initSort"> 
-                      <a lay-href="component/table/initSort.html" lay-text="">设置初始排序</a> 
-                    </dd>
-                    <dd data-name="cellEvent"> 
-                      <a lay-href="component/table/cellEvent.html" lay-text="">监听单元格事件</a> 
-                    </dd>
-                    <dd data-name="thead"> 
-                      <a lay-href="component/table/thead.html" lay-text="">复杂表头</a> 
+                    <dd data-name="theme">
+                      <a lay-href="component/layer/theme.html" lay-text="layer 风格定制">风格定制</a>
                     </dd>
                   </dl>
                 </dd>
-                <dd data-name="laypage"> 
-                  <a href="javascript:;">分页</a>  
-                  <dl class="layui-nav-child">  
-                    <dd data-name="demo1"> 
-                      <a lay-href="component/laypage/demo1.html" lay-text="layPage 功能演示一">功能演示一</a> 
+                <dd data-name="laydate">
+                  <a href="javascript:;">日期时间</a>
+                  <dl class="layui-nav-child">
+                    <dd data-name="demo1">
+                      <a lay-href="component/laydate/demo1.html" lay-text="layDate 功能演示一">功能演示一</a>
                     </dd>
-                    <dd data-name="demo2"> 
-                      <a lay-href="component/laypage/demo2.html" lay-text="layPage 功能演示二">功能演示二</a> 
-                    </dd> 
-                  </dl>  
+                    <dd data-name="demo2">
+                      <a lay-href="component/laydate/demo2.html" lay-text="layDate 功能演示二">功能演示二</a>
+                    </dd>
+                    <dd data-name="theme">
+                      <a lay-href="component/laydate/theme.html" lay-text="layDate 设定主题">设定主题</a>
+                    </dd>
+                    <dd data-name="special-demo">
+                      <a lay-href="component/laydate/special-demo.html" lay-text="layDate 特殊示例">特殊示例</a>
+                    </dd>
+                  </dl>
                 </dd>
-                <dd data-name="upload"> 
-                  <a href="javascript:;">上传</a>  
-                  <dl class="layui-nav-child">  
-                    <dd data-name="demo1"> 
-                      <a lay-href="component/upload/demo1.html" lay-text="上传功能演示一">功能演示一</a> 
+                <dd data-name="table-static">
+                  <a lay-href="component/table/static.html">静态表格</a>
+                </dd>
+                <dd data-name="table">
+                  <a href="javascript:;">数据表格</a>
+                  <dl class="layui-nav-child">
+                    <dd data-name="simple">
+                      <a lay-href="component/table/simple.html" lay-text="">简单数据表格</a>
                     </dd>
-                    <dd data-name="demo2"> 
-                      <a lay-href="component/upload/demo2.html" lay-text="上传功能演示二">功能演示二</a> 
-                    </dd> 
-                  </dl>  
+                    <dd data-name="auto">
+                      <a lay-href="component/table/auto.html" lay-text="">列宽自动分配</a>
+                    </dd>
+                    <dd data-name="data">
+                      <a lay-href="component/table/data.html" lay-text="">赋值已知数据</a>
+                    </dd>
+                    <dd data-name="tostatic">
+                      <a lay-href="component/table/tostatic.html" lay-text="">转化静态表格</a>
+                    </dd>
+                    <dd data-name="page">
+                      <a lay-href="component/table/page.html" lay-text="">开启分页</a>
+                    </dd>
+                    <dd data-name="resetPage">
+                      <a lay-href="component/table/resetPage.html" lay-text="">自定义分页</a>
+                    </dd>
+                    <dd data-name="height">
+                      <a lay-href="component/table/height.html" lay-text="">高度最大适应</a>
+                    </dd>
+                    <dd data-name="checkbox">
+                      <a lay-href="component/table/checkbox.html" lay-text="">开启复选框</a>
+                    </dd>
+                    <dd data-name="cellEdit">
+                      <a lay-href="component/table/cellEdit.html" lay-text="">开启单元格编辑</a>
+                    </dd>
+                    <dd data-name="form">
+                      <a lay-href="component/table/form.html" lay-text="">加入表单元素</a>
+                    </dd>
+                    <dd data-name="style">
+                      <a lay-href="component/table/style.html" lay-text="">设置单元格样式</a>
+                    </dd>
+                    <dd data-name="fixed">
+                      <a lay-href="component/table/fixed.html" lay-text="">固定列</a>
+                    </dd>
+                    <dd data-name="operate">
+                      <a lay-href="component/table/operate.html" lay-text="">数据操作</a>
+                    </dd>
+                    <dd data-name="reload">
+                      <a lay-href="component/table/reload.html" lay-text="">数据表格的重载</a>
+                    </dd>
+                    <dd data-name="initSort">
+                      <a lay-href="component/table/initSort.html" lay-text="">设置初始排序</a>
+                    </dd>
+                    <dd data-name="cellEvent">
+                      <a lay-href="component/table/cellEvent.html" lay-text="">监听单元格事件</a>
+                    </dd>
+                    <dd data-name="thead">
+                      <a lay-href="component/table/thead.html" lay-text="">复杂表头</a>
+                    </dd>
+                  </dl>
+                </dd>
+                <dd data-name="laypage">
+                  <a href="javascript:;">分页</a>
+                  <dl class="layui-nav-child">
+                    <dd data-name="demo1">
+                      <a lay-href="component/laypage/demo1.html" lay-text="layPage 功能演示一">功能演示一</a>
+                    </dd>
+                    <dd data-name="demo2">
+                      <a lay-href="component/laypage/demo2.html" lay-text="layPage 功能演示二">功能演示二</a>
+                    </dd>
+                  </dl>
+                </dd>
+                <dd data-name="upload">
+                  <a href="javascript:;">上传</a>
+                  <dl class="layui-nav-child">
+                    <dd data-name="demo1">
+                      <a lay-href="component/upload/demo1.html" lay-text="上传功能演示一">功能演示一</a>
+                    </dd>
+                    <dd data-name="demo2">
+                      <a lay-href="component/upload/demo2.html" lay-text="上传功能演示二">功能演示二</a>
+                    </dd>
+                  </dl>
                 </dd>
                 <dd data-name="rate">
                   <a lay-href="component/rate/index.html">评分</a>
                 </dd>
-                <dd data-name="carousel"> 
-                  <a lay-href="component/carousel/index.html">轮播</a>  
+                <dd data-name="carousel">
+                  <a lay-href="component/carousel/index.html">轮播</a>
                 </dd>
-                <dd data-name="flow"> 
-                  <a lay-href="component/flow/index.html">流加载</a>  
+                <dd data-name="flow">
+                  <a lay-href="component/flow/index.html">流加载</a>
                 </dd>
-                <dd data-name="util"> 
-                  <a lay-href="component/util/index.html">工具</a>  
+                <dd data-name="util">
+                  <a lay-href="component/util/index.html">工具</a>
                 </dd>
-                <dd data-name="code"> 
-                  <a lay-href="component/code/index.html">代码修饰</a> 
+                <dd data-name="code">
+                  <a lay-href="component/code/index.html">代码修饰</a>
                 </dd>
               </dl>
             </li>
@@ -350,7 +350,7 @@
               </a>
               <dl class="layui-nav-child">
                 <dd>
-                  <a layadmin-event="im">LayIM 通讯系统</a>  
+                  <a layadmin-event="im">LayIM 通讯系统</a>
                 </dd>
                 <dd data-name="echarts">
                   <a href="javascript:;">Echarts集成</a>
@@ -374,9 +374,9 @@
                 <dd>
                   <a lay-href="/user/administrators">后台管理员</a>
                 </dd>
-                <dd>
-                  <a lay-href="/user/role">角色管理</a>
-                </dd>
+<%--                <dd>--%>
+<%--                  <a lay-href="/user/role">角色管理</a>--%>
+<%--                </dd>--%>
               </dl>
             </li>
             <li data-name="set" class="layui-nav-item">

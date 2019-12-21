@@ -7,6 +7,7 @@ public class People {
   private String name;
   private String gender;
   private long age;
+  private long phone;
   private String path;
   private long type;
   private String createtime;
@@ -48,6 +49,13 @@ public class People {
     this.age = age;
   }
 
+  public long getPhone() {
+    return phone;
+  }
+
+  public void setPhone(long phone) {
+    this.phone = phone;
+  }
 
   public String getPath() {
     return path;

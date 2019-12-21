@@ -1,20 +1,23 @@
 package com.vcl.controller;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.People;
 import com.vcl.pojo.Result;
 import com.vcl.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 /**
  * controller
  * @author Administrator
  *
  */
-@RestController
+@Controller
 @RequestMapping("/people")
 public class PeopleController {
 
@@ -26,6 +29,7 @@ public class PeopleController {
 	 * @return
 	 */
 	@RequestMapping("/findAll")
+	@ResponseBody
 	public List<People> findAll(){
 		return peopleService.findAll();
 	}
@@ -36,17 +40,28 @@ public class PeopleController {
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResult findPage(int page, int rows){
-		return peopleService.findPage(page, rows);
+	@ResponseBody
+	public PageResult findPage(@RequestBody Map map){
+		return peopleService.findPage(map);
 	}
-	
+
+	/**
+	 * 跳转新增页面
+	 * @return
+	 */
+	@RequestMapping("add_people")
+	public String add_people(){
+		return "coustom/user/user/people";
+	}
+
 	/**
 	 * 增加
 	 * @param people
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public Result add(@RequestBody People people){
+	@ResponseBody
+	public Result add(People people){
 		try {
 			peopleService.add(people);
 			return new Result(true, "增加成功");
@@ -62,6 +77,7 @@ public class PeopleController {
 	 * @return
 	 */
 	@RequestMapping("/update")
+	@ResponseBody
 	public Result update(@RequestBody People people){
 		try {
 			peopleService.update(people);
@@ -78,6 +94,7 @@ public class PeopleController {
 	 * @return
 	 */
 	@RequestMapping("/findOne")
+	@ResponseBody
 	public People findOne(Long id){
 		return peopleService.findOne(id);		
 	}
@@ -88,6 +105,7 @@ public class PeopleController {
 	 * @return
 	 */
 	@RequestMapping("/delete")
+	@ResponseBody
 	public Result delete(Long [] ids){
 		try {
 			peopleService.delete(ids);
@@ -105,6 +123,7 @@ public class PeopleController {
 	 * @return
 	 */
 	@RequestMapping("/search")
+	@ResponseBody
 	public PageResult search(@RequestBody People people, int page, int rows  ){
 		return peopleService.findPage(people, page, rows);		
 	}

@@ -26,7 +26,7 @@
         </where>
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Media">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Media">
         insert into  Media
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="ID != null and ID !=''">

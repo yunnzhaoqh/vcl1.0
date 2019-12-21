@@ -19,4 +19,6 @@ public class AdminController {
     public String education(){
         return "coustom/home/homepage2";
     }
+
+
 }

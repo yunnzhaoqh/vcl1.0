@@ -5,125 +5,140 @@
     <select id="selectByExample" parameterType="java.util.Map" resultType="People">
         SELECT * FROM People
         <where>
-            <if test="ID != null and ID !=''">
-            and ID = #{ID}
+            <if test="id != null and id !=''">
+            and id = #{id}
             </if>
-            <if test="NAME != null and NAME !=''">
-                and NAME = #{NAME}
+            <if test="name != null and name !=''">
+                and name = #{name}
             </if>
-            <if test="GENDER != null and GENDER !=''">
-                and GENDER = #{GENDER}
+            <if test="gender != null and gender !=''">
+                and gender = #{gender}
             </if>
-            <if test="AGE != null and AGE !=''">
-                and AGE = #{AGE}
+            <if test="age != null and age !=''">
+                and age = #{age}
             </if>
-            <if test="PATH != null and PATH !=''">
-                and PATH = #{PATH}
+            <if test="phone != null and phone !=''">
+                and phone = #{phone}
             </if>
-            <if test="TYPE != null and TYPE !=''">
-                and TYPE = #{TYPE}
+            <if test="path != null and path !=''">
+                and path = #{path}
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                and CREATETIME = #{CREATETIME}
+            <if test="type != null and type !=''">
+                and type = #{type}
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                and STATUS = #{STATUS}
+            <if test="createtime != null and createtime !=''">
+                and createtime = #{createtime}
+            </if>
+            <if test="status != null and status !=''">
+                and status = #{status}
+            </if>
+            <if test="page != null and limit !=''">
+                limit #{page},#{limit}
             </if>
         </where>
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="People">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="People">
         insert into  People
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                 ID,
+            <if test="id != null and id !=''">
+                 id,
             </if>
-            <if test="NAME != null and NAME !=''">
-                NAME ,
+            <if test="name != null and name !=''">
+                name ,
             </if>
-            <if test="GENDER != null and GENDER !=''">
-                GENDER ,
+            <if test="gender != null and gender !=''">
+                gender ,
             </if>
-            <if test="AGE != null and AGE !=''">
-                AGE ,
+            <if test="age != null and age !=''">
+                age ,
             </if>
-            <if test="PATH != null and PATH !=''">
-                PATH ,
+            <if test="phone != null and phone !=''">
+                phone ,
             </if>
-            <if test="TYPE != null and TYPE !=''">
-                TYPE ,
+            <if test="path != null and path !=''">
+                path ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                 CREATETIME ,
+            <if test="type != null and type !=''">
+                type ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                 STATUS ,
+            <if test="createtime != null and createtime !=''">
+                 createtime ,
+            </if>
+            <if test="status != null and status !=''">
+                 status ,
             </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                #{ID},
+            <if test="id != null and id !=''">
+                #{id},
             </if>
-            <if test="NAME != null and NAME !=''">
-                #{NAME} ,
+            <if test="name != null and name !=''">
+                #{name} ,
             </if>
-            <if test="GENDER != null and GENDER !=''">
-                #{GENDER} ,
+            <if test="gender != null and gender !=''">
+                #{gender} ,
             </if>
-            <if test="AGE != null and AGE !=''">
-                #{AGE} ,
+            <if test="age != null and age !=''">
+                #{age} ,
             </if>
-            <if test="PATH != null and PATH !=''">
-                #{PATH} ,
+            <if test="phone != null and phone !=''">
+                #{phone} ,
             </if>
-             <if test="TYPE != null and TYPE !=''">
-                #{TYPE} ,
+            <if test="path != null and path !=''">
+                #{path} ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                #{CREATETIME} ,
+             <if test="type != null and type !=''">
+                #{type} ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                #{STATUS},
+            <if test="createtime != null and createtime !=''">
+                #{createtime} ,
+            </if>
+            <if test="status != null and status !=''">
+                #{status},
             </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="People">
         update People
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
-            <if test="ID != null and ID !=''">
-                ID = #{ID},
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
+            <if test="id != null and id !=''">
+                id = #{id},
             </if>
-            <if test="NAME != null and NAME !=''">
-                NAME =#{NAME},
+            <if test="name != null and name !=''">
+                name =#{name},
             </if>
-            <if test="GENDER != null and GENDER !=''">
-                GENDER=#{GENDER} ,
+            <if test="gender != null and gender !=''">
+                gender=#{gender} ,
             </if>
-            <if test="AGE != null and AGE !=''">
-                AGE=#{AGE} ,
+            <if test="age != null and age !=''">
+                age=#{age} ,
             </if>
-            <if test="PATH != null and PATH !=''">
-                PATH =#{PATH},
+            <if test="phone != null and phone !=''">
+                phone=#{phone} ,
             </if>
-             <if test="TYPE != null and TYPE !=''">
-                 TYPE =#{TYPE},
+            <if test="path != null and path !=''">
+                path =#{path},
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                CREATETIME =#{CREATETIME},
+             <if test="type != null and type !=''">
+                 type =#{type},
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                STATUS =#{STATUS},
+            <if test="createtime != null and createtime !=''">
+                createtime =#{createtime},
+            </if>
+            <if test="status != null and status !=''">
+                status =#{status},
             </if>
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update People
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
-                STATUS =0,
+                status =0,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="People">
-       select * from People WHERE ID=#{ID}
+       select * from People WHERE id=#{id}
     </select>
 </mapper>

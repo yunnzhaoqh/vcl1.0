@@ -18,6 +18,7 @@
 
     <!-- 1.注解扫描位置-->
     <context:component-scan base-package="com.vcl.controller" />
+    <context:property-placeholder location="classpath:/config.properties" ignore-unresolvable="true" />
 
     <!-- 2.配置映射处理和适配器-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
@@ -41,6 +42,7 @@
             <!--<mvc:exclude-mapping path="//resources/images/**"/>-->
             <!--<mvc:exclude-mapping path="//css/**"/>-->
             <!--<mvc:exclude-mapping path="//fonts/**"/>-->
+            <mvc:exclude-mapping path="/resources/**"/>
             <bean class="com.vcl.utils.SystemInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

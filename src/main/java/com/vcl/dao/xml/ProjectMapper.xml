@@ -35,7 +35,7 @@
         </where>
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Project">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Project">
         insert into  Project
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="ID != null and ID !=''">

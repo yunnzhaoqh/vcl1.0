@@ -13,7 +13,7 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
     <!-- 1.配置数据库相关参数properties的属性：${url} -->
-    <context:property-placeholder location="classpath:/jdbc/db.properties"/>
+    <context:property-placeholder location="classpath:/jdbc/db.properties" ignore-unresolvable="true"/>
 
     <!-- 2.配置数据源 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
