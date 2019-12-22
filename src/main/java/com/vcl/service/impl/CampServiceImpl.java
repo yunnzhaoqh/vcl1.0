@@ -1,5 +1,6 @@
 package com.vcl.service.impl;
 import java.util.List;
+import java.util.Map;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -26,19 +27,10 @@ public class CampServiceImpl implements CampService {
 	 * 查询全部
 	 */
 	@Override
-	public List<SummweCamp> findAll() {
-		return campMapper.selectByExample(null);
+	public List<SummweCamp> findAll(Map map) {
+		return campMapper.selectByExample(map);
 	}
 
-	/**
-	 * 按分页查询
-	 */
-	@Override
-	public PageResult findPage(int pageNum, int pageSize) {
-		PageHelper.startPage(pageNum, pageSize);
-		Page<SummweCamp> page=   (Page<SummweCamp>) campMapper.selectByExample(null);
-		return new PageResult(page.getTotal(), page.getResult());
-	}
 
 	/**
 	 * 增加
@@ -79,10 +71,10 @@ public class CampServiceImpl implements CampService {
 	
 	
 		@Override
-	public PageResult findPage(SummweCamp camp, int pageNum, int pageSize) {
+	public PageResult findPage(Map map, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 
-		Page<SummweCamp> page= (Page<SummweCamp>)campMapper.selectByExample(camp);
+		Page<SummweCamp> page= (Page<SummweCamp>)campMapper.selectByExample(map);
 		return new PageResult(page.getTotal(), page.getResult());
 	}
 	

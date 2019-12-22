@@ -4,10 +4,11 @@ import com.vcl.pojo.Media;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface MediaMapper {
-    List<Media> selectByExample(Object o);
+    List<Media> selectByExample(Map map);
 
     int insert(Media media);
 

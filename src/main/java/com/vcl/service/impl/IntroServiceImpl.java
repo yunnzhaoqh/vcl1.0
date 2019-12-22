@@ -29,8 +29,8 @@ public class IntroServiceImpl implements IntroService {
 	 * 查询全部
 	 */
 	@Override
-	public List<Intro> findAll() {
-		return introMapper.selectByExample(null);
+	public List<Intro> findAll(Map map) {
+		return introMapper.selectByExample(map);
 	}
 
 	/**

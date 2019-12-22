@@ -3,22 +3,19 @@
 <mapper namespace="com.vcl.dao.mapper.BannerMapper">
 
     <select id="selectByExample" parameterType="java.util.Map" resultType="Banner">
-        SELECT * FROM Banner
+        SELECT * FROM banner
         <where>
             <if test="ID != null and ID !=''">
-            and ID = #{ID}
+               ID = #{ID}
             </if>
-            <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                and PEOPLE_ID = #{PEOPLE_ID}
+            <if test="BANNER_IMG != null and BANNER_IMG !=''">
+                and BANNER_IMG = #{BANNER_IMG}
             </if>
-            <if test="COURSE_NAME != null and COURSE_NAME !=''">
-                and COURSE_NAME = #{COURSE_NAME}
+            <if test="BANNER_TITLE_CONTEXT != null and BANNER_TITLE_CONTEXT !=''">
+                and BANNER_TITLE_CONTEXT = #{BANNER_TITLE_CONTEXT}
             </if>
-            <if test="STARTTIME != null and STARTTIME !=''">
-                and STARTTIME = #{STARTTIME}
-            </if>
-            <if test="ENDTIME != null and ENDTIME !=''">
-                and ENDTIME = #{ENDTIME}
+            <if test="BANNER_TITLE_INTRO != null and BANNER_TITLE_INTRO !=''">
+                and BANNER_TITLE_INTRO = #{BANNER_TITLE_INTRO}
             </if>
             <if test="CREATETIME != null and CREATETIME !=''">
                 and CREATETIME = #{CREATETIME}
@@ -30,7 +27,7 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Banner">
-        insert into  Banner
+        insert into  banner
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="ID != null and ID !=''">
                  ID,
@@ -80,7 +77,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Banner">
-        update Banner
+        update banner
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
             <if test="ID != null and ID !=''">
                 ID = #{ID},
@@ -106,12 +103,12 @@
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
-        update Banner
+        update banner
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
                 STATUS =0,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Banner">
-       select * from Banner WHERE ID=#{ID}
+       select * from banner WHERE ID=#{ID}
     </select>
 </mapper>

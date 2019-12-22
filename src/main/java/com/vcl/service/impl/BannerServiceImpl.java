@@ -29,8 +29,8 @@ public class BannerServiceImpl implements BannerService {
 	 * 查询全部
 	 */
 	@Override
-	public List<Banner> findAll() {
-		return bannerMapper.selectByExample(null);
+	public List<Banner> findAll(Map map) {
+		return bannerMapper.selectByExample(map);
 	}
 
 	/**

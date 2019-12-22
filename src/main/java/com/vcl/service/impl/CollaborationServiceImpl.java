@@ -29,8 +29,8 @@ public class CollaborationServiceImpl implements CollaborationService {
 	 * 查询全部
 	 */
 	@Override
-	public List<Collaboration> findAll() {
-		return collaborationMapper.selectByExample(null);
+	public List<Collaboration> findAll(Map map) {
+		return collaborationMapper.selectByExample(map);
 	}
 
 	/**

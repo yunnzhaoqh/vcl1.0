@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vcl.dao.mapper.ReferenceMapper">
 
-    <select id="selectByExample" parameterType="java.util.Map" resultType="Courses">
-        SELECT * FROM Courses
+    <select id="selectByExample" parameterType="java.util.Map" resultType="TbReference">
+        SELECT * FROM reference
         <where>
             <if test="ID != null and ID !=''">
             and ID = #{ID}
@@ -29,8 +29,8 @@
         </where>
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Courses">
-        insert into  Courses
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="TbReference">
+        insert into  reference
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="ID != null and ID !=''">
                  ID,
@@ -79,8 +79,8 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKey" parameterType="Courses">
-        update Courses
+    <update id="updateByPrimaryKey" parameterType="TbReference">
+        update reference
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
             <if test="ID != null and ID !=''">
                 ID = #{ID},
@@ -106,12 +106,12 @@
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
-        update Courses
+        update reference
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
                 STATUS =0,
         </trim>
     </update>
-    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Courses">
-       select * from Courses WHERE ID=#{ID}
+    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="TbReference">
+       select * from reference WHERE ID=#{ID}
     </select>
 </mapper>

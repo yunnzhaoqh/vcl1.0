@@ -1,5 +1,6 @@
 package com.vcl.service;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.SummweCamp;
@@ -15,14 +16,14 @@ public interface CampService {
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<SummweCamp> findAll();
+	public List<SummweCamp> findAll(Map map);
 	
 	
 	/**
 	 * 返回分页列表
 	 * @return
 	 */
-	public PageResult findPage(int pageNum, int pageSize);
+	public PageResult findPage(Map map, int pageNum, int pageSize);
 	
 	
 	/**
@@ -51,12 +52,5 @@ public interface CampService {
 	 */
 	public void delete(Long [] ids);
 
-	/**
-	 * 分页
-	 * @param pageNum 当前页 码
-	 * @param pageSize 每页记录数
-	 * @return
-	 */
-	public PageResult findPage(SummweCamp camp, int pageNum,int pageSize);
-	
+
 }

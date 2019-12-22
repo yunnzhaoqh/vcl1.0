@@ -10,7 +10,39 @@ public class TbReference {
   private String endtime;
   private String createtime;
   private long status;
+  private String reference;
+  private String intro;
 
+  @Override
+  public String toString() {
+    return "TbReference{" +
+            "id=" + id +
+            ", peopleId=" + peopleId +
+            ", referenceName='" + referenceName + '\'' +
+            ", starttime='" + starttime + '\'' +
+            ", endtime='" + endtime + '\'' +
+            ", createtime='" + createtime + '\'' +
+            ", status=" + status +
+            ", reference='" + reference + '\'' +
+            ", intro='" + intro + '\'' +
+            '}';
+  }
+
+  public String getReference() {
+    return reference;
+  }
+
+  public void setReference(String reference) {
+    this.reference = reference;
+  }
+
+  public String getIntro() {
+    return intro;
+  }
+
+  public void setIntro(String intro) {
+    this.intro = intro;
+  }
 
   public Long getId() {
     return id;

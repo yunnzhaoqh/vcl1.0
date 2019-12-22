@@ -17,7 +17,7 @@ public interface CollaborationService {
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<Collaboration> findAll();
+	public List<Collaboration> findAll(Map map);
 	
 	
 	/**

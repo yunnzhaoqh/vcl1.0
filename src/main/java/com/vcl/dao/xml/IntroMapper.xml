@@ -3,7 +3,7 @@
 <mapper namespace="com.vcl.dao.mapper.IntroMapper">
 
     <select id="selectByExample" parameterType="java.util.Map" resultType="Intro">
-        SELECT * FROM Intro
+        SELECT * FROM intro
         <where>
             <if test="ID != null and ID !=''">
             and ID = #{ID}
@@ -30,7 +30,7 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Intro">
-        insert into  Intro
+        insert into  intro
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="ID != null and ID !=''">
                  ID,
@@ -80,7 +80,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Intro">
-        update Intro
+        update intro
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
             <if test="ID != null and ID !=''">
                 ID = #{ID},
@@ -106,12 +106,12 @@
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
-        update Intro
+        update intro
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
                 STATUS =0,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Intro">
-       select * from Intro WHERE ID=#{ID}
+       select * from intro WHERE ID=#{ID}
     </select>
 </mapper>

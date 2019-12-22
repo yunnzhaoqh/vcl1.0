@@ -3,7 +3,7 @@
 <mapper namespace="com.vcl.dao.mapper.ProjectMapper">
 
     <select id="selectByExample" parameterType="java.util.Map" resultType="Project">
-        SELECT * FROM Project
+        SELECT * FROM project
         <where>
             and status = 1
             <if test="ID != null and ID !=''">
@@ -37,7 +37,7 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Project">
-        insert into  Project
+        insert into  project
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="ID != null and ID !=''">
                  ID,
@@ -99,7 +99,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Project">
-        update Project
+        update project
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
             <if test="ID != null and ID !=''">
                 ID = #{ID},
@@ -131,12 +131,12 @@
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
-        update Project
+        update project
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
                 STATUS =0,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Project">
-       select * from Project WHERE ID=#{ID}
+       select * from project WHERE ID=#{ID}
     </select>
 </mapper>
