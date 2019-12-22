@@ -79,12 +79,13 @@ public class HomeController {
             List<Intro> introList = introService.findAll(map);
             List<Media> mediaList = mediaService.findAll(map);
             for (Media media : mediaList) {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-                LocalDateTime date = LocalDateTime.parse( media.getCreatetime(),formatter);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
+                LocalDateTime date = LocalDateTime.parse( media.getReleaseDate(),formatter);
+                String forMatdate =date.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm:ss",Locale.ENGLISH));
+                String[] split = forMatdate.split(" ");
+                System.out.println(split[0]+","+split[1]+" "+split[2]);
+                media.setReleaseDate(split[0]+","+split[1]+" "+split[2]);
 
-                System.out.println(date.getDayOfMonth()+","+date.getMonth()+" "+date.getYear());
-                media.setCreatetime(date.getDayOfMonth()+","+date.getMonth()+" "+date.getYear());
 //                mediaList.add(media);
             }
             List<People> peopleList = peopleService.findAll(map);
