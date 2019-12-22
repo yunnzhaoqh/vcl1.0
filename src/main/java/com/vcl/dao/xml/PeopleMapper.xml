@@ -32,9 +32,6 @@
             <if test="status != null and status !=''">
                 and status = #{status}
             </if>
-            <if test="page != null and limit !=''">
-                limit #{page},#{limit}
-            </if>
         </where>
     </select>
 
