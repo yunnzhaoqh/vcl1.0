@@ -8,7 +8,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="stylesheet" href="..//resources/layuiadmin/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="/resources/layuiadmin/layui/css/layui.css" media="all">
 </head>
 <body>
 
@@ -16,19 +16,13 @@
     <div class="layui-form-item">
       <label class="layui-form-label">登录名</label>
       <div class="layui-input-inline">
-        <input type="text" name="loginname" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+        <input type="text" name="login_name" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
       </div>
     </div>
     <div class="layui-form-item">
       <label class="layui-form-label">手机</label>
       <div class="layui-input-inline">
         <input type="text" name="phone" lay-verify="phone" placeholder="请输入号码" autocomplete="off" class="layui-input">
-      </div>
-    </div>
-    <div class="layui-form-item">
-      <label class="layui-form-label">邮箱</label>
-      <div class="layui-input-inline">
-        <input type="text" name="email" lay-verify="email" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
       </div>
     </div>
     <div class="layui-form-item">
@@ -48,7 +42,7 @@
     </div>
   </div>
 
-  <script src="..//resources/layuiadmin/layui/layui.js"></script>
+  <script src="/resources/layuiadmin/layui/layui.js"></script>
   <script>
   layui.config({
     base: '..//resources/layuiadmin/' //静态资源所在路径

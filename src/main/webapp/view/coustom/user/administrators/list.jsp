@@ -85,7 +85,7 @@
  <script src="/resources/layuiadmin/layui/layui.js"></script>
   <script>
   layui.config({
-    base: '..//resources/layuiadmin/' //静态资源所在路径
+    base: '/resources/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
   }).use(['index', 'useradmin', 'table'], function(){
