@@ -555,6 +555,7 @@
                         var intro = data.obj.intro;
                         var media = data.obj.media;
                         var people = data.obj.people;
+                        var reference = data.obj.reference;
                         if(banner){
                             var bannerHtml = '';
                             var wrapperContext = '';

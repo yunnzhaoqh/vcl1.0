@@ -1,5 +1,6 @@
 package com.zqh.cvl.service;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.TbReference;
@@ -15,7 +16,7 @@ public interface ReferenceService {
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<TbReference> findAll();
+	public List<TbReference> findAll(Map map);
 	
 	
 	/**

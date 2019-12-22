@@ -1,5 +1,6 @@
 package com.vcl.service.impl;
 import java.util.List;
+import java.util.Map;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -25,8 +26,8 @@ public class ReferenceServiceImpl implements ReferenceService {
 	 * 查询全部
 	 */
 	@Override
-	public List<TbReference> findAll() {
-		return referenceMapper.selectByExample(null);
+	public List<TbReference> findAll(Map map) {
+		return referenceMapper.selectByExample(map);
 	}
 
 	/**

@@ -29,6 +29,8 @@ public class HomeController {
     private MediaService mediaService;
     @Autowired
     private PeopleService peopleService;
+    @Autowired
+    private com.zqh.cvl.service.ReferenceService referenceService;
 
     @RequestMapping("/index")
     public String index(){
@@ -89,12 +91,14 @@ public class HomeController {
 //                mediaList.add(media);
             }
             List<People> peopleList = peopleService.findAll(map);
+            List<TbReference> references = referenceService.findAll(map);
             map = new HashMap();
             map.put("banner",bannerList);
             map.put("collaboration",collaborationList);
             map.put("intro",introList);
             map.put("media",mediaList);
             map.put("people",peopleList);
+            map.put("reference",peopleList);
             result.setSuccess(true);
             result.setObj(map);
         }catch (Exception e){
