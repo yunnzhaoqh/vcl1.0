@@ -78,7 +78,7 @@ public class PeopleController {
 	 */
 	@RequestMapping("/update")
 	@ResponseBody
-	public Result update(@RequestBody People people){
+	public Result update(People people){
 		try {
 			peopleService.update(people);
 			return new Result(true, "修改成功");
@@ -110,6 +110,23 @@ public class PeopleController {
 		try {
 			peopleService.delete(ids);
 			return new Result(true, "删除成功"); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "删除失败");
+		}
+	}
+
+	/**
+	 * 删除人员
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/delete_people")
+	@ResponseBody
+	public Result delete_people(Long id){
+		try {
+			peopleService.delete_people(id);
+			return new Result(true, "删除成功");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, "删除失败");

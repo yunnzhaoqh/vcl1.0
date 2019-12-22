@@ -73,7 +73,7 @@ public class UserController {
                 prefix= FilenameUtils.getExtension(originalName);
                 fileStr = UUID.randomUUID().toString();
                 String filepath = FILE_UPLOAD_PATH;
-                String resultpath = "upload\\";
+                String resultpath = "\\upload\\";
                 if(!StringUtils.isEmpty(dirpath)){
                     filepath += "\\" + dirpath + "\\";
                     resultpath += dirpath + "\\";

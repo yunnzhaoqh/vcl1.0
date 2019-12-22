@@ -53,6 +53,13 @@ public interface PeopleService {
 	public void delete(Long [] ids);
 
 	/**
+	 * 删除人员
+	 * @param id
+	 * @return
+	 */
+	int delete_people(long id);
+
+	/**
 	 * 分页
 	 * @param pageNum 当前页 码
 	 * @param pageSize 每页记录数

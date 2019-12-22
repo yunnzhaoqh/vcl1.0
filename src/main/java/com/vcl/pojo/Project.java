@@ -3,7 +3,7 @@ package com.vcl.pojo;
 
 public class Project {
 
-  private long id;
+  private Long id;
   private String mainTitle;
   private String subtitle;
   private String sharePeople;
@@ -14,11 +14,11 @@ public class Project {
   private long status;
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

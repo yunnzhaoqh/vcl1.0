@@ -26,22 +26,32 @@
           <div class="layui-inline">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
-              <input type="text" name="username" placeholder="请输入" autocomplete="off" class="layui-input">
+              <input type="text" name="name" placeholder="请输入" autocomplete="off" class="layui-input">
             </div>
           </div>
-          <div class="layui-inline">
-            <label class="layui-form-label">邮箱</label>
-            <div class="layui-input-block">
-              <input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">
-            </div>
-          </div>
+<%--          <div class="layui-inline">--%>
+<%--            <label class="layui-form-label">邮箱</label>--%>
+<%--            <div class="layui-input-block">--%>
+<%--              <input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">--%>
+<%--            </div>--%>
+<%--          </div>--%>
           <div class="layui-inline">
             <label class="layui-form-label">性别</label>
             <div class="layui-input-block">
-              <select name="sex">
-                <option value="0">不限</option>
-                <option value="1">男</option>
-                <option value="2">女</option>
+              <select name="gender">
+                <option value="">不限</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+              </select>
+            </div>
+          </div>
+          <div class="layui-inline">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+              <select name="status">
+                <option value="">不限</option>
+                <option value="1" selected>有效</option>
+                <option value="0">无效</option>
               </select>
             </div>
           </div>
@@ -74,7 +84,7 @@
   <script src="/resources/layuiadmin/layui/layui.js"></script>
   <script>
   layui.config({
-    base: '..//resources/layuiadmin/' //静态资源所在路径
+    base: '/resources/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
   }).use(['index', 'useradmin', 'table'], function(){
@@ -124,6 +134,7 @@
         });
       }
       ,add: function(){
+        window.people=undefined;
         layer.open({
           type: 2
           ,title: '添加用户'
@@ -150,7 +161,7 @@
                   success: function (data) {
                       if(data.success){
                           layer.msg(data.message);
-                          table.reload('LAY-user-front-submit'); //数据刷新
+                          table.reload('LAY-user-manage'); //数据刷新
                           layer.close(index); //关闭弹层
                       }else{
                           layer.msg(data.message);

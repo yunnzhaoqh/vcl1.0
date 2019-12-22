@@ -3,7 +3,7 @@ package com.vcl.pojo;
 
 public class People {
 
-  private long id;
+  private Long id;
   private String name;
   private String gender;
   private long age;
@@ -14,11 +14,11 @@ public class People {
   private long status;
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -91,5 +91,4 @@ public class People {
   public void setStatus(long status) {
     this.status = status;
   }
-
 }

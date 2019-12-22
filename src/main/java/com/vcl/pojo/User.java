@@ -1,7 +1,7 @@
 package com.vcl.pojo;
 
 public class User {
-    private int id;
+    private Long id;
     private String login_name;
     private String password;
     private String name;
@@ -10,11 +10,11 @@ public class User {
     private String create_time;
     private int status;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

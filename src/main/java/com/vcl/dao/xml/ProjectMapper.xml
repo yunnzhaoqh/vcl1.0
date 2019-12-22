@@ -5,6 +5,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultType="Project">
         SELECT * FROM Project
         <where>
+            and status = 1
             <if test="ID != null and ID !=''">
             and ID = #{ID}
             </if>

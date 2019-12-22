@@ -27,11 +27,38 @@ layui.define(['table', 'form'], function(exports){
       ,{field: 'phone', title: '手机'}
       // ,{field: 'email', title: '邮箱'}
       ,{field: 'gender', width: 80, title: '性别'}
-      // ,{field: 'ip', title: 'IP'}
+      ,{
+        field: 'type', title: '人员类型', templet: function (res) {
+           var type = res.type;
+           if(type == 1){
+             return '教职员工';
+           }else if(type == 2){
+             return '教授';
+           }else if(type == 3){
+             return '学生';
+           }else if(type == 4){
+             return '校友';
+           }else {
+            return '';
+          }
+        }
+      }
       ,{field: 'createtime', title: '创建时间', sort: true}
+      ,{field: 'status', title: '状态',  templet: function (res) {
+          var type = res.status;
+          if(type == 0){
+            return '无效';
+          }else if(type == 1){
+            return '有效';
+          }else{
+            return '';
+          }
+        }
+      }
       ,{title: '操作', width: 150, align:'center', fixed: 'right', toolbar: '#table-useradmin-webuser'}
     ]],
     page: true,
+    limit: 15,
     limits: [15,30,50,100],
     height: 'full-220',
     text: '对不起，加载出现异常！',
@@ -41,29 +68,27 @@ layui.define(['table', 'form'], function(exports){
 
     }
   });
-  
+
   //监听工具条
   table.on('tool(LAY-user-manage)', function(obj){
     var data = obj.data;
     if(obj.event === 'del'){
-      layer.prompt({
-        formType: 1
-        ,title: '敏感操作，请验证口令'
-      }, function(value, index){
-        layer.close(index);
-        
-        layer.confirm('真的删除行么', function(index){
-          obj.del();
-          layer.close(index);
-        });
+      layer.confirm('是否确认删除此人员', function(index){
+        $.post('/people/delete_people',{id: data.id},function (res) {
+          if(res.success){
+            obj.del();
+            layer.close(index);
+          }
+          layer.msg(res.massage);
+        },'json');
       });
     } else if(obj.event === 'edit'){
       var tr = $(obj.tr);
-
+      window.people=data;
       layer.open({
         type: 2
         ,title: '编辑用户'
-        ,content: '../../../views/user/user/userform.jsp'
+        ,content: '/people/add_people'
         ,maxmin: true
         ,area: ['500px', '450px']
         ,btn: ['确定', '取消']
@@ -77,9 +102,20 @@ layui.define(['table', 'form'], function(exports){
             var field = data.field; //获取提交的字段
             
             //提交 Ajax 成功后，静态更新表格中的数据
-            //$.ajax({});
-            table.reload('LAY-user-front-submit'); //数据刷新
-            layer.close(index); //关闭弹层
+            $.ajax({
+              url: '/people/update',
+              data: field,
+              dataType: 'json',
+              async: false,
+              type: 'post',
+              success: function (res) {
+                if(res.success){
+                  table.reload('LAY-user-manage'); //数据刷新
+                  layer.close(index); //关闭弹层
+                }
+                layer.msg(res.message);
+              }
+            });
           });  
           
           submit.trigger('click');

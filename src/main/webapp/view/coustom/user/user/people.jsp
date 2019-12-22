@@ -22,6 +22,7 @@
 <body>
 
   <div class="layui-form" lay-filter="layuiadmin-form-useradmin" id="layuiadmin-form-useradmin" style="padding: 20px 0 0 0;">
+    <input hidden name="id"/>
     <div class="layui-form-item">
       <label class="layui-form-label layui-required">姓名</label>
       <div class="layui-input-inline">
@@ -50,6 +51,7 @@
     <div class="layui-form-item">
       <label class="layui-form-label layui-required">人员相片</label>
       <div class="layui-input-inline">
+        <img src="" id="path" width="100%" height="100%">
         <input type="hidden" name="path" lay-verify="path" placeholder="请上传图片" autocomplete="off" class="layui-input" >
       </div>
       <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button>
@@ -57,11 +59,20 @@
     <div class="layui-form-item">
       <label class="layui-form-label layui-required">员工类型</label>
       <div class="layui-input-inline">
-        <select name="type">
+        <select name="type" lay-verify="">
           <option value="1">教职员工</option>
           <option value="2">教授</option>
           <option value="3">学生</option>
           <option value="4">校友</option>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label layui-required">状态</label>
+      <div class="layui-input-inline">
+        <select name="status" lay-verify="">
+          <option value="1">有效</option>
+          <option value="0">无效</option>
         </select>
       </div>
     </div>
@@ -79,7 +90,19 @@
   }).use(['index', 'form', 'upload'], function(){
     var $ = layui.$
     ,form = layui.form
-    ,upload = layui.upload ;
+    ,upload = layui.upload
+    ,autocomplete = layui.autocomplete;
+
+    if(parent.people){
+      var data = parent.people;
+      $('#layuiadmin-form-useradmin input').each(function () {
+        var name = $(this).attr('name');
+        $(this).val(data[name]);
+      });
+      $('select[name=type]').val(data.type);
+      layui.form.render('select');
+      $('#path').attr('src',data.path);
+    }
 
     form.verify({
       age: [
@@ -107,6 +130,7 @@
       done: function(res){
         layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
         $(this.item).prev("div").children("input").val(res.src);
+        $('#path').attr('src',res.src);
         layer.msg(res.msg);
       },
       error: function () {

@@ -3,7 +3,7 @@ package com.vcl.pojo;
 
 public class TbReference {
 
-  private long id;
+  private Long id;
   private long peopleId;
   private String referenceName;
   private String starttime;
@@ -12,11 +12,11 @@ public class TbReference {
   private long status;
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

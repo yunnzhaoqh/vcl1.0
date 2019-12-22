@@ -82,9 +82,12 @@ public class PeopleServiceImpl implements PeopleService {
 			peopleMapper.deleteByPrimaryKey(id);
 		}		
 	}
+
+	public int delete_people(long id){
+		return peopleMapper.deleteByPrimaryKey(id);
+	}
 	
-	
-		@Override
+	@Override
 	public PageResult findPage(People people, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 
