@@ -1,12 +1,17 @@
 package com.vcl.controller;
 
+import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Result;
+import com.vcl.pojo.User;
+import com.vcl.service.UserService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,6 +36,9 @@ public class UserController {
 
     @Value("${FILE_UPLOAD_PATH}")
     private String FILE_UPLOAD_PATH;		//存储文件路径
+
+    @Autowired
+    private UserService userService;
 
     /**
      * 登录界面
@@ -111,6 +120,67 @@ public class UserController {
             }
             return map;
         }
+    }
 
+    @RequestMapping("/query_users")
+    @ResponseBody
+    public PageResult<User> query_users(@RequestBody Map map){
+        return userService.query_user_list(map);
+    }
+
+    @RequestMapping("/insert")
+    @ResponseBody
+    public Result insert(User user) {
+        try {
+            userService.insert_user(user);
+            return new Result(true, "添加成功,默认密码为000000");
+        } catch (Exception e) {
+            return new Result(false, "添加失败");
+        }
+    }
+
+    @RequestMapping("check_login_name")
+    @ResponseBody
+    public Result check_login_name(String login_name){
+        User user = userService.getUser(login_name);
+        if(user != null) {
+            return new Result(false, "登录名已存在");
+        }
+        return new Result(true,"");
+    }
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public Result udpate(User user){
+        try{
+            userService.update_user(user);
+            return new Result(true,"修改成功");
+        }catch (Exception e){
+            return new Result(false,"修改失败");
+        }
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public Result delete(Integer id){
+        try{
+            userService.delete_user(id);
+            return new Result(true,"删除成功");
+        }catch (Exception e){
+            return new Result(false,"删除失败");
+        }
+    }
+
+    @RequestMapping("update_pwd")
+    @ResponseBody
+    public Result update_pwd(HttpSession session){
+        Result result = new Result();
+        try{
+            User user = (User) session.getAttribute("user");
+//            userService.password();
+        }catch (Exception e){
+
+        }
+        return result;
     }
 }

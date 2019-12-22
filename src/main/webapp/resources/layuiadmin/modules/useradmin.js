@@ -15,11 +15,11 @@ layui.define(['table', 'form'], function(exports){
 
   //用户管理
   table.render({
-    elem: '#LAY-user-manage',
-    url: '/people/findPage',
-    method:'post',
-    contentType: 'application/json',
-    cols: [[
+    elem: '#LAY-user-manage', //table的id
+    url: '/people/findPage',  //接口
+    method:'post',    //请求方式
+    contentType: 'application/json',  //请求数据类型
+    cols: [[    //数据首行的列名 field是数据变量名
       // {type: 'checkbox', fixed: 'left'}
       {field: 'id', width: 100, title: 'ID', sort: true, style:'display:none;'}
       ,{field: 'name', title: '用户名', minWidth: 100}
@@ -57,9 +57,9 @@ layui.define(['table', 'form'], function(exports){
       }
       ,{title: '操作', width: 150, align:'center', fixed: 'right', toolbar: '#table-useradmin-webuser'}
     ]],
-    page: true,
-    limit: 15,
-    limits: [15,30,50,100],
+    page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）
+    limit: 15,    //设置分页数
+    limits: [15,30,50,100],   //自定义分页数
     height: 'full-220',
     text: '对不起，加载出现异常！',
     done: function(res, curr, count){
@@ -129,44 +129,59 @@ layui.define(['table', 'form'], function(exports){
 
   //管理员管理
   table.render({
-    elem: '#LAY-user-back-manage'
-    ,url: layui.setter.base + 'json/useradmin/mangadmin.js' //模拟接口
-    ,cols: [[
-      {type: 'checkbox', fixed: 'left'}
-      ,{field: 'id', width: 80, title: 'ID', sort: true, style:'display:none;'}
-      ,{field: 'loginname', title: '登录名'}
-      ,{field: 'telphone', title: '手机'}
-      ,{field: 'email', title: '邮箱'}
+    elem: '#LAY-user-back-manage',
+    url: '/user/query_users', //模拟接口
+    method:'post',    //请求方式
+    contentType: 'application/json',  //请求数据类型
+    page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）
+    limit: 15,    //设置分页数
+    limits: [15,30,50,100],   //自定义分页数
+    cols: [[
+      {field: 'id', width: 80, title: 'ID', sort: true, style:'display:none;'}
+      ,{field: 'login_name', title: '登录名'}
+      ,{field: 'name', title: '姓名'}
+      ,{field: 'gender', title: '性别'}
+      ,{field: 'age', title: '年龄'}
+      ,{field: 'status', title: '状态', templet: function (res) {
+          var type = res.status;
+          if(type == 0){
+            return '无效';
+          }else if(type == 1){
+            return '有效';
+          }else{
+            return '';
+          }
+        }
+      }
       // ,{field: 'role', title: '角色'}
-      ,{field: 'jointime', title: '加入时间', sort: true}
-      ,{field: 'check', title:'审核状态', templet: '#buttonTpl', minWidth: 80, align: 'center'}
+      ,{field: 'create_time', title: '创建时间', sort: true}
       ,{title: '操作', width: 150, align: 'center', fixed: 'right', toolbar: '#table-useradmin-admin'}
-    ]]
-    ,text: '对不起，加载出现异常！'
+    ]],
+    text: '对不起，加载出现异常！'
   });
   
   //监听工具条
   table.on('tool(LAY-user-back-manage)', function(obj){
     var data = obj.data;
     if(obj.event === 'del'){
-      layer.prompt({
-        formType: 1
-        ,title: '敏感操作，请验证口令'
-      }, function(value, index){
+      layer.confirm('确定删除此管理员？', function(index){
+        $.post('/user/delete',{id: data.id},function (res) {
+          if(res.success){
+            obj.del();
+            layer.close(index);
+          }
+          layer.msg(res.massage);
+        },'json');
+        obj.del();
         layer.close(index);
-        layer.confirm('确定删除此管理员？', function(index){
-          console.log(obj)
-          obj.del();
-          layer.close(index);
-        });
       });
     }else if(obj.event === 'edit'){
       var tr = $(obj.tr);
-
+      window.user = data;
       layer.open({
         type: 2
         ,title: '编辑管理员'
-        ,content: '../../../views/user/administrators/adminform.jsp'
+        ,content: '/admin/add_user'
         ,area: ['420px', '420px']
         ,btn: ['确定', '取消']
         ,yes: function(index, layero){
@@ -179,9 +194,22 @@ layui.define(['table', 'form'], function(exports){
             var field = data.field; //获取提交的字段
             
             //提交 Ajax 成功后，静态更新表格中的数据
-            //$.ajax({});
-            table.reload('LAY-user-front-submit'); //数据刷新
-            layer.close(index); //关闭弹层
+            $.ajax({
+              url: '/user/update',
+              data: field,
+              dataType: 'json',
+              async: false,
+              type: 'post',
+              success: function (data) {
+                if(data.success){
+                  layer.msg(data.message);
+                  table.reload('LAY-user-back-manage'); //数据刷新
+                  layer.close(index); //关闭弹层
+                }else{
+                  layer.msg(data.message);
+                }
+              }
+            });
           });  
           
           submit.trigger('click');

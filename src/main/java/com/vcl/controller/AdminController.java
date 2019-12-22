@@ -11,14 +11,25 @@ public class AdminController {
     public String index(){
         return "coustom/home/console";
     }
+
     @RequestMapping("/homepage1")
     public String activities(){
         return "coustom/home/homepage1";
     }
+
     @RequestMapping("/homepage2")
     public String education(){
         return "coustom/home/homepage2";
     }
 
+    @RequestMapping("/add_user")
+    public String add_user(){
+        return "/coustom/user/administrators/adminform";
+    }
+
+    @RequestMapping("/update_pwd")
+    public String update_pwd(){
+        return "/coustom/set/user/password";
+    }
 
 }

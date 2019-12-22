@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>layuiAdmin 后台管理员</title>
+  <title>后台管理员</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -19,35 +19,41 @@
           <div class="layui-inline">
             <label class="layui-form-label">登录名</label>
             <div class="layui-input-block">
-              <input type="text" name="loginname" placeholder="请输入" autocomplete="off" class="layui-input">
+              <input type="text" name="login_name" placeholder="请输入" autocomplete="off" class="layui-input">
             </div>
           </div>
           <div class="layui-inline">
-            <label class="layui-form-label">手机</label>
+            <label class="layui-form-label">姓名</label>
             <div class="layui-input-block">
-              <input type="text" name="telphone" placeholder="请输入" autocomplete="off" class="layui-input">
+              <input type="text" name="name" placeholder="请输入" autocomplete="off" class="layui-input">
             </div>
           </div>
-          <div class="layui-inline">
-            <label class="layui-form-label">邮箱</label>
-            <div class="layui-input-block">
-              <input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">
-            </div>
-          </div>
-          <div class="layui-inline">
-            <label class="layui-form-label">角色</label>
-            <div class="layui-input-block">
-              <select name="role">
-                <option value="0">管理员</option>
-                <option value="1">超级管理员</option>
-                <option value="2">纠错员</option>
-                <option value="3">采购员</option>
-                <option value="4">推销员</option>
-                <option value="5">运营人员</option>
-                <option value="6">编辑</option>
-              </select>
-            </div>
-          </div>
+<%--          <div class="layui-inline">--%>
+<%--            <label class="layui-form-label">手机</label>--%>
+<%--            <div class="layui-input-block">--%>
+<%--              <input type="text" name="telphone" placeholder="请输入" autocomplete="off" class="layui-input">--%>
+<%--            </div>--%>
+<%--          </div>--%>
+<%--          <div class="layui-inline">--%>
+<%--            <label class="layui-form-label">邮箱</label>--%>
+<%--            <div class="layui-input-block">--%>
+<%--              <input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">--%>
+<%--            </div>--%>
+<%--          </div>--%>
+<%--          <div class="layui-inline">--%>
+<%--            <label class="layui-form-label">角色</label>--%>
+<%--            <div class="layui-input-block">--%>
+<%--              <select name="role">--%>
+<%--                <option value="0">管理员</option>--%>
+<%--                <option value="1">超级管理员</option>--%>
+<%--                <option value="2">纠错员</option>--%>
+<%--                <option value="3">采购员</option>--%>
+<%--                <option value="4">推销员</option>--%>
+<%--                <option value="5">运营人员</option>--%>
+<%--                <option value="6">编辑</option>--%>
+<%--              </select>--%>
+<%--            </div>--%>
+<%--          </div>--%>
           <div class="layui-inline">
             <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="LAY-user-back-search">
               <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
@@ -72,11 +78,11 @@
         </script>
         <script type="text/html" id="table-useradmin-admin">
           <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
-          {{#  if(d.role == '超级管理员'){ }}
-            <a class="layui-btn layui-btn-disabled layui-btn-xs"><i class="layui-icon layui-icon-delete"></i>删除</a>
-          {{#  } else { }}
+<%--          {{#  if(d.role == '超级管理员'){ }}--%>
+<%--            <a class="layui-btn layui-btn-disabled layui-btn-xs"><i class="layui-icon layui-icon-delete"></i>删除</a>--%>
+<%--          {{#  } else { }}--%>
             <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon layui-icon-delete"></i>删除</a>
-          {{#  } }}
+<%--          {{#  } }}--%>
         </script>
       </div>
     </div>
@@ -92,6 +98,7 @@
     var $ = layui.$
     ,form = layui.form
     ,table = layui.table;
+    $('table.layui-table thead tr th:eq(0)').addClass('layui-hide');
     
     //监听搜索
     form.on('submit(LAY-user-back-search)', function(data){
@@ -134,10 +141,11 @@
         }); 
       }
       ,add: function(){
+        window.user = undefined;
         layer.open({
           type: 2
           ,title: '添加管理员'
-          ,content: 'adminform.html'
+          ,content: '/admin/add_user'
           ,area: ['420px', '420px']
           ,btn: ['确定', '取消']
           ,yes: function(index, layero){
@@ -150,9 +158,24 @@
               var field = data.field; //获取提交的字段
               
               //提交 Ajax 成功后，静态更新表格中的数据
-              //$.ajax({});
-              table.reload('LAY-user-front-submit'); //数据刷新
-              layer.close(index); //关闭弹层
+                $.ajax({
+                    url: '/user/insert',
+                    data: field,
+                    dataType: 'json',
+                    async: false,
+                    type: 'post',
+                    success: function (data) {
+                        if(data.success){
+                            layer.msg(data.message);
+                            table.reload('LAY-user-back-manage'); //数据刷新
+                            layer.close(index); //关闭弹层
+                        }else{
+                            layer.msg(data.message);
+                        }
+                    }
+                });
+              // table.reload('LAY-user-front-submit'); //数据刷新
+              // layer.close(index); //关闭弹层
             });  
             
             submit.trigger('click');

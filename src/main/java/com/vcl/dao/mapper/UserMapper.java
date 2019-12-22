@@ -16,6 +16,8 @@ public interface UserMapper {
 
     int update_user(User user);
 
+    int delete_user(@Param("id") Integer id);
+
     User getUser(@Param("login_name") String login_name);
 
 }
