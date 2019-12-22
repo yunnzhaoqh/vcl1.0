@@ -36,7 +36,7 @@
 
         <!--配置加载映射文件 CoursesMapper.xml-->
         <property name="mapperLocations" value="classpath*:com/vcl/dao/xml/*Mapper.xml"/>
-        <property name="typeHandlersPackage" value="com.yzp.handler"/>
+        <!--<property name="typeHandlersPackage" value="com.vcl.pojo"/>-->
         <!--&lt;!&ndash;自动分页&ndash;&gt;-->
         <!--<property name="plugins">-->
             <!--<bean class="com.vcl.utils.OraclePagerInterceptor"></bean>-->
