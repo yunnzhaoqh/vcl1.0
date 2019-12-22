@@ -41,7 +41,7 @@
 
         <!--配置加载映射文件 CoursesMapper.xml-->
         <property name="mapperLocations" value="classpath*:com/vcl/dao/xml/*Mapper.xml"/>
-        <property name="typeHandlersPackage" value="com.yzp.handler"/>
+        <!--<property name="typeHandlersPackage" value="com.yzp.handler"/>-->
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageInterceptor">
