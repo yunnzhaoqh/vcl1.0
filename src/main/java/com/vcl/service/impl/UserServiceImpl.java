@@ -53,4 +53,11 @@ public class UserServiceImpl implements UserService {
     public int delete_user(Integer id) {
         return userMapper.delete_user(id);
     }
+
+    @Override
+    public int password(Map map) {
+        String pwd = new Md5Hash(map.get("password").toString(),map.get("login_name").toString()).toString();   //加密加盐
+        map.put("password",pwd);
+        return userMapper.password(map);
+    }
 }

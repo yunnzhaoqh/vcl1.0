@@ -20,4 +20,5 @@ public interface UserMapper {
 
     User getUser(@Param("login_name") String login_name);
 
+    int password(Map map);
 }

@@ -5,6 +5,7 @@ import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.vcl.pojo.Result;
 import com.vcl.pojo.User;
 import com.vcl.service.UserService;
+import com.vcl.utils.RequestUtil;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,7 +51,7 @@ public class LoginController {
     @RequestMapping("/login_user")
     @ResponseBody
     public Result login(HttpServletRequest request, HttpSession session){
-        Map params = getMap(request);
+        Map params = RequestUtil.getMap(request);
         Result result = new Result();
 //        if(StringUtils.isEmpty(params.get("vercode"))){
 //            result.setSuccess(false);
@@ -79,7 +80,7 @@ public class LoginController {
             result.setMessage("用户无效");
             return result;
         }
-        String pwd = new Md5Hash(params.get("password").toString(),user.getLogin_name()).toString();
+        String pwd = new Md5Hash(params.get("password").toString(),params.get("login_name")).toString();
         if(!user.getPassword().equals(pwd)){
             result.setSuccess(false);
             result.setMessage("账号或密码错误");
@@ -128,29 +129,4 @@ public class LoginController {
             out.close();
         }
      }
-
-    /**
-     * 直接从request中获取所有参数
-     *
-     * @param request
-     * @return
-     */
-    public Map getMap(HttpServletRequest request) {
-        Map requestParams = request.getParameterMap(); //将异步通知中收到的所有参数都存放到map中
-        Map<String, String> params = new HashMap<String, String>();
-
-        for (Iterator iter = requestParams.keySet().iterator(); iter.hasNext(); ) {
-            String name = (String) iter.next();
-            String[] values = (String[]) requestParams.get(name);
-            String valueStr = "";
-            for (int i = 0; i < values.length; i++) {
-                valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
-                //乱码解决，这段代码在出现乱码时使用。
-                //valueStr = new String(valueStr.getBytes("ISO-8859-1"), "utf-8");
-                params.put(name, valueStr);
-                params.put(name.toUpperCase(), valueStr);
-            }
-        }
-        return params;
-    }
 }

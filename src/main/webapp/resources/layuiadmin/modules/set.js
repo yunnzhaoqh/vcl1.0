@@ -134,19 +134,22 @@ layui.define(['form', 'upload'], function(exports){
   //设置密码
   form.on('submit(setmypass)', function(obj){
     layer.msg(JSON.stringify(obj.field));
-    
+    obj.field.oldPassword = md5(obj.field.oldPassword);
+    obj.field.password = md5(obj.field.password);
+    obj.field.repassword = md5(obj.field.repassword);
+    layer.msg(JSON.stringify(obj.field));
     //提交修改
-    /*
-    admin.req({
-      url: ''
-      ,data: obj.field
-      ,success: function(){
-        
+    $.post('/user/update_pwd', obj.field,function (data) {
+      if (data.success) {
+        layer.msg(data.message);
+        window.location.href = '/coustom/login';
+      } else {
+        layer.msg(data.message);
+        return false;
       }
-    });
-    */
-    return false;
-  });
+    },'json');
+
+  })
   
   //对外暴露的接口
   exports('set', {});

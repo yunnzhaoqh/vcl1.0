@@ -52,14 +52,14 @@
         <div class="layui-form-item">
           <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit">登 入</button>
         </div>
-        <div class="layui-trans layui-form-item layadmin-user-login-other">
-          <label>社交账号登入</label>
-          <a href="javascript:;"><i class="layui-icon layui-icon-login-qq"></i></a>
-          <a href="javascript:;"><i class="layui-icon layui-icon-login-wechat"></i></a>
-          <a href="javascript:;"><i class="layui-icon layui-icon-login-weibo"></i></a>
-          
-          <a href="reg.jsp" class="layadmin-user-jump-change layadmin-link">注册帐号</a>
-        </div>
+<%--        <div class="layui-trans layui-form-item layadmin-user-login-other">--%>
+<%--          <label>社交账号登入</label>--%>
+<%--          <a href="javascript:;"><i class="layui-icon layui-icon-login-qq"></i></a>--%>
+<%--          <a href="javascript:;"><i class="layui-icon layui-icon-login-wechat"></i></a>--%>
+<%--          <a href="javascript:;"><i class="layui-icon layui-icon-login-weibo"></i></a>--%>
+<%--          --%>
+<%--          <a href="reg.jsp" class="layadmin-user-jump-change layadmin-link">注册帐号</a>--%>
+<%--        </div>--%>
       </div>
     </div>
     
@@ -104,32 +104,67 @@
           // ,search = router.search;
 
           form.render();
+          var localUser;
+          var passwordChange = false;
+          getUserFormLocal();
 
           $('#LAY-user-login-password').on('change', function () {
               var password = $.trim($('#LAY-user-login-password').val());
               if (password) {
+                  passwordChange = true;
+                  if (localUser) {
+                      localStorage.removeItem("localUser_1");
+                  }
                   $(this).val(md5(password));
               }
           });
-
+          if (window.parent.length > 0) {
+              console.log(location)
+              window.top.location = location;
+          }
           //提交
           form.on('submit(LAY-user-login-submit)', function (obj) {
               var login_name = $.trim($('#LAY-user-login-username').val());
               var password = $.trim($('#LAY-user-login-password').val());
               var vercode = $.trim($('#LAY-user-login-vercode').val());
+              var flg = $('input[name=remember]').prop('checked');
               $.post('/coustom/login_user', {
                   login_name: login_name,
                   password: password,
                   vercode: vercode
               },function (data) {
                   if(data.success){
+                      if (flg) {
+                          localStorage.setItem("localUser_1", JSON.stringify({
+                              username: login_name,
+                              password: password,
+                              date: new Date()
+                          }));
+                      } else {
+                          if (localUser) {
+                              localStorage.removeItem('localUser_1');
+                          }
+                      }
                       location.href = "/coustom/index";
                   }else{
                       layer.msg(data.message);
                   }
               })
           });
+
+          function getUserFormLocal() {
+              localUser = JSON.parse(localStorage.getItem("localUser_1"));
+              if (localUser) {
+                  console.log(localUser)
+                  $('#LAY-user-login-username').val(localUser.username);
+                  $('#LAY-user-login-password').val(localUser.password);
+                  $('input[name=remember]').prop('checked', true);
+                  form.render();
+              }
+          }
       });
+
+
   </script>
 </body>
 </html>

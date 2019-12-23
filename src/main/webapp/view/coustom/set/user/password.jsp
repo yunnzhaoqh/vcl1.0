@@ -1,11 +1,10 @@
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>设置我的密码</title>
-  <meta name="renderer" content="webkit">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="/resources/layuiadmin/layui/css/layui.css" media="all">
@@ -54,6 +53,7 @@
   </div>
 
   <script src="/resources/layuiadmin/layui/layui.js"></script>
+  <script src="/resources/js/md5.js"></script>
   <script>
   layui.config({
     base: '/resources/layuiadmin/' //静态资源所在路径

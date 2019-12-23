@@ -2,7 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vcl.dao.mapper.UserMapper">
 
-    <select id="getUser" resultType="User">
+    <resultMap id="userMap" type="User">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="login_name" property="login_name"/>
+        <result column="password" property="password"/>
+        <result column="gender" property="gender"/>
+        <result column="age" property="age"/>
+        <result column="create_time" property="create_time"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <select id="getUser" resultMap="userMap">
         SELECT * FROM user where login_name = #{login_name}
     </select>
 
@@ -106,6 +117,13 @@
         update user
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
             status =0,
+        </trim>
+    </update>
+
+    <update id="password" parameterType="java.util.Map">
+        update user
+        <trim  prefix="set " suffixOverrides="," suffix=" where login_name = #{login_name} ">
+            password = #{password},
         </trim>
     </update>
 </mapper>

@@ -17,4 +17,6 @@ public interface UserService {
     int update_user(User user);
 
     int delete_user(@Param("id") Integer id);
+
+    int password(Map map);
 }
