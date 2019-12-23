@@ -17,9 +17,7 @@
     <link type="text/css" rel="stylesheet" href="../resources/css/normal.css" />
     <link type="text/css" rel="stylesheet" href="../resources/css/main.css" />
     <link type="text/css" rel="stylesheet" href="../resources/css/index.css" />
-
 </head>
-
 <body>
     
     <header>
@@ -78,39 +76,39 @@
 
     <section class="index-banner-content">
         <div class="swiper-container swiper-banner">
-            <div class="swiper-wrapper" id="indexImg">
-                <div class="swiper-slide">
-                    <a href="">
-                        <img src="../resources/images/banner-1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="">
-                        <img src="../resources/images/banner-2.jpg" alt="">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="">
-                        <img src="../resources/images/banner-3.jpg" alt="">
-                    </a>
-                </div>
+            <div class="swiper-wrapper" id="wrapperImg">
+                <%--<div class="swiper-slide">--%>
+                    <%--<a href="">--%>
+                        <%--<img src="../resources/images/banner-1.jpg" alt="">--%>
+                    <%--</a>--%>
+                <%--</div>--%>
+                <%--<div class="swiper-slide">--%>
+                    <%--<a href="">--%>
+                        <%--<img src="../resources/images/banner-2.jpg" alt="">--%>
+                    <%--</a>--%>
+                <%--</div>--%>
+                <%--<div class="swiper-slide">--%>
+                    <%--<a href="">--%>
+                        <%--<img src="../resources/images/banner-3.jpg" alt="">--%>
+                    <%--</a>--%>
+                <%--</div>--%>
             </div>
             <!-- Add Pagination -->
             <div class="banner-title">
                 <div class="pagination"></div>
-                <div class="intro" id="indexContext">
-                    <div class="item active">
-                        <p>Jingyuan Courtyard 5 | VCL Research Seminar:</p>
-                        <p>Learning to Understand 3D Object Parts</p>
-                    </div>
-                    <div class="item">
-                        <p>图灵奖得主希尔维奥·米卡利教授北京大学聘任仪式暨学术讲座举行</p>
-                        <p>静园五院204</p>
-                    </div>
-                    <div class="item">
-                        <p>Efficient and Conservative Fluids Using Bidirectional Mapping</p>
-                        <p>ACM SIGGRAPH 2019</p>
-                    </div>
+                <div class="intro" id="wrapperContext">
+                    <%--<div class="item active">--%>
+                        <%--<p>Jingyuan Courtyard 5 | VCL Research Seminar:</p>--%>
+                        <%--<p>Learning to Understand 3D Object Parts</p>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<p>图灵奖得主希尔维奥·米卡利教授北京大学聘任仪式暨学术讲座举行</p>--%>
+                        <%--<p>静园五院204</p>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<p>Efficient and Conservative Fluids Using Bidirectional Mapping</p>--%>
+                        <%--<p>ACM SIGGRAPH 2019</p>--%>
+                    <%--</div>--%>
                 </div>
             </div>
             <!-- Add Arrows -->
@@ -121,74 +119,74 @@
 
     <section class="index-intro-content">
         <div class="content" style="max-width: 1200px;">
-            <div class="item-left">
-                <img src="../resources/images/temp/vcl-red_03.png" alt="">
-                <p class="p1">We locate in the Jingyuan Jingyuan Courtyard 5.</p>
-                <p class="p2">
-                    <span>Baoquan Chen</span>
-                    <i>Director</i>
-                </p>
-                <span class="icon"></span>
+            <div class="item-left" id="item-left">
+                <%--<img src="../resources/images/temp/vcl-red_03.png" alt="">--%>
+                <%--<p class="p1">We locate in the Jingyuan Jingyuan Courtyard 5.</p>--%>
+                <%--<p class="p2">--%>
+                    <%--<span>Baoquan Chen</span>--%>
+                    <%--<i>Director</i>--%>
+                <%--</p>--%>
+                <%--<span class="icon"></span>--%>
             </div>
-            <div class="item-right">
-                <h2>The Visual Computing and Learning (VCL)</h2>
-                <h4>Laboratory from<br>The Center on Frontiers of Computing Studies (CFCS)</h4>
-                <p class="tips">Leading by the Professor Chen Baoquan, our research group are working on the fields of graphics, 3D vision and robotics.</p>
-                <div class="intro">
-                    <div class="item">
-                        <div class="bg-1">
-                            <div class="bg-2">
-                                <span class="icon-1"></span>
-                                <p>Graphics</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="bg-1">
-                            <div class="bg-2">
-                                <span class="icon-2"></span>
-                                <p>Deep Learning</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="bg-1">
-                            <div class="bg-2">
-                                <span class="icon-3"></span>
-                                <p>Robot</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="item-right" id="item-right">
+                <%--<h2>The Visual Computing and Learning (VCL)</h2>--%>
+                <%--<h4>Laboratory from<br>The Center on Frontiers of Computing Studies (CFCS)</h4>--%>
+                <%--<p class="tips">Leading by the Professor Chen Baoquan, our research group are working on the fields of graphics, 3D vision and robotics.</p>--%>
+                <%--<div class="intro">--%>
+                    <%--<div class="item">--%>
+                        <%--<div class="bg-1">--%>
+                            <%--<div class="bg-2">--%>
+                                <%--<span class="icon-1"></span>--%>
+                                <%--<p>Graphics</p>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<div class="bg-1">--%>
+                            <%--<div class="bg-2">--%>
+                                <%--<span class="icon-2"></span>--%>
+                                <%--<p>Deep Learning</p>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<div class="bg-1">--%>
+                            <%--<div class="bg-2">--%>
+                                <%--<span class="icon-3"></span>--%>
+                                <%--<p>Robot</p>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
             </div>
         </div>
     </section>
 
     <section class="index-media-content">
         <div class="index-title">Media</div>
-        <div class="media-content">
-            <div class="item">
-                <a class="des" href="/home/media?">
-                    <div class="word-content">
-                        <img src="../resources/images/temp/vcl-red_05.png" alt="">
-                        <div class="word">
-                            <div class="hidden">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>
-                                <div class="detail">
-                                    2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="imgs">
-                        <img src="../resources/images/temp/vcl-red_05.png" alt="">
-                    </div>
-                </a>
-            </div>
+        <div class="media-content" id="media-content">
+            <%--<div class="item">--%>
+                <%--<a class="des" href="/home/media?">--%>
+                    <%--<div class="word-content">--%>
+                        <%--<img src="../resources/images/temp/vcl-red_05.png" alt="">--%>
+                        <%--<div class="word">--%>
+                            <%--<div class="hidden">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>--%>
+                                <%--<div class="detail">--%>
+                                    <%--2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="imgs">--%>
+                        <%--<img src="../resources/images/temp/vcl-red_05.png" alt="">--%>
+                    <%--</div>--%>
+                <%--</a>--%>
+            <%--</div>--%>
             <%--<div class="item">--%>
                 <%--<a class="des" href="">--%>
                     <%--<div class="imgs">--%>
@@ -255,6 +253,28 @@
                     <%--</div>--%>
                 <%--</div>--%>
             <%--</div>--%>
+            <%--<div class="item">--%>
+                <%--<div class="des">--%>
+                    <%--<div class="imgs">--%>
+                        <%--<img src="/resources/images/temp/vcl-red_05.png" alt="">--%>
+                    <%--</div>--%>
+                    <%--<div class="word-content">--%>
+                        <%--<img src="/resources/images/temp/vcl-red_05.png" alt="">--%>
+                        <%--<div class="word">--%>
+                            <%--<div class="hidden">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>--%>
+                                <%--<div class="detail">--%>
+                                    <%--2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
         </div>
         <div class="more">
             <a href="/home/activities" class="link">More Activities</a>
@@ -266,78 +286,78 @@
             <div class="index-title">Our Team</div>
             <h3>Leading by the Professor Chen Baoquan, our research group are working on the fields of graphics, 3D vision and robotics. </h3>
             <div class="swiper-user">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide people-item">
-                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide people-item">
-                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide people-item">
-                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide people-item">
-                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide people-item">
-                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide people-item">
-                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide people-item">
-                            <img src="../resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="swiper-container" >
+                    <div class="swiper-wrapper" id="user-swiper">
+                        <%--<div class="swiper-slide people-item">--%>
+                            <%--<img src="../resources/images/temp/vcl-red_10.jpg" style="width:276.75px ;height:333.117px;" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="swiper-slide people-item">--%>
+                            <%--<img src="../resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="swiper-slide people-item">--%>
+                            <%--<img src="../resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="swiper-slide people-item">--%>
+                            <%--<img src="../resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="swiper-slide people-item">--%>
+                            <%--<img src="../resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="swiper-slide people-item">--%>
+                            <%--<img src="../resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="swiper-slide people-item">--%>
+                            <%--<img src="../resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
                     </div>
                 </div>
                 <!-- Add Arrows -->
@@ -351,34 +371,34 @@
         <div class="content">
             <div class="index-title">Latest Research Pulication</div>
             <h3>With the development of technology, great changes have taken place. The computer graphics and artificial intelligence will provide novel applications for  our world.</h3>
-            <div class="items">
-                <div class="item">
-                    <a href="/home/project" target="_blank">
-                        <img src="../resources/images/temp/vcl-red_04.jpg" alt="">
-                        <div class="cover">
-                            <h4>A General Decoupled Learning Framework for Parameterized Image Operators</h4>
-                            <h5>IEEE TPAMI 2019</h5>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="/home/project" target="_blank">
-                        <img src="../resources/images/temp/vcl-red_04.jpg" alt="">
-                        <div class="cover">
-                            <h4>A General Decoupled Learning Framework for Parameterized Image Operators</h4>
-                            <h5>IEEE TPAMI 2019</h5>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="/home/project" target="_blank">
-                        <img src="../resources/images/temp/vcl-red_04.jpg" alt="">
-                        <div class="cover">
-                            <h4>A General Decoupled Learning Framework for Parameterized Image Operators</h4>
-                            <h5>IEEE TPAMI 2019</h5>
-                        </div>
-                    </a>
-                </div>
+            <div class="items" id="research-pullication">
+                <%--<div class="item">--%>
+                    <%--<a href="/home/project" target="_blank">--%>
+                        <%--<img src="../resources/images/temp/vcl-red_04.jpg" alt="">--%>
+                        <%--<div class="cover">--%>
+                            <%--<h4>A General Decoupled Learning Framework for Parameterized Image Operators</h4>--%>
+                            <%--<h5>IEEE TPAMI 2019</h5>--%>
+                        <%--</div>--%>
+                    <%--</a>--%>
+                <%--</div>--%>
+                <%--<div class="item">--%>
+                    <%--<a href="/home/project" target="_blank">--%>
+                        <%--<img src="../resources/images/temp/vcl-red_04.jpg" alt="">--%>
+                        <%--<div class="cover">--%>
+                            <%--<h4>A General Decoupled Learning Framework for Parameterized Image Operators</h4>--%>
+                            <%--<h5>IEEE TPAMI 2019</h5>--%>
+                        <%--</div>--%>
+                    <%--</a>--%>
+                <%--</div>--%>
+                <%--<div class="item">--%>
+                    <%--<a href="/home/project" target="_blank">--%>
+                        <%--<img src="../resources/images/temp/vcl-red_04.jpg" alt="">--%>
+                        <%--<div class="cover">--%>
+                            <%--<h4>A General Decoupled Learning Framework for Parameterized Image Operators</h4>--%>
+                            <%--<h5>IEEE TPAMI 2019</h5>--%>
+                        <%--</div>--%>
+                    <%--</a>--%>
+                <%--</div>--%>
             </div>
             <div class="more">
                 <a href="/home/publication" class="link">Learn More</a>
@@ -389,26 +409,36 @@
 
     <section class="index-collaboration-content">
         <div class="content">
-            <div class="item-left">
+            <div class="item-left" >
                 <div class="index-title">Collaboration</div>
                 <h3>We collaborate with other fabulours research groups and have made a lot of achievements in the field of research</h3>
-                <div class="">
-                    <div class="cell">
-                        <a href="">
-                            <img src="../resources/images/colla-1.png" alt="">
-                        </a>
-                    </div>
-                    <div class="cell">
-                        <a href="">
-                            <img src="../resources/images/colla-2.png" alt="">
-                        </a>
-                    </div>
+                <div class="" id="container-left">
+                    <%--<div class="cell">--%>
+                        <%--<a href="">--%>
+                            <%--<img src="../resources/images/colla-1.png" alt="">--%>
+                        <%--</a>--%>
+                    <%--</div>--%>
+                    <%--<div class="cell">--%>
+                        <%--<a href="">--%>
+                            <%--<img src="../resources/images/colla-2.png" alt="">--%>
+                        <%--</a>--%>
+                    <%--</div>--%>
+                    <%--<div class="cell">--%>
+                        <%--<a href="">--%>
+                            <%--<img src="../resources/images/colla-2.png" alt="">--%>
+                        <%--</a>--%>
+                    <%--</div>--%>
+                    <%--<div class="cell">--%>
+                        <%--<a href="">--%>
+                            <%--<img src="../resources/images/colla-2.png" alt="">--%>
+                        <%--</a>--%>
+                    <%--</div>--%>
                 </div>
-                <div class="circle"></div>
+                <%--<div class="circle"></div>--%>
             </div>
-            <div class="item-right">
-                <div class="item active" style="background-image: url(../resources/images/temp/vcl-red_06.jpg);"></div>
-                <div class="item" style="background-image: url(../resources/images/temp/vcl-red_05.png);"></div>
+            <div class="item-right" id="container-right">
+                <%--<div class="item active" style="background-image: url(../resources/images/temp/vcl-red_06.jpg);"></div>--%>
+                <%--<div class="item" style="background-image: url(../resources/images/temp/vcl-red_05.png);"></div>--%>
             </div>
         </div>
     </section>
@@ -461,6 +491,8 @@
 
     <script type="text/javascript" src="../resources/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="../resources/js/swiper.min.js"></script>
+    <script type="text/javascript" src="../resources/layuiadmin/layui/layui.all.js"></script>
+
     <script>
         var swiperBanner = new Swiper('.swiper-banner', {
             pagination: {
@@ -505,7 +537,190 @@
                 $('.index-collaboration-content .item-right .item').eq(index).addClass('active').siblings().removeClass('active');
 
             });
+            //初始化数据
+            initHomeData();
         });
+        function initHomeData() {
+            $.ajax({
+                url: "/home/initHome",
+                data:{},
+                context: document.body,
+                dataType :'json',
+                type:'post'
+            }).done(function(data) {
+                if(data.success){
+                    if(data.obj){
+                        var banner = data.obj.banner;
+                        var collaboration = data.obj.collaboration;
+                        var intro = data.obj.intro;
+                        var media = data.obj.media;
+                        var people = data.obj.people;
+                        var reference = data.obj.reference;
+                        if(banner){
+                            var bannerHtml = '';
+                            var wrapperContext = '';
+                            for (var i in banner) {
+                                console.log(banner[i]);
+                                bannerHtml+=' <div class="swiper-slide">\n' +
+                                    '                    <a href="">\n' +
+                                    '                        <img src="'+banner[i].bannerImg+'" style="height:820.667px" alt="">\n' +
+                                    '                    </a>\n' +
+                                    '                </div>';
+                                wrapperContext+='<div class="item">\n' +
+                                    '                        <p>'+banner[i].bannerTitleContext+'</p>\n' +
+                                    '                        <p>'+banner[i].bannerTitleIntro+'</p>\n' +
+                                    '                    </div>';
+                            }
+                            $('#wrapperImg').empty();
+                            $('#wrapperImg').append(bannerHtml);
+                            $('#wrapperContext').empty();
+                            $('#wrapperContext').append(wrapperContext);
+                            $("#wrapperContext").children(":first").addClass('active');
+                        }
+                        if(collaboration){
+                             var leftHtml ='';
+                             var reightHtml ='';
+                            for (var i in collaboration) {
+                                console.log(collaboration[i])
+                               if(i<2){
+                                   leftHtml+='<div class="cell">\n' +
+                                       '                        <a href="">\n' +
+                                       '                            <img src="'+collaboration[i].icon+'" alt="">\n' +
+                                       '                        </a>\n' +
+                                       '                    </div>\n';
+                               }
+                                rightHtml+=' <div class="item " style="background-image: url('+collaboration[i].img+');"></div>\n';
+                            }
+                            $('#container-left').empty();
+                            $('#container-left').append(leftHtml);
+                            $('#container-right').empty();
+                            $('#container-right').append(rightHtml);
+                            $("#container-right").children(":first").addClass('active')
+                        }
+                        if(intro){
+                          var introHtml='<img src="'+intro[0].img+'" style="width: 412px;height:372px;" alt="">\n' +
+                                    '                <p class="p1">'+intro[0].title+'</p>\n' +
+                                    '                <p class="p2">\n' +
+                                    '                    <span>'+intro[0].peopleName+'</span>\n' +
+                                    '                    <i>'+intro[0].duty+'</i>\n' +
+                                    '                </p>\n' +
+                                    '                <span class="icon"></span>';
+                            var rightHtml='<h2>'+intro[0].title+'</h2>\n' +
+                                    '                <h4>'+intro[0].subhead+'</h4>\n' +
+                                    '                <p class="tips">'+intro[0].context+'</p>\n' +
+                                    '                <div class="intro">\n' +
+                                    '                    <div class="item">\n' +
+                                    '                        <div class="bg-1">\n' +
+                                    '                            <div class="bg-2">\n' +
+                                    '                                <span class="icon-1"></span>\n' +
+                                    '                                <p>Graphics</p>\n' +
+                                    '                            </div>\n' +
+                                    '                        </div>\n' +
+                                    '                    </div>\n' +
+                                    '                    <div class="item">\n' +
+                                    '                        <div class="bg-1">\n' +
+                                    '                            <div class="bg-2">\n' +
+                                    '                                <span class="icon-2"></span>\n' +
+                                    '                                <p>Deep Learning</p>\n' +
+                                    '                            </div>\n' +
+                                    '                        </div>\n' +
+                                    '                    </div>\n' +
+                                    '                    <div class="item">\n' +
+                                    '                        <div class="bg-1">\n' +
+                                    '                            <div class="bg-2">\n' +
+                                    '                                <span class="icon-3"></span>\n' +
+                                    '                                <p>Robot</p>\n' +
+                                    '                            </div>\n' +
+                                    '                        </div>\n' +
+                                    '                    </div>\n' +
+                                    '                </div>';
+
+                            $('#item-left').empty();
+                            $('#item-left').append(introHtml);
+                            $('#item-right').empty();
+                            $('#item-right').append(rightHtml);
+                        }
+
+                        if(media){
+                          var mediaHtml='';
+
+                            for (var i in media) {
+                                if(i<4){
+                                    mediaHtml += ' <div class="item">\n' +
+                                        '                <a class="des" href="/home/mediaDetail?ID='+media[i].id+'">\n' +
+                                        '                    <div class="word-content">\n' +
+                                        '                        <img src="'+media[i].img+'" alt="">\n' +
+                                        '                        <div class="word">\n' +
+                                        '                            <div class="hidden">\n' +
+                                        '                                <div class="date">\n' +
+                                        '                                    <i>'+media[i].releaseDate.split(',')[0]+'</i>\n' +
+                                        '                                    <span>'+media[i].releaseDate.split(',')[1]+'</span>\n' +
+                                        '                                </div>\n' +
+                                        '                                <div class="title">'+media[i].title+'</div>\n' +
+                                        '                                <div class="detail">\n'+media[i].content+
+                                        '                                </div>\n' +
+                                        '                            </div>\n' +
+                                        '                        </div>\n' +
+                                        '                    </div>\n' +
+                                        '                    <div class="imgs">\n' +
+                                        '                        <img src="'+media[i].img+'" alt="">\n' +
+                                        '                    </div>\n' +
+                                        '                </a>\n' +
+                                        '            </div>';
+
+                                }
+
+                            }
+                            $('#media-content').empty();
+                            $('#media-content').append(mediaHtml);
+                        }
+                        if(people){
+                          var peopleHtml='';
+                            for (var i in people) {
+                                // if(i<4){
+                                    peopleHtml += ' <div class="swiper-slide people-item">\n' +
+                                        '                            <img src="'+people[i].path+'" style="width:276.75px ;height:333.117px;" alt="">\n' +
+                                        '                            <div class="intro">\n' +
+                                        '                                <p class="job">'+people.duty+'</p>\n' +
+                                        '                                <p class="name">'+people.name+'</p>\n' +
+                                        '                                <div class="link">\n' +
+                                        '                                    <a href="">Homepage</a>\n' +
+                                        '                                </div>\n' +
+                                        '                            </div>\n' +
+                                        '                        </div>';
+
+                                // }
+
+                            }
+                            $('#user-swiper').empty();
+                            $('#user-swiper').append(peopleHtml);
+                        }
+                    }
+
+                    if(reference){
+                        var referenceHtml = '';
+                        for (var i in data.banner) {
+                            referenceHtml+='<div class="item">\n' +
+                                '                    <a href="/home/project" target="_blank">\n' +
+                                '                        <img src="'+rederence.reference+'" alt="">\n' +
+                                '                        <div class="cover">\n' +
+                                '                            <h4>'+rederence.REFERENCE_NAME+'</h4>\n' +
+                                '                            <h5>'+rederence.intro+'</h5>\n' +
+                                '                        </div>\n' +
+                                '                    </a>\n' +
+                                '                </div>';
+                        }
+                        $('#research-pullication').empty();
+                        $('#research-pullication').append(referenceHtml);
+
+                    }
+                }else{
+                    layer.msg('加载错误请刷新重试');
+                }
+                // $(this).addClass("done");
+            });
+
+        }
     </script>
 
 </body>

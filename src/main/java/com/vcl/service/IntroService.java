@@ -17,7 +17,7 @@ public interface IntroService {
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<Intro> findAll();
+	public List<Intro> findAll(Map map);
 	
 	
 	/**

@@ -1,5 +1,6 @@
 package com.vcl.controller;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.pojo.Media;
 import com.vcl.pojo.PageResult;
@@ -26,8 +27,8 @@ public class MediaController {
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<Media> findAll(){
-		return mediaService.findAll();
+	public List<Media> findAll(Map map){
+		return mediaService.findAll(map);
 	}
 	
 	
@@ -105,8 +106,8 @@ public class MediaController {
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public PageResult search(@RequestBody Media media, int page, int rows  ){
-		return mediaService.findPage(media, page, rows);		
+	public PageResult search(@RequestBody Map map, int page, int rows  ){
+		return mediaService.findPage(map, page, rows);
 	}
 	
 }

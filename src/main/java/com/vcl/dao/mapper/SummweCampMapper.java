@@ -4,11 +4,12 @@ import com.vcl.pojo.SummweCamp;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface SummweCampMapper {
     
-    List<SummweCamp> selectByExample(Object o);
+    List<SummweCamp> selectByExample(Map map);
 
     int insert(SummweCamp camp);
 

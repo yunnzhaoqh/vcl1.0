@@ -1,5 +1,6 @@
 package com.vcl.service;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.pojo.Media;
 import com.vcl.pojo.PageResult;
@@ -14,7 +15,7 @@ public interface MediaService {
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<Media> findAll();
+	public List<Media> findAll(Map map);
 	
 	
 	/**
@@ -56,6 +57,6 @@ public interface MediaService {
 	 * @param pageSize 每页记录数
 	 * @return
 	 */
-	public PageResult findPage(Media media, int pageNum,int pageSize);
+	public PageResult findPage(Map map, int pageNum,int pageSize);
 	
 }

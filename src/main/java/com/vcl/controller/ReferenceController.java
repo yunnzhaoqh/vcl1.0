@@ -1,5 +1,6 @@
 package com.vcl.controller;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Result;
@@ -25,8 +26,8 @@ public class ReferenceController {
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<TbReference> findAll(){
-		return referenceService.findAll();
+	public List<TbReference> findAll(Map map){
+		return referenceService.findAll(map);
 	}
 	
 	

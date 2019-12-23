@@ -1,5 +1,6 @@
 package com.vcl.controller;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Result;
@@ -26,8 +27,8 @@ public class CampController {
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<SummweCamp> findAll(){
-		return campService.findAll();
+	public List<SummweCamp> findAll(Map map){
+		return campService.findAll(map);
 	}
 	
 	
@@ -36,8 +37,8 @@ public class CampController {
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResult findPage(int page, int rows){
-		return campService.findPage(page, rows);
+	public PageResult findPage(Map map, int page, int rows){
+		return campService.findPage(map ,page, rows);
 	}
 	
 	/**
@@ -98,15 +99,5 @@ public class CampController {
 		}
 	}
 	
-		/**
-	 * 查询+分页
-	 * @param page
-	 * @param rows
-	 * @return
-	 */
-	@RequestMapping("/search")
-	public PageResult search(@RequestBody SummweCamp camp, int page, int rows  ){
-		return campService.findPage(camp, page, rows);		
-	}
-	
+
 }

@@ -1,5 +1,6 @@
 package com.vcl.service.impl;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.dao.mapper.MediaMapper;
 import com.vcl.pojo.Media;
@@ -26,8 +27,8 @@ public class MediaServiceImpl implements MediaService {
 	 * 查询全部
 	 */
 	@Override
-	public List<Media> findAll() {
-		return mediaMapper.selectByExample(null);
+	public List<Media> findAll(Map map) {
+		return mediaMapper.selectByExample(map);
 	}
 
 	/**
@@ -79,10 +80,10 @@ public class MediaServiceImpl implements MediaService {
 	
 	
 		@Override
-	public PageResult findPage(Media media, int pageNum, int pageSize) {
+	public PageResult findPage(Map map, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		
-		Page<Media> page= (Page<Media>)mediaMapper.selectByExample(media);
+		Page<Media> page= (Page<Media>)mediaMapper.selectByExample(map);
 		return new PageResult(page.getTotal(), page.getResult());
 	}
 	

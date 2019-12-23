@@ -15,6 +15,7 @@ public class Intro {
   private long id;
   private long status;
   private String createTime;
+  private String duty;
 
   @Override
   public String toString() {

@@ -3,7 +3,7 @@
 <mapper namespace="com.vcl.dao.mapper.PeopleMapper">
 
     <select id="selectByExample" parameterType="java.util.Map" resultType="People">
-        SELECT * FROM People
+        SELECT * FROM people
         <where>
             <if test="id != null and id !=''">
             and id = #{id}
@@ -36,7 +36,7 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="People">
-        insert into  People
+        insert into  people
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="id != null and id !=''">
                  id,
@@ -98,7 +98,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="People">
-        update People
+        update people
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
             <if test="id != null and id !=''">
                 id = #{id},
@@ -130,12 +130,12 @@
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
-        update People
+        update people
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
                 status =0,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="People">
-       select * from People WHERE id=#{id}
+       select * from people WHERE id=#{id}
     </select>
 </mapper>

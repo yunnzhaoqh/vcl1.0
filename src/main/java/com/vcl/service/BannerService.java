@@ -17,7 +17,7 @@ public interface BannerService {
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<Banner> findAll();
+	public List<Banner> findAll(Map map);
 	
 	
 	/**

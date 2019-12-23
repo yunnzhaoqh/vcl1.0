@@ -5,9 +5,9 @@ public class Media {
 
   private Long id;
   private String title;
-  private java.sql.Timestamp releaseDate;
+  private String releaseDate;
   private String content;
-  private java.sql.Timestamp createtime;
+  private String createtime;
   private long status;
 
 
@@ -29,11 +29,11 @@ public class Media {
   }
 
 
-  public java.sql.Timestamp getReleaseDate() {
+  public String getReleaseDate() {
     return releaseDate;
   }
 
-  public void setReleaseDate(java.sql.Timestamp releaseDate) {
+  public void setReleaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
   }
 
@@ -47,14 +47,13 @@ public class Media {
   }
 
 
-  public java.sql.Timestamp getCreatetime() {
+  public String getCreatetime() {
     return createtime;
   }
 
-  public void setCreatetime(java.sql.Timestamp createtime) {
+  public void setCreatetime(String createtime) {
     this.createtime = createtime;
   }
-
 
   public long getStatus() {
     return status;

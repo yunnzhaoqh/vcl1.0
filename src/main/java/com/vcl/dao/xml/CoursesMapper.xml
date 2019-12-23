@@ -3,7 +3,7 @@
 <mapper namespace="com.vcl.dao.mapper.CoursesMapper">
 
     <select id="selectByExample" parameterType="java.util.Map" resultType="com.vcl.pojo.Courses">
-        SELECT * FROM Courses
+        SELECT * FROM courses
         <where>
             <if test="ID != null and ID !=''">
             and ID = #{ID}
@@ -30,7 +30,7 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="com.vcl.pojo.Courses">
-        insert into  Courses
+        insert into  courses
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="ID != null and ID !=''">
                  ID,
@@ -80,7 +80,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.vcl.pojo.Courses">
-        update Courses
+        update courses
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
             <if test="ID != null and ID !=''">
                 ID = #{ID},
@@ -106,12 +106,12 @@
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
-        update Courses
+        update courses
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
                 STATUS =0,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="com.vcl.pojo.Courses">
-       select * from Courses WHERE ID=#{ID}
+       select * from courses WHERE ID=#{ID}
     </select>
 </mapper>

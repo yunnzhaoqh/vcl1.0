@@ -29,8 +29,8 @@ public class PeopleServiceImpl implements PeopleService {
 	 * 查询全部
 	 */
 	@Override
-	public List<People> findAll() {
-		return peopleMapper.selectByExample(null);
+	public List<People> findAll(Map map) {
+		return peopleMapper.selectByExample(map);
 	}
 
 	/**

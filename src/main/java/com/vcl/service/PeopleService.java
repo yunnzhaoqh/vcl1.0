@@ -16,7 +16,7 @@ public interface PeopleService {
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<People> findAll();
+	public List<People> findAll(Map map);
 	
 	
 	/**

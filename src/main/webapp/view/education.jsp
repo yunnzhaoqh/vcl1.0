@@ -89,7 +89,7 @@
                 <div class="item">
                     <div class="imgs" style="background-image: url(/resources/images/temp/e-bg-1.jpg);">
                         <div class="cover">
-                            <span>SUMMWE CAMP</span>
+                            <span>SUMMER CAMP</span>
                         </div>
                     </div>
                     <div class="list">

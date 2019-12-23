@@ -30,8 +30,8 @@ public class PeopleController {
 	 */
 	@RequestMapping("/findAll")
 	@ResponseBody
-	public List<People> findAll(){
-		return peopleService.findAll();
+	public List<People> findAll(Map map){
+		return peopleService.findAll(map);
 	}
 	
 	

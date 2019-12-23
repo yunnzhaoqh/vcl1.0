@@ -3,7 +3,7 @@
 <mapper namespace="com.vcl.dao.mapper.SummweCampMapper">
 
     <select id="selectByExample" parameterType="java.util.Map" resultType="SummweCamp">
-        SELECT * FROM Summwe_Camp
+        SELECT * FROM summwe_camp
         <where>
             <if test="ID != null and ID !=''">
             and ID = #{ID}
@@ -27,7 +27,7 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="SummweCamp">
-        insert into  Summwe_Camp
+        insert into  summwe_camp
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="ID != null and ID !=''">
                  ID,
@@ -71,7 +71,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="SummweCamp">
-        update Summwe_Camp
+        update summwe_camp
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
             <if test="ID != null and ID !=''">
                 ID = #{ID},
@@ -94,12 +94,12 @@
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
-        update Summwe_Camp
+        update summwe_camp
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
                 STATUS =0,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="SummweCamp">
-       select * from Summwe_Camp WHERE ID=#{ID}
+       select * from summwe_camp WHERE ID=#{ID}
     </select>
 </mapper>

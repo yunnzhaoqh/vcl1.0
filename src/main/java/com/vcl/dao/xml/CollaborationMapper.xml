@@ -3,7 +3,7 @@
 <mapper namespace="com.vcl.dao.mapper.CollaborationMapper">
 
     <select id="selectByExample" parameterType="java.util.Map" resultType="Collaboration">
-        SELECT * FROM Collaboration
+        SELECT * FROM collaboration
         <where>
             <if test="ID != null and ID !=''">
             and ID = #{ID}
@@ -30,7 +30,7 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Collaboration">
-        insert into  Collaboration
+        insert into  collaboration
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="ID != null and ID !=''">
                  ID,
@@ -80,7 +80,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Collaboration">
-        update Collaboration
+        update collaboration
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
             <if test="ID != null and ID !=''">
                 ID = #{ID},
@@ -106,12 +106,12 @@
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
-        update Collaboration
+        update collaboration
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
                 STATUS =0,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Collaboration">
-       select * from Collaboration WHERE ID=#{ID}
+       select * from collaboration WHERE ID=#{ID}
     </select>
 </mapper>
