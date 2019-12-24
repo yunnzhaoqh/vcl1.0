@@ -1,5 +1,6 @@
 package com.vcl.controller;
 import java.util.List;
+import java.util.Map;
 
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Project;
@@ -37,8 +38,8 @@ public class ProjectController {
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResult findPage(int page, int rows){
-		return projectService.findPage(page, rows);
+	public PageResult findPage(@RequestBody Map map){
+		return projectService.findPage(map);
 	}
 	
 	/**
@@ -47,7 +48,7 @@ public class ProjectController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public Result add(@RequestBody Project project){
+	public Result add(Project project){
 		try {
 			projectService.add(project);
 			return new Result(true, "增加成功");
@@ -63,7 +64,7 @@ public class ProjectController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public Result update(@RequestBody Project project){
+	public Result update(Project project){
 		try {
 			projectService.update(project);
 			return new Result(true, "修改成功");

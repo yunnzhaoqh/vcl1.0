@@ -160,7 +160,7 @@
               </a>
               <dl class="layui-nav-child">
                 <dd>
-                  <a lay-href="/user/user">文章列表</a>
+                  <a lay-href="/admin/project_list">文章列表</a>
                 </dd>
               </dl>
             </li>

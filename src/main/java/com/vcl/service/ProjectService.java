@@ -3,6 +3,8 @@ import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Project;
 
 import java.util.List;
+import java.util.Map;
+
 /**
  * 服务层接口
  * @author Administrator
@@ -21,7 +23,7 @@ public interface ProjectService {
 	 * 返回分页列表
 	 * @return
 	 */
-	public PageResult findPage(int pageNum, int pageSize);
+	public PageResult findPage(Map map);
 	
 	
 	/**

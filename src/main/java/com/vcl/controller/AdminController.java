@@ -32,4 +32,14 @@ public class AdminController {
         return "/coustom/set/user/password";
     }
 
+    @RequestMapping("/project_list")
+    public String project_list(){
+        return "/coustom/project/project_list";
+    }
+
+    @RequestMapping("/add_project")
+    public String add_project(){
+        return "coustom/project/project";
+    }
+
 }

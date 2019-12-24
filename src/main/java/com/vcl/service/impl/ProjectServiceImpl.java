@@ -1,8 +1,10 @@
 package com.vcl.service.impl;
 import java.util.List;
+import java.util.Map;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.vcl.dao.mapper.ProjectMapper;
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Project;
@@ -33,10 +35,11 @@ public class ProjectServiceImpl implements ProjectService {
 	 * 按分页查询
 	 */
 	@Override
-	public PageResult findPage(int pageNum, int pageSize) {
-		PageHelper.startPage(pageNum, pageSize);
-		Page<Project> page=   (Page<Project>) projectMapper.selectByExample(null);
-		return new PageResult(page.getTotal(), page.getResult());
+	public PageResult findPage(Map map) {
+		PageHelper.startPage(Integer.parseInt(map.get("page").toString()), Integer.parseInt(map.get("limit").toString()));
+		List<Project> projects = projectMapper.selectByExample(map);
+		PageInfo<Project> pageInfo = new PageInfo<>(projects);
+		return new PageResult(pageInfo.getTotal(),projects,0,"");
 	}
 
 	/**
