@@ -83,7 +83,10 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <button type="submit" class="layui-btn"  lay-submit lay-filter="LAY-project-submit" id="LAY-project-submit" value="确认">确认</button>
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit lay-filter="LAY-project-submit" id="LAY-project-submit">确认</button>
+            <button type="submit" class="layui-btn layui-btn-primary" lay-filter="LAY-project-close" id="LAY-project-close">取消</button>
+        </div>
     </div>
 </div>
 
@@ -93,59 +96,78 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'upload', 'layedit'], function () {
+    }).use(['index', 'form', 'layedit', 'table'], function () {
         var $ = layui.$,
             form = layui.form,
-            upload = layui.upload,
             layedit = layui.layedit;
+
+        layedit.set({
+            uploadImage: {
+                url: '/user/upload_project_content' //接口url
+                ,type: 'post' //默认post
+            }
+        });
 
         var editindex = layedit.build('content', {
             tool: ['strong', 'italic','underline','del','|','left','center','right','|','link','unlink','face','image','|','code']
         });
 
-        form.on('submit(LAY-project-submit)', function (data) {
-            var field = data.field; //获取提交的字段
-
-            console.log(layedit.getContent(editindex));
-
-            //提交 Ajax 成功后，静态更新表格中的数据
-            // $.ajax({
-            //     url: '',
-            //     data: field,
-            //     dataType: 'json',
-            //     async: false,
-            //     type: 'post',
-            //     success: function (data) {
-            //
-            //     }
-            // });
-            // table.reload('LAY-user-front-submit'); //数据刷新
-            // layer.close(index); //关闭弹层
+        $('#LAY-project-close').click(function () {
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
         });
 
-        upload.render({
-            elem: '#layuiadmin-upload-useradmin',
-            url: '/user/upload_file',
-            auto: true,//是否自动上传
-            accept: 'images',
-            method: 'post',
-            multiple: false,//支持多文件上传,
-            acceptMime: 'image/*',
-            before: function (obj) {
-                this.data = {"dirpath": 'people'}//携带额外的数据
-                var index = layer.load(); //开始上传之后打开load层
-                $("#hidden_tmp_index").val(index);//将load层的index隐藏到页面中
-            },
-            done: function (res) {
-                layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
-                $(this.item).prev("div").children("input").val(res.src);
-                $('#path').attr('src', res.src);
-                layer.msg(res.msg);
-            },
-            error: function () {
-                layer.close(layer.index);
-                layer.msg("上传失败，重新上传")
+        var open_type = parent.open_type;
+
+        if(open_type === 'view'){
+            $('#LAY-project-submit').hide();
+            init();
+        }else if(open_type === 'update'){
+            init()
+        }
+
+        function init(){
+            if(parent.project){
+                var data = parent.project;
+                $('#layuiadmin-form-useradmin input').each(function () {
+                    var name = $(this).attr('name');
+                    $(this).val(data[name]);
+                });
+                $('#layuiadmin-form-useradmin select').each(function () {
+                    var name = $(this).attr('name');
+                    $(this).val(data[name]);
+                });
+                layui.form.render('select');
+                if(data.content){
+                    layedit.setContent(editindex, data.content);
+                }
             }
+        }
+
+        form.on('submit(LAY-project-submit)', function (data) {
+            var field = data.field; //获取提交的字段
+            field.content = layedit.getContent(editindex);
+            var url = '/project/add';
+            if(open_type === 'update'){
+                url = '/project/update';
+            }
+
+            //提交 Ajax 成功后，静态更新表格中的数据
+            $.ajax({
+                url: url,
+                data: field,
+                dataType: 'json',
+                async: false,
+                type: 'post',
+                success: function (data) {
+                    if(data.success){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layui.table.reload('LAY-project-manage'); //数据刷新
+                        parent.layer.close(index);
+                    }
+                    layer.msg(data.massage);
+                }
+            });
         });
     })
 </script>

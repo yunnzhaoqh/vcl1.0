@@ -69,13 +69,13 @@
         </div>
         
         <table id="LAY-user-back-manage" lay-filter="LAY-user-back-manage"></table>  
-        <script type="text/html" id="buttonTpl">
-          {{#  if(d.check == true){ }}
-            <button class="layui-btn layui-btn-xs">已审核</button>
-          {{#  } else { }}
-            <button class="layui-btn layui-btn-primary layui-btn-xs">未审核</button>
-          {{#  } }}
-        </script>
+<%--        <script type="text/html" id="buttonTpl">--%>
+<%--          {{#  if(d.check == true){ }}--%>
+<%--            <button class="layui-btn layui-btn-xs">已审核</button>--%>
+<%--          {{#  } else { }}--%>
+<%--            <button class="layui-btn layui-btn-primary layui-btn-xs">未审核</button>--%>
+<%--          {{#  } }}--%>
+<%--        </script>--%>
         <script type="text/html" id="table-useradmin-admin">
           <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</a>
 <%--          {{#  if(d.role == '超级管理员'){ }}--%>

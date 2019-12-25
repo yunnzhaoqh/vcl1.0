@@ -32,7 +32,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">类型</label>
                     <div class="layui-input-block">
-                        <select name="type">
+                        <select name="status">
                             <option value="">不限</option>
                             <option value="1" selected>有效</option>
                             <option value="0">无效</option>
@@ -54,9 +54,9 @@
             </div>
 
             <table id="LAY-project-manage" lay-filter="LAY-project-manage"></table>
-            <script type="text/html" id="table-useradmin-admin">
-                <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="view"><i
-                        class="layui-icon layui-icon-view"></i>编辑</a>
+            <script type="text/html" id="table-project">
+                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="view"><i
+                        class="layui-icon layui-icon-read"></i>查看</a>
                 <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i
                         class="layui-icon layui-icon-edit"></i>编辑</a>
                 <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i
@@ -91,7 +91,7 @@
         //事件
         var active = {
             add: function () {
-                window.user = undefined;
+                window.project = undefined;
                 layer.open({
                     type: 2
                     , title: '添加项目'

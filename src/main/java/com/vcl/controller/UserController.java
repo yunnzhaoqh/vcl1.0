@@ -78,9 +78,7 @@ public class UserController {
     public Map upload_file(@RequestParam(value = "file", required = false) MultipartFile file, @RequestParam(value = "dirpath", required = false) String dirpath) {
         String prefix = "";
         String fileStr = "";
-        //保存上传
-        OutputStream out = null;
-        InputStream fileInput = null;
+        //保存上传=
         Map<String, Object> map = new HashMap<>();
         try {
             if (file != null) {
@@ -97,8 +95,6 @@ public class UserController {
                 resultpath += fileStr + "." + prefix;
                 filepath = filepath.replace("\\", "/");
                 File files = new File(filepath);
-                //打印查看上传路径
-                System.out.println(filepath);
                 if (!files.getParentFile().exists()) {
                     files.getParentFile().mkdirs();
                 }
@@ -112,18 +108,6 @@ public class UserController {
             map.put("code", 1);
             map.put("msg", "上传失败");
         } finally {
-            try {
-                if (out != null) {
-                    out.close();
-                }
-                if (fileInput != null) {
-                    fileInput.close();
-                }
-            } catch (IOException e) {
-                logger.error("上传文件错误：" + e.getMessage() + "方法：user/upload_file");
-                map.put("code", 1);
-                map.put("msg", "上传失败");
-            }
             return map;
         }
     }
@@ -210,5 +194,41 @@ public class UserController {
             result.setMessage("系统错误");
         }
         return result;
+    }
+
+    /**
+     * project 文章内容上传图片
+     * @param multipartFile
+     * @return
+     */
+    @RequestMapping("/upload_project_content")
+    @ResponseBody
+    public Map upload_project_content(@RequestParam("file") MultipartFile multipartFile){
+        Map map = new HashMap();
+        try {
+            String prefix = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
+            String fileStr = UUID.randomUUID().toString();
+            String filepath = FILE_UPLOAD_PATH + "\\project\\";
+            String resultpath = "\\upload\\project\\";
+            File newFile = new File(filepath + fileStr + "." + prefix);
+            resultpath += fileStr + "." + prefix;
+            if(!newFile.exists()){
+                newFile.mkdirs();
+            }
+            multipartFile.transferTo(newFile);
+            Map dataMap = new HashMap();
+            dataMap.put("src",resultpath);
+            dataMap.put("title", fileStr + "." + prefix);
+            map.put("code",0);
+            map.put("msg","上传成功");
+            map.put("data", dataMap);
+        }catch (Exception e){
+            logger.error("错误：" + e.getMessage() + "项目文件上传");
+            map.put("code",1);
+            map.put("msg","出现错误");
+        }finally {
+            return map;
+        }
+
     }
 }

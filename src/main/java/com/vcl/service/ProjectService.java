@@ -59,5 +59,11 @@ public interface ProjectService {
 	 * @return
 	 */
 	public PageResult findPage(Project project, int pageNum,int pageSize);
-	
+
+	/**
+	 * 删除项目
+	 * @param id
+	 * @return
+	 */
+    int delete_project(Long id);
 }

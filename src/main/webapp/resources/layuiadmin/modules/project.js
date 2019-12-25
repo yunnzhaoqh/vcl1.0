@@ -19,8 +19,20 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'subtitle', title: '副标题', width: 100, sort: true},
             {field: 'share_people', title: '参与人', minWidth: 150},
             {field: 'share_shcool', title: '参与学校', sort: true,},
-            {field: 'type', title: '类型', sort: true, minWidth: 100,},
-            {field: 'status', title: '状态', sort: true, minWidth: 20, templet: function (res) {
+            {field: 'type', title: '类型', sort: true, templet: function (res) {
+                    var type = res.type;
+                    if(type == 1){
+                        return '出版物';
+                    }else if(type == 2){
+                        return '演讲';
+                    }else if(type == 3){
+                        return '研讨会';
+                    }else{
+                        return '';
+                    }
+                }
+            },
+            {field: 'status', title: '状态', sort: true, templet: function (res) {
                     var type = res.status;
                     if(type == 0){
                         return '无效';
@@ -31,7 +43,8 @@ layui.define(['table', 'form'], function (exports) {
                     }
                 }
             },
-            {title: '操作', width: 150, align: 'center', fixed: 'right', toolbar: '#LAY-project-manage'}
+            {field: 'createtime', title: '创建时间', sort: true,},
+            {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
         ]],
         page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）
         limit: 15,    //设置分页数
@@ -44,8 +57,8 @@ layui.define(['table', 'form'], function (exports) {
     table.on('tool(LAY-project-manage)', function(obj){
         var data = obj.data;
         if(obj.event === 'del'){
-            layer.confirm('是否确认删除此人员', function(index){
-                $.post('/people/delete_people',{id: data.id},function (res) {
+            layer.confirm('是否确认删除此文章', function(index){
+                $.post('/project/delete_project',{id: data.id},function (res) {
                     if(res.success){
                         obj.del();
                         layer.close(index);
@@ -56,47 +69,25 @@ layui.define(['table', 'form'], function (exports) {
         } else if(obj.event === 'edit'){
             var tr = $(obj.tr);
             window.project = data;
+            window.open_type = 'update';
             layer.open({
                 type: 2
-                ,title: '编辑用户'
-                ,content: '/people/add_people'
+                ,title: '编辑文章'
+                ,content: '/admin/add_project'
                 ,maxmin: true
-                ,area: ['500px', '450px']
-                ,btn: ['确定', '取消']
-                ,yes: function(index, layero){
-                    var iframeWindow = window['layui-layer-iframe'+ index]
-                        ,submitID = 'LAY-user-front-submit'
-                        ,submit = layero.find('iframe').contents().find('#'+ submitID);
-
-                    //监听提交
-                    iframeWindow.layui.form.on('submit('+ submitID +')', function(data){
-                        var field = data.field; //获取提交的字段
-
-                        //提交 Ajax 成功后，静态更新表格中的数据
-                        $.ajax({
-                            url: '/people/update',
-                            data: field,
-                            dataType: 'json',
-                            async: false,
-                            type: 'post',
-                            success: function (res) {
-                                if(res.success){
-                                    table.reload('LAY-project-manage'); //数据刷新
-                                    layer.close(index); //关闭弹层
-                                }
-                                layer.msg(res.message);
-                            }
-                        });
-                    });
-
-                    submit.trigger('click');
-                }
-                ,success: function(layero, index){
-
-                }
+                ,area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.75 + 'px']
             });
         }else if(obj.event === 'view'){
-
+            var tr = $(obj.tr);
+            window.project = data;
+            window.open_type = 'view';
+            layer.open({
+                type: 2
+                ,title: '查看文章'
+                ,content: '/admin/add_project'
+                ,maxmin: true
+                ,area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.75 + 'px']
+            });
         }
     });
 

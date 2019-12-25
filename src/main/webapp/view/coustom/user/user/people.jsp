@@ -49,6 +49,12 @@
       </div>
     </div>
     <div class="layui-form-item">
+      <label class="layui-form-label">职务</label>
+      <div class="layui-input-inline">
+        <input type="text" name="duty" lay-verify="required" placeholder="请输入职务" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
       <label class="layui-form-label layui-required">人员相片</label>
       <div class="layui-input-inline">
         <img src="" id="path" width="100%" height="100%">

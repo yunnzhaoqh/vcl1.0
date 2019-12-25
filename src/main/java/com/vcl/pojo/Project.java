@@ -4,10 +4,10 @@ package com.vcl.pojo;
 public class Project {
 
   private Long id;
-  private String mainTitle;
+  private String main_title;
   private String subtitle;
-  private String sharePeople;
-  private String _ShareShcool_;
+  private String share_people;
+  private String share_shcool;
   private String content;
   private long type;
   private String createtime;
@@ -22,15 +22,13 @@ public class Project {
     this.id = id;
   }
 
-
-  public String getMainTitle() {
-    return mainTitle;
+  public String getMain_title() {
+    return main_title;
   }
 
-  public void setMainTitle(String mainTitle) {
-    this.mainTitle = mainTitle;
+  public void setMain_title(String main_title) {
+    this.main_title = main_title;
   }
-
 
   public String getSubtitle() {
     return subtitle;
@@ -40,24 +38,21 @@ public class Project {
     this.subtitle = subtitle;
   }
 
-
-  public String getSharePeople() {
-    return sharePeople;
+  public String getShare_people() {
+    return share_people;
   }
 
-  public void setSharePeople(String sharePeople) {
-    this.sharePeople = sharePeople;
+  public void setShare_people(String share_people) {
+    this.share_people = share_people;
   }
 
-
-  public String get_ShareShcool_() {
-    return _ShareShcool_;
+  public String getShare_shcool() {
+    return share_shcool;
   }
 
-  public void set_ShareShcool_(String _ShareShcool_) {
-    this._ShareShcool_ = _ShareShcool_;
+  public void setShare_shcool(String share_shcool) {
+    this.share_shcool = share_shcool;
   }
-
 
   public String getContent() {
     return content;

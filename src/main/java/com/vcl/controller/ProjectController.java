@@ -99,6 +99,22 @@ public class ProjectController {
 			return new Result(false, "删除失败");
 		}
 	}
+
+	/**
+	 * 删除
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/delete_project")
+	public Result delete(Long id){
+		try {
+			projectService.delete_project(id);
+			return new Result(true, "删除成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "删除失败");
+		}
+	}
 	
 		/**
 	 * 查询+分页

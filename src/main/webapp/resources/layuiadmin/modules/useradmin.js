@@ -21,12 +21,13 @@ layui.define(['table', 'form'], function(exports){
     contentType: 'application/json',  //请求数据类型
     cols: [[    //数据首行的列名 field是数据变量名
       // {type: 'checkbox', fixed: 'left'}
-      {field: 'id', width: 100, title: 'ID', sort: true, style:'display:none;'}
+      {field: 'id', width: 20, title: 'ID', sort: true, style:'display:none;'}
       ,{field: 'name', title: '用户名', minWidth: 100}
       // ,{field: 'avatar', title: '头像', width: 100, templet: '#imgTpl'}
       ,{field: 'phone', title: '手机'}
       // ,{field: 'email', title: '邮箱'}
-      ,{field: 'gender', width: 80, title: '性别'}
+      ,{field: 'gender', width: 60, title: '性别'}
+      ,{field: 'duty', title: '职务'}
       ,{
         field: 'type', title: '人员类型', templet: function (res) {
            var type = res.type;

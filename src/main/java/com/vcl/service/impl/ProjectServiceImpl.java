@@ -9,6 +9,7 @@ import com.vcl.dao.mapper.ProjectMapper;
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Project;
 import com.vcl.service.ProjectService;
+import com.vcl.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +48,7 @@ public class ProjectServiceImpl implements ProjectService {
 	 */
 	@Override
 	public void add(Project project) {
+		project.setCreatetime(DateUtil.getDate(DateUtil.DateFormat5));
 		projectMapper.insert(project);		
 	}
 
@@ -86,5 +88,10 @@ public class ProjectServiceImpl implements ProjectService {
 		Page<Project> page= (Page<Project>)projectMapper.selectByExample(project);
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-	
+
+	@Override
+	public int delete_project(Long id) {
+		return projectMapper.deleteByPrimaryKey(id);
+	}
+
 }

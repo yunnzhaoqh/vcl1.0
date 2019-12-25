@@ -17,14 +17,14 @@
         SELECT * FROM user where login_name = #{login_name}
     </select>
 
-    <select id="query_user_list" parameterType="java.util.Map" resultType="User">
-        select id,login_name,name,gender,age,create_time,status from User
+    <select id="query_user_list" parameterType="java.util.Map" resultMap="userMap">
+        select id,login_name,name,gender,age,create_time,status from user
         <where>
             <if test="login_name != null and login_name != ''">
-                and instr(login_name,#{login_name})
+                and instr(login_name,#{login_name}) > 0
             </if>
             <if test="name != null and name != ''">
-                and instr(name,#{login_name})
+                and instr(name,#{name}) > 0
             </if>
         </where>
     </select>

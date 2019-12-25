@@ -65,6 +65,9 @@
             <if test="status != null and status !=''">
                  status ,
             </if>
+            <if test="duty != null and duty !=''">
+                duty ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -94,6 +97,9 @@
             </if>
             <if test="status != null and status !=''">
                 #{status},
+            </if>
+            <if test="duty != null and duty !=''">
+                #{duty},
             </if>
         </trim>
     </insert>
@@ -126,6 +132,9 @@
             </if>
             <if test="status != null and status !=''">
                 status =#{status},
+            </if>
+            <if test="duty != null and duty !=''">
+                duty =#{duty},
             </if>
         </trim>
     </update>

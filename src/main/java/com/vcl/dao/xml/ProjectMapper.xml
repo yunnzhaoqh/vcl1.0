@@ -1,37 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vcl.dao.mapper.ProjectMapper">
+    <resultMap id="projectMap" type="Project">
+        <id column="id" property="id"/>
+        <result column="main_title" property="main_title"/>
+        <result column="subtitle" property="subtitle"/>
+        <result column="share_people" property="share_people"/>
+        <result column="share_shcool" property="share_shcool"/>
+        <result column="content" property="content" />
+        <result column="type" property="type"/>
+        <result column="type" property="type" />
+        <result column="status" property="status" />
+    </resultMap>
 
-    <select id="selectByExample" parameterType="java.util.Map" resultType="Project">
+    <select id="selectByExample" parameterType="java.util.Map" resultMap="projectMap">
         SELECT * FROM project
         <where>
             and status = 1
-            <if test="ID != null and ID !=''">
-            and ID = #{ID}
+            <if test="id != null and id !=''">
+            and id = #{id}
             </if>
-            <if test="MAIN_TITLE != null and MAIN_TITLE !=''">
-                and MAIN_TITLE = #{MAIN_TITLE}
+            <if test="main_title != null and main_title !=''">
+                and main_title = #{main_title}
             </if>
-            <if test="SUBTITLE != null and SUBTITLE !=''">
-                and SUBTITLE = #{SUBTITLE}
+            <if test="subtitle != null and subtitle !=''">
+                and subtitle = #{subtitle}
             </if>
-            <if test="SHARE_PEOPLE != null and SHARE_PEOPLE !=''">
-                and SHARE_PEOPLE = #{SHARE_PEOPLE}
+            <if test="share_people != null and share_people !=''">
+                and share_people = #{share_people}
             </if>
-            <if test="SHARE_SHCOOL != null and SHARE_SHCOOL !=''">
-                and SHARE_SHCOOL = #{SHARE_SHCOOL}
+            <if test="share_shcool != null and share_shcool !=''">
+                and share_shcool = #{share_shcool}
             </if>
-            <if test="CONTENT != null and CONTENT !=''">
-                and CONTENT = #{CONTENT}
+            <if test="content != null and content !=''">
+                and content = #{content}
             </if>
-            <if test="TYPE != null and TYPE !=''">
-                and TYPE = #{TYPE}
+            <if test="type != null and type !=''">
+                and type = #{type}
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                and CREATETIME = #{CREATETIME}
+            <if test="createtime != null and createtime !=''">
+                and createtime = #{createtime}
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                and STATUS = #{STATUS}
+            <if test="status != null and status !=''">
+                and status = #{status}
             </if>
         </where>
     </select>
@@ -39,104 +50,104 @@
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Project">
         insert into  project
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                 ID,
+            <if test="id != null and id !=''">
+                 id,
             </if>
-            <if test="MAIN_TITLE != null and MAIN_TITLE !=''">
-                 MAIN_TITLE ,
+            <if test="main_title != null and main_title !=''">
+                 main_title ,
             </if>
-            <if test="SUBTITLE != null and SUBTITLE !=''">
-                 SUBTITLE ,
+            <if test="subtitle != null and subtitle !=''">
+                 subtitle ,
             </if>
-            <if test="SHARE_PEOPLE != null and SHARE_PEOPLE !=''">
-                 SHARE_PEOPLE ,
+            <if test="share_people != null and share_people !=''">
+                 share_people ,
             </if>
-            <if test="SHARE_SHCOOL != null and SHARE_SHCOOL !=''">
-                 SHARE_SHCOOL ,
+            <if test="share_shcool != null and share_shcool !=''">
+                 share_shcool ,
             </if>
-             <if test="CONTENT != null and CONTENT !=''">
-                 CONTENT ,
+             <if test="content != null and content !=''">
+                 content ,
             </if>
-             <if test="TYPE != null and TYPE !=''">
-                 TYPE ,
+             <if test="type != null and type !=''">
+                 type ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                 CREATETIME ,
+            <if test="createtime != null and createtime !=''">
+                 createtime ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                 STATUS ,
+            <if test="status != null and status !=''">
+                 status ,
             </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                #{ID},
+            <if test="id != null and id !=''">
+                #{id},
             </if>
-            <if test="MAIN_TITLE != null and MAIN_TITLE !=''">
-                #{MAIN_TITLE} ,
+            <if test="main_title != null and main_title !=''">
+                #{main_title} ,
             </if>
-            <if test="SUBTITLE != null and SUBTITLE !=''">
-                #{SUBTITLE} ,
+            <if test="subtitle != null and subtitle !=''">
+                #{subtitle} ,
             </if>
-            <if test="SHARE_PEOPLE != null and SHARE_PEOPLE !=''">
-                #{SHARE_PEOPLE} ,
+            <if test="share_people != null and share_people !=''">
+                #{share_people} ,
             </if>
-            <if test="SHARE_SHCOOL != null and SHARE_SHCOOL !=''">
-                #{SHARE_SHCOOL} ,
+            <if test="share_shcool != null and share_shcool !=''">
+                #{share_shcool} ,
             </if>
-             <if test="CONTENT != null and CONTENT !=''">
-                #{CONTENT} ,
+             <if test="content != null and content !=''">
+                #{content} ,
             </if>
-             <if test="TYPE != null and TYPE !=''">
-                #{TYPE} ,
+             <if test="type != null and type !=''">
+                #{type} ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                #{CREATETIME} ,
+            <if test="createtime != null and createtime !=''">
+                #{createtime} ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                #{STATUS},
+            <if test="status != null and status !=''">
+                #{status},
             </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Project">
         update project
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
-            <if test="ID != null and ID !=''">
-                ID = #{ID},
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
+            <if test="id != null and id !=''">
+                id = #{id},
             </if>
-            <if test="MAIN_TITLE != null and MAIN_TITLE !=''">
-                MAIN_TITLE =#{MAIN_TITLE},
+            <if test="main_title != null and main_title !=''">
+                main_title =#{main_title},
             </if>
-            <if test="SUBTITLE != null and SUBTITLE !=''">
-                SUBTITLE=#{SUBTITLE} ,
+            <if test="subtitle != null and subtitle !=''">
+                subtitle=#{subtitle} ,
             </if>
-            <if test="SHARE_PEOPLE != null and SHARE_PEOPLE !=''">
-                SHARE_PEOPLE=#{SHARE_PEOPLE} ,
+            <if test="share_people != null and share_people !=''">
+                share_people=#{share_people} ,
             </if>
-            <if test="SHARE_SHCOOL != null and SHARE_SHCOOL !=''">
-                SHARE_SHCOOL =#{SHARE_SHCOOL},
+            <if test="share_shcool != null and share_shcool !=''">
+                share_shcool =#{share_shcool},
             </if>
-             <if test="CONTENT != null and CONTENT !=''">
-                 CONTENT =#{CONTENT},
+             <if test="content != null and content !=''">
+                 content =#{content},
             </if>
-             <if test="TYPE != null and TYPE !=''">
-                 TYPE =#{TYPE},
+             <if test="type != null and type !=''">
+                 type =#{type},
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                CREATETIME =#{CREATETIME},
+            <if test="createtime != null and createtime !=''">
+                createtime =#{createtime},
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                STATUS =#{STATUS},
+            <if test="status != null and status !=''">
+                status =#{status},
             </if>
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update project
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
-                STATUS =0,
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
+                status =0,
         </trim>
     </update>
-    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Project">
-       select * from project WHERE ID=#{ID}
+    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="projectMap">
+       select * from project WHERE id=#{id}
     </select>
 </mapper>
