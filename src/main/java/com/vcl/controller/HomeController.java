@@ -80,6 +80,7 @@ public class HomeController {
             List<Collaboration> collaborationList = collaborationService.findAll(map);
             List<Intro> introList = introService.findAll(map);
             List<Media> mediaList = mediaService.findAll(map);
+//            List<Pulication> mediaList = mediaService.findAll(map);
             for (Media media : mediaList) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
                 LocalDateTime date = LocalDateTime.parse( media.getReleaseDate(),formatter);

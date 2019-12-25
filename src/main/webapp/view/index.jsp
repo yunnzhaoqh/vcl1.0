@@ -165,28 +165,7 @@
     <section class="index-media-content">
         <div class="index-title">Media</div>
         <div class="media-content" id="media-content">
-            <%--<div class="item">--%>
-                <%--<a class="des" href="/home/media?">--%>
-                    <%--<div class="word-content">--%>
-                        <%--<img src="../resources/images/temp/vcl-red_05.png" alt="">--%>
-                        <%--<div class="word">--%>
-                            <%--<div class="hidden">--%>
-                                <%--<div class="date">--%>
-                                    <%--<i>05</i>--%>
-                                    <%--<span>Sept 2019</span>--%>
-                                <%--</div>--%>
-                                <%--<div class="title">招募 | 北京大学AI+艺术暑期工坊之舞蹈机器人，等你来！</div>--%>
-                                <%--<div class="detail">--%>
-                                    <%--2019年7月4日，北京大学第三届图灵班（2018级）开班仪式在静园五院举行。新入选的2018级图灵班计算机方向、人工智能方向的同学悉数到场，北京大学访问讲席教授、前沿计算研究中心主任、图灵班指导委员会主任约翰·霍普克罗夫特（John Hopcroft），教务部副部长刘建波教授，信息科学技术学院院长高文教授、副院长侯士敏教授、党委副书记熊校良老师，前沿计算研究中心执行主任陈宝权教授和多名图灵班科研导师与任课教师出席了活动。开班仪式由信息科学技术学院计算机科学技术系副主任郭耀教授主持。--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="imgs">--%>
-                        <%--<img src="../resources/images/temp/vcl-red_05.png" alt="">--%>
-                    <%--</div>--%>
-                <%--</a>--%>
-            <%--</div>--%>
+
             <%--<div class="item">--%>
                 <%--<a class="des" href="">--%>
                     <%--<div class="imgs">--%>
@@ -494,52 +473,16 @@
     <script type="text/javascript" src="../resources/layuiadmin/layui/layui.all.js"></script>
 
     <script>
-        var swiperBanner = new Swiper('.swiper-banner', {
-            pagination: {
-                el: '.banner-title .pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-banner .swiper-button-next',
-                prevEl: '.swiper-banner .swiper-button-prev',
-            },
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
-            speed: 700,
-            on:{
-                slideChange: function(){
-                    // console.log(this.activeIndex)
-                    $('.banner-title .item').eq(this.activeIndex).addClass('active').siblings().removeClass('active');
-                }
-            }
-        });
+        //初始化数据
+       $(function () {
+           initHomeData();
+           $('.index-collaboration-content .item-left .cell').on('mouseover', function(){
+               var index = $(this).index();
+               $('.index-collaboration-content .item-right .item').eq(index).addClass('active').siblings().removeClass('active');
 
-        var swiperUser = new Swiper('.swiper-user .swiper-container', {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
-            spaceBetween: 30,
-            freeMode: true,
-            navigation: {
-                nextEl: '.swiper-user .swiper-button-next',
-                prevEl: '.swiper-user .swiper-button-prev',
-            }
-        });
-
-        $(function(){
-            $('.index-collaboration-content .item-left .cell').on('mouseover', function(){
-                var index = $(this).index();
-                $('.index-collaboration-content .item-right .item').eq(index).addClass('active').siblings().removeClass('active');
-
-            });
-            //初始化数据
-            initHomeData();
-        });
+           });
+           // swiperUser;
+       });
         function initHomeData() {
             $.ajax({
                 url: "/home/initHome",
@@ -555,7 +498,7 @@
                         var intro = data.obj.intro;
                         var media = data.obj.media;
                         var people = data.obj.people;
-                        var reference = data.obj.reference;
+                        var pulication = data.obj.pulication;
                         if(banner){
                             var bannerHtml = '';
                             var wrapperContext = '';
@@ -646,27 +589,53 @@
 
                             for (var i in media) {
                                 if(i<4){
-                                    mediaHtml += ' <div class="item">\n' +
-                                        '                <a class="des" href="/home/mediaDetail?ID='+media[i].id+'">\n' +
-                                        '                    <div class="word-content">\n' +
-                                        '                        <img src="'+media[i].img+'" alt="">\n' +
-                                        '                        <div class="word">\n' +
-                                        '                            <div class="hidden">\n' +
-                                        '                                <div class="date">\n' +
-                                        '                                    <i>'+media[i].releaseDate.split(',')[0]+'</i>\n' +
-                                        '                                    <span>'+media[i].releaseDate.split(',')[1]+'</span>\n' +
-                                        '                                </div>\n' +
-                                        '                                <div class="title">'+media[i].title+'</div>\n' +
-                                        '                                <div class="detail">\n'+media[i].content+
-                                        '                                </div>\n' +
-                                        '                            </div>\n' +
-                                        '                        </div>\n' +
-                                        '                    </div>\n' +
-                                        '                    <div class="imgs">\n' +
-                                        '                        <img src="'+media[i].img+'" alt="">\n' +
-                                        '                    </div>\n' +
-                                        '                </a>\n' +
-                                        '            </div>';
+                                    if(i%2 == 1){
+                                        mediaHtml += ' <div class="item">\n' +
+                                            '                <a class="des" href="/home/mediaDetail?ID='+media[i].id+'">\n' +
+                                            '                    <div class="imgs">\n' +
+                                            '                        <img src="'+media[i].img+'" alt="">\n' +
+                                            '                    </div>\n' +
+                                            '                    <div class="word-content">\n' +
+                                            '                        <img src="'+media[i].img+'" alt="">\n' +
+                                            '                        <div class="word">\n' +
+                                            '                            <div class="hidden">\n' +
+                                            '                                <div class="date">\n' +
+                                            '                                    <i>'+media[i].releaseDate.split(',')[0]+'</i>\n' +
+                                            '                                    <span>'+media[i].releaseDate.split(',')[1]+'</span>\n' +
+                                            '                                </div>\n' +
+                                            '                                <div class="title">'+media[i].title+'</div>\n' +
+                                            '                                <div class="detail">\n'+media[i].content+
+                                            '                                </div>\n' +
+                                            '                            </div>\n' +
+                                            '                        </div>\n' +
+                                            '                    </div>\n' +
+                                            '                </a>\n' +
+                                            '            </div>';
+                                    }else{
+                                        mediaHtml += ' <div class="item">\n' +
+                                            '                <a class="des" href="/home/mediaDetail?ID='+media[i].id+'">\n' +
+                                            '                    <div class="word-content">\n' +
+                                            '                        <img src="'+media[i].img+'" alt="">\n' +
+                                            '                        <div class="word">\n' +
+                                            '                            <div class="hidden">\n' +
+                                            '                                <div class="date">\n' +
+                                            '                                    <i>'+media[i].releaseDate.split(',')[0]+'</i>\n' +
+                                            '                                    <span>'+media[i].releaseDate.split(',')[1]+'</span>\n' +
+                                            '                                </div>\n' +
+                                            '                                <div class="title">'+media[i].title+'</div>\n' +
+                                            '                                <div class="detail">\n'+media[i].content+
+                                            '                                </div>\n' +
+                                            '                            </div>\n' +
+                                            '                        </div>\n' +
+                                            '                    </div>\n' +
+                                            '                    <div class="imgs">\n' +
+                                            '                        <img src="'+media[i].img+'" alt="">\n' +
+                                            '                    </div>\n' +
+                                            '                </a>\n' +
+                                            '            </div>';
+                                    }
+
+
 
                                 }
 
@@ -679,10 +648,10 @@
                             for (var i in people) {
                                 // if(i<4){
                                     peopleHtml += ' <div class="swiper-slide people-item">\n' +
-                                        '                            <img src="'+people[i].path+'" style="width:276.75px ;height:333.117px;" alt="">\n' +
+                                        '                            <img src="'+people[i].path+'"alt="">\n' +
                                         '                            <div class="intro">\n' +
-                                        '                                <p class="job">'+people.duty+'</p>\n' +
-                                        '                                <p class="name">'+people.name+'</p>\n' +
+                                        '                                <p class="job">'+people[i].duty+'</p>\n' +
+                                        '                                <p class="name">'+people[i].name+'</p>\n' +
                                         '                                <div class="link">\n' +
                                         '                                    <a href="">Homepage</a>\n' +
                                         '                                </div>\n' +
@@ -697,23 +666,60 @@
                         }
                     }
 
-                    if(reference){
-                        var referenceHtml = '';
+                    if(pulication){
+                        var pulicationHtml = '';
                         for (var i in data.banner) {
-                            referenceHtml+='<div class="item">\n' +
+                            pulicationHtml+='<div class="item">\n' +
                                 '                    <a href="/home/project" target="_blank">\n' +
                                 '                        <img src="'+rederence.reference+'" alt="">\n' +
                                 '                        <div class="cover">\n' +
-                                '                            <h4>'+rederence.REFERENCE_NAME+'</h4>\n' +
+                                '                            <h4>'+rederence.referenceName+'</h4>\n' +
                                 '                            <h5>'+rederence.intro+'</h5>\n' +
                                 '                        </div>\n' +
                                 '                    </a>\n' +
                                 '                </div>';
                         }
                         $('#research-pullication').empty();
-                        $('#research-pullication').append(referenceHtml);
+                        $('#research-pullication').append(pulicationHtml);
 
                     }
+
+                    var swiperBanner = new Swiper('.swiper-banner', {
+                        pagination: {
+                            el: '.banner-title .pagination',
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: '.swiper-banner .swiper-button-next',
+                            prevEl: '.swiper-banner .swiper-button-prev',
+                        },
+                        autoplay: {
+                            delay: 2000,
+                            disableOnInteraction: false,
+                        },
+                        effect: 'fade',
+                        fadeEffect: {
+                            crossFade: true
+                        },
+                        speed: 700,
+                        on:{
+                            slideChange: function(){
+                                // console.log(this.activeIndex)
+                                $('.banner-title .item').eq(this.activeIndex).addClass('active').siblings().removeClass('active');
+                            }
+                        }
+                    });
+
+                    var swiperUser = new Swiper('.swiper-user .swiper-container', {
+                        slidesPerView: 4,
+                        slidesPerGroup: 4,
+                        spaceBetween: 30,
+                        freeMode: true,
+                        navigation: {
+                            nextEl: '.swiper-user .swiper-button-next',
+                            prevEl: '.swiper-user .swiper-button-prev',
+                        }
+                    });
                 }else{
                     layer.msg('加载错误请刷新重试');
                 }

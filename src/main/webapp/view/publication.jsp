@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=0.2, minimum-scale=0.2, maximum-scale=1.0, user-scalable=yes">
 
-    <title>publication</title>
+    <title>PUBLICATION</title>
 
     <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
 
@@ -105,7 +105,7 @@
                         <span>2015</span>
                     </div>
                     <div class="share">
-                        <a class="icon" href="">
+                        <a class="icon" href="/home/share" >
                             <p>
                                 <span></span>
                             </p>
@@ -121,7 +121,7 @@
                             <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
                             <li class="size">IEEE TPAMI 2019</li>
                             <li class="download">
-                                <a href="/home/project" class="link" target="_blank">more</a>
+                                <a href="/home/project" class="link" >more</a>
                                 <span class="file pdf"></span>
                             </li>
                         </ul>

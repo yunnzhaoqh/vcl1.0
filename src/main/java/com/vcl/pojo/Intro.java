@@ -17,6 +17,14 @@ public class Intro {
   private String createTime;
   private String duty;
 
+  public String getDuty() {
+    return duty;
+  }
+
+  public void setDuty(String duty) {
+    this.duty = duty;
+  }
+
   @Override
   public String toString() {
     return "Intro{" +

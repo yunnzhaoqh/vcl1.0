@@ -12,7 +12,15 @@ public class People {
   private long type;
   private String createtime;
   private long status;
+  private String duty;
 
+  public String getDuty() {
+    return duty;
+  }
+
+  public void setDuty(String duty) {
+    this.duty = duty;
+  }
 
   public Long getId() {
     return id;
