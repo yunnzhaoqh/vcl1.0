@@ -22,7 +22,7 @@ public interface MediaService {
 	 * 返回分页列表
 	 * @return
 	 */
-	public PageResult findPage(int pageNum, int pageSize);
+	public PageResult findPage(Map map);
 	
 	
 	/**
@@ -58,5 +58,6 @@ public interface MediaService {
 	 * @return
 	 */
 	public PageResult findPage(Map map, int pageNum,int pageSize);
-	
+
+    int delete_media(Long id);
 }

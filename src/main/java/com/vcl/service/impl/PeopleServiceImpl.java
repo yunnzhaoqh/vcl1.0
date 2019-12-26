@@ -94,5 +94,14 @@ public class PeopleServiceImpl implements PeopleService {
 		Page<People> page= (Page<People>)peopleMapper.selectByExample(people);
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-	
+
+	/**
+	 * 查询教授
+	 * @return
+	 */
+	@Override
+	public List<People> query_professor() {
+		return peopleMapper.query_professor();
+	}
+
 }

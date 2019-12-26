@@ -108,59 +108,55 @@
 <%--                </dd>--%>
 <%--              </dl>--%>
             </li>
-            <li data-name="template" class="layui-nav-item">
-              <a href="javascript:;" lay-tips="页面" lay-direction="2">
-                <i class="layui-icon layui-icon-template"></i>
-                <cite>页面</cite>
-              </a>
-              <dl class="layui-nav-child">
-                <dd><a lay-href="template/personalpage.html">个人主页</a></dd>
-                <dd><a lay-href="template/addresslist.html">通讯录</a></dd>
-                <dd><a lay-href="template/goodslist.html">商品列表</a></dd>
-                <dd><a lay-href="template/msgboard.html">留言板</a></dd>
-                <dd><a lay-href="template/search.html">搜索结果</a></dd>
-                <dd><a href="user/reg.jsp" target="_blank">注册</a></dd>
-                <dd><a href="user/login.jsp" target="_blank">登入</a></dd>
-                <dd><a href="user/forget.jsp" target="_blank">忘记密码</a></dd>
-                <dd><a lay-href="template/tips/404.html">404页面不存在</a></dd>
-                <dd><a lay-href="template/tips/error.html">错误提示</a></dd>
-                <dd><a lay-href="http://www.baidu.com/">百度一下</a></dd>
-                <dd><a lay-href="http://www.layui.com/">layui官网</a></dd>
-                <dd><a lay-href="http://www.layui.com/admin/">layuiAdmin官网</a></dd>
-              </dl>
-            </li>
+<%--            <li data-name="template" class="layui-nav-item">--%>
+<%--              <a href="javascript:;" lay-tips="页面" lay-direction="2">--%>
+<%--                <i class="layui-icon layui-icon-template"></i>--%>
+<%--                <cite>页面</cite>--%>
+<%--              </a>--%>
+<%--              <dl class="layui-nav-child">--%>
+<%--                <dd><a lay-href="template/personalpage.html">个人主页</a></dd>--%>
+<%--                <dd><a lay-href="template/addresslist.html">通讯录</a></dd>--%>
+<%--                <dd><a lay-href="template/goodslist.html">商品列表</a></dd>--%>
+<%--                <dd><a lay-href="template/msgboard.html">留言板</a></dd>--%>
+<%--                <dd><a lay-href="template/search.html">搜索结果</a></dd>--%>
+<%--                <dd><a href="user/reg.jsp" target="_blank">注册</a></dd>--%>
+<%--                <dd><a href="user/login.jsp" target="_blank">登入</a></dd>--%>
+<%--                <dd><a href="user/forget.jsp" target="_blank">忘记密码</a></dd>--%>
+<%--                <dd><a lay-href="template/tips/404.html">404页面不存在</a></dd>--%>
+<%--                <dd><a lay-href="template/tips/error.html">错误提示</a></dd>--%>
+<%--                <dd><a lay-href="http://www.baidu.com/">百度一下</a></dd>--%>
+<%--                <dd><a lay-href="http://www.layui.com/">layui官网</a></dd>--%>
+<%--                <dd><a lay-href="http://www.layui.com/admin/">layuiAdmin官网</a></dd>--%>
+<%--              </dl>--%>
+<%--            </li>--%>
             <li data-name="app" class="layui-nav-item">
               <a href="javascript:;" lay-tips="应用" lay-direction="2">
                 <i class="layui-icon layui-icon-app"></i>
-                <cite>应用</cite>
+                <cite>教育</cite>
               </a>
               <dl class="layui-nav-child">
-                
                 <dd data-name="content">
-                  <a href="javascript:;">内容系统</a>
-                  <dl class="layui-nav-child">
-                    <dd data-name="list"><a lay-href="app/content/list.html">文章列表</a></dd>
-                    <dd data-name="tags"><a lay-href="app/content/tags.html">分类管理</a></dd>
-                    <dd data-name="comment"><a lay-href="app/content/comment.html">评论管理</a></dd>
-                  </dl>
+                  <a href="/admin/summweCamp">夏令营</a>
                 </dd>
                 <dd data-name="forum">
-                  <a href="javascript:;">社区系统</a>
-                  <dl class="layui-nav-child">
-                    <dd data-name="list"><a lay-href="app/forum/list.html">帖子列表</a></dd>
-                    <dd data-name="replys"><a lay-href="app/forum/replys.html">回帖列表</a></dd>
-                  </dl>
+                  <a href="/admin/course">课程</a>
+                </dd>
+                <dd data-name="forum">
+                  <a href="/admin/reference">参考</a>
                 </dd>
               </dl>
             </li>
             <li data-name="user" class="layui-nav-item">
               <a href="javascript:;" lay-tips="用户" lay-direction="2">
                 <i class="layui-icon layui-icon-user"></i>
-                <cite>项目管理</cite>
+                <cite>文章管理</cite>
               </a>
               <dl class="layui-nav-child">
                 <dd>
                   <a lay-href="/admin/project_list">文章列表</a>
+                </dd>
+                <dd>
+                  <a lay-href="/admin/media_list">media列表</a>
                 </dd>
               </dl>
             </li>

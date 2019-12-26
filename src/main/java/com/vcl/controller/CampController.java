@@ -37,8 +37,8 @@ public class CampController {
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResult findPage(Map map, int page, int rows){
-		return campService.findPage(map ,page, rows);
+	public PageResult findPage(@RequestBody Map map){
+		return campService.findPage(map);
 	}
 	
 	/**
@@ -93,6 +93,22 @@ public class CampController {
 		try {
 			campService.delete(ids);
 			return new Result(true, "删除成功"); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "删除失败");
+		}
+	}
+
+	/**
+	 * 批量删除
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/delete_summwe_camp")
+	public Result delete_summwe_camp(Long id){
+		try {
+			campService.delete_summwe_camp(id);
+			return new Result(true, "删除成功");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, "删除失败");

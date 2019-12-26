@@ -1,6 +1,6 @@
 package com.vcl.dao.mapper;
 
-import com.vcl.pojo.TbReference;
+import com.vcl.pojo.Reference;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -8,13 +8,13 @@ import java.util.List;
 @Repository
 public interface ReferenceMapper {
 
-    List<TbReference> selectByExample(Object o);
+    List<Reference> selectByExample(Object o);
 
-    int insert(TbReference tbReference);
+    int insert(Reference tbReference);
 
-    int updateByPrimaryKey(TbReference tbReference);
+    int updateByPrimaryKey(Reference tbReference);
 
-    TbReference selectByPrimaryKey(Long id);
+    Reference selectByPrimaryKey(Long id);
 
     int deleteByPrimaryKey(Long id);
 }

@@ -37,8 +37,8 @@ public class MediaController {
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResult findPage(int page, int rows){
-		return mediaService.findPage(page, rows);
+	public PageResult findPage(@RequestBody Map map){
+		return mediaService.findPage(map);
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public class MediaController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public Result add(@RequestBody Media media){
+	public Result add(Media media){
 		try {
 			mediaService.add(media);
 			return new Result(true, "增加成功");
@@ -63,7 +63,7 @@ public class MediaController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public Result update(@RequestBody Media media){
+	public Result update(Media media){
 		try {
 			mediaService.update(media);
 			return new Result(true, "修改成功");
@@ -98,8 +98,24 @@ public class MediaController {
 			return new Result(false, "删除失败");
 		}
 	}
-	
-		/**
+
+	/**
+	 * 批量删除
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/delete_media")
+	public Result delete_media(Long id){
+		try {
+			mediaService.delete_media(id);
+ 			return new Result(true, "删除成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "删除失败");
+		}
+	}
+
+	/**
 	 * 查询+分页
 	 * @param page
 	 * @param rows

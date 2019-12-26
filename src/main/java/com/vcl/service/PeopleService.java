@@ -66,5 +66,10 @@ public interface PeopleService {
 	 * @return
 	 */
 	public PageResult findPage(People people, int pageNum,int pageSize);
-	
+
+	/**
+	 * 查询教授
+	 * @return
+	 */
+    List<People> query_professor();
 }

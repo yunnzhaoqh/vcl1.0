@@ -144,5 +144,15 @@ public class PeopleController {
 	public PageResult search(@RequestBody People people, int page, int rows  ){
 		return peopleService.findPage(people, page, rows);		
 	}
+
+	/**
+	 * 查询所有教授
+	 * @return
+	 */
+	@RequestMapping("/query_professor")
+	@ResponseBody
+	public List<People> query_professor(){
+		return peopleService.query_professor();
+	}
 	
 }

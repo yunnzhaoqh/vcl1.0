@@ -147,4 +147,8 @@
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="People">
        select * from people WHERE id=#{id}
     </select>
+
+    <select id="query_professor" resultMap="People">
+        select id,name from people where type = 2
+    </select>
 </mapper>

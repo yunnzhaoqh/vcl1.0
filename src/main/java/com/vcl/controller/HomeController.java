@@ -92,7 +92,7 @@ public class HomeController {
 //                mediaList.add(media);
             }
             List<People> peopleList = peopleService.findAll(map);
-            List<TbReference> references = referenceService.findAll(map);
+            List<Reference> references = referenceService.findAll(map);
             map = new HashMap();
             map.put("banner",bannerList);
             map.put("collaboration",collaborationList);

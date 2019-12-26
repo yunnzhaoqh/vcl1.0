@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.vcl.pojo.PageResult;
-import com.vcl.pojo.TbReference;
+import com.vcl.pojo.Reference;
 
 /**
  * 服务层接口
@@ -16,26 +16,26 @@ public interface ReferenceService {
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<TbReference> findAll(Map map);
+	public List<Reference> findAll(Map map);
 	
 	
 	/**
 	 * 返回分页列表
 	 * @return
 	 */
-	public PageResult findPage(int pageNum, int pageSize);
+	public PageResult findPage(Map map);
 	
 	
 	/**
 	 * 增加
 	*/
-	public void add(TbReference tbReference);
+	public void add(Reference tbReference);
 	
 	
 	/**
 	 * 修改
 	 */
-	public void update(TbReference tbReference);
+	public void update(Reference tbReference);
 	
 
 	/**
@@ -43,7 +43,7 @@ public interface ReferenceService {
 	 * @param id
 	 * @return
 	 */
-	public TbReference findOne(Long id);
+	public Reference findOne(Long id);
 	
 	
 	/**
@@ -58,6 +58,7 @@ public interface ReferenceService {
 	 * @param pageSize 每页记录数
 	 * @return
 	 */
-	public PageResult findPage(TbReference tbReference, int pageNum, int pageSize);
-	
+	public PageResult findPage(Reference tbReference, int pageNum, int pageSize);
+
+    void delete_reference(Long id);
 }
