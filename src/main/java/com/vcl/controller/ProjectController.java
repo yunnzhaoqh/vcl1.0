@@ -28,8 +28,8 @@ public class ProjectController {
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<Project> findAll(){
-		return projectService.findAll();
+	public List<Project> findAll(Map map){
+		return projectService.findAll(map);
 	}
 	
 	

@@ -16,7 +16,7 @@ public interface ProjectService {
 	 * 返回全部列表
 	 * @return
 	 */
-	public List<Project> findAll();
+	public List<Project> findAll(Map map);
 	
 	
 	/**

@@ -28,8 +28,8 @@ public class ProjectServiceImpl implements ProjectService {
 	 * 查询全部
 	 */
 	@Override
-	public List<Project> findAll() {
-		return projectMapper.selectByExample(null);
+	public List<Project> findAll(Map map) {
+		return projectMapper.selectByExample(map);
 	}
 
 	/**

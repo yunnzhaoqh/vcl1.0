@@ -12,6 +12,15 @@ public class TbReference {
   private long status;
   private String reference;
   private String intro;
+  private String bgImg;
+
+  public String getBgImg() {
+    return bgImg;
+  }
+
+  public void setBgImg(String bgImg) {
+    this.bgImg = bgImg;
+  }
 
   @Override
   public String toString() {

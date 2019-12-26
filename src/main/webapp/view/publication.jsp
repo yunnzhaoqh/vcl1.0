@@ -83,29 +83,30 @@
         <div class="content">
             <div class="index-title">Research Pulication</div>
             <div class="container">
-                <div class="item-left">
-                    <div class="year active">
-                        <i></i>
-                        <span>2019</span>
-                    </div>
-                    <div class="year">
-                        <i></i>
-                        <span>2018</span>
-                    </div>
-                    <div class="year">
-                        <i></i>
-                        <span>2017</span>
-                    </div>
-                    <div class="year">
-                        <i></i>
-                        <span>2016</span>
-                    </div>
-                    <div class="year">
-                        <i></i>
-                        <span>2015</span>
-                    </div>
+                <div class="item-left" id="public_left">
+                    <%--<div class="year active">--%>
+                        <%--<i></i>--%>
+                        <%--<span>2019</span>--%>
+                    <%--</div>--%>
+                    <%--<div class="year">--%>
+                        <%--<i></i>--%>
+                        <%--<span>2018</span>--%>
+                    <%--</div>--%>
+                    <%--<div class="year">--%>
+                        <%--<i></i>--%>
+                        <%--<span>2017</span>--%>
+                    <%--</div>--%>
+                    <%--<div class="year">--%>
+                        <%--<i></i>--%>
+                        <%--<span>2016</span>--%>
+                    <%--</div>--%>
+                    <%--<div class="year">--%>
+                        <%--<i></i>--%>
+                        <%--<span>2015</span>--%>
+                    <%--</div>--%>
                     <div class="share">
-                        <a class="icon" href="/home/share" >
+                        <a class="icon" href="" >
+                            <%--/home/share--%>
                             <p>
                                 <span></span>
                             </p>
@@ -113,90 +114,90 @@
                         </a>
                     </div>
                 </div>
-                <div class="item-right">
-                    <div class="item">
-                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
-                        <ul>
-                            <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
-                            <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
-                            <li class="size">IEEE TPAMI 2019</li>
-                            <li class="download">
-                                <a href="/home/project" class="link" >more</a>
-                                <span class="file pdf"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="item">
-                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
-                        <ul>
-                            <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
-                            <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
-                            <li class="size">IEEE TPAMI 2019</li>
-                            <li class="download">
-                                <span class="file pdf"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="item">
-                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
-                        <ul>
-                            <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
-                            <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
-                            <li class="size">IEEE TPAMI 2019</li>
-                            <li class="download">
-                                <span class="file pdf"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="item">
-                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
-                        <ul>
-                            <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
-                            <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
-                            <li class="size">IEEE TPAMI 2019</li>
-                            <li class="download">
-                                <a href="/home/project" class="link" target="_blank">more</a>
-                                <span class="file pdf"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="item">
-                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
-                        <ul>
-                            <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
-                            <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
-                            <li class="size">IEEE TPAMI 2019</li>
-                            <li class="download">
-                                <a href="" class="link">more</a>
-                                <span class="file pdf"></span>
-								
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="item">
-                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
-                        <ul>
-                            <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
-                            <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
-                            <li class="size">IEEE TPAMI 2019</li>
-                            <li class="download">
-                                <a href="" class="link">more</a>
-                                <span class="file pdf"></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="item">
-                        <div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>
-                        <ul>
-                            <li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>
-                            <li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>
-                            <li class="size">IEEE TPAMI 2019</li>
-                            <li class="download">
-                                <a href="" class="link">more</a>
-                                <span class="file pdf"></span>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="item-right" id="public_right">
+                    <%--<div class="item">--%>
+                        <%--<div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>--%>
+                        <%--<ul>--%>
+                            <%--<li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>--%>
+                            <%--<li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>--%>
+                            <%--<li class="size">IEEE TPAMI 2019</li>--%>
+                            <%--<li class="download">--%>
+                                <%--<a href="/home/project" class="link" >more</a>--%>
+                                <%--<span class="file pdf"></span>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>--%>
+                        <%--<ul>--%>
+                            <%--<li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>--%>
+                            <%--<li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>--%>
+                            <%--<li class="size">IEEE TPAMI 2019</li>--%>
+                            <%--<li class="download">--%>
+                                <%--<span class="file pdf"></span>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>--%>
+                        <%--<ul>--%>
+                            <%--<li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>--%>
+                            <%--<li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>--%>
+                            <%--<li class="size">IEEE TPAMI 2019</li>--%>
+                            <%--<li class="download">--%>
+                                <%--<span class="file pdf"></span>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>--%>
+                        <%--<ul>--%>
+                            <%--<li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>--%>
+                            <%--<li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>--%>
+                            <%--<li class="size">IEEE TPAMI 2019</li>--%>
+                            <%--<li class="download">--%>
+                                <%--<a href="/home/project" class="link" target="_blank">more</a>--%>
+                                <%--<span class="file pdf"></span>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>--%>
+                        <%--<ul>--%>
+                            <%--<li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>--%>
+                            <%--<li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>--%>
+                            <%--<li class="size">IEEE TPAMI 2019</li>--%>
+                            <%--<li class="download">--%>
+                                <%--<a href="" class="link">more</a>--%>
+                                <%--<span class="file pdf"></span>--%>
+								<%----%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>--%>
+                        <%--<ul>--%>
+                            <%--<li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>--%>
+                            <%--<li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>--%>
+                            <%--<li class="size">IEEE TPAMI 2019</li>--%>
+                            <%--<li class="download">--%>
+                                <%--<a href="" class="link">more</a>--%>
+                                <%--<span class="file pdf"></span>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                    <%--<div class="item">--%>
+                        <%--<div class="cover" style="background-image: url(/resources/images/temp/publication_03.png);"></div>--%>
+                        <%--<ul>--%>
+                            <%--<li class="name">A General Decoupled Learning Framework for Parameterized Image Operators</li>--%>
+                            <%--<li class="tips">Manyi Li, Akshay Gadi Patil, Kai Xu, Siddhartha Chaudhuri, Owais Khan, Ariel Shamir, Changhe Tu, Baoquan Chen, Daniel Cohen-Or, Hao Zhang</li>--%>
+                            <%--<li class="size">IEEE TPAMI 2019</li>--%>
+                            <%--<li class="download">--%>
+                                <%--<a href="" class="link">more</a>--%>
+                                <%--<span class="file pdf"></span>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
                 </div>
             </div>
         </div>
@@ -256,17 +257,99 @@
     <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function(){
+            initpublication()
             $('.item-left .year').click(function () {
                 $(this).addClass('active').siblings().removeClass('active');
+                click(this.text());
             });
 			$('.share').find('a').click(function(){
 			$('.download').each(function(){
-			$(this).find('a').attr('href','Download');
-			$(this).find('a').attr('download','Download');
-			$(this).find('.link').text('Download');
+			// $(this).find('a').attr('href','Download');
+			// $(this).find('a').attr('download','Download');
+			$(this).find('.link.more').style.display='none';
+			$(this).find('.link.download').style.display='none';
 			});
 			});
         });
+        function click(Year) {
+            $.ajax({
+                url: "/home/initPublication",
+                data:{YEAR:Year,STATUS:1},
+                context: document.body,
+                dataType :'json',
+                type:'post'
+            }).done(function(data) {
+                if (data.success) {
+                    var publicRight ='';
+                    var reference =data.obj.reference;
+                    for(var i in reference){
+                        if(i<7){
+                            publicRight = '<div class="item">\n' +
+                                '                        <div class="cover" style="background-image: url('+reference[i].byImg +');"></div>\n' +
+                                '                        <ul>\n' +
+                                '                            <li class="name">'+reference[i].referenceName+'</li>\n' +
+                                '                            <li class="tips">'+reference[i].peopleId+'</li>\n' +
+                                '                            <li class="size">'+reference[i].intro+'</li>\n' +
+                                '                            <li class="download">\n' +
+                                '                                <a href="/home/project" class="link more" >more</a>\n' +
+                                '                                <a href="'+reference[i].reference+'" class="link download" download="" style="display: none" >Download</a>\n' +
+                                '                                <span class="file pdf"></span>\n' +
+                                '                            </li>\n' +
+                                '                        </ul>\n' +
+                                '                    </div>'
+                        }
+                    }
+                    $('#public_right').empty();
+                    $('#public_right').append(publicRight);
+                }
+            })
+
+        }
+        function initpublication() {
+            var myDate = new Date();
+            var tYear = myDate.getFullYear();
+            $.ajax({
+                url: "/home/initPublication",
+                data:{YEAR:tYear,STATUS:1},
+                context: document.body,
+                dataType :'json',
+                type:'post'
+            }).done(function(data) {
+                if (data.success) {
+                    var publicLeft ='';
+                    var publicRight ='';
+                    var reference =data.obj.reference;
+                    for(var i in reference){
+                        if(i<7){
+                            publicRight = '<div class="item">\n' +
+                                '                        <div class="cover" style="background-image: url('+reference[i].byImg +');"></div>\n' +
+                                '                        <ul>\n' +
+                                '                            <li class="name">'+reference[i].referenceName+'</li>\n' +
+                                '                            <li class="tips">'+reference[i].peopleId+'</li>\n' +
+                                '                            <li class="size">'+reference[i].intro+'</li>\n' +
+                                '                            <li class="download">\n' +
+                                '                                <a href="/home/project" class="link" >more</a>\n' +
+                                '                                <span class="file pdf"></span>\n' +
+                                '                            </li>\n' +
+                                '                        </ul>\n' +
+                                '                    </div>'
+                        }
+                    }
+                    if(i<5){
+                        publicLeft+='    <div class="year">\n' +
+                            '                        <i></i>\n' +
+                            '                        <span>'+tYear+'</span>\n' +
+                            '                    </div>';
+                        tYear-1;
+                    }
+                    $('#public_left').empty();
+                    $('#public_left').append(publicLeft);
+                    $("#public_left").children(":first").addClass('active');
+                    $('#public_right').empty();
+                    $('#public_right').append(publicRight);
+                }
+            })
+        }
     </script>
 
 </body>

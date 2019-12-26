@@ -2,12 +2,16 @@ package com.vcl.controller;
 
 import com.vcl.pojo.*;
 import com.vcl.service.*;
+import com.vcl.utils.RequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.annotation.RequestScope;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -80,7 +84,7 @@ public class HomeController {
             List<Collaboration> collaborationList = collaborationService.findAll(map);
             List<Intro> introList = introService.findAll(map);
             List<Media> mediaList = mediaService.findAll(map);
-//            List<Pulication> mediaList = mediaService.findAll(map);
+            List<TbReference> tbReferenceList = referenceService.findAll(map);
             for (Media media : mediaList) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
                 LocalDateTime date = LocalDateTime.parse( media.getReleaseDate(),formatter);
@@ -99,7 +103,29 @@ public class HomeController {
             map.put("intro",introList);
             map.put("media",mediaList);
             map.put("people",peopleList);
-            map.put("reference",peopleList);
+            map.put("reference",tbReferenceList);
+            result.setSuccess(true);
+            result.setObj(map);
+        }catch (Exception e){
+            result.setSuccess(false);
+        }
+        return result;
+    }
+
+    @RequestMapping("/initPublication")
+    @ResponseBody
+    public Result initPublication(HttpServletRequest request){
+        Map<String, Object> parameterMap = RequestUtil.getMap(request);
+        parameterMap.keySet();
+
+
+        Result result = new Result();
+        Map map = new HashMap();
+//        map.put("STATUS",1);
+        try {
+            List<TbReference> tbReferenceList = referenceService.findAll(parameterMap);
+
+            map.put("reference",tbReferenceList);
             result.setSuccess(true);
             result.setObj(map);
         }catch (Exception e){

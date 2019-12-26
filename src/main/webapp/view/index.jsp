@@ -498,7 +498,7 @@
                         var intro = data.obj.intro;
                         var media = data.obj.media;
                         var people = data.obj.people;
-                        var pulication = data.obj.pulication;
+                        var reference = data.obj.reference;
                         if(banner){
                             var bannerHtml = '';
                             var wrapperContext = '';
@@ -657,30 +657,31 @@
                                         '                                </div>\n' +
                                         '                            </div>\n' +
                                         '                        </div>';
-
-                                // }
-
                             }
                             $('#user-swiper').empty();
                             $('#user-swiper').append(peopleHtml);
                         }
                     }
 
-                    if(pulication){
-                        var pulicationHtml = '';
-                        for (var i in data.banner) {
-                            pulicationHtml+='<div class="item">\n' +
-                                '                    <a href="/home/project" target="_blank">\n' +
-                                '                        <img src="'+rederence.reference+'" alt="">\n' +
-                                '                        <div class="cover">\n' +
-                                '                            <h4>'+rederence.referenceName+'</h4>\n' +
-                                '                            <h5>'+rederence.intro+'</h5>\n' +
-                                '                        </div>\n' +
-                                '                    </a>\n' +
-                                '                </div>';
+                    if(reference){
+                        var referenceHtml = '';
+                        console.log(reference);
+                        for (var i in reference) {
+                            if(i<3){
+                                referenceHtml+='<div class="item">\n' +
+                                    '                    <a href="/home/project" target="_blank">\n' +
+                                    '                        <img src="'+reference[i].bgImg+'" alt="">\n' +
+                                    '                        <div class="cover">\n' +
+                                    '                            <h4>'+reference[i].referenceName+'</h4>\n' +
+                                    '                            <h5>'+reference[i].intro+'</h5>\n' +
+                                    '                        </div>\n' +
+                                    '                    </a>\n' +
+                                    '                </div>';
+                            }
+
                         }
                         $('#research-pullication').empty();
-                        $('#research-pullication').append(pulicationHtml);
+                        $('#research-pullication').append(referenceHtml);
 
                     }
 

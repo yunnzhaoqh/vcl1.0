@@ -23,6 +23,9 @@
             <if test="CREATETIME != null and CREATETIME !=''">
                 and CREATETIME = #{CREATETIME}
             </if>
+            <if test="YEAR != null and YEAR !=''">
+                and instr(CREATETIME,#{YEAR})>0
+            </if>
             <if test="STATUS != null and STATUS !=''">
                 and STATUS = #{STATUS}
             </if>
