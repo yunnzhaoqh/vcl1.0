@@ -2,7 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vcl.dao.mapper.ReferenceMapper">
 
-    <select id="selectByExample" parameterType="java.util.Map" resultType="TbReference">
+    <resultMap id="referenceMap" type="Reference">
+        <id column="id" property="id"/>
+        <result column="people_id" property="peopleId"/>
+        <result column="reference_name" property="referenceName"/>
+        <result column="starttime" property="starttime"/>
+        <result column="endtime" property="endtime"/>
+        <result column="createtime" property="createtime"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <select id="selectByExample" parameterType="java.util.Map" resultMap="referenceMap">
         SELECT * FROM reference
         <where>
             <if test="ID != null and ID !=''">
@@ -32,89 +42,86 @@
         </where>
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="TbReference">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Reference">
         insert into  reference
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                 ID,
+            <if test="id != null and id !=''">
+                 id,
             </if>
-            <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                 PEOPLE_ID ,
+            <if test="peopleId != null and peopleId !=''">
+                 people_id ,
             </if>
-            <if test="REFERENCE_NAME != null and REFERENCE_NAME !=''">
-                 REFERENCE_NAME ,
+            <if test="referenceName != null and referenceName !=''">
+                 reference_name ,
             </if>
-            <if test="STARTTIME != null and STARTTIME !=''">
-                 STARTTIME ,
+            <if test="starttime != null and starttime !=''">
+                 starttime ,
             </if>
-            <if test="ENDTIME != null and ENDTIME !=''">
-                 ENDTIME ,
+            <if test="endtime != null and endtime !=''">
+                 endtime ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                 CREATETIME ,
+            <if test="createtime != null and createtime !=''">
+                 createtime ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                 STATUS ,
+            <if test="status != null and status !=''">
+                 status ,
             </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                #{ID},
+            <if test="id != null and id !=''">
+                #{id},
             </if>
-            <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                #{PEOPLE_ID} ,
+            <if test="peopleId != null and peopleId !=''">
+                #{peopleId} ,
             </if>
-            <if test="REFERENCE_NAME != null and REFERENCE_NAME !=''">
-                #{REFERENCE_NAME} ,
+            <if test="referenceName != null and referenceName !=''">
+                #{referenceName} ,
             </if>
-            <if test="STARTTIME != null and STARTTIME !=''">
-                #{STARTTIME} ,
+            <if test="starttime != null and starttime !=''">
+                #{starttime} ,
             </if>
-            <if test="ENDTIME != null and ENDTIME !=''">
-                #{ENDTIME} ,
+            <if test="endtime != null and endtime !=''">
+                #{endtime} ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                #{CREATETIME} ,
+            <if test="createtime != null and createtime !=''">
+                #{createtime} ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                #{STATUS},
+            <if test="status != null and status !=''">
+                #{status},
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKey" parameterType="TbReference">
+    <update id="updateByPrimaryKey" parameterType="Reference">
         update reference
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
-            <if test="ID != null and ID !=''">
-                ID = #{ID},
+            <if test="peopleId != null and peopleId !=''">
+                people_id =#{peopleId},
             </if>
-            <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                PEOPLE_ID =#{PEOPLE_ID},
+            <if test="referenceName != null and referenceName !=''">
+                reference_name=#{referenceName} ,
             </if>
-            <if test="REFERENCE_NAME != null and REFERENCE_NAME !=''">
-                REFERENCE_NAME=#{REFERENCE_NAME} ,
+            <if test="starttime != null and starttime !=''">
+                starttime=#{starttime} ,
             </if>
-            <if test="STARTTIME != null and STARTTIME !=''">
-                STARTTIME=#{STARTTIME} ,
+            <if test="endtime != null and endtime !=''">
+                endtime =#{endtime},
             </if>
-            <if test="ENDTIME != null and ENDTIME !=''">
-                ENDTIME =#{ENDTIME},
+            <if test="createtime != null and createtime !=''">
+                createtime =#{createtime},
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                CREATETIME =#{CREATETIME},
-            </if>
-            <if test="STATUS != null and STATUS !=''">
-                STATUS =#{STATUS},
+            <if test="status != null and status !=''">
+                status =#{status},
             </if>
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update reference
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
                 STATUS =0,
         </trim>
     </update>
-    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="TbReference">
-       select * from reference WHERE ID=#{ID}
+    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="referenceMap">
+       select * from reference WHERE id=#{id}
     </select>
 </mapper>

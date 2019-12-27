@@ -78,13 +78,13 @@ public class HomeController {
     public Result initIndex(){
         Result result = new Result();
         Map map = new HashMap();
-        map.put("STATUS",1);
+        map.put("status",1);
         try {
             List<Banner> bannerList = bannerService.findAll(map);
             List<Collaboration> collaborationList = collaborationService.findAll(map);
             List<Intro> introList = introService.findAll(map);
             List<Media> mediaList = mediaService.findAll(map);
-            List<TbReference> tbReferenceList = referenceService.findAll(map);
+            List<Reference> tbReferenceList = referenceService.findAll(map);
             for (Media media : mediaList) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
                 LocalDateTime date = LocalDateTime.parse( media.getReleaseDate(),formatter);
@@ -96,7 +96,7 @@ public class HomeController {
 //                mediaList.add(media);
             }
             List<People> peopleList = peopleService.findAll(map);
-            List<TbReference> references = referenceService.findAll(map);
+            List<Reference> references = referenceService.findAll(map);
             map = new HashMap();
             map.put("banner",bannerList);
             map.put("collaboration",collaborationList);
@@ -107,6 +107,7 @@ public class HomeController {
             result.setSuccess(true);
             result.setObj(map);
         }catch (Exception e){
+            e.printStackTrace();
             result.setSuccess(false);
         }
         return result;
@@ -123,7 +124,7 @@ public class HomeController {
         Map map = new HashMap();
 //        map.put("STATUS",1);
         try {
-            List<TbReference> tbReferenceList = referenceService.findAll(parameterMap);
+            List<Reference> tbReferenceList = referenceService.findAll(parameterMap);
 
             map.put("reference",tbReferenceList);
             result.setSuccess(true);

@@ -4,13 +4,14 @@ import java.util.Map;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.vcl.dao.mapper.ReferenceMapper;
 import com.vcl.pojo.PageResult;
+import com.vcl.pojo.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.zqh.cvl.service.ReferenceService;
 
 import org.springframework.stereotype.Service;
-import com.vcl.pojo.TbReference;
 /**
  * 服务实现层
  * @author Administrator
@@ -26,7 +27,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 	 * 查询全部
 	 */
 	@Override
-	public List<TbReference> findAll(Map map) {
+	public List<Reference> findAll(Map map) {
 		return referenceMapper.selectByExample(map);
 	}
 
@@ -34,17 +35,18 @@ public class ReferenceServiceImpl implements ReferenceService {
 	 * 按分页查询
 	 */
 	@Override
-	public PageResult findPage(int pageNum, int pageSize) {
-		PageHelper.startPage(pageNum, pageSize);
-		Page<TbReference> page=   (Page<TbReference>) referenceMapper.selectByExample(null);
-		return new PageResult(page.getTotal(), page.getResult());
+	public PageResult findPage(Map map) {
+		PageHelper.startPage(Integer.parseInt(map.get("page").toString()), Integer.parseInt(map.get("limit").toString()));
+		List<Reference> references = referenceMapper.selectByExample(null);
+		PageInfo pageInfo = new PageInfo(references);
+		return new PageResult(pageInfo.getTotal(), references, 0 ,"");
 	}
 
 	/**
 	 * 增加
 	 */
 	@Override
-	public void add(TbReference tbReference) {
+	public void add(Reference tbReference) {
 		referenceMapper.insert(tbReference);
 	}
 
@@ -53,7 +55,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 	 * 修改
 	 */
 	@Override
-	public void update(TbReference tbReference){
+	public void update(Reference tbReference){
 		referenceMapper.updateByPrimaryKey(tbReference);
 	}	
 	
@@ -63,7 +65,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 	 * @return
 	 */
 	@Override
-	public TbReference findOne(Long id){
+	public Reference findOne(Long id){
 		return referenceMapper.selectByPrimaryKey(id);
 	}
 
@@ -76,12 +78,20 @@ public class ReferenceServiceImpl implements ReferenceService {
 			referenceMapper.deleteByPrimaryKey(id);
 		}		
 	}
+
+	/**
+	 * 批量删除
+	 */
+	@Override
+	public void delete_reference(Long id) {
+		referenceMapper.deleteByPrimaryKey(id);
+	}
 	
 	
 		@Override
-	public PageResult findPage(TbReference tbReference, int pageNum, int pageSize) {
+	public PageResult findPage(Reference tbReference, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
-		Page<TbReference> page= (Page<TbReference>)referenceMapper.selectByExample(tbReference);
+		Page<Reference> page= (Page<Reference>)referenceMapper.selectByExample(tbReference);
 		return new PageResult(page.getTotal(), page.getResult());
 	}
 	

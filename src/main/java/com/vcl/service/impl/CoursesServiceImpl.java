@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.vcl.dao.mapper.CoursesMapper;
 import com.vcl.pojo.Courses;
 import com.vcl.pojo.PageResult;
@@ -34,10 +35,11 @@ public class CoursesServiceImpl implements CoursesService {
 	 * 按分页查询
 	 */
 	@Override
-	public PageResult findPage(int pageNum, int pageSize) {
-		PageHelper.startPage(pageNum, pageSize);
-		Page<Courses> page=   (Page<Courses>) coursesMapper.selectByExample(null);
-		return new PageResult(page.getTotal(), page.getResult());
+	public PageResult findPage(Map map) {
+		PageHelper.startPage(Integer.parseInt(map.get("page").toString()), Integer.parseInt(map.get("limit").toString()));
+		List<Courses> courses = coursesMapper.selectByExample(map);
+		PageInfo pageInfo = new PageInfo(courses);
+		return new PageResult(pageInfo.getTotal(), courses, 0 , "");
 	}
 
 	/**
@@ -75,6 +77,14 @@ public class CoursesServiceImpl implements CoursesService {
 		for(Long id:ids){
 			coursesMapper.deleteByPrimaryKey(id);
 		}		
+	}
+
+	/**
+	 * 删除
+	 */
+	@Override
+	public void delete_courses(Long id) {
+		coursesMapper.deleteByPrimaryKey(id);
 	}
 	
 	

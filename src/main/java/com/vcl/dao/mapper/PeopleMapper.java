@@ -16,4 +16,6 @@ public interface PeopleMapper {
     People selectByPrimaryKey(Long id);
 
     int deleteByPrimaryKey(Long id);
+
+    List<People> query_professor();
 }

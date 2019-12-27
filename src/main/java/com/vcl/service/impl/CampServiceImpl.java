@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.vcl.dao.mapper.SummweCampMapper;
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.SummweCamp;
@@ -68,14 +69,26 @@ public class CampServiceImpl implements CampService {
 			campMapper.deleteByPrimaryKey(id);
 		}		
 	}
-	
-	
-		@Override
+
+	@Override
 	public PageResult findPage(Map map, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 
 		Page<SummweCamp> page= (Page<SummweCamp>)campMapper.selectByExample(map);
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-	
+
+	@Override
+	public PageResult findPage(Map map) {
+		PageHelper.startPage(Integer.parseInt(map.get("page").toString()), Integer.parseInt(map.get("limit").toString()));
+		List<SummweCamp> camps = campMapper.selectByExample(map);
+		PageInfo pageInfo = new PageInfo(camps);
+		return new PageResult(pageInfo.getTotal(), camps, 0 , "");
+	}
+
+	@Override
+	public void delete_summwe_camp(Long id) {
+		campMapper.deleteByPrimaryKey(id);
+	}
+
 }

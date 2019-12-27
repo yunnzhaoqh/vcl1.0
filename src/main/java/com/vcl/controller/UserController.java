@@ -13,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -201,15 +198,16 @@ public class UserController {
      * @param multipartFile
      * @return
      */
-    @RequestMapping("/upload_project_content")
+    @RequestMapping("/uploa_content/${type}")
     @ResponseBody
-    public Map upload_project_content(@RequestParam("file") MultipartFile multipartFile){
+    public Map upload_project_content(@RequestParam("file") MultipartFile multipartFile, @PathVariable String type){
         Map map = new HashMap();
         try {
             String prefix = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
             String fileStr = UUID.randomUUID().toString();
-            String filepath = FILE_UPLOAD_PATH + "\\project\\";
-            String resultpath = "\\upload\\project\\";
+            String filepath = FILE_UPLOAD_PATH + type;
+            String resultpath = "\\upload\\" + type + "\\";
+            filepath = filepath.replace("\\", "/");
             File newFile = new File(filepath + fileStr + "." + prefix);
             resultpath += fileStr + "." + prefix;
             if(!newFile.exists()){

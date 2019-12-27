@@ -1,7 +1,7 @@
 package com.vcl.pojo;
 
 
-public class TbReference {
+public class Reference {
 
   private Long id;
   private long peopleId;

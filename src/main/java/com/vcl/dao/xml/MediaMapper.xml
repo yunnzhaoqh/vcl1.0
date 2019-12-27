@@ -2,26 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vcl.dao.mapper.MediaMapper">
 
-    <select id="selectByExample" parameterType="java.util.Map" resultType="Media">
+    <resultMap id="mediaMap" type="Media">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="release_date" property="releaseDate"/>
+        <result column="createtime" property="createtime"/>
+        <result column="status" property="status"/>
+        <result column="img" property="img"/>
+    </resultMap>
+
+    <select id="selectByExample" parameterType="java.util.Map" resultMap="mediaMap">
         SELECT * FROM media
         <where>
-            <if test="ID != null and ID !=''">
-            and ID = #{ID}
+            <if test="id != null and id !=''">
+            and id = #{id}
             </if>
-            <if test="TITLE != null and TITLE !=''">
-                and TITLE = #{TITLE}
+            <if test="title != null and title !=''">
+                and title = #{title}
             </if>
-            <if test="RELEASE_DATE != null and RELEASE_DATE !=''">
-                and RELEASE_DATE = #{RELEASE_DATE}
+            <if test="releaseDate != null and releaseDate !=''">
+                and RELEASe_DATE = #{releaseDate}
             </if>
-            <if test="CONTENT != null and CONTENT !=''">
-                and CONTENT = #{CONTENT}
+            <if test="content != null and content !=''">
+                and content = #{content}
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                and CREATETIME = #{CREATETIME}
+            <if test="createtime != null and createtime !=''">
+                and createtime = #{createtime}
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                and STATUS = #{STATUS}
+            <if test="status != null and status !=''">
+                and status = #{status}
             </if>
         </where>
     </select>
@@ -29,77 +38,77 @@
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Media">
         insert into  media
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                 ID,
+            <if test="id != null and id !=''">
+                 id,
             </if>
-            <if test="TITLE != null and TITLE !=''">
-                TITLE ,
+            <if test="title != null and title !=''">
+                title ,
             </if>
-            <if test="RELEASE_DATE != null and RELEASE_DATE !=''">
-                RELEASE_DATE ,
+            <if test="releaseDate != null and releaseDate !=''">
+                release_date ,
             </if>
-            <if test="CONTENT != null and CONTENT !=''">
-                CONTENT ,
+            <if test="content != null and content !=''">
+                content ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                 CREATETIME ,
+            <if test="createtime != null and createtime !=''">
+                 createtime ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                 STATUS ,
+            <if test="status != null and status !=''">
+                 status ,
             </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                #{ID},
+            <if test="id != null and id !=''">
+                #{id},
             </if>
-            <if test="TITLE != null and TITLE !=''">
-                #{PEOPLE_ID} ,
+            <if test="title != null and title !=''">
+                #{title} ,
             </if>
-            <if test="RELEASE_DATE != null and RELEASE_DATE !=''">
-                #{RELEASE_DATE} ,
+            <if test="releaseDate != null and releaseDate !=''">
+                #{releaseDate} ,
             </if>
-            <if test="CONTENT != null and CONTENT !=''">
-                #{CONTENT} ,
+            <if test="content != null and content !=''">
+                #{content} ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                #{CREATETIME} ,
+            <if test="createtime != null and createtime !=''">
+                #{createtime} ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                #{STATUS},
+            <if test="status != null and status !=''">
+                #{status},
             </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Media">
         update media
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
-            <if test="ID != null and ID !=''">
-                ID = #{ID},
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
+            <if test="id != null and id !=''">
+                id = #{id},
             </if>
-            <if test="TITLE != null and TITLE !=''">
-                TITLE =#{TITLE},
+            <if test="title != null and title !=''">
+                title =#{title},
             </if>
-            <if test="RELEASE_DATE != null and RELEASE_DATE !=''">
-                RELEASE_DATE=#{RELEASE_DATE} ,
+            <if test="releaseDate != null and releaseDate !=''">
+                release_dates=#{releaseDate} ,
             </if>
-            <if test="CONTENT != null and CONTENT !=''">
-                CONTENT=#{CONTENT} ,
+            <if test="content != null and content !=''">
+                content=#{content} ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                CREATETIME =#{CREATETIME},
+            <if test="createtime != null and createtime !=''">
+                createtime =#{createtime},
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                STATUS =#{STATUS},
+            <if test="status != null and status !=''">
+                status =#{status},
             </if>
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update media
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
                 STATUS =0,
         </trim>
     </update>
-    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Media">
-       select * from media WHERE ID=#{ID}
+    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="mediaMap">
+       select * from media WHERE id=#{id}
     </select>
 </mapper>

@@ -23,7 +23,7 @@ public interface CoursesService {
 	 * 返回分页列表
 	 * @return
 	 */
-	public PageResult findPage(int pageNum, int pageSize);
+	public PageResult findPage(Map map);
 	
 	
 	/**
@@ -59,5 +59,6 @@ public interface CoursesService {
 	 * @return
 	 */
 	public PageResult findPage(Map courses, int pageNum, int pageSize);
-	
+
+	void delete_courses(Long id);
 }

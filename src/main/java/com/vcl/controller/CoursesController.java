@@ -37,8 +37,8 @@ public class CoursesController {
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResult findPage(int page, int rows){
-		return coursesService.findPage(page, rows);
+	public PageResult findPage(@RequestBody Map map){
+		return coursesService.findPage(map);
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public class CoursesController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public Result add(@RequestBody Courses courses){
+	public Result add(Courses courses){
 		try {
 			coursesService.add(courses);
 			return new Result(true, "增加成功");
@@ -63,7 +63,7 @@ public class CoursesController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public Result update(@RequestBody Courses courses){
+	public Result update(Courses courses){
 		try {
 			coursesService.update(courses);
 			return new Result(true, "修改成功");
@@ -93,6 +93,22 @@ public class CoursesController {
 		try {
 			coursesService.delete(ids);
 			return new Result(true, "删除成功"); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "删除失败");
+		}
+	}
+
+	/**
+	 * 删除
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/delete_courses")
+	public Result delete_courses(Long id){
+		try {
+			coursesService.delete_courses(id);
+			return new Result(true, "删除成功");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Result(false, "删除失败");

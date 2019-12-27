@@ -53,4 +53,7 @@ public interface CampService {
 	public void delete(Long [] ids);
 
 
+	PageResult findPage(Map map);
+
+	void delete_summwe_camp(Long id);
 }

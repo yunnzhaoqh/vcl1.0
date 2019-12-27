@@ -34,12 +34,22 @@ public class AdminController {
 
     @RequestMapping("/project_list")
     public String project_list(){
-        return "/coustom/project/project_list";
+        return "/coustom/chapter/project_list";
     }
 
     @RequestMapping("/add_project")
     public String add_project(){
-        return "coustom/project/project";
+        return "coustom/chapter/project";
+    }
+
+    @RequestMapping("/media_list")
+    public String media_list(){
+        return "/coustom/chapter/media_list";
+    }
+
+    @RequestMapping("/add_media")
+    public String add_media(){
+        return "coustom/chapter/media";
     }
 
 }

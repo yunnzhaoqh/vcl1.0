@@ -3,8 +3,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.vcl.pojo.PageResult;
+import com.vcl.pojo.Reference;
 import com.vcl.pojo.Result;
-import com.vcl.pojo.TbReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +26,7 @@ public class ReferenceController {
 	 * @return
 	 */
 	@RequestMapping("/findAll")
-	public List<TbReference> findAll(Map map){
+	public List<Reference> findAll(Map map){
 		return referenceService.findAll(map);
 	}
 	
@@ -36,8 +36,8 @@ public class ReferenceController {
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResult findPage(int page, int rows){
-		return referenceService.findPage(page, rows);
+	public PageResult findPage(@RequestBody Map map){
+		return referenceService.findPage(map);
 	}
 	
 	/**
@@ -46,7 +46,7 @@ public class ReferenceController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public Result add(@RequestBody TbReference reference){
+	public Result add(Reference reference){
 		try {
 			referenceService.add(reference);
 			return new Result(true, "增加成功");
@@ -62,7 +62,7 @@ public class ReferenceController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public Result update(@RequestBody TbReference reference){
+	public Result update(Reference reference){
 		try {
 			referenceService.update(reference);
 			return new Result(true, "修改成功");
@@ -78,7 +78,7 @@ public class ReferenceController {
 	 * @return
 	 */
 	@RequestMapping("/findOne")
-	public TbReference findOne(Long id){
+	public Reference findOne(Long id){
 		return referenceService.findOne(id);		
 	}
 	
@@ -97,6 +97,22 @@ public class ReferenceController {
 			return new Result(false, "删除失败");
 		}
 	}
+
+	/**
+	 * 批量删除
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/delete_reference")
+	public Result delete_reference(Long id){
+		try {
+			referenceService.delete_reference(id);
+			return new Result(true, "删除成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "删除失败");
+		}
+	}
 	
 		/**
 	 * 查询+分页
@@ -105,7 +121,7 @@ public class ReferenceController {
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public PageResult search(@RequestBody TbReference reference, int page, int rows  ){
+	public PageResult search(@RequestBody Reference reference, int page, int rows  ){
 		return referenceService.findPage(reference, page, rows);		
 	}
 
