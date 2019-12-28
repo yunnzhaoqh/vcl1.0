@@ -11,6 +11,7 @@
         <result column="type" property="type"/>
         <result column="type" property="type" />
         <result column="status" property="status" />
+        <result column="bg_img" property="bg_img" />
     </resultMap>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="projectMap">
@@ -77,6 +78,9 @@
             <if test="status != null and status !=''">
                  status ,
             </if>
+            <if test="bg_img != null and bg_img !=''">
+                bg_img ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -106,6 +110,9 @@
             </if>
             <if test="status != null and status !=''">
                 #{status},
+            </if>
+            <if test="bg_img != null and bg_img !=''">
+                #{bg_img},
             </if>
         </trim>
     </insert>
@@ -138,6 +145,9 @@
             </if>
             <if test="status != null and status !=''">
                 status =#{status},
+            </if>
+            <if test="bg_img != null and bg_img !=''">
+                bg_img =#{bg_img},
             </if>
         </trim>
     </update>

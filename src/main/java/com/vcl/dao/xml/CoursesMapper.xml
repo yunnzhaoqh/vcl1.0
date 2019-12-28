@@ -10,7 +10,40 @@
         <result column="endtime" property="endtime"/>
         <result column="createtime" property="createtime"/>
         <result column="status" property="status"/>
+        <result column="bg_img" property="bg_img"/>
+        <result column="peopleName" property="peopleName"/>
     </resultMap>
+
+    <select id="query_courses" parameterType="java.util.Map" resultMap="coursesMap">
+        select people.name peopleName, courses.* from courses
+        left join people on people.id = courses.people_id
+        <where>
+            <if test="id != null and id !=''">
+                and id = #{id}
+            </if>
+            <if test="peopleId != null and peopleId !=''">
+                and people_id = #{peopleId}
+            </if>
+            <if test="courseName != null and courseName !=''">
+                and course_name = #{courseName}
+            </if>
+            <if test="starttime != null and starttime !=''">
+                and starttime = #{starttime}
+            </if>
+            <if test="endtime != null and endtime !=''">
+                and endtime = #{endtime}
+            </if>
+            <if test="createtime != null and createtime !=''">
+                and createtime = #{createtime}
+            </if>
+            <if test="status != null and status !=''">
+                and courses.status = #{status}
+            </if>
+            <if test="peopleName != null and peopleName !=''">
+                and instr(people.name,#{peopleName}) > 0
+            </if>
+        </where>
+    </select>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="coursesMap">
         SELECT * FROM courses
@@ -63,6 +96,9 @@
             <if test="status != null and status !=''">
                  status ,
             </if>
+            <if test="bg_img != null and bg_img !=''">
+                bg_img ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -87,11 +123,14 @@
             <if test="status != null and status !=''">
                 #{status},
             </if>
+            <if test="bg_img != null and bg_img !=''">
+                #{bg_img},
+            </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Courses">
         update courses
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
             <if test="id != null and id !=''">
                 id = #{id},
             </if>
@@ -112,6 +151,9 @@
             </if>
             <if test="status != null and status !=''">
                 status =#{status},
+            </if>
+            <if test="bg_img != null and bg_img !=''">
+                bg_img =#{bg_img},
             </if>
         </trim>
     </update>

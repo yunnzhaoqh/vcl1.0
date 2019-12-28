@@ -20,7 +20,13 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">参考项目名</label>
                     <div class="layui-input-block">
-                        <input type="text" name="reference_name" placeholder="请输入" autocomplete="off" class="layui-input">
+                        <input type="text" name="referenceName" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">指导员</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="peopleName" placeholder="请输入" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -66,7 +72,7 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'media', 'table'], function () {
+    }).use(['index', 'media', 'table', 'education'], function () {
         var $ = layui.$
             , form = layui.form
             , table = layui.table;
@@ -84,7 +90,7 @@
         //事件
         var active = {
             add: function () {
-                window.project = undefined;
+                window.reference = undefined;
                 layer.open({
                     type: 2
                     , title: '添加参考项目'

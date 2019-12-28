@@ -12,7 +12,7 @@ public class Project {
   private long type;
   private String createtime;
   private long status;
-
+  private String bg_img;
 
   public Long getId() {
     return id;
@@ -89,4 +89,11 @@ public class Project {
     this.status = status;
   }
 
+  public String getBg_img() {
+    return bg_img;
+  }
+
+  public void setBg_img(String bg_img) {
+    this.bg_img = bg_img;
+  }
 }

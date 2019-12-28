@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import com.vcl.dao.mapper.ReferenceMapper;
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.Reference;
+import com.vcl.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.zqh.cvl.service.ReferenceService;
 
@@ -47,6 +48,7 @@ public class ReferenceServiceImpl implements ReferenceService {
 	 */
 	@Override
 	public void add(Reference tbReference) {
+		tbReference.setCreatetime(DateUtil.getDate(DateUtil.DateFormat5));
 		referenceMapper.insert(tbReference);
 	}
 
@@ -86,9 +88,17 @@ public class ReferenceServiceImpl implements ReferenceService {
 	public void delete_reference(Long id) {
 		referenceMapper.deleteByPrimaryKey(id);
 	}
-	
-	
-		@Override
+
+	@Override
+	public PageResult query_reference(Map map) {
+		PageHelper.startPage(Integer.parseInt(map.get("page").toString()), Integer.parseInt(map.get("limit").toString()));
+		List<Reference> references = referenceMapper.query_reference(map);
+		PageInfo pageInfo = new PageInfo(references);
+		return new PageResult(pageInfo.getTotal(), references, 0 ,"");
+	}
+
+
+	@Override
 	public PageResult findPage(Reference tbReference, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		Page<Reference> page= (Page<Reference>)referenceMapper.selectByExample(tbReference);

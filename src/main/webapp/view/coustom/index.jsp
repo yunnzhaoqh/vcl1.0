@@ -136,13 +136,13 @@
               </a>
               <dl class="layui-nav-child">
                 <dd data-name="content">
-                  <a href="/admin/summweCamp">夏令营</a>
+                  <a lay-href="/admin/summweCamp">夏令营</a>
                 </dd>
                 <dd data-name="forum">
-                  <a href="/admin/course">课程</a>
+                  <a lay-href="/admin/course">课程</a>
                 </dd>
                 <dd data-name="forum">
-                  <a href="/admin/reference">参考</a>
+                  <a lay-href="/admin/reference">参考</a>
                 </dd>
               </dl>
             </li>

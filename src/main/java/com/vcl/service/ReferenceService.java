@@ -61,4 +61,6 @@ public interface ReferenceService {
 	public PageResult findPage(Reference tbReference, int pageNum, int pageSize);
 
     void delete_reference(Long id);
+
+    PageResult query_reference(Map map);
 }

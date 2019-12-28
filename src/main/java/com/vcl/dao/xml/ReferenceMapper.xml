@@ -10,7 +10,42 @@
         <result column="endtime" property="endtime"/>
         <result column="createtime" property="createtime"/>
         <result column="status" property="status"/>
+        <result column="intro" property="intro"/>
+        <result column="reference" property="reference"/>
+        <result column="bg_img" property="bgImg"/>
+        <result column="peopleName" property="peopleName"/>
     </resultMap>
+
+    <select id="query_reference" parameterType="java.util.Map" resultMap="referenceMap">
+        select reference.*, people.name peopleName from reference
+        left join people on people.id = reference.people_id
+        <where>
+            <if test="id != null and id !=''">
+                and id = #{id}
+            </if>
+            <if test="peopleId != null and peopleId !=''">
+                and people_id = #{peopleId}
+            </if>
+            <if test="referenceName != null and referenceName !=''">
+                and reference_name = #{referenceName}
+            </if>
+            <if test="starttime != null and starttime !=''">
+                and starttime = #{starttime}
+            </if>
+            <if test="endtime != null and endtime !=''">
+                and endtime = #{endtime}
+            </if>
+            <if test="createtime != null and createtime !=''">
+                and createtime = #{createtime}
+            </if>
+            <if test="status != null and status !=''">
+                and reference.status = #{status}
+            </if>
+            <if test="peopleName != null and peopleName !=''">
+                and instr(people.name,#{peopleName}) > 0
+            </if>
+        </where>
+    </select>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="referenceMap">
         SELECT * FROM reference
@@ -66,6 +101,15 @@
             <if test="status != null and status !=''">
                  status ,
             </if>
+            <if test="intro != null and intro !=''">
+                intro ,
+            </if>
+            <if test="reference != null and reference !=''">
+                reference ,
+            </if>
+            <if test="bg_img != null and bg_img !=''">
+                bg_img ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -90,11 +134,20 @@
             <if test="status != null and status !=''">
                 #{status},
             </if>
+            <if test="intro != null and intro !=''">
+                #{intro},
+            </if>
+            <if test="reference != null and reference !=''">
+                #{reference},
+            </if>
+            <if test="bg_img != null and bg_img !=''">
+                #{bg_img},
+            </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Reference">
         update reference
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
             <if test="peopleId != null and peopleId !=''">
                 people_id =#{peopleId},
             </if>
@@ -112,6 +165,15 @@
             </if>
             <if test="status != null and status !=''">
                 status =#{status},
+            </if>
+            <if test="intro != null and intro !=''">
+                intro =#{intro},
+            </if>
+            <if test="reference != null and reference !=''">
+                reference =#{reference},
+            </if>
+            <if test="bg_img != null and bg_img !=''">
+                bg_img =#{bg_img},
             </if>
         </trim>
     </update>

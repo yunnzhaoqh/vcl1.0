@@ -57,6 +57,14 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label layui-required">封面</label>
+        <div class="layui-input-inline">
+            <img src="" id="path" width="100%" height="100%" style="display: none">
+            <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
+        </div>
+        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-project">上传图片</button>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label layui-required">文章类型</label>
         <div class="layui-input-inline">
             <select name="type" lay-verify="">
@@ -96,10 +104,17 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'layedit', 'table'], function () {
+    }).use(['index', 'form', 'layedit', 'table', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
-            layedit = layui.layedit;
+            layedit = layui.layedit,
+            upload = layui.upload;
+
+        form.verify({
+            path:[
+                /[\S]+/,
+                "人员相片不能为空"]
+        });
 
         layedit.set({
             uploadImage: {
@@ -121,12 +136,15 @@
 
         if(open_type === 'view'){
             $('#LAY-project-submit').hide();
-            init();
+            init(1);
         }else if(open_type === 'update'){
-            init()
+            init(2)
         }
 
-        function init(){
+        function init(index){
+            if(index == 1){
+                $('#layuiadmin-upload-project').hide();
+            }
             if(parent.project){
                 var data = parent.project;
                 $('#layuiadmin-form-useradmin input').each(function () {
@@ -138,6 +156,7 @@
                     $(this).val(data[name]);
                 });
                 layui.form.render('select');
+                $('#path').attr('src',data.bg_img).show();
                 if(data.content){
                     layedit.setContent(editindex, data.content);
                 }
@@ -165,9 +184,34 @@
                         parent.layui.table.reload('LAY-project-manage'); //数据刷新
                         parent.layer.close(index);
                     }
-                    layer.msg(data.massage);
+                    parent.layer.msg(data.message);
                 }
             });
+        });
+
+        upload.render({
+            elem: '#layuiadmin-upload-project',
+            url: '/user/upload_file',
+            auto:true,//是否自动上传
+            accept: 'images',
+            method: 'post',
+            multiple:false,//支持多文件上传,
+            acceptMime: 'image/*',
+            before: function(obj){
+                this.data={"dirpath": 'project\\bg_img'}//携带额外的数据
+                var index = layer.load(); //开始上传之后打开load层
+                $("#hidden_tmp_index").val(index);//将load层的index隐藏到页面中
+            },
+            done: function(res){
+                layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
+                $(this.item).prev("div").children("input").val(res.src);
+                $('#path').attr('src',res.src).show();
+                layer.msg(res.msg);
+            },
+            error: function () {
+                layer.close(layer.index);
+                layer.msg("上传失败，重新上传")
+            }
         });
     })
 </script>

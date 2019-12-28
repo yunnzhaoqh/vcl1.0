@@ -1,6 +1,7 @@
 package com.vcl.service;
 import com.vcl.pojo.Courses;
 import com.vcl.pojo.PageResult;
+import com.vcl.pojo.Project;
 
 import java.util.List;
 import java.util.Map;
@@ -61,4 +62,11 @@ public interface CoursesService {
 	public PageResult findPage(Map courses, int pageNum, int pageSize);
 
 	void delete_courses(Long id);
+
+	/**
+	 * 关联查询课程列表
+	 * @param map
+	 * @return
+	 */
+	PageResult query_courses(Map map);
 }

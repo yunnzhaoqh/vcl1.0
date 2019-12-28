@@ -13,14 +13,7 @@ public class Reference {
   private String reference;
   private String intro;
   private String bgImg;
-
-  public String getBgImg() {
-    return bgImg;
-  }
-
-  public void setBgImg(String bgImg) {
-    this.bgImg = bgImg;
-  }
+  private String peopleName;
 
   @Override
   public String toString() {
@@ -61,7 +54,6 @@ public class Reference {
     this.id = id;
   }
 
-
   public long getPeopleId() {
     return peopleId;
   }
@@ -70,7 +62,6 @@ public class Reference {
     this.peopleId = peopleId;
   }
 
-
   public String getReferenceName() {
     return referenceName;
   }
@@ -78,7 +69,6 @@ public class Reference {
   public void setReferenceName(String referenceName) {
     this.referenceName = referenceName;
   }
-
 
   public String getStarttime() {
     return starttime;
@@ -115,4 +105,19 @@ public class Reference {
     this.status = status;
   }
 
+  public String getBgImg() {
+    return bgImg;
+  }
+
+  public void setBgImg(String bgImg) {
+    this.bgImg = bgImg;
+  }
+
+  public String getPeopleName() {
+    return peopleName;
+  }
+
+  public void setPeopleName(String peopleName) {
+    this.peopleName = peopleName;
+  }
 }

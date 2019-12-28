@@ -54,6 +54,14 @@
         </div>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label layui-required">封面</label>
+        <div class="layui-input-inline">
+            <img src="" id="path" width="100%" height="100%" style="display: none">
+            <input type="hidden" name="img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
+        </div>
+        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-media">上传图片</button>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label layui-required">内容</label>
         <div class="layui-input-block">
             <textarea id="content" name="content" placeholder="文章内容"
@@ -62,8 +70,8 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button type="submit" class="layui-btn" lay-submit lay-filter="LAY-project-submit" id="LAY-media-submit">确认</button>
-            <button type="submit" class="layui-btn layui-btn-primary" lay-filter="LAY-project-close" id="LAY-media-close">取消</button>
+            <button type="submit" class="layui-btn" lay-submit lay-filter="LAY-media-submit" id="LAY-media-submit">确认</button>
+            <button type="submit" class="layui-btn layui-btn-primary" lay-filter="LAY-media-close" id="LAY-media-close">取消</button>
         </div>
     </div>
 </div>
@@ -74,10 +82,11 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'layedit'], function () {
+    }).use(['index', 'form', 'layedit', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
-            layedit = layui.layedit;
+            layedit = layui.layedit,
+            upload = layui.upload;
 
         layedit.set({
             uploadImage: {
@@ -116,6 +125,7 @@
                     $(this).val(data[name]);
                 });
                 layui.form.render('select');
+                $('#path').attr('src',data.img).show();
                 if(data.content){
                     layedit.setContent(editindex, data.content);
                 }
@@ -143,9 +153,34 @@
                         parent.layui.table.reload('LAY-media-manage'); //数据刷新
                         parent.layer.close(index);
                     }
-                    layer.msg(data.massage);
+                    parent.layer.msg(data.message);
                 }
             });
+        });
+
+        upload.render({
+            elem: '#layuiadmin-upload-media',
+            url: '/user/upload_file',
+            auto:true,//是否自动上传
+            accept: 'images',
+            method: 'post',
+            multiple:false,//支持多文件上传,
+            acceptMime: 'image/*',
+            before: function(obj){
+                this.data={"dirpath": 'media\\bg_img'}//携带额外的数据
+                var index = layer.load(); //开始上传之后打开load层
+                $("#hidden_tmp_index").val(index);//将load层的index隐藏到页面中
+            },
+            done: function(res){
+                layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
+                $(this.item).prev("div").children("input").val(res.src);
+                $('#path').attr('src',res.src).show();
+                layer.msg(res.msg);
+            },
+            error: function () {
+                layer.close(layer.index);
+                layer.msg("上传失败，重新上传")
+            }
         });
     })
 </script>

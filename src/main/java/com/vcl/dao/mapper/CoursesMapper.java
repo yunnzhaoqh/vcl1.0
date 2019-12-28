@@ -15,7 +15,9 @@ public interface CoursesMapper {
 
     int updateByPrimaryKey(Courses courses);
 
-    Courses selectByPrimaryKey(@Param("ID") Long id);
+    Courses selectByPrimaryKey(@Param("id") Long id);
 
-    int deleteByPrimaryKey(@Param("ID") Long id);
+    int deleteByPrimaryKey(@Param("id") Long id);
+
+    List<Courses> query_courses(Map map);
 }

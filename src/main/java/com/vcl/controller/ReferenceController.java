@@ -37,7 +37,7 @@ public class ReferenceController {
 	 */
 	@RequestMapping("/findPage")
 	public PageResult findPage(@RequestBody Map map){
-		return referenceService.findPage(map);
+		return referenceService.query_reference(map);
 	}
 	
 	/**

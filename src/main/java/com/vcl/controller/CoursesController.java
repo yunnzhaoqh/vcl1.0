@@ -38,7 +38,7 @@ public class CoursesController {
 	 */
 	@RequestMapping("/findPage")
 	public PageResult findPage(@RequestBody Map map){
-		return coursesService.findPage(map);
+		return coursesService.query_courses(map);
 	}
 	
 	/**

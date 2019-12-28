@@ -57,7 +57,7 @@
     <div class="layui-form-item">
       <label class="layui-form-label layui-required">人员相片</label>
       <div class="layui-input-inline">
-        <img src="" id="path" width="100%" height="100%">
+        <img src="" id="path" width="100%" height="100%" style="display: none;">
         <input type="hidden" name="path" lay-verify="path" placeholder="请上传图片" autocomplete="off" class="layui-input" >
       </div>
       <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button>
@@ -107,7 +107,7 @@
       });
       $('select[name=type]').val(data.type);
       layui.form.render('select');
-      $('#path').attr('src',data.path);
+      $('#path').attr('src',data.path).show();
     }
 
     form.verify({
@@ -136,7 +136,7 @@
       done: function(res){
         layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
         $(this.item).prev("div").children("input").val(res.src);
-        $('#path').attr('src',res.src);
+        $('#path').attr('src',res.src).show();
         layer.msg(res.msg);
       },
       error: function () {

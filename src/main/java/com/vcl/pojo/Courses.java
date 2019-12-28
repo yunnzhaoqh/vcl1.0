@@ -10,7 +10,8 @@ public class Courses {
   private String endtime;
   private String createtime;
   private long status;
-
+  private String bg_img;
+  private String peopleName;
 
   public Long getId() {
     return id;
@@ -74,4 +75,19 @@ public class Courses {
     this.status = status;
   }
 
+  public String getBg_img() {
+    return bg_img;
+  }
+
+  public void setBg_img(String bg_img) {
+    this.bg_img = bg_img;
+  }
+
+  public String getPeopleName() {
+    return peopleName;
+  }
+
+  public void setPeopleName(String peopleName) {
+    this.peopleName = peopleName;
+  }
 }

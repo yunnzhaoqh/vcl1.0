@@ -198,14 +198,14 @@ public class UserController {
      * @param multipartFile
      * @return
      */
-    @RequestMapping("/uploa_content/${type}")
+    @RequestMapping("/upload_content/{type}")
     @ResponseBody
-    public Map upload_project_content(@RequestParam("file") MultipartFile multipartFile, @PathVariable String type){
+    public Map upload_project_content(@RequestParam("file") MultipartFile multipartFile, @PathVariable(name = "type", required = false ) String type){
         Map map = new HashMap();
         try {
             String prefix = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
             String fileStr = UUID.randomUUID().toString();
-            String filepath = FILE_UPLOAD_PATH + type;
+            String filepath = FILE_UPLOAD_PATH + "\\" +type + "\\";
             String resultpath = "\\upload\\" + type + "\\";
             filepath = filepath.replace("\\", "/");
             File newFile = new File(filepath + fileStr + "." + prefix);

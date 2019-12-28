@@ -52,4 +52,34 @@ public class AdminController {
         return "coustom/chapter/media";
     }
 
+    @RequestMapping("/reference")
+    public String reference(){
+        return "/coustom/education/reference_list";
+    }
+
+    @RequestMapping("/add_reference")
+    public String add_reference(){
+        return "coustom/education/reference";
+    }
+
+    @RequestMapping("/summweCamp")
+    public String summweCamp(){
+        return "/coustom/education/summwe_camp_list";
+    }
+
+    @RequestMapping("/add_summwe_camp")
+    public String add_summwe_camp(){
+        return "coustom/education/summwe_camp";
+    }
+
+    @RequestMapping("/course")
+    public String course(){
+        return "/coustom/education/courses_list";
+    }
+
+    @RequestMapping("/add_courses")
+    public String add_courses(){
+        return "coustom/education/courses";
+    }
+
 }
