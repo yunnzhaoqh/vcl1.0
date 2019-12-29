@@ -94,93 +94,92 @@
                     </div>
                 </div>
                 <div class="tabs-body">
-                    <div class="type-content active">
-                        <div class="item">
-                            <div class="cover">
-                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
-                            </div>
-                            <a class="info" href="/home/project" target="_blank">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>
-                                <div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <div class="cover">
-                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
-                            </div>
-                            <a class="info" href="/home/project" target="_blank">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>
-                                <div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <div class="cover">
-                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
-                            </div>
-                            <a class="info" href="/home/project" target="_blank">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>
-                                <div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <div class="cover">
-                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
-                            </div>
-                            <a class="info" href="">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>
-                                <div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>
-                            </a>
-                        </div>
-
-                        <div class="paginator">
-                            <ul class="pagination"></ul>
-                        </div>
+                    <div class="type-content active" id="activityContent">
+                        <%--<div class="item">--%>
+                            <%--<div class="cover">--%>
+                                <%--<span style="background-image: url(/resources/images/temp/activities_05.png);"></span>--%>
+                            <%--</div>--%>
+                            <%--<a class="info" href="/home/project" target="_blank">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>--%>
+                                <%--<div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
+                        <%--<div class="item">--%>
+                            <%--<div class="cover">--%>
+                                <%--<span style="background-image: url(/resources/images/temp/activities_05.png);"></span>--%>
+                            <%--</div>--%>
+                            <%--<a class="info" href="/home/project" target="_blank">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>--%>
+                                <%--<div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
+                        <%--<div class="item">--%>
+                            <%--<div class="cover">--%>
+                                <%--<span style="background-image: url(/resources/images/temp/activities_05.png);"></span>--%>
+                            <%--</div>--%>
+                            <%--<a class="info" href="/home/project" target="_blank">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>--%>
+                                <%--<div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
+                        <%--<div class="item">--%>
+                            <%--<div class="cover">--%>
+                                <%--<span style="background-image: url(/resources/images/temp/activities_05.png);"></span>--%>
+                            <%--</div>--%>
+                            <%--<a class="info" href="">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>--%>
+                                <%--<div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
                     </div>
-                    <div class="type-content">
-                        <div class="item">
-                            <div class="cover">
-                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
-                            </div>
-                            <a class="info" href="">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>
-                                <div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <div class="cover">
-                                <span style="background-image: url(/resources/images/temp/activities_05.png);"></span>
-                            </div>
-                            <a class="info" href="">
-                                <div class="date">
-                                    <i>05</i>
-                                    <span>Sept 2019</span>
-                                </div>
-                                <div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>
-                                <div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>
-                            </a>
-                        </div>
-                    </div>
+                    <%--<div class="type-content">--%>
+                        <%--<div class="item">--%>
+                            <%--<div class="cover">--%>
+                                <%--<span style="background-image: url(/resources/images/temp/activities_05.png);"></span>--%>
+                            <%--</div>--%>
+                            <%--<a class="info" href="">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>--%>
+                                <%--<div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
+                        <%--<div class="item">--%>
+                            <%--<div class="cover">--%>
+                                <%--<span style="background-image: url(/resources/images/temp/activities_05.png);"></span>--%>
+                            <%--</div>--%>
+                            <%--<a class="info" href="">--%>
+                                <%--<div class="date">--%>
+                                    <%--<i>05</i>--%>
+                                    <%--<span>Sept 2019</span>--%>
+                                <%--</div>--%>
+                                <%--<div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>--%>
+                                <%--<div class="tips">Speaker : Prof. Yuanyuan Yang , Carnegie Mellon Universit</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
                 </div>
+                <%--<div class="paginator">--%>
+                    <%--<ul class="pagination"></ul>--%>
+                <%--</div>--%>
             </div>
         </div>
     </section>
@@ -235,29 +234,72 @@
     <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/js/bootstrap-paginator.js"></script>
     <script>
+        var type = 2;
         $(function(){
             $('.tabs-header .item').click(function(){
                 var index = $(this).index();
+                type = index+2;
+                initActivity(1,4);
                 $(this).addClass('active').siblings().removeClass('active');
-                $('.tabs-body .type-content').eq(index).addClass('active').siblings().removeClass('active');
+                // $('.tabs-body .type-content').eq(index).addClass('active').siblings().removeClass('active');
             });
-
-            $(".pagination").bootstrapPaginator({
-                //设置版本号
-                bootstrapMajorVersion: 3,
-                // 显示第几页
-                currentPage: 1,
-                // 总页数
-                totalPages: 56,
-                // 每次显示多少页面
-                numberOfPages: 10,
-                //当单击操作按钮的时候, 执行该函数, 调用ajax渲染页面
-                onPageClicked: function (event, originalEvent, type, page) {
-                    // 把当前点击的页码赋值给currentPage, 调用ajax,渲染页面
-                    
-                }
-            });
+            initActivity(1,4);
         });
+        function initActivity(index,limit) {
+                //提交 Ajax 成功后，静态更新表格中的数据
+                $.ajax({
+                    url: "/home/initActivities",
+                    data: JSON.stringify({"type": type, "page": index, "limit": limit}),
+                    contentType: 'application/json',  //请求数据类型
+                    // context: document.body,
+                    dataType: 'json',
+                    type: 'post'
+                }).done(function (data) {
+
+                    var activityHtml = '';
+                    var activity = data.data;
+                    for (var i in activity) {
+                        activityHtml += ' <div class="item">\n' +
+                            '                            <div class="cover">\n' +
+                            '                                <span style="background-image: url('+activity[i].bg_img+');"></span>\n' +
+                            '                            </div>\n' +
+                            '                            <a class="info" href="/home/project?type=activities&id='+activity[i].id+'" target="_blank">\n' +
+                            '                                <div class="date">\n' +
+                            '                                    <i>'+activity[i].createtime.split(',')[0]+'</i>\n' +
+                            '                                    <span>'+activity[i].createtime.split(',')[1]+'</span>\n' +
+                            '                                </div>\n' +
+                            '                                <div class="title">'+activity[i].main_title+'</div>\n' +
+                            '                                <div class="tips">'+activity[i].subtitle+'</div>\n' +
+                            '                            </a>\n' +
+                            '                        </div>';
+                    }
+                    $('#activityContent').empty();
+                    $('#activityContent').append(activityHtml);
+                    var pageHelper = '  <div class="paginator">\n' +
+                        '                            <ul class="pagination"></ul>\n' +
+                        '                        </div>';
+                    $('#activityContent').append(pageHelper);
+                    var total = parseInt(data.count/4)+1;
+                    if( !data.count/4>0){
+                        total = 1
+                    }
+                    $(".pagination").bootstrapPaginator({
+                        //设置版本号
+                        bootstrapMajorVersion: 3,
+                        // 显示第几页
+                        currentPage: index,
+                        // 总页数
+                        totalPages:total,
+                        // 每次显示多少页面
+                        numberOfPages: total,
+                        //当单击操作按钮的时候, 执行该函数, 调用ajax渲染页面
+                        onPageClicked: function (event, originalEvent, type, page) {
+                            // 把当前点击的页码赋值给currentPage, 调用ajax,渲染页面
+                            initActivity(page, 4);
+                        }
+                    });
+                })
+        }
     </script>
 
 </body>

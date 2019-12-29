@@ -43,6 +43,7 @@
                 and instr(people.name,#{peopleName}) > 0
             </if>
         </where>
+        order by id desc
     </select>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="coursesMap">
@@ -70,6 +71,7 @@
                 and status = #{status}
             </if>
         </where>
+        order by id desc
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Courses">

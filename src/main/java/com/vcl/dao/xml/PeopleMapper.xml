@@ -33,6 +33,7 @@
                 and status = #{status}
             </if>
         </where>
+        order by id desc
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="People">
@@ -149,6 +150,6 @@
     </select>
 
     <select id="query_professor" resultType="People">
-        select id,name from people where type = 2
+        select id,name from people where type = 2   order by id desc
     </select>
 </mapper>

@@ -327,15 +327,20 @@
                         }
                         $('#mediaList').empty();
                         $('#mediaList').append(mediaHtml);
+                    var total = parseInt(data.count/6)+1;
+                    // if( !data.count/6>0){
+                    //     total = 1
+                    // }
+                    console.log('total:------'+total)
                     $(".pagination").bootstrapPaginator({
                         //设置版本号
                         bootstrapMajorVersion: 3,
                         // 显示第几页
                         currentPage: 1,
                         // 总页数
-                        totalPages: data.count/6,
+                        totalPages: total,
                         // 每次显示多少页面
-                        numberOfPages: data.count/6,
+                        numberOfPages: total,
                         //当单击操作按钮的时候, 执行该函数, 调用ajax渲染页面
                         onPageClicked: function (event, originalEvent, type, page) {
                             console.log(page); //点击的当前页

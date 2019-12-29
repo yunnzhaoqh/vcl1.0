@@ -15,6 +15,25 @@ public class Project {
   private String bg_img;
   private String project_file;
 
+  public String getFileName() {
+    return fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  private String fileName;
+  private String fileSize;
+
+  public String getFileSize() {
+    return fileSize;
+  }
+
+  public void setFileSize(String fileSize) {
+    this.fileSize = fileSize;
+  }
+
   public Long getId() {
     return id;
   }

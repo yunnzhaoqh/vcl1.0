@@ -45,6 +45,7 @@
                 and instr(people.name,#{peopleName}) > 0
             </if>
         </where>
+         order by id desc
     </select>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="referenceMap">
@@ -75,6 +76,7 @@
                 and STATUS = #{STATUS}
             </if>
         </where>
+        order by id desc
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Reference">
@@ -107,7 +109,7 @@
             <if test="reference != null and reference !=''">
                 reference ,
             </if>
-            <if test="bg_img != null and bg_img !=''">
+            <if test="bgImg != null and bgImg !=''">
                 bg_img ,
             </if>
         </trim>
@@ -140,8 +142,8 @@
             <if test="reference != null and reference !=''">
                 #{reference},
             </if>
-            <if test="bg_img != null and bg_img !=''">
-                #{bg_img},
+            <if test="bgImg != null and bgImg !=''">
+                #{bgImg},
             </if>
         </trim>
     </insert>

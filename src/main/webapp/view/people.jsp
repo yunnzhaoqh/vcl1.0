@@ -12,6 +12,7 @@
     <title>people</title>
 
     <link type="text/css" rel="stylesheet" href="/resources/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/resources/css/bootstrap.min.css" />
 
     <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
     <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
@@ -99,275 +100,282 @@
                     </div>
                 </div>
                 <div class="tabs-body">
-                    <div class="type-content active">
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="type-content active" id="peopleContent">
+
                     </div>
-                    <div class="type-content">
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="type-content">
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="type-content">
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="people-item">
-                            <img src="/resources/images/temp/vcl-red_10.jpg" alt="">
-                            <div class="intro">
-                                <p class="job">Director</p>
-                                <p class="name">Baoquan Chen</p>
-                                <div class="link">
-                                    <a href="">Homepage</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="type-content">--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="type-content">--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="type-content">--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="people-item">--%>
+                            <%--<img src="/resources/images/temp/vcl-red_10.jpg" alt="">--%>
+                            <%--<div class="intro">--%>
+                                <%--<p class="job">Director</p>--%>
+                                <%--<p class="name">Baoquan Chen</p>--%>
+                                <%--<div class="link">--%>
+                                    <%--<a href="">Homepage</a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+
                 </div>
+                <%--<div class="paginator">--%>
+                    <%--<ul class="pagination"></ul>--%>
+                <%--</div>--%>
             </div>
         </div>
     </section>
@@ -419,23 +427,83 @@
     </footer>
 
     <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap-paginator.js"></script>
     <script>
+        var type = 1;
         $(function(){
             $('.tabs-header .item').click(function(){
                 var index = $(this).index();
+                type = index+1;
+                initPeople(1,8);
                 $(this).addClass('active').siblings().removeClass('active');
                 $('.tabs-body .type-content').eq(index).addClass('active').siblings().removeClass('active');
             });
+		initPeople(1,8);
         });
-		
+
 		setWidth();
 		window.onresize = function(){
 			setWidth();
 		}
-		
+
 		function setWidth() {
 			$('.tabs-body .people-item').width(($('.tabs').width() - 120) / 4);
 		}
+        function initPeople(index,limit) {
+            $.ajax({
+                url: "/home/initPeople",
+                data: JSON.stringify({"type": type, "page": index, "limit": limit}),
+                contentType: 'application/json',  //请求数据类型
+                // context: document.body,
+                dataType: 'json',
+                type: 'post'
+            }).done(function (data) {
+                var peopleHtml ='';
+                var people = data.data;
+                for(var i in people){
+                        peopleHtml+= '                 <div class="people-item">\n' +
+                            '                            <img src="' + people[i].path + '" alt="">\n' +
+                            '                            <div class="intro">\n' +
+                            '                                <p class="job">' + people[i].duty + '</p>\n' +
+                            '                                <p class="name">' + people[i].name + '</p>\n' +
+                            '                                <div class="link">\n' +
+                            '                                    <a href="">Homepage</a>\n' +
+                            '                                </div>\n' +
+                            '                            </div>\n'+
+                            '                            </div>\n';
+
+                }
+
+                $('#peopleContent').empty();
+                $('#peopleContent').append(peopleHtml);
+                var pageH = '  <div class="paginator">\n' +
+                    '                            <ul class="pagination"></ul>\n' +
+                    '                        </div>';
+                $('#peopleContent').append(pageH);
+                var total = parseInt(data.count/8)+1;
+                if( !data.count/8>0){
+                    total = 1
+                }
+
+                $(".pagination").bootstrapPaginator({
+                    //设置版本号
+                    bootstrapMajorVersion: 3,
+                    // 显示第几页
+                    currentPage: index,
+                    // 总页数
+                    totalPages: total,
+                    // 每次显示多少页面
+                    numberOfPages: total,
+                    //当单击操作按钮的时候, 执行该函数, 调用ajax渲染页面
+                    onPageClicked: function (event, originalEvent, type, page) {
+                        // 把当前点击的页码赋值给currentPage, 调用ajax,渲染页面
+                        initPeople(page, 8);
+                    }
+                });
+
+            });
+        }
     </script>
 
 </body>

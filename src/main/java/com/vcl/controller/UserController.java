@@ -82,10 +82,11 @@ public class UserController {
                 String originalName = file.getOriginalFilename();
                 prefix = FilenameUtils.getExtension(originalName);
                 String filepath = FILE_UPLOAD_PATH;
-                String resultpath = "\\upload\\";
+                String resultpath = "\\upload\\"; //默认存储到upload 路径下
                 if (!StringUtils.isEmpty(dirpath)) {
-                    filepath += "\\" + dirpath + "\\";
+//                    filepath += "\\" + dirpath + "\\";
                     resultpath += dirpath + "\\";
+                    filepath+=resultpath;
                 }
                 if(!StringUtils.isEmpty(dirpath) && dirpath.indexOf("file") != -1){
                     fileStr = originalName;

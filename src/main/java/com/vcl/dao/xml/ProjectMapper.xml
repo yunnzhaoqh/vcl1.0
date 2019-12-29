@@ -47,6 +47,7 @@
                 and status = #{status}
             </if>
         </where>
+        order by id desc
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Project">

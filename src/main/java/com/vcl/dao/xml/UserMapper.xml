@@ -14,7 +14,7 @@
     </resultMap>
 
     <select id="getUser" resultMap="userMap">
-        SELECT * FROM user where login_name = #{login_name}
+        SELECT * FROM user where login_name = #{login_name}   order by id desc
     </select>
 
     <select id="query_user_list" parameterType="java.util.Map" resultMap="userMap">
@@ -27,6 +27,7 @@
                 and instr(name,#{name}) > 0
             </if>
         </where>
+        order by id desc
     </select>
 
     <insert id="insert_user" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="User">

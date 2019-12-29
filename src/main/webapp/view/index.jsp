@@ -498,7 +498,7 @@
                         var intro = data.obj.intro;
                         var media = data.obj.media;
                         var people = data.obj.people;
-                        var reference = data.obj.reference;
+                        var project = data.obj.project;
                         if(banner){
                             var bannerHtml = '';
                             var wrapperContext = '';
@@ -665,17 +665,17 @@
                         }
                     }
 
-                    if(reference){
-                        var referenceHtml = '';
-                        console.log(reference);
-                        for (var i in reference) {
+                    if(project){
+                        var projectHtml = '';
+                        console.log(project);
+                        for (var i in project) {
                             if(i<3){
-                                referenceHtml+='<div class="item">\n' +
-                                    '                    <a href="/home/project" target="_blank">\n' +
-                                    '                        <img src="'+reference[i].bgImg+'" alt="">\n' +
+                                projectHtml+='<div class="item">\n' +
+                                    '                    <a href="/home/project?type=publication&id='+project[i].id+'" target="_blank">\n' +
+                                    '                        <img src="'+project[i].bg_img+'" alt="">\n' +
                                     '                        <div class="cover">\n' +
-                                    '                            <h4>'+reference[i].referenceName+'</h4>\n' +
-                                    '                            <h5>'+reference[i].intro+'</h5>\n' +
+                                    '                            <h4>'+project[i].main_title+'</h4>\n' +
+                                    '                            <h5>'+project[i].subtitle+'</h5>\n' +
                                     '                        </div>\n' +
                                     '                    </a>\n' +
                                     '                </div>';
@@ -683,7 +683,7 @@
 
                         }
                         $('#research-pullication').empty();
-                        $('#research-pullication').append(referenceHtml);
+                        $('#research-pullication').append(projectHtml);
 
                     }
 

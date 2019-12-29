@@ -266,25 +266,25 @@
         function click(Year) {
             $.ajax({
                 url: "/home/initPublication",
-                data:{YEAR:Year,STATUS:1},
+                data:{YEAR:Year,type:1,STATUS:1},
                 context: document.body,
                 dataType :'json',
                 type:'post'
             }).done(function(data) {
                 if (data.success) {
                     var publicRight ='';
-                    var reference =data.obj.reference;
-                    for(var i in reference){
+                    var projects =data.obj.projects;
+                    for(var i in projects){
                         if(i<7){
                             publicRight = '<div class="item">\n' +
-                                '                        <div class="cover" style="background-image: url('+reference[i].byImg +');"></div>\n' +
+                                '                        <div class="cover" style="background-image: url('+projects[i].bg_img +');"></div>\n' +
                                 '                        <ul>\n' +
-                                '                            <li class="name">'+reference[i].referenceName+'</li>\n' +
-                                '                            <li class="tips">'+reference[i].peopleNames+'</li>\n' +
-                                '                            <li class="size">'+reference[i].intro+'</li>\n' +
+                                '                            <li class="name">'+projects[i].main_title+'</li>\n' +
+                                '                            <li class="tips">'+projects[i].subtitle+'</li>\n' +
+                                '                            <li class="size">'+projects[i].project_file.split('.')[1]+'</li>\n' +
                                 '                            <li class="download">\n' +
-                                '                                <a href="/home/project" class="link more" >more</a>\n' +
-                                '                                <a href="'+reference[i].reference+'" class="link download" download="" style="display: none" >Download</a>\n' +
+                                '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link more" >more</a>\n' +
+                                '                                <a href="'+projects[i].project_file+'" class="link download" download="" style="display: none" >Download</a>\n' +
                                 '                                <span class="file pdf"></span>\n' +
                                 '                            </li>\n' +
                                 '                        </ul>\n' +
@@ -303,7 +303,7 @@
             console.log(tYear);
             $.ajax({
                 url: "/home/initPublication",
-                data:{YEAR:tYear,STATUS:1},
+                data:{'YEAR':tYear,'STATUS':1,'type':1},
                 context: document.body,
                 dataType :'json',
                 type:'post'
@@ -311,18 +311,18 @@
                 if (data.success) {
                     var publicLeft ='';
                     var publicRight ='';
-                    var reference =data.obj.reference;
-                    console.log(reference);
-                    for(var i in reference){
+                    var projects =data.obj.projects;
+                    console.log(projects);
+                    for(var i in projects){
                         if(i<7){
                             publicRight += '<div class="item">\n' +
-                                '                        <div class="cover" style="background-image: url('+reference[i].bgImg +');"></div>\n' +
+                                '                        <div class="cover" style="background-image: url('+projects[i].bg_img +');"></div>\n' +
                                 '                        <ul>\n' +
-                                '                            <li class="name">'+reference[i].referenceName+'</li>\n' +
-                                '                            <li class="tips">'+reference[i].peopleId+'</li>\n' +
-                                '                            <li class="size">'+reference[i].intro+'</li>\n' +
+                                '                            <li class="name">'+projects[i].main_title+'</li>\n' +
+                                '                            <li class="tips">'+projects[i].share_people+'</li>\n' +
+                                '                            <li class="size">'+projects[i].subtitle+'</li>\n' +
                                 '                            <li class="download">\n' +
-                                '                                <a href="/home/project" class="link" >more</a>\n' +
+                                '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link" >more</a>\n' +
                                 '                                <span class="file pdf"></span>\n' +
                                 '                            </li>\n' +
                                 '                        </ul>\n' +
