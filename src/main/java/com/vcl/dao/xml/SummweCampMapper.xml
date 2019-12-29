@@ -31,7 +31,7 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 and status = #{status}
             </if>
         </where>
@@ -56,7 +56,7 @@
             <if test="createtime != null and createtime !=''">
                  createtime ,
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                  status ,
             </if>
             <if test="intro != null and intro !=''">
@@ -83,7 +83,7 @@
             <if test="createtime != null and createtime !=''">
                 #{createtime} ,
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 #{status},
             </if>
             <if test="intro != null and intro !=''">
@@ -112,7 +112,7 @@
             <if test="createtime != null and createtime !=''">
                 createtime =#{createtime},
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 status =#{status},
             </if>
             <if test="intro != null and intro !=''">

@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>课程列表</title>
+    <title>banner列表</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -18,15 +18,9 @@
         <div class="layui-form layui-card-header layuiadmin-card-header-auto">
             <div class="layui-form-item">
                 <div class="layui-inline">
-                    <label class="layui-form-label">课程名</label>
+                    <label class="layui-form-label">banner标题</label>
                     <div class="layui-input-block">
                         <input type="text" name="courseName" placeholder="请输入" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">指导员</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="peopleName" placeholder="请输入" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -34,13 +28,13 @@
                     <div class="layui-input-block">
                         <select name="status">
                             <option value="">不限</option>
-                            <option value="1">有效</option>
-                            <option value="0">无效</option>
+                            <option value="1">前端显示</option>
+                            <option value="0">前端不显示</option>
                         </select>
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="LAY-courses-search">
+                    <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="LAY-banner-search">
                         <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
                     </button>
                 </div>
@@ -53,7 +47,7 @@
                 <button class="layui-btn layuiadmin-btn-admin" data-type="add">添加</button>
             </div>
 
-            <table id="LAY-courses-manage" lay-filter="LAY-courses-manage"></table>
+            <table id="LAY-banner-manage" lay-filter="LAY-banner-manage"></table>
             <script type="text/html" id="table-project">
                 <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="view"><i
                         class="layui-icon layui-icon-read"></i>查看</a>
@@ -72,17 +66,17 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'education', 'table'], function () {
+    }).use(['index', 'banner', 'table'], function () {
         var $ = layui.$
             , form = layui.form
             , table = layui.table;
 
         //监听搜索
-        form.on('submit(LAY-courses-search)', function (data) {
+        form.on('submit(LAY-banner-search)', function (data) {
             var field = data.field;
 
             //执行重载
-            table.reload('LAY-courses-manage', {
+            table.reload('LAY-banner-manage', {
                 where: field
             });
         });
@@ -90,12 +84,12 @@
         //事件
         var active = {
             add: function () {
-                window.courses = undefined;
+                window.banner = undefined;
                 window.open_type = '';
                 layer.open({
                     type: 2
                     , title: '添加课程'
-                    , content: '/admin/add_courses'
+                    , content: '/admin/add_banner'
                     , area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.75 + 'px']
                 });
             }

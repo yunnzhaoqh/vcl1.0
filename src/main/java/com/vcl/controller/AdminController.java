@@ -92,4 +92,14 @@ public class AdminController {
         return "coustom/education/courses";
     }
 
+    @RequestMapping("/banner_list")
+    public String banner_list(){
+        return "coustom/banner/banner_list";
+    }
+
+    @RequestMapping("/add_banner")
+    public String add_banner(){
+        return "coustom/banner/banner";
+    }
+
 }

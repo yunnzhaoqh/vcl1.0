@@ -24,7 +24,7 @@
             <if test="CREATETIME != null and CREATETIME !=''">
                 and CREATETIME = #{CREATETIME}
             </if>
-            <if test="STATUS != null and STATUS !=''">
+            <if test="STATUS != null">
                 and STATUS = #{STATUS}
             </if>
         </where>
@@ -52,7 +52,7 @@
             <if test="CREATETIME != null and CREATETIME !=''">
                  CREATETIME ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
+            <if test="STATUS != null">
                  STATUS ,
             </if>
         </trim>
@@ -76,7 +76,7 @@
             <if test="CREATETIME != null and CREATETIME !=''">
                 #{CREATETIME} ,
             </if>
-            <if test="STATUS != null and STATUS !=''">
+            <if test="STATUS != null">
                 #{STATUS},
             </if>
         </trim>
@@ -102,7 +102,7 @@
             <if test="CREATETIME != null and CREATETIME !=''">
                 CREATETIME =#{CREATETIME},
             </if>
-            <if test="STATUS != null and STATUS !=''">
+            <if test="STATUS != null">
                 STATUS =#{STATUS},
             </if>
         </trim>

@@ -6,111 +6,102 @@
         SELECT * FROM banner
         <where>
             and status >= 0
-            <if test="ID != null and ID !=''">
-               ID = #{ID}
+            <if test="id != null and id !=''">
+               id = #{id}
             </if>
-            <if test="BANNER_IMG != null and BANNER_IMG !=''">
-                and BANNER_IMG = #{BANNER_IMG}
+            <if test="banner_img != null and banner_img !=''">
+                and banner_img = #{banner_img}
             </if>
-            <if test="BANNER_TITLE_CONTEXT != null and BANNER_TITLE_CONTEXT !=''">
-                and BANNER_TITLE_CONTEXT = #{BANNER_TITLE_CONTEXT}
+            <if test="banner_title_context != null and banner_title_context !=''">
+                and banner_title_context = #{banner_title_context}
             </if>
-            <if test="BANNER_TITLE_INTRO != null and BANNER_TITLE_INTRO !=''">
-                and BANNER_TITLE_INTRO = #{BANNER_TITLE_INTRO}
+            <if test="banner_title_intro != null and banner_title_intro !=''">
+                and banner_title_intro = #{banner_title_intro}
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                and CREATETIME = #{CREATETIME}
+            <if test="createtime != null and createtime !=''">
+                and create_time = #{createtime}
             </if>
-            <if test="STATUS != null and STATUS !=''">
-                and STATUS = #{STATUS}
+            <if test="status != null">
+                and status = #{status}
             </if>
         </where>
         order by id desc
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Banner">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Banner">
         insert into  banner
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                 ID,
+            <if test="id != null and id !=''">
+                 id,
             </if>
-            <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                 PEOPLE_ID ,
+            <if test="bannerImg != null and bannerImg !=''">
+                banner_img ,
             </if>
-            <if test="COURSE_NAME != null and COURSE_NAME !=''">
-                 COURSE_NAME ,
+            <if test="bannerTitleContext != null and bannerTitleContext !=''">
+                banner_title_context ,
             </if>
-            <if test="STARTTIME != null and STARTTIME !=''">
-                 STARTTIME ,
+            <if test="bannerTitleIntro != null and bannerTitleIntro !=''">
+                banner_title_intro ,
             </if>
-            <if test="ENDTIME != null and ENDTIME !=''">
-                 ENDTIME ,
+            <if test="createTime != null and createTime !=''">
+                create_time ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                 CREATETIME ,
-            </if>
-            <if test="STATUS != null and STATUS !=''">
-                 STATUS ,
+            <if test="status != null">
+                 status ,
             </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="ID != null and ID !=''">
-                #{ID},
+            <if test="id != null and id !=''">
+                #{id},
             </if>
-            <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                #{PEOPLE_ID} ,
+            <if test="bannerImg != null and bannerImg !=''">
+                #{bannerImg} ,
             </if>
-            <if test="COURSE_NAME != null and COURSE_NAME !=''">
-                #{COURSE_NAME} ,
+            <if test="bannerTitleContext != null and bannerTitleContext !=''">
+                #{bannerTitleContext} ,
             </if>
-            <if test="STARTTIME != null and STARTTIME !=''">
-                #{STARTTIME} ,
+            <if test="bannerTitleIntro != null and bannerTitleIntro !=''">
+                #{bannerTitleIntro} ,
             </if>
-            <if test="ENDTIME != null and ENDTIME !=''">
-                #{ENDTIME} ,
+            <if test="createTime != null and createTime !=''">
+                #{createTime} ,
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                #{CREATETIME} ,
-            </if>
-            <if test="STATUS != null and STATUS !=''">
-                #{STATUS},
+            <if test="status != null">
+                #{status},
             </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Banner">
         update banner
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
-            <if test="ID != null and ID !=''">
-                ID = #{ID},
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
+            <if test="id != null and id !=''">
+                id = #{id},
             </if>
-            <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                PEOPLE_ID =#{PEOPLE_ID},
+            <if test="bannerImg != null and bannerImg !=''">
+                banner_img =#{bannerImg},
             </if>
-            <if test="COURSE_NAME != null and COURSE_NAME !=''">
-                COURSE_NAME=#{COURSE_NAME} ,
+            <if test="bannerTitleContext != null and bannerTitleContext !=''">
+                banner_title_context=#{bannerTitleContext} ,
             </if>
-            <if test="STARTTIME != null and STARTTIME !=''">
-                STARTTIME=#{STARTTIME} ,
+            <if test="bannerTitleIntro != null and bannerTitleIntro !=''">
+                banner_title_intro=#{bannerTitleIntro} ,
             </if>
-            <if test="ENDTIME != null and ENDTIME !=''">
-                ENDTIME =#{ENDTIME},
+            <if test="createTime != null and createTime !=''">
+                create_time =#{createTime},
             </if>
-            <if test="CREATETIME != null and CREATETIME !=''">
-                CREATETIME =#{CREATETIME},
-            </if>
-            <if test="STATUS != null and STATUS !=''">
-                STATUS =#{STATUS},
+            <if test="status != null">
+                status =#{status},
             </if>
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update banner
-        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
             status = -1,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Banner">
-       select * from banner WHERE ID=#{ID}
+       select * from banner WHERE id = #{id}
     </select>
 </mapper>

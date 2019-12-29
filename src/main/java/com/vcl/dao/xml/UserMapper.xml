@@ -54,7 +54,7 @@
             <if test="create_time != null and create_time !=''">
                 create_time ,
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 status ,
             </if>
         </trim>
@@ -81,7 +81,7 @@
             <if test="create_time != null and create_time !=''">
                 #{create_time} ,
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 #{status},
             </if>
         </trim>
@@ -108,7 +108,7 @@
             <if test="create_time != null and create_time !=''">
                 create_time =#{create_time},
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 status =#{status},
             </if>
         </trim>

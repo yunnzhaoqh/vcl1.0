@@ -39,7 +39,7 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 and reference.status = #{status}
             </if>
             <if test="peopleName != null and peopleName !=''">
@@ -73,7 +73,7 @@
             <if test="YEAR != null and YEAR !=''">
                 and instr(CREATETIME,#{YEAR})>0
             </if>
-            <if test="STATUS != null and STATUS !=''">
+            <if test="STATUS != null">
                 and STATUS = #{STATUS}
             </if>
         </where>
@@ -101,7 +101,7 @@
             <if test="createtime != null and createtime !=''">
                  createtime ,
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                  status ,
             </if>
             <if test="intro != null and intro !=''">
@@ -134,7 +134,7 @@
             <if test="createtime != null and createtime !=''">
                 #{createtime} ,
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 #{status},
             </if>
             <if test="intro != null and intro !=''">
@@ -166,7 +166,7 @@
             <if test="createtime != null and createtime !=''">
                 createtime =#{createtime},
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 status =#{status},
             </if>
             <if test="intro != null and intro !=''">

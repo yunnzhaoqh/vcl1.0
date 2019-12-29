@@ -3,7 +3,7 @@ package com.vcl.pojo;
 
 public class Banner {
 
-  private long id;
+  private Long id;
   private String bannerImg;
   private String bannerTitleContext;
   private String bannerTitleIntro;
@@ -22,6 +22,9 @@ public class Banner {
             '}';
   }
 
+  public Banner() {
+  }
+
   public Banner(long id, String bannerImg, String bannerTitleContext, String bannerTitleIntro, long status, String createTime) {
     this.id = id;
     this.bannerImg = bannerImg;
@@ -31,14 +34,11 @@ public class Banner {
     this.createTime = createTime;
   }
 
-  public Banner() {
-  }
-
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

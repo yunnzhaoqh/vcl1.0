@@ -15,7 +15,7 @@ public interface BannerMapper {
 
     int updateByPrimaryKey(Banner courses);
 
-    Banner selectByPrimaryKey(@Param("ID") Long id);
+    Banner selectByPrimaryKey(@Param("id") Long id);
 
-    int deleteByPrimaryKey(@Param("ID") Long id);
+    int deleteByPrimaryKey(@Param("id") Long id);
 }

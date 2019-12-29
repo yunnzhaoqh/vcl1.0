@@ -24,7 +24,7 @@ public interface BannerService {
 	 * 返回分页列表
 	 * @return
 	 */
-	public PageResult findPage(int pageNum, int pageSize);
+	public PageResult findPage(Map map);
 	
 	
 	/**
@@ -52,6 +52,12 @@ public interface BannerService {
 	 * @param ids
 	 */
 	public void delete(Long[] ids);
+
+	/**
+	 * 批量删除
+	 * @param id
+	 */
+	public void delete_banner(Long id);
 
 	/**
 	 * 分页

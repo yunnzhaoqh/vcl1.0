@@ -43,7 +43,7 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 and status = #{status}
             </if>
         </where>
@@ -77,7 +77,7 @@
             <if test="createtime != null and createtime !=''">
                  createtime ,
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                  status ,
             </if>
             <if test="bg_img != null and bg_img !=''">
@@ -113,7 +113,7 @@
             <if test="createtime != null and createtime !=''">
                 #{createtime} ,
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 #{status},
             </if>
             <if test="bg_img != null and bg_img !=''">
@@ -151,7 +151,7 @@
             <if test="createtime != null and createtime !=''">
                 createtime =#{createtime},
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 status =#{status},
             </if>
             <if test="bg_img != null and bg_img !=''">
@@ -198,7 +198,7 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 and status = #{status}
             </if>
         </where>
@@ -230,7 +230,7 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
-            <if test="status != null and status !=''">
+            <if test="status != null">
                 and status = #{status}
             </if>
         </where>

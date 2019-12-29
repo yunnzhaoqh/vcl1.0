@@ -129,7 +129,7 @@
         form.verify({
             path:[
                 /[\S]+/,
-                "人员相片不能为空"]
+                "封面不能为空"]
         });
 
         var start = laydate.render({
