@@ -24,12 +24,27 @@
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">状态</label>
+                    <label class="layui-form-label">推荐home</label>
                     <div class="layui-input-block">
                         <select name="status">
                             <option value="">不限</option>
-                            <option value="1">前端显示</option>
-                            <option value="0">前端不显示</option>
+                            <option value="2">推荐</option>
+                            <option value="1">不推荐</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">轮播图模块</label>
+                    <div class="layui-input-block">
+                        <select name="type">
+                            <option value="">不限</option>
+                            <option value="1">home</option>
+                            <option value="2">publication</option>
+                            <option value="3">media</option>
+                            <option value="4">people</option>
+                            <option value="5">activitis</option>
+                            <option value="6">education</option>
+                            <option value="7">join us</option>
                         </select>
                     </div>
                 </div>

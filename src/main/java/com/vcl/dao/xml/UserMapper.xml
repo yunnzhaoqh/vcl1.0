@@ -20,13 +20,20 @@
     <select id="query_user_list" parameterType="java.util.Map" resultMap="userMap">
         select id,login_name,name,gender,age,create_time,status from user
         <where>
-            status <![CDATA[ <> ]]> -1
             <if test="login_name != null and login_name != ''">
                 and instr(login_name,#{login_name}) > 0
             </if>
             <if test="name != null and name != ''">
                 and instr(name,#{name}) > 0
             </if>
+            <choose>
+                <when test="status != null and status != null">
+                    and status = #{status}
+                </when>
+                <otherwise>
+                    and status <![CDATA[ <> ]]> -1
+                </otherwise>
+            </choose>
         </where>
         order by id desc
     </select>

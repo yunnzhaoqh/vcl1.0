@@ -12,8 +12,8 @@ public class Intro {
   private String title;
   private String subhead;
   private String context;
-  private long id;
-  private long status;
+  private Long id;
+  private Long status;
   private String createTime;
   private String duty;
 
@@ -109,20 +109,20 @@ public class Intro {
   }
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public long getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(long status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 

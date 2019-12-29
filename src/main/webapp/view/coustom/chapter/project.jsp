@@ -50,13 +50,13 @@
                    class="layui-input">
         </div>
     </div>
-    <div class="layui-form-item layer-width">
-        <label class="layui-form-label layui-required">参与学校</label>
-        <div class="layui-input-block">
-            <input type="text" name="share_shcool" lay-verify="required" placeholder="请输入参与学校" autocomplete="off"
-                   class="layui-input">
-        </div>
-    </div>
+<%--    <div class="layui-form-item layer-width">--%>
+<%--        <label class="layui-form-label layui-required">参与学校</label>--%>
+<%--        <div class="layui-input-block">--%>
+<%--            <input type="text" name="share_shcool" lay-verify="required" placeholder="请输入参与学校" autocomplete="off"--%>
+<%--                   class="layui-input">--%>
+<%--        </div>--%>
+<%--    </div>--%>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">封面</label>
         <div class="layui-input-inline">
@@ -97,11 +97,11 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">状态</label>
+        <label class="layui-form-label layui-required">推荐home</label>
         <div class="layui-input-inline">
-            <select name="status" lay-verify="">
-                <option value="1" selected>有效</option>
-                <option value="0">无效</option>
+            <select name="status" lay-verify="required">
+                <option value="1">不推荐</option>
+                <option value="2">推荐</option>
             </select>
         </div>
     </div>
@@ -135,21 +135,9 @@
         var start = laydate.render({
             elem: '#createtime', //id为star的输入框
             type: 'date',
-            min: '',
-            max: '2099-06-16 23:59:59', //最大日期
             istime: true,
             istoday: false,
-            trigger: 'click',//呼出事件改成click
-            done: function(value,date){
-                end.config.min ={
-                    year:date.year,
-                    month:date.month-1,
-                    date: date.date,
-                    hours: 0,
-                    minutes: 0,
-                    seconds : 0
-                };
-            }
+            trigger: 'click',
         });
 
         layedit.set({

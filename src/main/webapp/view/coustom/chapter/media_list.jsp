@@ -24,12 +24,12 @@
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">状态</label>
+                    <label class="layui-form-label">推荐home</label>
                     <div class="layui-input-block">
                         <select name="status">
                             <option value="">不限</option>
-                            <option value="1">有效</option>
-                            <option value="0">无效</option>
+                            <option value="2">推荐</option>
+                            <option value="1">不推荐</option>
                         </select>
                     </div>
                 </div>

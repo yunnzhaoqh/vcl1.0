@@ -55,21 +55,21 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">状态</label>
-        <div class="layui-input-inline">
-            <select name="status" lay-verify="">
-                <option value="1" selected>有效</option>
-                <option value="0">无效</option>
-            </select>
-        </div>
-    </div>
-    <div class="layui-form-item">
         <label class="layui-form-label layui-required">封面</label>
         <div class="layui-input-inline">
             <img src="" id="path" width="100%" height="100%" style="display: none">
             <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-summe_camp">上传图片</button>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">推荐home</label>
+        <div class="layui-input-inline">
+            <select name="status" lay-verify="required">
+                <option value="1">不推荐</option>
+                <option value="2">推荐</option>
+            </select>
+        </div>
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">

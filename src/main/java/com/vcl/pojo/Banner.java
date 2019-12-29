@@ -3,20 +3,28 @@ package com.vcl.pojo;
 
 public class Banner {
 
-  private long id;
+  private Long id;
   private String bannerImg;
   private String bannerTitleContext;
   private String bannerTitleIntro;
-  private long status;
+  private Long status;
   private String createTime;
   private String bannerUrl;
-  private int type;
+  private Long type;
 
-  public int getType() {
+  public String getBannerUrl() {
+    return bannerUrl;
+  }
+
+  public void setBannerUrl(String bannerUrl) {
+    this.bannerUrl = bannerUrl;
+  }
+
+  public Long getType() {
     return type;
   }
 
-  public void setType(int type) {
+  public void setType(Long type) {
     this.type = type;
   }
 
@@ -34,11 +42,34 @@ public class Banner {
             '}';
   }
 
-  public long getId() {
+  public Banner() {
+  }
+
+  public Banner(Long id, String bannerImg, String bannerTitleContext, String bannerTitleIntro, long status, String createTime) {
+    this.id = id;
+    this.bannerImg = bannerImg;
+    this.bannerTitleContext = bannerTitleContext;
+    this.bannerTitleIntro = bannerTitleIntro;
+    this.status = status;
+    this.createTime = createTime;
+  }
+
+  public Banner(Long id, String bannerImg, String bannerTitleContext, String bannerTitleIntro, long status, String createTime, String bannerUrl, Long type) {
+    this.id = id;
+    this.bannerImg = bannerImg;
+    this.bannerTitleContext = bannerTitleContext;
+    this.bannerTitleIntro = bannerTitleIntro;
+    this.status = status;
+    this.createTime = createTime;
+    this.bannerUrl = bannerUrl;
+    this.type = type;
+  }
+
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -88,27 +119,6 @@ public class Banner {
   }
 
 
-  public String getBannerUrl() {
-    return bannerUrl;
-  }
-
-  public void setBannerUrl(String bannerUrl) {
-    this.bannerUrl = bannerUrl;
-  }
-
-  public Banner(long id, String bannerImg, String bannerTitleContext, String bannerTitleIntro, long status, String createTime, String bannerUrl, int type) {
-    this.id = id;
-    this.bannerImg = bannerImg;
-    this.bannerTitleContext = bannerTitleContext;
-    this.bannerTitleIntro = bannerTitleIntro;
-    this.status = status;
-    this.createTime = createTime;
-    this.bannerUrl = bannerUrl;
-    this.type = type;
-  }
-
-  public Banner() {
-  }
 
 
 }
