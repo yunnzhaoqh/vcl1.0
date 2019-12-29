@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReferenceController {
 
 	@Autowired
-	private com.zqh.cvl.service.ReferenceService referenceService;
+	private com.vcl.service.ReferenceService referenceService;
 	
 	/**
 	 * 返回全部列表

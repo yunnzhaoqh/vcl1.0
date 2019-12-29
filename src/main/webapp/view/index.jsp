@@ -487,7 +487,7 @@
             $.ajax({
                 url: "/home/initHome",
                 data:{},
-                context: document.body,
+                // context: document.body,
                 dataType :'json',
                 type:'post'
             }).done(function(data) {
@@ -590,8 +590,9 @@
                             for (var i in media) {
                                 if(i<4){
                                     if(i%2 == 1){
+                                        // mediaDetail?ID='+media[i].id+'
                                         mediaHtml += ' <div class="item">\n' +
-                                            '                <a class="des" href="/home/mediaDetail?ID='+media[i].id+'">\n' +
+                                            '                <a class="des" href="/home/index">\n' +
                                             '                    <div class="imgs">\n' +
                                             '                        <img src="'+media[i].img+'" alt="">\n' +
                                             '                    </div>\n' +
@@ -613,7 +614,8 @@
                                             '            </div>';
                                     }else{
                                         mediaHtml += ' <div class="item">\n' +
-                                            '                <a class="des" href="/home/mediaDetail?ID='+media[i].id+'">\n' +
+                                        // mediaDetail?ID='+media[i].id+'
+                                            '                <a class="des" href="/home/index">\n' +
                                             '                    <div class="word-content">\n' +
                                             '                        <img src="'+media[i].img+'" alt="">\n' +
                                             '                        <div class="word">\n' +

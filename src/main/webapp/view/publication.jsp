@@ -104,15 +104,7 @@
                         <%--<i></i>--%>
                         <%--<span>2015</span>--%>
                     <%--</div>--%>
-                    <div class="share">
-                        <a class="icon" href="" >
-                            <%--/home/share--%>
-                            <p>
-                                <span></span>
-                            </p>
-                            <p class="text">Share</p>
-                        </a>
-                    </div>
+
                 </div>
                 <div class="item-right" id="public_right">
                     <%--<div class="item">--%>
@@ -257,7 +249,7 @@
     <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function(){
-            initpublication()
+            initpublication();
             $('.item-left .year').click(function () {
                 $(this).addClass('active').siblings().removeClass('active');
                 click(this.text());
@@ -288,7 +280,7 @@
                                 '                        <div class="cover" style="background-image: url('+reference[i].byImg +');"></div>\n' +
                                 '                        <ul>\n' +
                                 '                            <li class="name">'+reference[i].referenceName+'</li>\n' +
-                                '                            <li class="tips">'+reference[i].peopleId+'</li>\n' +
+                                '                            <li class="tips">'+reference[i].peopleNames+'</li>\n' +
                                 '                            <li class="size">'+reference[i].intro+'</li>\n' +
                                 '                            <li class="download">\n' +
                                 '                                <a href="/home/project" class="link more" >more</a>\n' +
@@ -308,6 +300,7 @@
         function initpublication() {
             var myDate = new Date();
             var tYear = myDate.getFullYear();
+            console.log(tYear);
             $.ajax({
                 url: "/home/initPublication",
                 data:{YEAR:tYear,STATUS:1},
@@ -319,10 +312,11 @@
                     var publicLeft ='';
                     var publicRight ='';
                     var reference =data.obj.reference;
+                    console.log(reference);
                     for(var i in reference){
                         if(i<7){
-                            publicRight = '<div class="item">\n' +
-                                '                        <div class="cover" style="background-image: url('+reference[i].byImg +');"></div>\n' +
+                            publicRight += '<div class="item">\n' +
+                                '                        <div class="cover" style="background-image: url('+reference[i].bgImg +');"></div>\n' +
                                 '                        <ul>\n' +
                                 '                            <li class="name">'+reference[i].referenceName+'</li>\n' +
                                 '                            <li class="tips">'+reference[i].peopleId+'</li>\n' +
@@ -334,14 +328,25 @@
                                 '                        </ul>\n' +
                                 '                    </div>'
                         }
+                        if(i<5){
+                            publicLeft+='    <div class="year">\n' +
+                                '                        <i></i>\n' +
+                                '                        <span>'+tYear+'</span>\n' +
+                                '                    </div>';
+                            tYear--;
+                        }
                     }
-                    if(i<5){
-                        publicLeft+='    <div class="year">\n' +
-                            '                        <i></i>\n' +
-                            '                        <span>'+tYear+'</span>\n' +
-                            '                    </div>';
-                        tYear-1;
-                    }
+
+
+                    publicLeft+='<div class="share">\n' +
+                        '                        <a class="icon" href="" >\n' +
+                        '                            <%--/home/share--%>\n' +
+                        '                            <p>\n' +
+                        '                                <span></span>\n' +
+                        '                            </p>\n' +
+                        '                            <p class="text">Share</p>\n' +
+                        '                        </a>\n' +
+                        '                    </div>';
                     $('#public_left').empty();
                     $('#public_left').append(publicLeft);
                     $("#public_left").children(":first").addClass('active');

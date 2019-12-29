@@ -6,6 +6,7 @@ import com.vcl.utils.RequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.annotation.RequestScope;
@@ -34,7 +35,7 @@ public class HomeController {
     @Autowired
     private PeopleService peopleService;
     @Autowired
-    private com.zqh.cvl.service.ReferenceService referenceService;
+    private com.vcl.service.ReferenceService referenceService;
 
     @RequestMapping("/index")
     public String index(){
@@ -118,8 +119,6 @@ public class HomeController {
     public Result initPublication(HttpServletRequest request){
         Map<String, Object> parameterMap = RequestUtil.getMap(request);
         parameterMap.keySet();
-
-
         Result result = new Result();
         Map map = new HashMap();
 //        map.put("STATUS",1);
@@ -133,6 +132,40 @@ public class HomeController {
             result.setSuccess(false);
         }
         return result;
+    }
+
+    @RequestMapping("/initmedia")
+    @ResponseBody
+    public PageResult initmedia(@RequestBody Map map){
+//        Map<String, Object> parameterMap = RequestUtil.getMap(request);
+        PageResult<Media> page = mediaService.findPage(map);
+        for (Media media : page.getData()) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
+            LocalDateTime date = LocalDateTime.parse( media.getReleaseDate(),formatter);
+            String forMatdate =date.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm:ss",Locale.ENGLISH));
+            String[] split = forMatdate.split(" ");
+            System.out.println(split[0]+","+split[1]+" "+split[2]);
+            media.setReleaseDate(split[0]+","+split[1]+" "+split[2]);
+//                mediaList.add(media);
+        }
+        return page;
+    }
+
+    @RequestMapping("/mediaDetail")
+    @ResponseBody
+    public PageResult mediaDetail(@RequestBody Map map){
+//        Map<String, Object> parameterMap = RequestUtil.getMap(request);
+        PageResult<Media> page = mediaService.findPage(map);
+        for (Media media : page.getData()) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
+            LocalDateTime date = LocalDateTime.parse( media.getReleaseDate(),formatter);
+            String forMatdate =date.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm:ss",Locale.ENGLISH));
+            String[] split = forMatdate.split(" ");
+            System.out.println(split[0]+","+split[1]+" "+split[2]);
+            media.setReleaseDate(split[0]+","+split[1]+" "+split[2]);
+//                mediaList.add(media);
+        }
+        return page;
     }
 
 }

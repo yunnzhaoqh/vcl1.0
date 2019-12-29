@@ -92,10 +92,10 @@
           
           <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
             <li data-name="home" class="layui-nav-item layui-nav-itemed">
-              <a href="javascript:;" lay-tips="主页" lay-direction="2">
-                <i class="layui-icon layui-icon-home"></i>
-                <cite>主页</cite>
-              </a>
+              <%--<a href="javascript:;" lay-tips="主页" lay-direction="2">--%>
+                <%--<i class="layui-icon layui-icon-home"></i>--%>
+                <%--<cite>主页</cite>--%>
+              <%--</a>--%>
 <%--              <dl class="layui-nav-child">--%>
 <%--                <dd data-name="console" class="layui-this">--%>
 <%--                  <a lay-href="/admin/console">控制台</a>--%>
@@ -132,32 +132,44 @@
             <li data-name="app" class="layui-nav-item">
               <a href="javascript:;" lay-tips="应用" lay-direction="2">
                 <i class="layui-icon layui-icon-app"></i>
-                <cite>教育</cite>
+                <cite>Education</cite>
               </a>
               <dl class="layui-nav-child">
                 <dd data-name="content">
-                  <a lay-href="/admin/summweCamp">夏令营</a>
+                  <a lay-href="/admin/summweCamp">Sum-camp</a>
                 </dd>
                 <dd data-name="forum">
-                  <a lay-href="/admin/course">课程</a>
+                  <a lay-href="/admin/course">Courses</a>
                 </dd>
                 <dd data-name="forum">
-                  <a lay-href="/admin/reference">参考</a>
+                  <a lay-href="/admin/reference">Reference Course</a>
                 </dd>
               </dl>
             </li>
+
+            <dl class="layui-nav-child">
+              <dd>
+                <a lay-href="/user/user">人员管理</a>
+              </dd>
+            </dl>
             <li data-name="user" class="layui-nav-item">
               <a href="javascript:;" lay-tips="用户" lay-direction="2">
                 <i class="layui-icon layui-icon-user"></i>
                 <cite>文章管理</cite>
               </a>
               <dl class="layui-nav-child">
-                <dd>
-                  <a lay-href="/admin/project_list">文章列表</a>
-                </dd>
-                <dd>
-                  <a lay-href="/admin/media_list">media列表</a>
-                </dd>
+                  <dd>
+                    <a lay-href="/admin/project_list">Publication</a>
+                  </dd>
+                  <dd>
+                    <a lay-href="/admin/media_list">media列表</a>
+                  </dd>
+                <%--<dd>--%>
+                  <%--<a lay-href="/admin/project_list">文章列表</a>--%>
+                <%--&lt;%&ndash;</dd>&ndash;%&gt;--%>
+                <%--<dd>--%>
+                  <%--<a lay-href="/admin/media_list">media列表</a>--%>
+                <%--</dd>--%>
               </dl>
             </li>
             <li data-name="user" class="layui-nav-item">
