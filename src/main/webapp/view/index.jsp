@@ -26,10 +26,10 @@
                 <h2 id="titleName">Visual Computing and Learning</h2>
                 <div class="icon-content">
                     <div class="icon">
-                        <a class="icon-1" href="https://cfcs.pku.edu.cn/english/"></a>
+                        <span class="icon-1" onclick="tourl('https://cfcs.pku.edu.cn/english/')" alt=""></span>
                     </div>
                     <div class="icon">
-                        <a class="icon-2" href="http://english.pku.edu.cn/"></a>
+                        <span class="icon-2" onclick="tourl('http://english.pku.edu.cn/')" alt=""></span>
                     </div>
                 </div>
             </div>
@@ -506,7 +506,7 @@
                                 console.log(banner[i]);
                                 bannerHtml+=' <div class="swiper-slide">\n' +
                                     '                    <a href="">\n' +
-                                    '                        <img src="'+banner[i].bannerImg+'" style="height:820.667px" alt="">\n' +
+                                    '                        <img src="'+banner[i].bannerImg+'" style="height:820.667px" href="">\n' +
                                     '                    </a>\n' +
                                     '                </div>';
                                 wrapperContext+='<div class="item">\n' +
@@ -726,6 +726,13 @@
                 // $(this).addClass("done");
             });
 
+        }
+        function tourl(url) {
+            var oA=document.createElement("a");
+            oA.href=url;
+            $('body').append(oA); // 修复firefox中无法触发click
+            oA.click();
+            $(oA).remove();
         }
     </script>
 

@@ -28,10 +28,10 @@
                 <h2>Visual Computing and Learning</h2>
                 <div class="icon-content">
                     <div class="icon">
-                        <span class="icon-1"></span>
+                        <span class="icon-1" onclick="toBannerDetail('https://cfcs.pku.edu.cn/english/')" alt=""></span>
                     </div>
                     <div class="icon">
-                        <span class="icon-2"></span>
+                        <span class="icon-2" onclick="toBannerDetail('http://english.pku.edu.cn/')" alt=""></span>
                     </div>
                 </div>
             </div>
@@ -440,6 +440,18 @@
                 $('.tabs-body .type-content').eq(index).addClass('active').siblings().removeClass('active');
             });
 		initPeople(1,8);
+            $.ajax({
+                url: "/home/initBannerData",
+                data: JSON.stringify({"type":4,}),
+                contentType: 'application/json',  //请求数据类型
+                // context: document.body,
+                dataType: 'json',
+                type: 'post'
+            }).done(function (data) {
+                $('.banner-content').empty();
+                $('.banner-content').append(' <img src="'+data[0].bannerImg+'" alt="" onclick="toBannerDetail('+data[0].bannerUrl+')">');
+
+            });
         });
 
 		setWidth();
@@ -450,6 +462,13 @@
 		function setWidth() {
 			$('.tabs-body .people-item').width(($('.tabs').width() - 120) / 4);
 		}
+        function toBannerDetail(url) {
+            var oA=document.createElement("a");
+            oA.href=url;
+            $('body').append(oA); // 修复firefox中无法触发click
+            oA.click();
+            $(oA).remove();
+        }
         function initPeople(index,limit) {
             $.ajax({
                 url: "/home/initPeople",

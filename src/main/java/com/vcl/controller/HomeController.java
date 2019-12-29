@@ -285,4 +285,13 @@ public class HomeController {
         return peopleService.findAll(map);
     }
 
+    @RequestMapping("/initBannerData")
+    @ResponseBody
+    public  List<Banner>  initBannerData(@RequestBody Map map){
+
+        List<Banner> banners = bannerService.findAll(map);
+
+        return banners;
+    }
+
 }

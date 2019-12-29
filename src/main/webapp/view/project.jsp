@@ -31,10 +31,10 @@
                 <h2>Visual Computing and Learning</h2>
                 <div class="icon-content">
                     <div class="icon">
-                        <span class="icon-1"></span>
+                        <span class="icon-1" onclick="toBannerDetail('https://cfcs.pku.edu.cn/english/')" alt=""></span>
                     </div>
                     <div class="icon">
-                        <span class="icon-2"></span>
+                        <span class="icon-2" onclick="toBannerDetail('http://english.pku.edu.cn/')" alt=""></span>
                     </div>
                 </div>
             </div>
@@ -183,6 +183,7 @@
         var id =
         $(function(){
             initDetail();
+
         });
         function initDetail() {
 
