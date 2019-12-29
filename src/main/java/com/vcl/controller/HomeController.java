@@ -158,9 +158,12 @@ public class HomeController {
         try {
             List<Project> projects = projectService.findAll(parameterMap);
             List<Map> years = projectService.findYears();
+            map.put("type",2);
+            List<Banner> banners = bannerService.findAll(map);
 
             map.put("projects",projects);
             map.put("publicYear",years);
+            map.put("banner",banners);
             result.setSuccess(true);
             result.setObj(map);
         }catch (Exception e){

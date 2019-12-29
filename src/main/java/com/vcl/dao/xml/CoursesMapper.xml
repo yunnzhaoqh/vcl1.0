@@ -52,29 +52,30 @@
     </select>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="coursesMap">
-        SELECT * FROM courses
+        select cou.*, peo.name peopleName from courses cou
+        left join people peo on peo.id = cou.people_id
         <where>
-            and status <![CDATA[ <> ]]> -1
+            and cou.status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
-            and id = #{id}
+            and cou.id = #{id}
             </if>
             <if test="peopleId != null and peopleId !=''">
-                and people_id = #{peopleId}
+                and cou.people_id = #{peopleId}
             </if>
             <if test="courseName != null and courseName !=''">
-                and course_name = #{courseName}
+                and cou.course_name = #{courseName}
             </if>
             <if test="starttime != null and starttime !=''">
-                and starttime = #{starttime}
+                and cou.starttime = #{starttime}
             </if>
             <if test="endtime != null and endtime !=''">
-                and endtime = #{endtime}
+                and cou.endtime = #{endtime}
             </if>
             <if test="createtime != null and createtime !=''">
-                and createtime = #{createtime}
+                and cou.createtime = #{createtime}
             </if>
             <if test="status != null">
-                and status = #{status}
+                and cou.status = #{status}
             </if>
         </where>
         order by id desc

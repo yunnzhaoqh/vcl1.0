@@ -21,19 +21,19 @@
         left join people on people.id = reference.people_id
         <where>
             <if test="id != null and id !=''">
-                and id = #{id}
+                and reference.id = #{id}
             </if>
             <if test="peopleId != null and peopleId !=''">
-                and people_id = #{peopleId}
+                and reference.people_id = #{peopleId}
             </if>
             <if test="referenceName != null and referenceName !=''">
-                and reference_name = #{referenceName}
+                and reference.reference_name = #{referenceName}
             </if>
             <if test="starttime != null and starttime !=''">
-                and starttime = #{starttime}
+                and reference.starttime = #{starttime}
             </if>
             <if test="endtime != null and endtime !=''">
-                and endtime = #{endtime}
+                and reference.endtime = #{endtime}
             </if>
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
@@ -43,10 +43,10 @@
             </if>
             <choose>
                 <when test="status != null and status != null">
-                    and status = #{status}
+                    and reference.status = #{status}
                 </when>
                 <otherwise>
-                    and status <![CDATA[ <> ]]> -1
+                    and reference.status <![CDATA[ <> ]]> -1
                 </otherwise>
             </choose>
         </where>
@@ -54,35 +54,36 @@
     </select>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="referenceMap">
-        SELECT * FROM reference
+        select re.*, peo.name peopleName from reference re
+        left join people peo on peo.id = re.people_id
         <where>
             <if test="ID != null and ID !=''">
-            and ID = #{ID}
+            and re.ID = #{ID}
             </if>
             <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                and PEOPLE_ID = #{PEOPLE_ID}
+                and re.PEOPLE_ID = #{PEOPLE_ID}
             </if>
             <if test="REFERENCE_NAME != null and REFERENCE_NAME !=''">
-                and REFERENCE_NAME = #{REFERENCE_NAME}
+                and re.REFERENCE_NAME = #{REFERENCE_NAME}
             </if>
             <if test="STARTTIME != null and STARTTIME !=''">
-                and STARTTIME = #{STARTTIME}
+                and re.STARTTIME = #{STARTTIME}
             </if>
             <if test="ENDTIME != null and ENDTIME !=''">
-                and ENDTIME = #{ENDTIME}
+                and re.ENDTIME = #{ENDTIME}
             </if>
             <if test="CREATETIME != null and CREATETIME !=''">
-                and CREATETIME = #{CREATETIME}
+                and re.CREATETIME = #{CREATETIME}
             </if>
             <if test="YEAR != null and YEAR !=''">
-                and instr(CREATETIME,#{YEAR})>0
+                and instr(re.CREATETIME,#{YEAR})>0
             </if>
             <choose>
                 <when test="status != null and status != null">
-                    and status = #{status}
+                    and re.status = #{status}
                 </when>
                 <otherwise>
-                    and status <![CDATA[ <> ]]> -1
+                    and re.status <![CDATA[ <> ]]> -1
                 </otherwise>
             </choose>
         </where>

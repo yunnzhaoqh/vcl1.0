@@ -308,7 +308,7 @@
                     coursesHtml+=' <div class="row-item">\n' +
                         '                            <a href="">\n' +
                         '                                <div class="name">'+courses[i].courseName+'</div>\n' +
-                        '                                <div class="tips">'+courses[i].peopleId+'</div>\n' +
+                        '                                <div class="tips">'+courses[i].peopleName+'</div>\n' +
                         '                            </a>\n' +
                         '                        </div>';
                 }
@@ -316,7 +316,7 @@
                     referenceHtml+=' <div class="row-item">\n' +
                         '                            <a href="">\n' +
                         '                                <div class="name">'+reference[i].referenceName+'</div>\n' +
-                        '                                <div class="tips">'+reference[i].peopleId+'</div>\n' +
+                        '                                <div class="tips">'+reference[i].peopleName+'</div>\n' +
                         '                            </a>\n' +
                         '                        </div>';
                 }

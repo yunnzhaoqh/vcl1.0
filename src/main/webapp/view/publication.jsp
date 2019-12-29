@@ -370,7 +370,7 @@
                         '                        </a>\n' +
                         '                    </div>';
                     $('.banner-content').empty();
-                    $('.banner-content').append(' <img src="'+banner[0].bannerImg+'" alt="" onclick="toBannerDetail('+data[0].bannerUrl+')">');
+                    $('.banner-content').append(' <img src="'+banner[0].bannerImg+'" alt="" onclick="toBannerDetail('+banner[0].bannerUrl+')">');
                     $('#public_left').empty();
                     $('#public_left').append(publicLeft);
                     $("#public_left").children(":first").addClass('active');
