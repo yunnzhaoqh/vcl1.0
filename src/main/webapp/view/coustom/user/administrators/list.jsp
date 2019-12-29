@@ -98,7 +98,6 @@
     var $ = layui.$
     ,form = layui.form
     ,table = layui.table;
-    $('table.layui-table thead tr th:eq(0)').addClass('layui-hide');
     
     //监听搜索
     form.on('submit(LAY-user-back-search)', function(data){

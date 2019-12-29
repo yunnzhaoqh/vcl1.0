@@ -18,7 +18,7 @@
         select people.name peopleName, courses.* from courses
         left join people on people.id = courses.people_id
         <where>
-            and status >= 0
+            and courses.status >= 0
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>

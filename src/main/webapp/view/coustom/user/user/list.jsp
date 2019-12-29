@@ -92,7 +92,6 @@
         form = layui.form,
         table = layui.table,
         laypage = layui.laypage;
-    $('table.layui-table thead tr th:eq(0)').addClass('layui-hide');
     //监听搜索
     form.on('submit(LAY-user-front-search)', function(data){
       var field = data.field;
@@ -137,7 +136,7 @@
         window.people=undefined;
         layer.open({
           type: 2
-          ,title: '添加用户'
+          ,title: '添加人员'
           ,content: '/people/add_people'
           ,maxmin: true
           ,area: ['500px', '450px']

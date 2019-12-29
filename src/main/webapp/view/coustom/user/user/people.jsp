@@ -29,25 +29,16 @@
         <input type="text" name="name" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
       </div>
     </div>
-    <div class="layui-form-item">
-      <label class="layui-form-label layui-required">手机号码</label>
-      <div class="layui-input-inline">
-        <input type="text" name="phone" lay-verify="phone" placeholder="请输入号码" autocomplete="off" class="layui-input">
-      </div>
-    </div>
     <div class="layui-form-item layui-required" lay-filter="sex">
       <label class="layui-form-label layui-required">选择性别</label>
-      <div class="layui-input-block">
-        <input type="radio" name="gender" value="男" title="男" checked>
-        <input type="radio" name="gender" value="女" title="女">
+      <div class="layui-input-inline">
+        <select name="gender" lay-verify="">
+          <option value="男">男</option>
+          <option value="女">女</option>
+        </select>
       </div>
     </div>
     <div class="layui-form-item">
-      <label class="layui-form-label">年龄</label>
-      <div class="layui-input-inline">
-        <input type="text" name="age" lay-verify="age" placeholder="请输入年龄" autocomplete="off" class="layui-input">
-      </div>
-    </div>
     <div class="layui-form-item">
       <label class="layui-form-label">职务</label>
       <div class="layui-input-inline">
@@ -111,10 +102,6 @@
     }
 
     form.verify({
-      age: [
-        /^[0-9]*[1-9][0-9]*$/,
-        '只能输入正整数'
-      ],
       path:[
         /[\S]+/,
         "人员相片不能为空"]

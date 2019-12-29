@@ -56,7 +56,6 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'createtime', title: '创建时间', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
         ]],
-        page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
         height: 'full-220',
@@ -154,7 +153,6 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'createtime', title: '创建时间', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
         ]],
-        page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
         height: 'full-220',
