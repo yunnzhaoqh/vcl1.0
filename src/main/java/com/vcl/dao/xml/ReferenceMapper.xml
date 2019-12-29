@@ -36,7 +36,7 @@
                 and reference.endtime = #{endtime}
             </if>
             <if test="createtime != null and createtime !=''">
-                and createtime = #{createtime}
+                and reference.createtime = #{createtime}
             </if>
             <if test="peopleName != null and peopleName !=''">
                 and instr(people.name,#{peopleName}) > 0
@@ -54,35 +54,36 @@
     </select>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="referenceMap">
-        SELECT * FROM reference
+        select reference.*, people.name peopleName from reference
+        left join people on people.id = reference.people_id
         <where>
             <if test="ID != null and ID !=''">
-            and ID = #{ID}
+            and reference.ID = #{ID}
             </if>
             <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                and PEOPLE_ID = #{PEOPLE_ID}
+                and reference.PEOPLE_ID = #{PEOPLE_ID}
             </if>
             <if test="REFERENCE_NAME != null and REFERENCE_NAME !=''">
-                and REFERENCE_NAME = #{REFERENCE_NAME}
+                and reference.REFERENCE_NAME = #{REFERENCE_NAME}
             </if>
             <if test="STARTTIME != null and STARTTIME !=''">
-                and STARTTIME = #{STARTTIME}
+                and reference.STARTTIME = #{STARTTIME}
             </if>
             <if test="ENDTIME != null and ENDTIME !=''">
-                and ENDTIME = #{ENDTIME}
+                and reference.ENDTIME = #{ENDTIME}
             </if>
             <if test="CREATETIME != null and CREATETIME !=''">
-                and CREATETIME = #{CREATETIME}
+                and reference.CREATETIME = #{CREATETIME}
             </if>
             <if test="YEAR != null and YEAR !=''">
-                and instr(CREATETIME,#{YEAR})>0
+                and instr(reference.CREATETIME,#{YEAR})>0
             </if>
             <choose>
                 <when test="status != null and status != null">
-                    and status = #{status}
+                    and reference.status = #{status}
                 </when>
                 <otherwise>
-                    and status <![CDATA[ <> ]]> -1
+                    and reference.status <![CDATA[ <> ]]> -1
                 </otherwise>
             </choose>
         </where>

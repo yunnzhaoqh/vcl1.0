@@ -10,6 +10,15 @@ public class Media {
   private String createtime;
   private long status;
   private String img;
+  private String release_date;
+
+  public String getRelease_date() {
+    return release_date;
+  }
+
+  public void setRelease_date(String release_date) {
+    this.release_date = release_date;
+  }
 
   public String getImg() {
     return img;

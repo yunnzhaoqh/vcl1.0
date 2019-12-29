@@ -153,19 +153,19 @@
                         <%--<div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>--%>
                     <%--</div>--%>
                 <%--</div>--%>
-                <div class="item">
-                    <input type="hidden" name="mediaId" value="12"/>
-                    <div class="cover">
-                        <img src="/resources/images/temp/activities_05.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="date">
-                            <i>05</i>
-                            <span>Sept 2019</span>
-                        </div>
-                        <div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>
-                    </div>
-                </div>
+                <%--<div class="item">--%>
+                    <%--<input type="hidden" name="mediaId" value="12"/>--%>
+                    <%--<div class="cover">--%>
+                        <%--<img src="/resources/images/temp/activities_05.png" alt="">--%>
+                    <%--</div>--%>
+                    <%--<div class="info">--%>
+                        <%--<div class="date">--%>
+                            <%--<i>05</i>--%>
+                            <%--<span>Sept 2019</span>--%>
+                        <%--</div>--%>
+                        <%--<div class="title">静园五院 | VCL Research Seminar: Learning to Understand 3D Object Parts</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
             </div>
             <div class="paginator">
                 <ul class="pagination"></ul>
@@ -388,11 +388,11 @@
                         numberOfPages: total,
                         //当单击操作按钮的时候, 执行该函数, 调用ajax渲染页面
                         onPageClicked: function (event, originalEvent, type, page) {
-                            console.log(page); //点击的当前页
-                            console.log(type); // 启用分页
-                            console.log(originalEvent);
-                            console.log(event);
-                            console.log(123);
+                            // console.log(page); //点击的当前页
+                            // console.log(type); // 启用分页
+                            // console.log(originalEvent);
+                            // console.log(event);
+                            // console.log(123);
                             refreshMedia(page,6)// 把当前点击的页码赋值给currentPage, 调用ajax,渲染页面
 
                         }
