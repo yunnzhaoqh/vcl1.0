@@ -47,7 +47,7 @@ public class CampController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public Result add(@RequestBody SummweCamp camp){
+	public Result add(SummweCamp camp){
 		try {
 			campService.add(camp);
 			return new Result(true, "增加成功");
@@ -63,7 +63,7 @@ public class CampController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public Result update(@RequestBody SummweCamp camp){
+	public Result update(SummweCamp camp){
 		try {
 			campService.update(camp);
 			return new Result(true, "修改成功");

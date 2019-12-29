@@ -132,7 +132,7 @@
             <li data-name="user" class="layui-nav-item">
               <a lay-href="/admin/project_list" lay-tips="用户" lay-direction="2">
                 <i class="layui-icon layui-icon-user"></i>
-                <cite>publication | activities</cite>
+                <cite>publication</cite>
               </a>
             </li>
             <li data-name="user" class="layui-nav-item">
@@ -146,6 +146,12 @@
                 <i class="layui-icon layui-icon-user"></i>
                 <cite>people</cite>
               </a>
+            </li>
+            <li data-name="user" class="layui-nav-item">
+                <a lay-href="/admin/activities_list" lay-tips="用户" lay-direction="2">
+                    <i class="layui-icon layui-icon-user"></i>
+                    <cite>activities</cite>
+                </a>
             </li>
             <li data-name="user" class="layui-nav-item">
               <a href="javascript:;" lay-tips="应用" lay-direction="2">

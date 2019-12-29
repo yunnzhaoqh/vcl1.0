@@ -9,7 +9,8 @@ public class SummweCamp {
   private String endtime;
   private String createtime;
   private long status;
-
+  private String intro;
+  private String bg_img;
 
   public Long getId() {
     return id;
@@ -64,4 +65,19 @@ public class SummweCamp {
     this.status = status;
   }
 
+  public String getIntro() {
+    return intro;
+  }
+
+  public void setIntro(String intro) {
+    this.intro = intro;
+  }
+
+  public String getBg_img() {
+    return bg_img;
+  }
+
+  public void setBg_img(String bg_img) {
+    this.bg_img = bg_img;
+  }
 }

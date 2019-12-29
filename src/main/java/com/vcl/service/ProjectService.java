@@ -66,4 +66,8 @@ public interface ProjectService {
 	 * @return
 	 */
     int delete_project(Long id);
+
+    PageResult query_publication(Map map);
+
+    PageResult query_activities(Map map);
 }

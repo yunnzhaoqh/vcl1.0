@@ -100,8 +100,10 @@ layui.define(['table', 'form'], function (exports) {
         cols: [[
             // {type:'checkbox'}
             // ,{field:'id', title: 'ID', width:100, sort: true},
-            {field: 'title', title: '标题', width: 100},
-            {field: 'releaseDate', title: '发布日期', sort: true,},
+            {field: 'name', title: '活动名称', width: 100},
+            {field: 'starttime', title: '开始时间', sort: true,},
+            {field: 'endtime', title: '结束时间', sort: true,},
+            {field: 'intro', title: '活动简介', minWidth: 300, sort: true,},
             {
                 field: 'status', title: '状态', sort: true, templet: function (res) {
                     var type = res.status;

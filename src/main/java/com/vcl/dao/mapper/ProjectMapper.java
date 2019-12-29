@@ -17,4 +17,8 @@ public interface ProjectMapper {
     Project selectByPrimaryKey(Long id);
 
     int deleteByPrimaryKey(Long id);
+
+    List<Project> query_publication(Map map);
+
+    List<Project> query_activities(Map map);
 }

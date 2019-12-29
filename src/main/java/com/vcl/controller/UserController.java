@@ -210,11 +210,12 @@ public class UserController {
         try {
             String prefix = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
             String fileStr = UUID.randomUUID().toString();
-            String filepath = FILE_UPLOAD_PATH + "\\" +type + "\\";
             String resultpath = "\\upload\\" + type + "\\";
-            filepath = filepath.replace("\\", "/");
-            File newFile = new File(filepath + fileStr + "." + prefix);
             resultpath += fileStr + "." + prefix;
+            String filepath = FILE_UPLOAD_PATH + resultpath;
+            filepath = filepath.replace("\\", "/");
+            resultpath = resultpath.replace("\\","/");
+            File newFile = new File(filepath);
             if(!newFile.exists()){
                 newFile.mkdirs();
             }

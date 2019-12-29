@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">类型</label>
+                    <label class="layui-form-label">状态</label>
                     <div class="layui-input-block">
                         <select name="status">
                             <option value="">不限</option>
@@ -91,6 +91,7 @@
         var active = {
             add: function () {
                 window.courses = undefined;
+                window.open_type = '';
                 layer.open({
                     type: 2
                     , title: '添加课程'

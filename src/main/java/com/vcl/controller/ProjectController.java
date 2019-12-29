@@ -126,5 +126,24 @@ public class ProjectController {
 	public PageResult search(@RequestBody Project project, int page, int rows  ){
 		return projectService.findPage(project, page, rows);		
 	}
-	
+
+	/**
+	 * 查询publication列表
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("query_publication")
+	public PageResult query_publication(@RequestBody Map map){
+		return projectService.query_publication(map);
+	}
+
+	/**
+	 * 查询activities列表
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("query_activities")
+	public PageResult query_activities(@RequestBody Map map){
+		return projectService.query_activities(map);
+	}
 }

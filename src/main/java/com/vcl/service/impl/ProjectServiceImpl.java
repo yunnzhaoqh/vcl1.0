@@ -12,6 +12,7 @@ import com.vcl.service.ProjectService;
 import com.vcl.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 /**
  * 服务实现层
@@ -48,8 +49,10 @@ public class ProjectServiceImpl implements ProjectService {
 	 */
 	@Override
 	public void add(Project project) {
-		project.setCreatetime(DateUtil.getDate(DateUtil.DateFormat5));
-		projectMapper.insert(project);		
+		if(StringUtils.isEmpty(project.getCreatetime())){
+			project.setCreatetime(DateUtil.getDate(DateUtil.DateFormat5));
+		}
+		projectMapper.insert(project);
 	}
 
 	
@@ -92,6 +95,22 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public int delete_project(Long id) {
 		return projectMapper.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public PageResult query_publication(Map map) {
+		PageHelper.startPage(Integer.parseInt(map.get("page").toString()), Integer.parseInt(map.get("limit").toString()));
+		List<Project> projects = projectMapper.query_publication(map);
+		PageInfo<Project> pageInfo = new PageInfo<>(projects);
+		return new PageResult(pageInfo.getTotal(),projects,0,"");
+	}
+
+	@Override
+	public PageResult query_activities(Map map) {
+		PageHelper.startPage(Integer.parseInt(map.get("page").toString()), Integer.parseInt(map.get("limit").toString()));
+		List<Project> projects = projectMapper.query_activities(map);
+		PageInfo<Project> pageInfo = new PageInfo<>(projects);
+		return new PageResult(pageInfo.getTotal(),projects,0,"");
 	}
 
 }

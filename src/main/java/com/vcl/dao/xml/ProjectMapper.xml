@@ -171,4 +171,66 @@
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="projectMap">
        select * from project WHERE id=#{id}
     </select>
+
+    <select id="query_publication" parameterType="java.util.Map" resultMap="projectMap">
+        SELECT * FROM project
+        <where>
+            and type = 1
+            <if test="id != null and id !=''">
+                and id = #{id}
+            </if>
+            <if test="main_title != null and main_title !=''">
+                and instr(main_title,#{main_title}) > 0
+            </if>
+            <if test="subtitle != null and subtitle !=''">
+                and instr(subtitle,#{subtitle}) > 0
+            </if>
+            <if test="share_people != null and share_people !=''">
+                and share_people = #{share_people}
+            </if>
+            <if test="share_shcool != null and share_shcool !=''">
+                and share_shcool = #{share_shcool}
+            </if>
+            <if test="content != null and content !=''">
+                and content = #{content}
+            </if>
+            <if test="createtime != null and createtime !=''">
+                and createtime = #{createtime}
+            </if>
+            <if test="status != null and status !=''">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <select id="query_activities" parameterType="java.util.Map" resultMap="projectMap">
+        SELECT * FROM project
+        <where>
+            and type != 1
+            <if test="id != null and id !=''">
+                and id = #{id}
+            </if>
+            <if test="main_title != null and main_title !=''">
+                and instr(main_title,#{main_title}) > 0
+            </if>
+            <if test="subtitle != null and subtitle !=''">
+                and instr(subtitle,#{subtitle}) > 0
+            </if>
+            <if test="share_people != null and share_people !=''">
+                and share_people = #{share_people}
+            </if>
+            <if test="share_shcool != null and share_shcool !=''">
+                and share_shcool = #{share_shcool}
+            </if>
+            <if test="content != null and content !=''">
+                and content = #{content}
+            </if>
+            <if test="createtime != null and createtime !=''">
+                and createtime = #{createtime}
+            </if>
+            <if test="status != null and status !=''">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
 </mapper>

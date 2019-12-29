@@ -42,6 +42,16 @@ public class AdminController {
         return "coustom/chapter/project";
     }
 
+    @RequestMapping("/activities_list")
+    public String activities_list(){
+        return "/coustom/chapter/activities_list";
+    }
+
+    @RequestMapping("/add_activities")
+    public String add_activities(){
+        return "coustom/chapter/activities";
+    }
+
     @RequestMapping("/media_list")
     public String media_list(){
         return "/coustom/chapter/media_list";

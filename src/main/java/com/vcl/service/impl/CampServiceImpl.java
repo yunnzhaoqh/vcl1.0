@@ -9,6 +9,7 @@ import com.vcl.dao.mapper.SummweCampMapper;
 import com.vcl.pojo.PageResult;
 import com.vcl.pojo.SummweCamp;
 import com.vcl.service.CampService;
+import com.vcl.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,7 @@ public class CampServiceImpl implements CampService {
 	 */
 	@Override
 	public void add(SummweCamp camp) {
+		camp.setCreatetime(DateUtil.getDate(DateUtil.DateFormat5));
 		campMapper.insert(camp);		
 	}
 

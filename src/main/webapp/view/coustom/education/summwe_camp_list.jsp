@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">类型</label>
+                    <label class="layui-form-label">状态</label>
                     <div class="layui-input-block">
                         <select name="status">
                             <option value="">不限</option>
@@ -66,7 +66,7 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'media', 'table'], function () {
+    }).use(['index', 'media', 'table', 'education'], function () {
         var $ = layui.$
             , form = layui.form
             , table = layui.table;
@@ -84,7 +84,8 @@
         //事件
         var active = {
             add: function () {
-                window.project = undefined;
+                window.summwe_camp = undefined;
+                window.open_type = '';
                 layer.open({
                     type: 2
                     , title: '添加活动项目'
