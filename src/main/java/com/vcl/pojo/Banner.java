@@ -10,6 +10,15 @@ public class Banner {
   private long status;
   private String createTime;
   private String bannerUrl;
+  private int type;
+
+  public int getType() {
+    return type;
+  }
+
+  public void setType(int type) {
+    this.type = type;
+  }
 
   @Override
   public String toString() {
@@ -21,20 +30,8 @@ public class Banner {
             ", status=" + status +
             ", createTime='" + createTime + '\'' +
             ", bannerUrl='" + bannerUrl + '\'' +
+            ", type=" + type +
             '}';
-  }
-
-  public Banner() {
-  }
-
-  public Banner(long id, String bannerImg, String bannerTitleContext, String bannerTitleIntro, long status, String createTime, String bannerUrl) {
-    this.id = id;
-    this.bannerImg = bannerImg;
-    this.bannerTitleContext = bannerTitleContext;
-    this.bannerTitleIntro = bannerTitleIntro;
-    this.status = status;
-    this.createTime = createTime;
-    this.bannerUrl = bannerUrl;
   }
 
   public long getId() {
@@ -98,5 +95,20 @@ public class Banner {
   public void setBannerUrl(String bannerUrl) {
     this.bannerUrl = bannerUrl;
   }
+
+  public Banner(long id, String bannerImg, String bannerTitleContext, String bannerTitleIntro, long status, String createTime, String bannerUrl, int type) {
+    this.id = id;
+    this.bannerImg = bannerImg;
+    this.bannerTitleContext = bannerTitleContext;
+    this.bannerTitleIntro = bannerTitleIntro;
+    this.status = status;
+    this.createTime = createTime;
+    this.bannerUrl = bannerUrl;
+    this.type = type;
+  }
+
+  public Banner() {
+  }
+
 
 }
