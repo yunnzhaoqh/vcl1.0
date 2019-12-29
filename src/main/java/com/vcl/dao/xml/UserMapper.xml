@@ -117,7 +117,7 @@
     <update id="delete_user">
         update user
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
-            status =0,
+            status = -1,
         </trim>
     </update>
 

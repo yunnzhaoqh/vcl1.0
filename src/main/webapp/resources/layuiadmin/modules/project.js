@@ -67,9 +67,6 @@ layui.define(['table', 'form'], function (exports) {
     table.on('tool(LAY-project-manage)', function (obj) {
         var data = obj.data;
         if (obj.event === 'del') {
-            if(data.status == 0){
-                return layer.msg('此publication已经无效');
-            }
             layer.confirm('是否确认删除此文章', function (index) {
                 $.post('/project/delete_project', {id: data.id}, function (res) {
                     if (res.success) {
@@ -169,9 +166,6 @@ layui.define(['table', 'form'], function (exports) {
         var data = obj.data;
         if (obj.event === 'del') {
             layer.confirm('是否确认删除此activities', function (index) {
-                if(data.status == 0){
-                    return layer.msg('此activities已经无效');
-                }
                 $.post('/project/delete_project', {id: data.id}, function (res) {
                     if (res.success) {
                         obj.del();

@@ -165,7 +165,7 @@
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update project
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
-                status =0,
+            status = -1,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="projectMap">
@@ -176,6 +176,7 @@
         SELECT * FROM project
         <where>
             and type = 1
+            and status >= 0
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>
@@ -207,6 +208,7 @@
         SELECT * FROM project
         <where>
             and type != 1
+            and status >= 0
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>

@@ -5,6 +5,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultType="Banner">
         SELECT * FROM banner
         <where>
+            and status >= 0
             <if test="ID != null and ID !=''">
                ID = #{ID}
             </if>
@@ -106,7 +107,7 @@
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update banner
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
-                STATUS =0,
+            status = -1,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Banner">

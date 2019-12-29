@@ -18,6 +18,7 @@
         select people.name peopleName, courses.* from courses
         left join people on people.id = courses.people_id
         <where>
+            and status >= 0
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>
@@ -49,6 +50,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultMap="coursesMap">
         SELECT * FROM courses
         <where>
+            and status >= 0
             <if test="id != null and id !=''">
             and id = #{id}
             </if>
@@ -162,7 +164,7 @@
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update courses
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
-                status =0,
+            status = -1,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="coursesMap">

@@ -14,6 +14,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultMap="mediaMap">
         SELECT * FROM media
         <where>
+            and status >= 0
             <if test="id != null and id !=''">
             and id = #{id}
             </if>
@@ -115,7 +116,7 @@
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update media
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
-                STATUS =0,
+            status = -1,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="mediaMap">

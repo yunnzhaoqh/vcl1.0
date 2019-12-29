@@ -126,7 +126,7 @@
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
         update summwe_camp
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
-                STATUS =0,
+            status = -1,
         </trim>
     </update>
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="summweCampMap">
