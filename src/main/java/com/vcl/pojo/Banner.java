@@ -3,12 +3,13 @@ package com.vcl.pojo;
 
 public class Banner {
 
-  private Long id;
+  private long id;
   private String bannerImg;
   private String bannerTitleContext;
   private String bannerTitleIntro;
   private long status;
   private String createTime;
+  private String bannerUrl;
 
   @Override
   public String toString() {
@@ -19,26 +20,28 @@ public class Banner {
             ", bannerTitleIntro='" + bannerTitleIntro + '\'' +
             ", status=" + status +
             ", createTime='" + createTime + '\'' +
+            ", bannerUrl='" + bannerUrl + '\'' +
             '}';
   }
 
   public Banner() {
   }
 
-  public Banner(long id, String bannerImg, String bannerTitleContext, String bannerTitleIntro, long status, String createTime) {
+  public Banner(long id, String bannerImg, String bannerTitleContext, String bannerTitleIntro, long status, String createTime, String bannerUrl) {
     this.id = id;
     this.bannerImg = bannerImg;
     this.bannerTitleContext = bannerTitleContext;
     this.bannerTitleIntro = bannerTitleIntro;
     this.status = status;
     this.createTime = createTime;
+    this.bannerUrl = bannerUrl;
   }
 
-  public Long getId() {
+  public long getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(long id) {
     this.id = id;
   }
 
@@ -85,6 +88,15 @@ public class Banner {
 
   public void setCreateTime(String createTime) {
     this.createTime = createTime;
+  }
+
+
+  public String getBannerUrl() {
+    return bannerUrl;
+  }
+
+  public void setBannerUrl(String bannerUrl) {
+    this.bannerUrl = bannerUrl;
   }
 
 }

@@ -267,12 +267,13 @@
             //     scrollInertia: 600,
             //     autoDraggerLength: false
             // });
+            initEducation();
 
         });
         function initEducation() {
             $.ajax({
                 url: "/home/initEducation",
-                data: JSON.parse({"type": type, "page": index, "limit": limit ,"status":1}),
+                data: JSON.stringify({}),
                 contentType: 'application/json',  //请求数据类型
                 dataType: 'json',
                 type: 'post'
@@ -280,9 +281,9 @@
                 var summerCampHtml = '';
                 var coursesHtml = '';
                 var referenceHtml = '';
-                var summer = data.summer;
-                var courses = data.courses;
-                var reference = data.reference;
+                var summer = data.obj.summer;
+                var courses = data.obj.courses;
+                var reference = data.obj.reference;
                 for(var i in summer){
                     summerCampHtml+='<div class="row-item">\n' +
                         '                            <a href="">\n' +

@@ -96,7 +96,7 @@ public class UserController {
                 filepath += fileStr;
                 resultpath += fileStr;
                 filepath = filepath.replace("\\", "/");
-                fileStr = fileStr.replace("\\", "/");
+                resultpath = resultpath.replace("\\", "/");
                 File files = new File(filepath);
                 if (!files.getParentFile().exists()) {
                     files.getParentFile().mkdirs();

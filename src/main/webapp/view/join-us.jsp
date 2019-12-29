@@ -82,7 +82,7 @@
     <section class="join-us-container">
         <div class="content">
             <div class="index-title">Join Us</div>
-            <ul>
+            <ul id="joinUsContent">
                 <li>
                     <div class="icon">
                         <img src="/resources/images/join-us-1.png" alt="">
@@ -190,8 +190,45 @@
     <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function(){
-            
+            initJoinUsContent()
         });
+        function initJoinUsContent() {
+            $.ajax({
+                url: "/home/initJoinUs",
+                data: JSON.stringify({}),
+                contentType: 'application/json',  //请求数据类型
+                dataType: 'json',
+                type: 'post'
+            }).done(function (data) {
+                var joinUsContentHtml ='';
+                for (var i in data){
+                    var imgPath = '';
+                    if(data[i].path){
+                        imgPath = data[i].path;
+                    }else{
+                        imgPath =   '/resources/images/join-us-4.png'
+                    }
+                    joinUsContentHtml = '<li>\n' +
+                        '                    <div class="icon">\n' +
+                        '                        <img src="'+imgPath+'" alt="">\n' +
+                        '                    </div>\n' +
+                        '                    <div class="item">\n' +
+                        '                        <div class="name">'+data[i].name+'</div>\n' +
+                        '                        <div class="tips">'+data[i].duty+'</div>\n' +
+                        '                        <div class="more">\n' +
+                        '                            <a href="'+data[i].introUrl+'">Read More</a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </li>'
+                }
+
+
+                $('#joinUsContent').empty();
+                $('#joinUsContent').append(joinUsContentHtml);
+            });
+
+
+        }
     </script>
 
 </body>

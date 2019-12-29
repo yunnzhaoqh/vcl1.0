@@ -42,6 +42,11 @@ public class HomeController {
     @Autowired
     private ProjectService projectService;
     @Autowired
+    private CoursesService coursesService;
+    @Autowired
+    private CampService campService;
+
+    @Autowired
     private com.vcl.service.ReferenceService referenceService;
     @Value("${FILE_UPLOAD_PATH}")
     private String FILE_UPLOAD_PATH;
@@ -224,10 +229,16 @@ public class HomeController {
 
     @RequestMapping("/initEducation")
     @ResponseBody
-    public PageResult initEducation(@RequestBody Map map){
+    public Result initEducation(@RequestBody Map map){
         map.put("initSstatus",-1);
-        PageResult<People> page = peopleService.findPage(map);
-        return page;
+        Result result = new Result();
+        Map resMap = new HashMap();
+        resMap.put("summer",campService.findAll(map));
+        resMap.put("reference",referenceService.findAll(map));
+        resMap.put("courses",coursesService.findAll());
+        result.setObj(resMap);
+        result.setSuccess(true);
+        return result;
     }
 
     @RequestMapping("/findOneProject")
@@ -265,6 +276,13 @@ public class HomeController {
     public Media findMediaOne(@RequestBody Map map){
         Long id = Long.parseLong(map.get("id").toString());
         return mediaService.findOne(id);
+    }
+
+    @RequestMapping("/initJoinUs")
+    @ResponseBody
+    public List<People> initJoinUs(@RequestBody Map map){
+        map.put("type",1);
+        return peopleService.findAll(map);
     }
 
 }
