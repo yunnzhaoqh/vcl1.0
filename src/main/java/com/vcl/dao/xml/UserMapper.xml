@@ -20,6 +20,7 @@
     <select id="query_user_list" parameterType="java.util.Map" resultMap="userMap">
         select id,login_name,name,gender,age,create_time,status from user
         <where>
+            status <![CDATA[ <> ]]> -1
             <if test="login_name != null and login_name != ''">
                 and instr(login_name,#{login_name}) > 0
             </if>

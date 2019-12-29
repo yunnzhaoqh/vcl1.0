@@ -272,9 +272,8 @@
         function initEducation() {
             $.ajax({
                 url: "/home/initEducation",
-                data: {"type": type, "page": index, "limit": limit ,"status":1},
+                data: JSON.parse({"type": type, "page": index, "limit": limit ,"status":1}),
                 contentType: 'application/json',  //请求数据类型
-                // context: document.body,
                 dataType: 'json',
                 type: 'post'
             }).done(function (data) {
@@ -308,11 +307,11 @@
                         '                            </a>\n' +
                         '                        </div>';
                 }
-                $('#summerList').empty()
+                $('#summerList').empty();
                 $('#summerList').append(summerCampHtml);
-                $('#courseslist').empty()
+                $('#courseslist').empty();
                 $('#courseslist').append(coursesHtml);
-                $('#referenceList').empty()
+                $('#referenceList').empty();
                 $('#referenceList').append(referenceHtml);
 
             })

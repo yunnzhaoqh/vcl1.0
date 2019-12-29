@@ -14,7 +14,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultMap="mediaMap">
         SELECT * FROM media
         <where>
-            and status >= 0
+            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
             and id = #{id}
             </if>

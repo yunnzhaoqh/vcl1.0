@@ -18,7 +18,7 @@
         select people.name peopleName, courses.* from courses
         left join people on people.id = courses.people_id
         <where>
-            and courses.status >= 0
+            and courses.status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>
@@ -50,7 +50,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultMap="coursesMap">
         SELECT * FROM courses
         <where>
-            and status >= 0
+            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
             and id = #{id}
             </if>

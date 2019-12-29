@@ -5,7 +5,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultType="Intro">
         SELECT * FROM intro
         <where>
-            and status >= 0
+            and status <![CDATA[ <> ]]> -1
             <if test="ID != null and ID !=''">
             and ID = #{ID}
             </if>

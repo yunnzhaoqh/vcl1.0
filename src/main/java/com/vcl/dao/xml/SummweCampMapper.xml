@@ -16,6 +16,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultMap="summweCampMap">
         SELECT * FROM summwe_camp
         <where>
+            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
             and id = #{id}
             </if>

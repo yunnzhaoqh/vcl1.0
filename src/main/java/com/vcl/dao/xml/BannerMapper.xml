@@ -5,7 +5,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultType="Banner">
         SELECT * FROM banner
         <where>
-            and status >= 0
+            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
                id = #{id}
             </if>

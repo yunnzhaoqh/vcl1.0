@@ -192,7 +192,6 @@
                 contentType: 'application/json',  //请求数据类型
                 dataType: 'json',
                 // context: document.body,
-                dataType: 'json',
                 type: 'post'
             }).done(function (data) {
                 console.log(data);

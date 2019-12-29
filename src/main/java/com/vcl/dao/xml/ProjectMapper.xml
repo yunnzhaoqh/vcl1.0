@@ -18,7 +18,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultMap="projectMap">
         SELECT * FROM project
         <where>
-            and status = 1
+            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
             and id = #{id}
             </if>
@@ -176,7 +176,7 @@
         SELECT * FROM project
         <where>
             and type = 1
-            and status >= 0
+            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>
@@ -208,7 +208,7 @@
         SELECT * FROM project
         <where>
             and type != 1
-            and status >= 0
+            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>

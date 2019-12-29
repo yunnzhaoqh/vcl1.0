@@ -20,7 +20,7 @@
         select reference.*, people.name peopleName from reference
         left join people on people.id = reference.people_id
         <where>
-            and reference.status >= 0
+            and reference.status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>
@@ -76,6 +76,7 @@
             <if test="STATUS != null">
                 and STATUS = #{STATUS}
             </if>
+                and  status <![CDATA[ <> ]]> -1
         </where>
         order by id desc
     </select>

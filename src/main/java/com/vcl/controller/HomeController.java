@@ -101,10 +101,10 @@ public class HomeController {
 
     @RequestMapping("/initHome")
     @ResponseBody
-    public Result initIndex(){
+    public Result initHome(){
         Result result = new Result();
         Map map = new HashMap();
-        map.put("status",1);
+        map.put("status",2);
         try {
             List<Banner> bannerList = bannerService.findAll(map);
             List<Collaboration> collaborationList = collaborationService.findAll(map);
@@ -143,7 +143,7 @@ public class HomeController {
     @ResponseBody
     public Result initPublication(HttpServletRequest request){
         Map<String, Object> parameterMap = RequestUtil.getMap(request);
-        parameterMap.put("status",1);
+        parameterMap.put("initSstatus",-1);
         parameterMap.keySet();
         Result result = new Result();
         Map map = new HashMap();
@@ -165,7 +165,7 @@ public class HomeController {
     @RequestMapping("/initmedia")
     @ResponseBody
     public PageResult initmedia(@RequestBody Map map){
-        map.put("status",1);
+        map.put("initSstatus",-1);
 //        Map<String, Object> parameterMap = RequestUtil.getMap(request);
         PageResult<Media> page = mediaService.findPage(map);
         for (Media media : page.getData()) {
@@ -183,7 +183,7 @@ public class HomeController {
     @RequestMapping("/mediaDetail")
     @ResponseBody
     public PageResult mediaDetail(@RequestBody Map map){
-        map.put("status",1);
+//        map.put("initSstatus",-1);
 //        Map<String, Object> parameterMap = RequestUtil.getMap(request);
         PageResult<Media> page = mediaService.findPage(map);
         for (Media media : page.getData()) {
@@ -201,14 +201,14 @@ public class HomeController {
     @RequestMapping("/initPeople")
     @ResponseBody
     public PageResult initPeople(@RequestBody Map map){
-        map.put("status",1);
+        map.put("initSstatus",-1);
         PageResult<People> page = peopleService.findPage(map);
         return page;
     }
     @RequestMapping("/initActivities")
     @ResponseBody
     public PageResult initActivities(@RequestBody Map map){
-        map.put("status",1);
+        map.put("initSstatus",-1);
         PageResult<Project> page = projectService.findPage(map);
         for (Project project : page.getData()) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm",Locale.ENGLISH);
@@ -225,7 +225,7 @@ public class HomeController {
     @RequestMapping("/initEducation")
     @ResponseBody
     public PageResult initEducation(@RequestBody Map map){
-        map.put("status",1);
+        map.put("initSstatus",-1);
         PageResult<People> page = peopleService.findPage(map);
         return page;
     }
