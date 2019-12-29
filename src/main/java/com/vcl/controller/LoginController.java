@@ -70,7 +70,7 @@ public class LoginController {
             return result;
         }
         User user = userService.getUser(params.get("login_name").toString());
-        if(user == null){
+        if(user == null || -1 == user.getStatus()){
             result.setSuccess(false);
             result.setMessage("用户不存在");
             return result;

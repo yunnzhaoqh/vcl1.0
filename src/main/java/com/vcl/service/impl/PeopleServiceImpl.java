@@ -50,7 +50,6 @@ public class PeopleServiceImpl implements PeopleService {
 	@Override
 	public void add(People people) {
 		people.setCreatetime(DateUtil.getDate(DateUtil.DateFormat5));
-		people.setStatus(1);
 		peopleMapper.insert(people);		
 	}
 

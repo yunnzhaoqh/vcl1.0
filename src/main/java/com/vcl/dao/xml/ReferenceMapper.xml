@@ -54,36 +54,35 @@
     </select>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="referenceMap">
-        select re.*, peo.name peopleName from reference re
-        left join people peo on peo.id = re.people_id
+        SELECT * FROM reference
         <where>
             <if test="ID != null and ID !=''">
-            and re.ID = #{ID}
+            and ID = #{ID}
             </if>
             <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                and re.PEOPLE_ID = #{PEOPLE_ID}
+                and PEOPLE_ID = #{PEOPLE_ID}
             </if>
             <if test="REFERENCE_NAME != null and REFERENCE_NAME !=''">
-                and re.REFERENCE_NAME = #{REFERENCE_NAME}
+                and REFERENCE_NAME = #{REFERENCE_NAME}
             </if>
             <if test="STARTTIME != null and STARTTIME !=''">
-                and re.STARTTIME = #{STARTTIME}
+                and STARTTIME = #{STARTTIME}
             </if>
             <if test="ENDTIME != null and ENDTIME !=''">
-                and re.ENDTIME = #{ENDTIME}
+                and ENDTIME = #{ENDTIME}
             </if>
             <if test="CREATETIME != null and CREATETIME !=''">
-                and re.CREATETIME = #{CREATETIME}
+                and CREATETIME = #{CREATETIME}
             </if>
             <if test="YEAR != null and YEAR !=''">
-                and instr(re.CREATETIME,#{YEAR})>0
+                and instr(CREATETIME,#{YEAR})>0
             </if>
             <choose>
                 <when test="status != null and status != null">
-                    and re.status = #{status}
+                    and status = #{status}
                 </when>
                 <otherwise>
-                    and re.status <![CDATA[ <> ]]> -1
+                    and status <![CDATA[ <> ]]> -1
                 </otherwise>
             </choose>
         </where>

@@ -120,7 +120,7 @@
         form.verify({
             path:[
                 /[\S]+/,
-                "人员相片不能为空"]
+                "请上传封面"]
         });
 
         layedit.set({
@@ -230,7 +230,7 @@
             accept: 'file',
             exts: 'pdf',
             method: 'post',
-            multiple:false,//支持多文件上传,
+            multiple:false,//支持多文件s上传,
             before: function(obj){
                 this.data={"dirpath": 'project\\file'}//携带额外的数据
                 var index = layer.load(); //开始上传之后打开load层

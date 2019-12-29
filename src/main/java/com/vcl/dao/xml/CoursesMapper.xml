@@ -41,10 +41,10 @@
             </if>
             <choose>
                 <when test="status != null and status != null">
-                    and status = #{status}
+                    and courses.status = #{status}
                 </when>
                 <otherwise>
-                    and status <![CDATA[ <> ]]> -1
+                    and courses.status <![CDATA[ <> ]]> -1
                 </otherwise>
             </choose>
         </where>
