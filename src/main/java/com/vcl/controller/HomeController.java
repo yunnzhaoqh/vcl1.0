@@ -110,8 +110,10 @@ public class HomeController {
         Result result = new Result();
         Map map = new HashMap();
         map.put("status",2);
+        map.put("type",1);
         try {
             List<Banner> bannerList = bannerService.findAll(map);
+            map.remove("type");
             List<Collaboration> collaborationList = collaborationService.findAll(map);
             List<Intro> introList = introService.findAll(map);
             List<Media> mediaList = mediaService.findAll(map);
