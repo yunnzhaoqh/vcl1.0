@@ -280,7 +280,7 @@
                 type: 'post'
             }).done(function (data) {
                 $('.banner-content').empty();
-                $('.banner-content').append(' <img src="'+data[0].bannerImg+'" alt="" onclick="toBannerDetail('+data[0].bannerUrl+')">');
+                $('.banner-content').append(' <img src="'+data[0].bannerImg+'" alt="" onclick="toBannerDetail(\''+data[0].bannerUrl+'\')">');
 
             });
             $.ajax({
