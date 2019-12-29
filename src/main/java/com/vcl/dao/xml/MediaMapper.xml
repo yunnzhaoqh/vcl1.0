@@ -101,7 +101,7 @@
                 title =#{title},
             </if>
             <if test="releaseDate != null and releaseDate !=''">
-                release_dates=#{releaseDate} ,
+                release_date=#{releaseDate} ,
             </if>
             <if test="content != null and content !=''">
                 content=#{content} ,

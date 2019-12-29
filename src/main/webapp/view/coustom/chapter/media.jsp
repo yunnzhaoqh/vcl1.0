@@ -38,7 +38,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">是否发布</label>
         <div class="layui-input-inline">
-            <select name="releaseDate" lay-verify="">
+            <select name="releaseDate" lay-verify="required" onchange="change_date(this)">
                 <option value="1" selected>是</option>
                 <option value="0">否</option>
             </select>

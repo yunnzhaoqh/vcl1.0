@@ -55,7 +55,7 @@ public class MediaServiceImpl implements MediaService {
 		if("1".equals(media.getReleaseDate())){
 			media.setReleaseDate(date);
 		}else{
-			media.setReleaseDate("");
+            media.setReleaseDate(date);
 		}
 		mediaMapper.insert(media);		
 	}
