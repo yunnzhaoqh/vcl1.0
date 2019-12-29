@@ -147,19 +147,19 @@
                 <cite>people</cite>
               </a>
             </li>
-            <li data-name="app" class="layui-nav-item">
+            <li data-name="user" class="layui-nav-item">
               <a href="javascript:;" lay-tips="应用" lay-direction="2">
                 <i class="layui-icon layui-icon-app"></i>
                 <cite>education</cite>
               </a>
               <dl class="layui-nav-child">
-                <dd data-name="content">
+                <dd data-name="summweCamp">
                   <a lay-href="/admin/summweCamp">summer camp</a>
                 </dd>
-                <dd data-name="forum">
+                <dd data-name="course">
                   <a lay-href="/admin/course">courses</a>
                 </dd>
-                <dd data-name="forum">
+                <dd data-name="reference">
                   <a lay-href="/admin/reference">reference</a>
                 </dd>
               </dl>
@@ -211,9 +211,9 @@
       
       <!-- 主体内容 -->
       <div class="layui-body" id="LAY_app_body">
-<%--        <div class="layadmin-tabsbody-item layui-show">--%>
-<%--          <iframe src="/admin/project_list" frameborder="0" class="layadmin-iframe"></iframe>--%>
-<%--        </div>--%>
+        <div class="layadmin-tabsbody-item layui-show">
+          <iframe src="/admin/project_list" frameborder="0" class="layadmin-iframe"></iframe>
+        </div>
       </div>
       
       <!-- 辅助元素，一般用于移动设备下遮罩 -->

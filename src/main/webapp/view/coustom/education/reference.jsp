@@ -160,14 +160,16 @@
             }
         });
 
-        $.post('/people/query_professor',{},function (data) {
-            var html = '';
-            for(var i = 0; i < data.length; i++){
-                html += '<option value="'+ data[i].id +'">'+ data[i].name +'</option>'
-            }
-            $('select[name=peopleId]').append(html);
-            layui.form.render('select');
-        },'json');
+        function init_people(value) {
+            $.post('/people/query_professor', {}, function (data) {
+                var html = '';
+                for (var i = 0; i < data.length; i++) {
+                    html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+                }
+                $('select[name=peopleId]').append(html).val(value);
+                layui.form.render('select');
+            }, 'json');
+        }
 
         $('#LAY-reference-close').click(function () {
             var index = parent.layer.getFrameIndex(window.name);
@@ -181,6 +183,8 @@
             init(1);
         }else if(open_type === 'update'){
             init(2)
+        }else{
+            init_people('');
         }
 
         function init(index){
@@ -199,10 +203,13 @@
                 $('#layuiadmin-form-useradmin select').each(function () {
                     var name = $(this).attr('name');
                     $(this).val(data[name]);
+                    if(name == 'peopleId'){
+                        init_people(data[name]);
+                    }
                 });
                 layui.form.render('select');
-                $('#path').attr('src',data.bg_img).show();
-                $('.layui-btn-warm').attr('src',data.reference).show();
+                $('#path').attr('src',data.bgImg).show();
+                $('.layui-btn-warm').attr('href',data.reference).show();
                 $('textarea[name=intro]').val(data.intro);
             }
         }

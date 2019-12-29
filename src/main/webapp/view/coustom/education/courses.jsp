@@ -136,14 +136,16 @@
             }
         });
 
-        $.post('/people/query_professor',{},function (data) {
-            var html = '';
-            for(var i = 0; i < data.length; i++){
-                html += '<option value="'+ data[i].id +'">'+ data[i].name +'</option>'
-            }
-            $('select[name=peopleId]').append(html);
-            layui.form.render('select');
-        },'json');
+        function init_people(value){
+            $.post('/people/query_professor',{},function (data) {
+                var html = '';
+                for(var i = 0; i < data.length; i++){
+                    html += '<option value="'+ data[i].id +'">'+ data[i].name +'</option>'
+                }
+                $('select[name=peopleId]').append(html).val(value);
+                layui.form.render('select');
+            },'json');
+        }
 
         $('#LAY-courses-close').click(function () {
             var index = parent.layer.getFrameIndex(window.name);
@@ -158,6 +160,8 @@
             init(1);
         }else if(open_type === 'update'){
             init(2)
+        }else{
+            init_people('');
         }
 
         function init(index){
@@ -173,8 +177,11 @@
                 $('#layuiadmin-form-useradmin select').each(function () {
                     var name = $(this).attr('name');
                     $(this).val(data[name]);
-                    layui.form.render(this);
+                    if(name == 'peopleId'){
+                        init_people(data[name]);
+                    }
                 });
+                layui.form.render(this);
                 $('#path').attr('src',data.bg_img).show();
             }
         }

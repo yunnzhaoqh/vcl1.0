@@ -53,17 +53,17 @@ public class LoginController {
     public Result login(HttpServletRequest request, HttpSession session){
         Map params = RequestUtil.getMap(request);
         Result result = new Result();
-//        if(StringUtils.isEmpty(params.get("vercode"))){
-//            result.setSuccess(false);
-//            result.setMessage("验证码不能为空");
-//            return result;
-//        }
-//        String sessioncode = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-//        if(!params.get("vercode").equals(sessioncode)){
-//            result.setSuccess(false);
-//            result.setMessage("验证码错误");
-//            return result;
-//        }
+        if(StringUtils.isEmpty(params.get("vercode"))){
+            result.setSuccess(false);
+            result.setMessage("验证码不能为空");
+            return result;
+        }
+        String sessioncode = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        if(!params.get("vercode").equals(sessioncode)){
+            result.setSuccess(false);
+            result.setMessage("验证码错误");
+            return result;
+        }
         if(StringUtils.isEmpty(params.get("login_name")) || StringUtils.isEmpty(params.get("password"))){
             result.setSuccess(false);
             result.setMessage("账号或密码不能为空");
