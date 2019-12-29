@@ -5,7 +5,7 @@
     <select id="selectByExample" parameterType="java.util.Map" resultType="Banner">
         SELECT * FROM banner
         <where>
-            and status <![CDATA[ <> ]]> -1
+
             <if test="id != null and id !=''">
                id = #{id}
             </if>
@@ -21,9 +21,17 @@
             <if test="createtime != null and createtime !=''">
                 and create_time = #{createtime}
             </if>
-            <if test="status != null">
-                and status = #{status}
+            <if test="type != null and type != ''">
+                and type = #{type}
             </if>
+            <choose>
+                <when test="status != null and status != null">
+                    and status = #{status}
+                </when>
+                <otherwise>
+                    and status <![CDATA[ <> ]]> -1
+                </otherwise>
+            </choose>
         </where>
         order by id desc
     </select>
@@ -49,6 +57,12 @@
             <if test="status != null">
                  status ,
             </if>
+            <if test="bannerUrl != null and bannerUrl !=''">
+                banner_Url ,
+            </if>
+            <if test="type != null and type !=''">
+                type ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -70,6 +84,12 @@
             <if test="status != null">
                 #{status},
             </if>
+            <if test="bannerUrl != null and bannerUrl != ''">
+                #{bannerUrl},
+            </if>
+            <if test="type != null and type != ''">
+                #{type},
+            </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKey" parameterType="Banner">
@@ -89,6 +109,12 @@
             </if>
             <if test="createTime != null and createTime !=''">
                 create_time =#{createTime},
+            </if>
+            <if test="bannerUrl != null and bannerUrl !=''">
+                banner_Url =#{bannerUrl},
+            </if>
+            <if test="type != null and type !=''">
+                type =#{type},
             </if>
             <if test="status != null">
                 status =#{status},

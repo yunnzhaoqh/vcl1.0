@@ -18,7 +18,7 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'main_title', title: '主标题', width: 100},
             {field: 'subtitle', title: '副标题', width: 100, sort: true},
             {field: 'share_people', title: '参与人', minWidth: 150},
-            {field: 'share_shcool', title: '参与学校', sort: true,},
+            // {field: 'share_shcool', title: '参与学校', sort: true,},
             {
                 field: 'type', title: '类型', sort: true, templet: function (res) {
                     var type = res.type;
@@ -42,12 +42,12 @@ layui.define(['table', 'form'], function (exports) {
                 }
             },
             {
-                field: 'status', title: '状态', sort: true, templet: function (res) {
+                field: 'status', title: '推荐home', templet: function (res) {
                     var type = res.status;
-                    if (type == 0) {
-                        return '无效';
+                    if (type == 2) {
+                        return '推荐';
                     } else if (type == 1) {
-                        return '有效';
+                        return '不推荐';
                     } else {
                         return '';
                     }
@@ -58,8 +58,7 @@ layui.define(['table', 'form'], function (exports) {
         ]],
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
-        height: 'full-220',
-        text: '对不起，加载出现异常！'
+        height: 'full-220'
     });
 
     //监听工具条
@@ -115,7 +114,7 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'main_title', title: '主标题', width: 100},
             {field: 'subtitle', title: '副标题', width: 100, sort: true},
             {field: 'share_people', title: '参与人', minWidth: 150},
-            {field: 'share_shcool', title: '参与学校', sort: true,},
+            // {field: 'share_shcool', title: '参与学校', sort: true,},
             {
                 field: 'type', title: '类型', sort: true, templet: function (res) {
                     var type = res.type;
@@ -139,12 +138,12 @@ layui.define(['table', 'form'], function (exports) {
                 }
             },
             {
-                field: 'status', title: '状态', sort: true, templet: function (res) {
+                field: 'status', title: '推荐home', templet: function (res) {
                     var type = res.status;
-                    if (type == 0) {
-                        return '无效';
+                    if (type == 2) {
+                        return '推荐';
                     } else if (type == 1) {
-                        return '有效';
+                        return '不推荐';
                     } else {
                         return '';
                     }
@@ -155,8 +154,7 @@ layui.define(['table', 'form'], function (exports) {
         ]],
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
-        height: 'full-220',
-        text: '对不起，加载出现异常！'
+        height: 'full-220'
     });
 
     //监听工具条

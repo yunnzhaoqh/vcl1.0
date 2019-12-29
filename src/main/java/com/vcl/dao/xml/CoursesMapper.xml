@@ -18,7 +18,6 @@
         select people.name peopleName, courses.* from courses
         left join people on people.id = courses.people_id
         <where>
-            and courses.status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>
@@ -37,12 +36,17 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
-            <if test="status != null">
-                and courses.status = #{status}
-            </if>
             <if test="peopleName != null and peopleName !=''">
                 and instr(people.name,#{peopleName}) > 0
             </if>
+            <choose>
+                <when test="status != null and status != null">
+                    and status = #{status}
+                </when>
+                <otherwise>
+                    and status <![CDATA[ <> ]]> -1
+                </otherwise>
+            </choose>
         </where>
         order by id desc
     </select>

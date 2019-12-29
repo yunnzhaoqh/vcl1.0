@@ -30,13 +30,13 @@ layui.define(['table', 'form'], function (exports) {
                 field: 'type', title: '人员类型', templet: function (res) {
                     var type = res.type;
                     if (type == 1) {
-                        return '教职员工';
+                        return 'faculty & staff';
                     } else if (type == 2) {
-                        return '教授';
+                        return 'visiting professors';
                     } else if (type == 3) {
-                        return '学生';
+                        return 'students';
                     } else if (type == 4) {
-                        return '校友';
+                        return 'alumni';
                     } else {
                         return '';
                     }
@@ -44,12 +44,12 @@ layui.define(['table', 'form'], function (exports) {
             }
             , {field: 'createtime', title: '创建时间', sort: true}
             , {
-                field: 'status', title: '状态', templet: function (res) {
+                field: 'status', title: '推荐home', templet: function (res) {
                     var type = res.status;
-                    if (type == 0) {
-                        return '无效';
+                    if (type == 2) {
+                        return '推荐';
                     } else if (type == 1) {
-                        return '有效';
+                        return '不推荐';
                     } else {
                         return '';
                     }
@@ -60,8 +60,7 @@ layui.define(['table', 'form'], function (exports) {
         page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
-        height: 'full-220',
-        text: '对不起，加载出现异常！'
+        height: 'full-220'
     });
 
     //监听工具条
@@ -151,8 +150,7 @@ layui.define(['table', 'form'], function (exports) {
             // ,{field: 'role', title: '角色'}
             , {field: 'create_time', title: '创建时间', sort: true}
             , {title: '操作', width: 150, align: 'center', fixed: 'right', toolbar: '#table-useradmin-admin'}
-        ]],
-        text: '对不起，加载出现异常！'
+        ]]
     });
 
     //监听工具条

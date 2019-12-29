@@ -3,12 +3,12 @@ package com.vcl.pojo;
 
 public class Collaboration {
 
-  private long id;
+  private Long id;
   private String img;
   private String name;
   private String addr;
   private String phone;
-  private long status;
+  private Long status;
   private String createTime;
   private String icon;
 
@@ -91,11 +91,11 @@ public class Collaboration {
   }
 
 
-  public long getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(long status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 

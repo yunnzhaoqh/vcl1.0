@@ -36,15 +36,6 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">状态</label>
-        <div class="layui-input-inline">
-            <select name="status" lay-verify="">
-                <option value="1" selected>有效</option>
-                <option value="0">无效</option>
-            </select>
-        </div>
-    </div>
-    <div class="layui-form-item">
         <label class="layui-form-label layui-required">是否发布</label>
         <div class="layui-input-inline">
             <select name="releaseDate" lay-verify="">
@@ -66,6 +57,15 @@
         <div class="layui-input-block">
             <textarea id="content" name="content" placeholder="文章内容"
                       class="layui-textarea layui-hide" style="height: 150px;" onchange="text(this)"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">推荐home</label>
+        <div class="layui-input-inline">
+            <select name="status" lay-verify="required">
+                <option value="1">不推荐</option>
+                <option value="2">推荐</option>
+            </select>
         </div>
     </div>
     <div class="layui-form-item">

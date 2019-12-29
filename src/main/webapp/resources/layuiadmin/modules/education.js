@@ -22,19 +22,19 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'intro', title: '团队简介', minWidth: 300, sort: true,},
             {
                 field: 'reference', title: '项目文件', minWicth: 200, sort: true, templet: function (res) {
-                    if(res.reference){
-                        return '<a download href="'+ res.reference +'" class="layui-btn layui-btn-sm layui-btn-warm"">下载文件</a>';
+                    if (res.reference) {
+                        return '<a download href="' + res.reference + '" class="layui-btn layui-btn-sm layui-btn-warm"">下载文件</a>';
                     }
                     return '';
                 }
             },
             {
-                field: 'status', title: '状态', sort: true, templet: function (res) {
+                field: 'status', title: '推荐home', templet: function (res) {
                     var type = res.status;
-                    if (type == 0) {
-                        return '无效';
+                    if (type == 2) {
+                        return '推荐';
                     } else if (type == 1) {
-                        return '有效';
+                        return '不推荐';
                     } else {
                         return '';
                     }
@@ -46,8 +46,7 @@ layui.define(['table', 'form'], function (exports) {
         page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
-        height: 'full-220',
-        text: '对不起，加载出现异常！'
+        height: 'full-220'
     });
 
     //监听工具条
@@ -105,12 +104,12 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'endtime', title: '结束时间', sort: true,},
             {field: 'intro', title: '活动简介', minWidth: 300, sort: true,},
             {
-                field: 'status', title: '状态', sort: true, templet: function (res) {
+                field: 'status', title: '推荐home', templet: function (res) {
                     var type = res.status;
-                    if (type == 0) {
-                        return '无效';
+                    if (type == 2) {
+                        return '推荐';
                     } else if (type == 1) {
-                        return '有效';
+                        return '不推荐';
                     } else {
                         return '';
                     }
@@ -122,8 +121,7 @@ layui.define(['table', 'form'], function (exports) {
         page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
-        height: 'full-220',
-        text: '对不起，加载出现异常！'
+        height: 'full-220'
     });
 
     //监听工具条
@@ -181,12 +179,12 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'starttime', title: '开始时间', sort: true,},
             {field: 'endtime', title: '结束时间', sort: true,},
             {
-                field: 'status', title: '状态', sort: true, templet: function (res) {
+                field: 'status', title: '推荐home', templet: function (res) {
                     var type = res.status;
-                    if (type == 0) {
-                        return '无效';
+                    if (type == 2) {
+                        return '推荐';
                     } else if (type == 1) {
-                        return '有效';
+                        return '不推荐';
                     } else {
                         return '';
                     }
@@ -198,8 +196,7 @@ layui.define(['table', 'form'], function (exports) {
         page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
-        height: 'full-220',
-        text: '对不起，加载出现异常！'
+        height: 'full-220'
     });
 
     //监听工具条

@@ -16,14 +16,37 @@ layui.define(['table', 'form'], function (exports) {
             // {type:'checkbox'}
             // ,{field:'id', title: 'ID', width:100, sort: true},
             {field: 'bannerTitleContext', title: '轮播图标题', width: 100},
-            {field: 'bannerTitleIntro', title: '轮播图简介', minWidth: 500},
+            {field: 'bannerTitleIntro', title: '轮播图简介', minWidth: 300},
+            {field: 'bannerUrl', title: '轮播图链接', minWidth: 100},
             {
-                field: 'status', title: '状态', sort: true, templet: function (res) {
+                field: 'type', title: '轮播图模块', templet: function (res) {
+                    var type = res.type;
+                    if(type == 1){
+                        return 'home';
+                    }else if(type == 2){
+                        return 'publication';
+                    }else if(type == 3){
+                        return 'media';
+                    }else if(type == 4){
+                        return 'people';
+                    }else if(type == 5){
+                        return 'activitis';
+                    }else if(type == 6){
+                        return 'education';
+                    }else if(type == 7){
+                        return 'join us';
+                    }else{
+                        return '';
+                    }
+                }
+            },
+            {
+                field: 'status', title: '推荐home', templet: function (res) {
                     var type = res.status;
-                    if (type == 0) {
-                        return '前端不显示';
+                    if (type == 2) {
+                        return '推荐';
                     } else if (type == 1) {
-                        return '前端显示';
+                        return '不推荐';
                     } else {
                         return '';
                     }
@@ -36,7 +59,6 @@ layui.define(['table', 'form'], function (exports) {
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
         height: 'full-220',
-        text: '对不起，加载出现异常！'
     });
 
     //监听工具条

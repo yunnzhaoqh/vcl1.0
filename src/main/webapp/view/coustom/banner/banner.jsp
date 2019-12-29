@@ -35,6 +35,27 @@
                    class="layui-input">
         </div>
     </div>
+    <div class="layui-form-item layer-width">
+        <label class="layui-form-label layui-required">轮播图跳转链接</label>
+        <div class="layui-input-block">
+            <input type="text" name="bannerUrl" lay-verify="bannerUrl" placeholder="请输入链接" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">轮播图模块</label>
+        <div class="layui-input-inline">
+            <select name="type" lay-verify="required">
+                <option value="1">home</option>
+                <option value="2">publication</option>
+                <option value="3">media</option>
+                <option value="4">people</option>
+                <option value="5">activitis</option>
+                <option value="6">education</option>
+                <option value="7">join us</option>
+            </select>
+        </div>
+    </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">封面</label>
         <div class="layui-input-inline">
@@ -46,16 +67,16 @@
     <div class="layui-form-item layer-width">
         <label class="layui-form-label layui-required">轮播图简介</label>
         <div class="layui-input-block">
-            <textarea name="bannerTitleIntro" lay-verify="required" placeholder="团队简介"
+            <textarea name="bannerTitleIntro" lay-verify="required" placeholder="轮播图简介"
                       class="layui-textarea"></textarea>
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">轮播图状态</label>
+        <label class="layui-form-label layui-required">推荐home</label>
         <div class="layui-input-inline">
-            <select name="status" lay-verify="">
-                <option value="1" selected>前端显示</option>
-                <option value="0">前端不显示</option>
+            <select name="status" lay-verify="required">
+                <option value="1">不推荐</option>
+                <option value="2">推荐</option>
             </select>
         </div>
     </div>
@@ -81,7 +102,13 @@
         form.verify({
             path:[
                 /[\S]+/,
-                "轮播图片不能为空"]
+                "轮播图片不能为空"],
+            bannerUrl: function (value) {
+                if(!new RegExp('^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$').test(value)){
+                    return' 请输入正确的网址';
+                }
+                return '';
+            }
         });
 
         $('#LAY-banner-close').click(function () {

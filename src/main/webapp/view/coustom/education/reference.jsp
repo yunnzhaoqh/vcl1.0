@@ -65,7 +65,7 @@
         <label class="layui-form-label layui-required">封面</label>
         <div class="layui-input-inline">
             <img src="" id="path" width="100%" height="100%" style="display: none">
-            <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
+            <input type="hidden" name="bgImg" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-img">上传图片</button>
     </div>
@@ -85,11 +85,11 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">状态</label>
+        <label class="layui-form-label layui-required">推荐home</label>
         <div class="layui-input-inline">
-            <select name="status" lay-verify="">
-                <option value="1" selected>有效</option>
-                <option value="0">无效</option>
+            <select name="status" lay-verify="required">
+                <option value="1">不推荐</option>
+                <option value="2">推荐</option>
             </select>
         </div>
     </div>
@@ -165,7 +165,10 @@
                 for (var i = 0; i < data.length; i++) {
                     html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
                 }
-                $('select[name=peopleId]').append(html).val(value);
+                $('select[name=peopleId]').append(html);
+                if(value){
+                    $('select[name=peopleId]').val(value);
+                }
                 layui.form.render('select');
             }, 'json');
         }
@@ -207,8 +210,12 @@
                     }
                 });
                 layui.form.render('select');
-                $('#path').attr('src',data.bgImg).show();
-                $('.layui-btn-warm').attr('href',data.reference).show();
+                if(data.bgImg){
+                    $('#path').attr('src',data.bgImg).show();
+                }
+                if(data.reference){
+                    $('.layui-btn-warm').attr('href',data.reference).show();
+                }
                 $('textarea[name=intro]').val(data.intro);
             }
         }

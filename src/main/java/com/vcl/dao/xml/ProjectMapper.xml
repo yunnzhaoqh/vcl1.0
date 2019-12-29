@@ -18,7 +18,6 @@
     <select id="selectByExample" parameterType="java.util.Map" resultMap="projectMap">
         SELECT * FROM project
         <where>
-            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
             and id = #{id}
             </if>
@@ -43,9 +42,14 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
-            <if test="status != null">
-                and status = #{status}
-            </if>
+            <choose>
+                <when test="status != null and status != null">
+                    and status = #{status}
+                </when>
+                <otherwise>
+                    and status <![CDATA[ <> ]]> -1
+                </otherwise>
+            </choose>
         </where>
         order by id desc
     </select>
@@ -176,7 +180,6 @@
         SELECT * FROM project
         <where>
             and type = 1
-            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>
@@ -198,9 +201,14 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
-            <if test="status != null">
-                and status = #{status}
-            </if>
+            <choose>
+                <when test="status != null and status != null">
+                    and status = #{status}
+                </when>
+                <otherwise>
+                    and status <![CDATA[ <> ]]> -1
+                </otherwise>
+            </choose>
         </where>
     </select>
 
@@ -208,7 +216,6 @@
         SELECT * FROM project
         <where>
             and type != 1
-            and status <![CDATA[ <> ]]> -1
             <if test="id != null and id !=''">
                 and id = #{id}
             </if>
@@ -230,9 +237,14 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
-            <if test="status != null">
-                and status = #{status}
-            </if>
+            <choose>
+                <when test="status != null and status != null">
+                    and status = #{status}
+                </when>
+                <otherwise>
+                    and status <![CDATA[ <> ]]> -1
+                </otherwise>
+            </choose>
         </where>
     </select>
     <select id="findYears" parameterType="java.util.Map" resultType="java.util.Map">

@@ -9,7 +9,7 @@ public class Courses {
   private String starttime;
   private String endtime;
   private String createtime;
-  private long status;
+  private Long status;
   private String bg_img;
   private String peopleName;
 
@@ -67,11 +67,11 @@ public class Courses {
   }
 
 
-  public long getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(long status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 
