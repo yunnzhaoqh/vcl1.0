@@ -81,15 +81,19 @@ public class UserController {
             if (file != null) {
                 String originalName = file.getOriginalFilename();
                 prefix = FilenameUtils.getExtension(originalName);
-                fileStr = UUID.randomUUID().toString();
                 String filepath = FILE_UPLOAD_PATH;
                 String resultpath = "\\upload\\";
                 if (!StringUtils.isEmpty(dirpath)) {
                     filepath += "\\" + dirpath + "\\";
                     resultpath += dirpath + "\\";
                 }
-                filepath += fileStr + "." + prefix;
-                resultpath += fileStr + "." + prefix;
+                if(!StringUtils.isEmpty(dirpath) && dirpath.indexOf("file") != -1){
+                    fileStr = originalName;
+                }else{
+                    fileStr = UUID.randomUUID().toString() + "." + prefix;
+                }
+                filepath += fileStr;
+                resultpath += fileStr;
                 filepath = filepath.replace("\\", "/");
                 File files = new File(filepath);
                 if (!files.getParentFile().exists()) {

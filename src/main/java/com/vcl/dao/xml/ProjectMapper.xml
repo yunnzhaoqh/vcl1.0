@@ -12,6 +12,7 @@
         <result column="type" property="type" />
         <result column="status" property="status" />
         <result column="bg_img" property="bg_img" />
+        <result column="project_file" property="project_file" />
     </resultMap>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="projectMap">
@@ -22,10 +23,10 @@
             and id = #{id}
             </if>
             <if test="main_title != null and main_title !=''">
-                and main_title = #{main_title}
+                and instr(main_title,#{main_title}) > 0
             </if>
             <if test="subtitle != null and subtitle !=''">
-                and subtitle = #{subtitle}
+                and instr(subtitle,#{subtitle}) > 0
             </if>
             <if test="share_people != null and share_people !=''">
                 and share_people = #{share_people}
@@ -81,6 +82,9 @@
             <if test="bg_img != null and bg_img !=''">
                 bg_img ,
             </if>
+            <if test="project_file != null and project_file !=''">
+                project_file ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -113,6 +117,9 @@
             </if>
             <if test="bg_img != null and bg_img !=''">
                 #{bg_img},
+            </if>
+            <if test="project_file != null and project_file !=''">
+                #{project_file},
             </if>
         </trim>
     </insert>
@@ -148,6 +155,9 @@
             </if>
             <if test="bg_img != null and bg_img !=''">
                 bg_img =#{bg_img},
+            </if>
+            <if test="project_file != null and project_file !=''">
+                project_file =#{project_file},
             </if>
         </trim>
     </update>

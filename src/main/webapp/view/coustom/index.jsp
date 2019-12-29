@@ -39,14 +39,14 @@
         </ul>
         <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
           
-          <li class="layui-nav-item" lay-unselect>
-            <a lay-href="app/message/index.html" layadmin-event="message" lay-text="消息中心">
-              <i class="layui-icon layui-icon-notice"></i>  
-              
-              <!-- 如果有新消息，则显示小圆点 -->
-              <span class="layui-badge-dot"></span>
-            </a>
-          </li>
+<%--          <li class="layui-nav-item" lay-unselect>--%>
+<%--            <a lay-href="app/message/index.html" layadmin-event="message" lay-text="消息中心">--%>
+<%--              <i class="layui-icon layui-icon-notice"></i>  --%>
+<%--              --%>
+<%--              <!-- 如果有新消息，则显示小圆点 -->--%>
+<%--              <span class="layui-badge-dot"></span>--%>
+<%--            </a>--%>
+<%--          </li>--%>
           <li class="layui-nav-item layui-hide-xs" lay-unselect>
             <a href="javascript:;" layadmin-event="theme">
               <i class="layui-icon layui-icon-theme"></i>
@@ -91,11 +91,11 @@
           </div>
           
           <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
-            <li data-name="home" class="layui-nav-item layui-nav-itemed">
-              <%--<a href="javascript:;" lay-tips="主页" lay-direction="2">--%>
-                <%--<i class="layui-icon layui-icon-home"></i>--%>
-                <%--<cite>主页</cite>--%>
-              <%--</a>--%>
+<%--            <li data-name="home" class="layui-nav-item layui-nav-itemed">--%>
+<%--              <a href="javascript:;" lay-tips="主页" lay-direction="2">--%>
+<%--                <i class="layui-icon layui-icon-home"></i>--%>
+<%--                <cite>主页</cite>--%>
+<%--              </a>--%>
 <%--              <dl class="layui-nav-child">--%>
 <%--                <dd data-name="console" class="layui-this">--%>
 <%--                  <a lay-href="/admin/console">控制台</a>--%>
@@ -107,7 +107,7 @@
 <%--                  <a lay-href="/admin/homepage2">主页二</a>--%>
 <%--                </dd>--%>
 <%--              </dl>--%>
-            </li>
+<%--            </li>--%>
 <%--            <li data-name="template" class="layui-nav-item">--%>
 <%--              <a href="javascript:;" lay-tips="页面" lay-direction="2">--%>
 <%--                <i class="layui-icon layui-icon-template"></i>--%>
@@ -129,47 +129,39 @@
 <%--                <dd><a lay-href="http://www.layui.com/admin/">layuiAdmin官网</a></dd>--%>
 <%--              </dl>--%>
 <%--            </li>--%>
+            <li data-name="user" class="layui-nav-item">
+              <a lay-href="/admin/project_list" lay-tips="用户" lay-direction="2">
+                <i class="layui-icon layui-icon-user"></i>
+                <cite>publication | activities</cite>
+              </a>
+            </li>
+            <li data-name="user" class="layui-nav-item">
+              <a lay-href="/admin/media_list" lay-tips="用户" lay-direction="2">
+                <i class="layui-icon layui-icon-user"></i>
+                <cite>media</cite>
+              </a>
+            </li>
+            <li data-name="user" class="layui-nav-item">
+              <a lay-href="/user/user" lay-tips="用户" lay-direction="2">
+                <i class="layui-icon layui-icon-user"></i>
+                <cite>people</cite>
+              </a>
+            </li>
             <li data-name="app" class="layui-nav-item">
               <a href="javascript:;" lay-tips="应用" lay-direction="2">
                 <i class="layui-icon layui-icon-app"></i>
-                <cite>Education</cite>
+                <cite>education</cite>
               </a>
               <dl class="layui-nav-child">
                 <dd data-name="content">
-                  <a lay-href="/admin/summweCamp">Sum-camp</a>
+                  <a lay-href="/admin/summweCamp">summer camp</a>
                 </dd>
                 <dd data-name="forum">
-                  <a lay-href="/admin/course">Courses</a>
+                  <a lay-href="/admin/course">courses</a>
                 </dd>
                 <dd data-name="forum">
-                  <a lay-href="/admin/reference">Reference Course</a>
+                  <a lay-href="/admin/reference">reference</a>
                 </dd>
-              </dl>
-            </li>
-
-            <dl class="layui-nav-child">
-              <dd>
-                <a lay-href="/user/user">人员管理</a>
-              </dd>
-            </dl>
-            <li data-name="user" class="layui-nav-item">
-              <a href="javascript:;" lay-tips="用户" lay-direction="2">
-                <i class="layui-icon layui-icon-user"></i>
-                <cite>文章管理</cite>
-              </a>
-              <dl class="layui-nav-child">
-                  <dd>
-                    <a lay-href="/admin/project_list">Publication</a>
-                  </dd>
-                  <dd>
-                    <a lay-href="/admin/media_list">media列表</a>
-                  </dd>
-                <%--<dd>--%>
-                  <%--<a lay-href="/admin/project_list">文章列表</a>--%>
-                <%--&lt;%&ndash;</dd>&ndash;%&gt;--%>
-                <%--<dd>--%>
-                  <%--<a lay-href="/admin/media_list">media列表</a>--%>
-                <%--</dd>--%>
               </dl>
             </li>
             <li data-name="user" class="layui-nav-item">
@@ -178,9 +170,9 @@
                 <cite>用户</cite>
               </a>
               <dl class="layui-nav-child">
-                <dd>
-                  <a lay-href="/user/user">人员管理</a>
-                </dd>
+<%--                <dd>--%>
+<%--                  <a lay-href="/user/user">人员管理</a>--%>
+<%--                </dd>--%>
                 <dd>
                   <a lay-href="/user/administrators">后台管理员</a>
                 </dd>
@@ -219,9 +211,9 @@
       
       <!-- 主体内容 -->
       <div class="layui-body" id="LAY_app_body">
-        <div class="layadmin-tabsbody-item layui-show">
-          <iframe src="/admin/console" frameborder="0" class="layadmin-iframe"></iframe>
-        </div>
+<%--        <div class="layadmin-tabsbody-item layui-show">--%>
+<%--          <iframe src="/admin/project_list" frameborder="0" class="layadmin-iframe"></iframe>--%>
+<%--        </div>--%>
       </div>
       
       <!-- 辅助元素，一般用于移动设备下遮罩 -->

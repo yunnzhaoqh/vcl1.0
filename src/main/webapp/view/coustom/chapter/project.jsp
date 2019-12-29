@@ -65,12 +65,20 @@
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-project">上传图片</button>
     </div>
     <div class="layui-form-item">
+        <label class="layui-form-label layui-required">项目文件</label>
+        <div class="layui-input-inline" style="width: auto;">
+            <input type="hidden" name="project_file" lay-verify="file" placeholder="请上传文件" autocomplete="off" class="layui-input" >
+            <a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>
+        </div>
+        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-file">上传文件</button>
+    </div>
+    <div class="layui-form-item">
         <label class="layui-form-label layui-required">文章类型</label>
         <div class="layui-input-inline">
             <select name="type" lay-verify="">
-                <option value="1">出版物</option>
-                <option value="2">演讲</option>
-                <option value="3">研讨会</option>
+                <option value="1">publication</option>
+                <option value="2">invited talk</option>
+                <option value="3">seminar</option>
             </select>
         </div>
     </div>
@@ -206,6 +214,31 @@
                 layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
                 $(this.item).prev("div").children("input").val(res.src);
                 $('#path').attr('src',res.src).show();
+                layer.msg(res.msg);
+            },
+            error: function () {
+                layer.close(layer.index);
+                layer.msg("上传失败，重新上传")
+            }
+        });
+
+        upload.render({
+            elem: '#layuiadmin-upload-file',
+            url: '/user/upload_file',
+            auto:true,//是否自动上传
+            accept: 'file',
+            exts: 'pdf',
+            method: 'post',
+            multiple:false,//支持多文件上传,
+            before: function(obj){
+                this.data={"dirpath": 'project\\file'}//携带额外的数据
+                var index = layer.load(); //开始上传之后打开load层
+                $("#hidden_tmp_index").val(index);//将load层的index隐藏到页面中
+            },
+            done: function(res){
+                layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
+                $(this.item).prev("div").children("input").val(res.src);
+                $(this.item).prev("div").children("a").attr('href',res.src).show();
                 layer.msg(res.msg);
             },
             error: function () {

@@ -72,7 +72,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">项目文件</label>
         <div class="layui-input-inline" style="width: auto;">
-            <input type="hidden" name="reference" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
+            <input type="hidden" name="reference" lay-verify="path" placeholder="请上传文件" autocomplete="off" class="layui-input" >
             <a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-reference">上传文件</button>

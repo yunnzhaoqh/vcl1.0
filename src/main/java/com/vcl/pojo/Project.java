@@ -13,6 +13,7 @@ public class Project {
   private String createtime;
   private long status;
   private String bg_img;
+  private String project_file;
 
   public Long getId() {
     return id;
@@ -95,5 +96,13 @@ public class Project {
 
   public void setBg_img(String bg_img) {
     this.bg_img = bg_img;
+  }
+
+  public String getProject_file() {
+    return project_file;
+  }
+
+  public void setProject_file(String project_file) {
+    this.project_file = project_file;
   }
 }
