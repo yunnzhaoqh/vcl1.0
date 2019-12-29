@@ -192,10 +192,10 @@
                         <span>links</span>
                     </div>
                     <div class="items">
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
+                        <a class="item" href="http://english.pku.edu.cn/"></a>
+                        <a class="item" href="https://cfcs.pku.edu.cn/english/"></a>
+                        <a class="item" href="http://eng.bfa.edu.cn/"></a>
+                        <a class="item" href="http://irc.cs.sdu.edu.cn/"></a>
                         <div class="item"></div>
                         <div class="item"></div>
                     </div>

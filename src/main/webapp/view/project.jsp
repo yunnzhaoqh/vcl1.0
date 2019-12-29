@@ -140,10 +140,10 @@
                         <span>links</span>
                     </div>
                     <div class="items">
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
+                        <a class="item" href="http://english.pku.edu.cn/"></a>
+                        <a class="item" href="https://cfcs.pku.edu.cn/english/"></a>
+                        <a class="item" href="http://eng.bfa.edu.cn/"></a>
+                        <a class="item" href="http://irc.cs.sdu.edu.cn/"></a>
                         <div class="item"></div>
                         <div class="item"></div>
                     </div>
@@ -203,7 +203,7 @@
                     '            <div class="download">\n' +
                     '                <p>Download</p>\n' +
                     '                <div>\n' +
-                    '                    <a href="'+data.project_file+'" class="item pdf">\n' +
+                    '                    <a href="'+data.project_file+'" download="" class="item pdf">\n' +
                     '                        <ul>\n' +
                     '                            <li>'+data.fileName+'</li>\n' +
                     '                            <li>['+data.fileSize+']</li>\n' +

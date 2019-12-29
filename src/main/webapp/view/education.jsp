@@ -92,31 +92,31 @@
                             <span>SUMMER CAMP</span>
                         </div>
                     </div>
-                    <div class="list">
-                        <div class="row-item">
-                            <a href="">
-                                <div class="name">2019 Summer Camp</div>
-                                <div class="tips">2019.07.15 - 2019.08.26</div>
-                            </a>
-                        </div>
-                        <div class="row-item">
-                            <a href="">
-                                <div class="name">2019 Summer Camp</div>
-                                <div class="tips">2019.07.15 - 2019.08.26</div>
-                            </a>
-                        </div>
-                        <div class="row-item">
-                            <a href="">
-                                <div class="name">2019 Summer Camp</div>
-                                <div class="tips">2019.07.15 - 2019.08.26</div>
-                            </a>
-                        </div>
-                        <div class="row-item">
-                            <a href="">
-                                <div class="name">2019 Summer Camp</div>
-                                <div class="tips">2019.07.15 - 2019.08.26</div>
-                            </a>
-                        </div>
+                    <div class="list" id="summerList">
+                        <%--<div class="row-item">--%>
+                            <%--<a href="">--%>
+                                <%--<div class="name">2019 Summer Camp</div>--%>
+                                <%--<div class="tips">2019.07.15 - 2019.08.26</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
+                        <%--<div class="row-item">--%>
+                            <%--<a href="">--%>
+                                <%--<div class="name">2019 Summer Camp</div>--%>
+                                <%--<div class="tips">2019.07.15 - 2019.08.26</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
+                        <%--<div class="row-item">--%>
+                            <%--<a href="">--%>
+                                <%--<div class="name">2019 Summer Camp</div>--%>
+                                <%--<div class="tips">2019.07.15 - 2019.08.26</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
+                        <%--<div class="row-item">--%>
+                            <%--<a href="">--%>
+                                <%--<div class="name">2019 Summer Camp</div>--%>
+                                <%--<div class="tips">2019.07.15 - 2019.08.26</div>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
                     </div>
                 </div>
                 <div class="item">
@@ -125,7 +125,7 @@
                             <span>COURSES</span>
                         </div>
                     </div>
-                    <div class="list">
+                    <div class="list" id="courseslist">
                         <div class="row-item">
                             <a href="">
                                 <div class="name">Deep Computer Graphics (2019 Spring)</div>
@@ -188,7 +188,7 @@
                             <span>REFERENCE</span>
                         </div>
                     </div>
-                    <div class="list">
+                    <div class="list" id="referenceList">
                         <div class="row-item">
                             <a href="">
                                 <div class="name">Deep Computer Graphics (2019 Spring)</div>
@@ -221,10 +221,10 @@
                         <span>links</span>
                     </div>
                     <div class="items">
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
+                        <a class="item" href="http://english.pku.edu.cn/"></a>
+                        <a class="item" href="https://cfcs.pku.edu.cn/english/"></a>
+                        <a class="item" href="http://eng.bfa.edu.cn/"></a>
+                        <a class="item" href="http://irc.cs.sdu.edu.cn/"></a>
                         <div class="item"></div>
                         <div class="item"></div>
                     </div>
@@ -267,7 +267,56 @@
             //     scrollInertia: 600,
             //     autoDraggerLength: false
             // });
+
         });
+        function initEducation() {
+            $.ajax({
+                url: "/home/initEducation",
+                data: {"type": type, "page": index, "limit": limit ,"status":1},
+                contentType: 'application/json',  //请求数据类型
+                // context: document.body,
+                dataType: 'json',
+                type: 'post'
+            }).done(function (data) {
+                var summerCampHtml = '';
+                var coursesHtml = '';
+                var referenceHtml = '';
+                var summer = data.summer;
+                var courses = data.courses;
+                var reference = data.reference;
+                for(var i in summer){
+                    summerCampHtml+='<div class="row-item">\n' +
+                        '                            <a href="">\n' +
+                        '                                <div class="name">'+summer[i].name+'</div>\n' +
+                        '                                <div class="tips">'+summer[i].starttime+' - '+summer[i].endtime+'</div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>';
+                }
+                for(var i in courses){
+                    coursesHtml+=' <div class="row-item">\n' +
+                        '                            <a href="">\n' +
+                        '                                <div class="name">'+courses[i].courseName+'</div>\n' +
+                        '                                <div class="tips">'+courses[i].peopleId+'</div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>';
+                }
+                for(var i in reference){
+                    referenceHtml+=' <div class="row-item">\n' +
+                        '                            <a href="">\n' +
+                        '                                <div class="name">'+reference[i].referenceName+'</div>\n' +
+                        '                                <div class="tips">'+reference[i].peopleId+'</div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>';
+                }
+                $('#summerList').empty()
+                $('#summerList').append(summerCampHtml);
+                $('#courseslist').empty()
+                $('#courseslist').append(coursesHtml);
+                $('#referenceList').empty()
+                $('#referenceList').append(referenceHtml);
+
+            })
+        }
     </script>
 
 </body>

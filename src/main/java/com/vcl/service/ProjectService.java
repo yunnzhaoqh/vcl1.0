@@ -70,4 +70,6 @@ public interface ProjectService {
     PageResult query_publication(Map map);
 
     PageResult query_activities(Map map);
+
+    List<Map> findYears();
 }

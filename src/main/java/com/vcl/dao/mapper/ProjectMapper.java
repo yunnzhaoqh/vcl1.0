@@ -21,4 +21,6 @@ public interface ProjectMapper {
     List<Project> query_publication(Map map);
 
     List<Project> query_activities(Map map);
+
+    List<Map> findYears();
 }

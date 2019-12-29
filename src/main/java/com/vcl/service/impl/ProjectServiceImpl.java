@@ -113,4 +113,9 @@ public class ProjectServiceImpl implements ProjectService {
 		return new PageResult(pageInfo.getTotal(),projects,0,"");
 	}
 
+	@Override
+	public List<Map> findYears() {
+		return projectMapper.findYears();
+	}
+
 }

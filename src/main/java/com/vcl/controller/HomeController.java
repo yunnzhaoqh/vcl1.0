@@ -62,7 +62,14 @@ public class HomeController {
         return "join-us";
     }
     @RequestMapping("/media")
-    public String media(){
+    public String media(HttpServletRequest request,Model model){
+        Map map = RequestUtil.getMap(request);
+        if(map.get("id")!= null){
+            model.addAttribute("id",map.get("id"));
+        }else{
+            model.addAttribute("id",0);
+        }
+
         return "media";
     }
     @RequestMapping("/people")
@@ -136,14 +143,17 @@ public class HomeController {
     @ResponseBody
     public Result initPublication(HttpServletRequest request){
         Map<String, Object> parameterMap = RequestUtil.getMap(request);
+        parameterMap.put("status",1);
         parameterMap.keySet();
         Result result = new Result();
         Map map = new HashMap();
 //        map.put("STATUS",1);
         try {
             List<Project> projects = projectService.findAll(parameterMap);
+            List<Map> years = projectService.findYears();
 
             map.put("projects",projects);
+            map.put("publicYear",years);
             result.setSuccess(true);
             result.setObj(map);
         }catch (Exception e){
@@ -155,6 +165,7 @@ public class HomeController {
     @RequestMapping("/initmedia")
     @ResponseBody
     public PageResult initmedia(@RequestBody Map map){
+        map.put("status",1);
 //        Map<String, Object> parameterMap = RequestUtil.getMap(request);
         PageResult<Media> page = mediaService.findPage(map);
         for (Media media : page.getData()) {
@@ -172,6 +183,7 @@ public class HomeController {
     @RequestMapping("/mediaDetail")
     @ResponseBody
     public PageResult mediaDetail(@RequestBody Map map){
+        map.put("status",1);
 //        Map<String, Object> parameterMap = RequestUtil.getMap(request);
         PageResult<Media> page = mediaService.findPage(map);
         for (Media media : page.getData()) {
@@ -189,12 +201,14 @@ public class HomeController {
     @RequestMapping("/initPeople")
     @ResponseBody
     public PageResult initPeople(@RequestBody Map map){
+        map.put("status",1);
         PageResult<People> page = peopleService.findPage(map);
         return page;
     }
     @RequestMapping("/initActivities")
     @ResponseBody
     public PageResult initActivities(@RequestBody Map map){
+        map.put("status",1);
         PageResult<Project> page = projectService.findPage(map);
         for (Project project : page.getData()) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm",Locale.ENGLISH);
@@ -211,6 +225,7 @@ public class HomeController {
     @RequestMapping("/initEducation")
     @ResponseBody
     public PageResult initEducation(@RequestBody Map map){
+        map.put("status",1);
         PageResult<People> page = peopleService.findPage(map);
         return page;
     }
@@ -220,19 +235,36 @@ public class HomeController {
     public Project findOneProject(@RequestBody Map map){
         Long id = Long.parseLong(map.get("id").toString());
         Project project = projectService.findOne(id);
-        File file = new File(FILE_UPLOAD_PATH+project.getProject_file());
-        if (file.exists() && file.isFile()){
+        String filePath = (FILE_UPLOAD_PATH+project.getProject_file()).replace("\\", "/");
+        File file = new File(filePath);
+
+//        if (file.exists()){
             final String[] units = new String[]{"B", "KB", "MB", "GB", "TB"};
             int digitGroups = (int) (Math.log10(file.length()) / Math.log10(1024));
-            project.setFileName(file.getName());
-            project.setFileSize(new DecimalFormat("#,##0.#").format(file.length() / Math.pow(1024, digitGroups)) + " " + units[digitGroups]);
-        }else{
-            project.setFileName("无文件");
-            project.setFileSize("0 M");
-        }
+            if(file.getName()!= null && project.getProject_file()!= null){
+                project.setFileName(file.getName());
+            }else {
+                project.setFileName("无文件");
+            }
+            if(file.length()>0){
+                project.setFileSize(new DecimalFormat("#,##0.#").format(file.length() / Math.pow(1024, digitGroups)) + " " + units[digitGroups]);
+            }else {
+                project.setFileSize("0 MB");
+            }
+//
+//        }else{
+//
+//
+//        }
+
         return project;
     }
 
-
+    @RequestMapping("/findMediaOne")
+    @ResponseBody
+    public Media findMediaOne(@RequestBody Map map){
+        Long id = Long.parseLong(map.get("id").toString());
+        return mediaService.findOne(id);
+    }
 
 }

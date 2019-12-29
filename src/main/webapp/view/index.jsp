@@ -26,10 +26,10 @@
                 <h2 id="titleName">Visual Computing and Learning</h2>
                 <div class="icon-content">
                     <div class="icon">
-                        <span class="icon-1"></span>
+                        <a class="icon-1" href="https://cfcs.pku.edu.cn/english/"></a>
                     </div>
                     <div class="icon">
-                        <span class="icon-2"></span>
+                        <a class="icon-2" href="http://english.pku.edu.cn/"></a>
                     </div>
                 </div>
             </div>
@@ -430,10 +430,10 @@
                         <span>links</span>
                     </div>
                     <div class="items">
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
+                        <a class="item" href="http://english.pku.edu.cn/"></a>
+                        <a class="item" href="https://cfcs.pku.edu.cn/english/"></a>
+                        <a class="item" href="http://eng.bfa.edu.cn/"></a>
+                        <a class="item" href="http://irc.cs.sdu.edu.cn/"></a>
                         <div class="item"></div>
                         <div class="item"></div>
                     </div>
@@ -592,7 +592,7 @@
                                     if(i%2 == 1){
                                         // mediaDetail?ID='+media[i].id+'
                                         mediaHtml += ' <div class="item">\n' +
-                                            '                <a class="des" href="/home/index">\n' +
+                                            '                <a class="des" href="/home/media?id='+media[i].id+'">\n' +
                                             '                    <div class="imgs">\n' +
                                             '                        <img src="'+media[i].img+'" alt="">\n' +
                                             '                    </div>\n' +
@@ -615,7 +615,7 @@
                                     }else{
                                         mediaHtml += ' <div class="item">\n' +
                                         // mediaDetail?ID='+media[i].id+'
-                                            '                <a class="des" href="/home/index">\n' +
+                                            '                <a class="des" href="/home/media?id='+media[i].id+'">\n' +
                                             '                    <div class="word-content">\n' +
                                             '                        <img src="'+media[i].img+'" alt="">\n' +
                                             '                        <div class="word">\n' +
@@ -636,9 +636,6 @@
                                             '                </a>\n' +
                                             '            </div>';
                                     }
-
-
-
                                 }
 
                             }

@@ -208,10 +208,10 @@
                         <span>links</span>
                     </div>
                     <div class="items">
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
-                        <a class="item" href=""></a>
+                        <a class="item" href="http://english.pku.edu.cn/"></a>
+                        <a class="item" href="https://cfcs.pku.edu.cn/english/"></a>
+                        <a class="item" href="http://eng.bfa.edu.cn/"></a>
+                        <a class="item" href="http://irc.cs.sdu.edu.cn/"></a>
                         <div class="item"></div>
                         <div class="item"></div>
                     </div>
@@ -285,7 +285,7 @@
                                 '                            <li class="download">\n' +
                                 '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link more" >more</a>\n' +
                                 '                                <a href="'+projects[i].project_file+'" class="link download" download="" style="display: none" >Download</a>\n' +
-                                '                                <span class="file pdf"></span>\n' +
+                                '                                <a class="file pdf"  href="'+projects[i].project_file+'" class="link download" download="" ></a>\n' +
                                 '                            </li>\n' +
                                 '                        </ul>\n' +
                                 '                    </div>'
@@ -312,7 +312,8 @@
                     var publicLeft ='';
                     var publicRight ='';
                     var projects =data.obj.projects;
-                    console.log(projects);
+                    var publicYear =data.obj.publicYear;
+                    console.log(publicYear);
                     for(var i in projects){
                         if(i<7){
                             publicRight += '<div class="item">\n' +
@@ -323,21 +324,21 @@
                                 '                            <li class="size">'+projects[i].subtitle+'</li>\n' +
                                 '                            <li class="download">\n' +
                                 '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link" >more</a>\n' +
-                                '                                <span class="file pdf"></span>\n' +
+                                '                                <a class="file pdf" href="'+projects[i].project_file+'" download=""></a>\n' +
                                 '                            </li>\n' +
                                 '                        </ul>\n' +
                                 '                    </div>'
                         }
-                        if(i<5){
-                            publicLeft+='    <div class="year">\n' +
-                                '                        <i></i>\n' +
-                                '                        <span>'+tYear+'</span>\n' +
-                                '                    </div>';
-                            tYear--;
-                        }
+
                     }
 
+                    for(var i in publicYear){
+                            publicLeft+='    <div class="year">\n' +
+                                '                        <i></i>\n' +
+                                '                        <span>'+publicYear[i].year+'</span>\n' +
+                                '                    </div>';
 
+                    }
                     publicLeft+='<div class="share">\n' +
                         '                        <a class="icon" href="" >\n' +
                         '                            <%--/home/share--%>\n' +
