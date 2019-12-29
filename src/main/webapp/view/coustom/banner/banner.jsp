@@ -102,7 +102,7 @@
         form.verify({
             path:[
                 /[\S]+/,
-                "轮播图片不能为空"],
+                "请上传轮播图片"],
             bannerUrl: function (value) {
                 if(!new RegExp('^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$').test(value)){
                     return' 请输入正确的网址';

@@ -54,6 +54,8 @@ public class MediaServiceImpl implements MediaService {
 		media.setCreatetime(date);
 		if("1".equals(media.getReleaseDate())){
 			media.setReleaseDate(date);
+		}else{
+			media.setReleaseDate("");
 		}
 		mediaMapper.insert(media);		
 	}
@@ -64,6 +66,9 @@ public class MediaServiceImpl implements MediaService {
 	 */
 	@Override
 	public void update(Media media){
+		if("1".equals(media.getReleaseDate())){
+			media.setReleaseDate(DateUtil.getDate(DateUtil.DateFormat5));
+		}
 		mediaMapper.updateByPrimaryKey(media);
 	}	
 	

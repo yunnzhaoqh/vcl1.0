@@ -38,13 +38,13 @@
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">开始日期</label>
         <div class="layui-input-inline">
-            <input name="starttime" class="layui-input" lay-verify="required" id="starttime" />
+            <input name="starttime" class="layui-input" readonly lay-verify="required" id="starttime" />
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">结束日期</label>
         <div class="layui-input-inline">
-            <input name="endtime" class="layui-input" lay-verify="required" id="endtime" />
+            <input name="endtime" class="layui-input" readonly lay-verify="required" id="endtime" />
         </div>
     </div>
     <div class="layui-form-item layer-width">
@@ -94,7 +94,7 @@
         form.verify({
             path:[
                 /[\S]+/,
-                "人员相片不能为空"]
+                "请上传封面"]
         });
 
         var start = laydate.render({

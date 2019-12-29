@@ -3,24 +3,24 @@ package com.vcl.pojo;
 
 public class People {
 
-  private long id;
+  private Long id;
   private String name;
   private String gender;
-  private long age;
+  private Long age;
   private String path;
-  private long type;
+  private Long type;
   private String createtime;
-  private long status;
+  private Long status;
   private String duty;
   private String phone;
   private String introUrl;
 
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -43,11 +43,11 @@ public class People {
   }
 
 
-  public long getAge() {
+  public Long getAge() {
     return age;
   }
 
-  public void setAge(long age) {
+  public void setAge(Long age) {
     this.age = age;
   }
 
@@ -61,11 +61,11 @@ public class People {
   }
 
 
-  public long getType() {
+  public Long getType() {
     return type;
   }
 
-  public void setType(long type) {
+  public void setType(Long type) {
     this.type = type;
   }
 
@@ -79,11 +79,11 @@ public class People {
   }
 
 
-  public long getStatus() {
+  public Long getStatus() {
     return status;
   }
 
-  public void setStatus(long status) {
+  public void setStatus(Long status) {
     this.status = status;
   }
 
