@@ -158,7 +158,7 @@
                 duty_num = #{dutyNum},
             </if>
             <if test="introUrl != null and introUrl !=''">
-                insto_url = #{introUrl},
+                intro_url = #{introUrl},
             </if>
         </trim>
     </update>
