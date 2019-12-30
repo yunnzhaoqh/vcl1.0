@@ -317,6 +317,11 @@
             $(oA).remove();
         }
         function yearclick(Year) {
+
+            $('#public_left').find('.year').each(function () {
+                $(this).removeClass('active');
+            });
+            $(this).addClass('active');
             $('#shareA').removeClass('active');
             $.ajax({
                 url: "/home/initPublication",
