@@ -25,10 +25,10 @@
             <div class="content">
                 <h2 id="titleName">Visual Computing and Learning</h2>
                 <div class="icon-content">
-                    <div class="icon">
+                    <div class="icon" style="cursor:pointer">
                         <span class="icon-1" onclick="tourl('https://cfcs.pku.edu.cn/english/')" alt=""></span>
                     </div>
-                    <div class="icon">
+                    <div class="icon" style="cursor:pointer">
                         <span class="icon-2" onclick="tourl('http://english.pku.edu.cn/')" alt=""></span>
                     </div>
                 </div>
@@ -256,7 +256,7 @@
             <%--</div>--%>
         </div>
         <div class="more">
-            <a href="/home/activities" class="link">More Activities</a>
+            <a href="/home/media" class="link">More NEWS</a>
         </div>
     </section>
     

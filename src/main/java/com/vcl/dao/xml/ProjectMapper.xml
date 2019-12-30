@@ -42,6 +42,9 @@
             <if test="createtime != null and createtime !=''">
                 and createtime = #{createtime}
             </if>
+            <if test="YEAR != null and YEAR !=''">
+                and instr(CREATETIME,#{YEAR})>0
+            </if>
             <choose>
                 <when test="status != null and status != null">
                     and status = #{status}
@@ -248,6 +251,6 @@
         </where>
     </select>
     <select id="findYears" parameterType="java.util.Map" resultType="java.util.Map">
-        select left(CREATETIME,4) year from project where TYPE=1 group by left(CREATETIME,4) order by left(CREATETIME,4) desc;
+        select left(CREATETIME,4) year from project where TYPE=1 AND STATUS>1 group by left(CREATETIME,4) order by left(CREATETIME,4) desc;
     </select>
 </mapper>

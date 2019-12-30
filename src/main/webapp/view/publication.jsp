@@ -16,7 +16,11 @@
     <link type="text/css" rel="stylesheet" href="/resources/css/normal.css" />
     <link type="text/css" rel="stylesheet" href="/resources/css/main.css" />
     <link type="text/css" rel="stylesheet" href="/resources/css/index.css" />
-
+    <style>
+        .shareHide{
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -81,7 +85,7 @@
 
     <section class="publication-container">
         <div class="content">
-            <div class="index-title">Research Pulication</div>
+            <div class="index-title" >Research Pulication</div>
             <div class="container">
                 <div class="item-left" id="public_left">
                     <%--<div class="year active">--%>
@@ -250,18 +254,18 @@
     <script>
         $(function(){
             initpublication();
-            $('.item-left .year').click(function () {
-                $(this).addClass('active').siblings().removeClass('active');
-                click(this.text());
-            });
-			$('.share').find('a').click(function(){
-			$('.download').each(function(){
-			// $(this).find('a').attr('href','Download');
-			// $(this).find('a').attr('download','Download');
-			$(this).find('.link.more').style.display='none';
-			$(this).find('.link.download').style.display='none';
-			});
-			});
+            // $('.item-left .year').click(function () {
+            //     $(this).addClass('active').siblings().removeClass('active');
+            //     click(this.text());
+            // });
+			// $('.share').find('a').click(function(){
+                $('.download').each(function(){
+                // $(this).find('a').attr('href','Download');
+                // $(this).find('a').attr('download','Download');
+                $(this).find('.link.more').removeClass('shareHide');
+                $(this).find('.link.download').addClass('shareHide');
+			    });
+			// });
             $.ajax({
                 url: "/home/initBannerData",
                 data: JSON.stringify({"type":2,}),
@@ -275,6 +279,36 @@
 
             });
         });
+        function shareOnclick() {
+            if( $('#shareA').hasClass('active')){
+                $('#shareA').removeClass('active');
+                $('.download').each(function(){
+                    $(this).find('.link.more').each(function () {
+                        $(this).show();
+                    })
+                    $(this).find('.link.download').each(function () {
+                        $(this).hide();
+                    })
+                });
+            }else {
+                $('#shareA').addClass('active');
+                $('.download').each(function(){
+
+                    $(this).find('.link.more').each(function () {
+                        $(this).hide();
+                    })
+                    $(this).find('.link.download').each(function () {
+                        $(this).show();
+                    })
+                });
+            }
+            if($('.index-title').html() == 'Share Resource'){
+                $('.index-title').html('Research Pulication');
+            }else{
+                $('.index-title').html('Share Resource');
+            }
+
+        }
         function toBannerDetail(url) {
             var oA=document.createElement("a");
             oA.href=url;
@@ -282,11 +316,12 @@
             oA.click();
             $(oA).remove();
         }
-        function click(Year) {
+        function yearclick(Year) {
+            $('#shareA').removeClass('active');
             $.ajax({
                 url: "/home/initPublication",
-                data:{YEAR:Year,type:1,STATUS:1},
-                context: document.body,
+                data:{'YEAR':Year,'type':1,'STATUS':1},
+                // context: document.body,
                 dataType :'json',
                 type:'post'
             }).done(function(data) {
@@ -299,12 +334,12 @@
                                 '                        <div class="cover" style="background-image: url('+projects[i].bg_img +');"></div>\n' +
                                 '                        <ul>\n' +
                                 '                            <li class="name">'+projects[i].main_title+'</li>\n' +
-                                '                            <li class="tips">'+projects[i].subtitle+'</li>\n' +
-                                '                            <li class="size">'+projects[i].project_file.split('.')[1]+'</li>\n' +
+                                '                            <li class="tips">'+projects[i].share_people+'</li>\n' +
+                                '                            <li class="size">'+projects[i].subtitle+'</li>\n' +
                                 '                            <li class="download">\n' +
-                                '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link more" >more</a>\n' +
-                                '                                <a href="'+projects[i].project_file+'" class="link download" download="" style="display: none" >Download</a>\n' +
-                                '                                <a class="file pdf"  href="'+projects[i].project_file+'" class="link download" download="" ></a>\n' +
+                                '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link more"  >more</a>\n' +
+                                '                                <a href="'+projects[i].project_file+'" class="link download " style="display: none" download=""  >Download</a>\n' +
+                                '                                <a class="file pdf subtitle"  href="'+projects[i].project_file+'" download="" ></a>\n' +
                                 '                            </li>\n' +
                                 '                        </ul>\n' +
                                 '                    </div>'
@@ -319,10 +354,9 @@
         function initpublication() {
             var myDate = new Date();
             var tYear = myDate.getFullYear();
-            console.log(tYear);
             $.ajax({
                 url: "/home/initPublication",
-                data:{'YEAR':tYear,'STATUS':1,'type':1},
+                data:{'STATUS':1,'type':1},
                 context: document.body,
                 dataType :'json',
                 type:'post'
@@ -344,8 +378,9 @@
                                 '                            <li class="tips">'+projects[i].share_people+'</li>\n' +
                                 '                            <li class="size">'+projects[i].subtitle+'</li>\n' +
                                 '                            <li class="download">\n' +
-                                '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link" >more</a>\n' +
-                                '                                <a class="file pdf" href="'+projects[i].project_file+'" download=""></a>\n' +
+                                '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link more" >more</a>\n' +
+                                '                                <a href="'+projects[i].project_file+'" class="link download " style="display: none" download=""  >Download</a>\n' +
+                                '                                <a class="file pdf " href="'+projects[i].project_file+'" download=""></a>\n' +
                                 '                            </li>\n' +
                                 '                        </ul>\n' +
                                 '                    </div>'
@@ -354,21 +389,21 @@
                     }
 
                     for(var i in publicYear){
-                            publicLeft+='    <div class="year">\n' +
+                            publicLeft+='    <div class="year" onclick="yearclick('+publicYear[i].year+')">\n' +
                                 '                        <i></i>\n' +
                                 '                        <span>'+publicYear[i].year+'</span>\n' +
                                 '                    </div>';
 
                     }
-                    publicLeft+='<div class="share">\n' +
-                        '                        <a class="icon" href="" >\n' +
-                        '                            <%--/home/share--%>\n' +
+                    publicLeft +='<div class="share" onclick="shareOnclick()">\n' +
+                        '                        <span  class="icon" id="shareA">\n' +
                         '                            <p>\n' +
                         '                                <span></span>\n' +
                         '                            </p>\n' +
                         '                            <p class="text">Share</p>\n' +
-                        '                        </a>\n' +
+                        '                        </span >\n' +
                         '                    </div>';
+
                     $('.banner-content').empty();
                     $('.banner-content').append(' <img src="'+banner[0].bannerImg+'" alt="" onclick="toBannerDetail('+banner[0].bannerUrl+')">');
                     $('#public_left').empty();

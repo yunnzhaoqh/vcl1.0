@@ -190,7 +190,7 @@
     <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function(){
-            initJoinUsContent()
+            // initJoinUsContent()
         });
         function initJoinUsContent() {
             $.ajax({
