@@ -38,7 +38,7 @@
                 </otherwise>
             </choose>
         </where>
-        order by id desc
+        order by duty_num desc
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="People">
@@ -74,6 +74,12 @@
             <if test="duty != null and duty !=''">
                 duty ,
             </if>
+            <if test="dutyNum != null and dutyNum !=''">
+                duty_num ,
+            </if>
+            <if test="introUrl != null and introUrl !=''">
+                intro_url ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -106,6 +112,12 @@
             </if>
             <if test="duty != null and duty !=''">
                 #{duty},
+            </if>
+            <if test="dutyNum != null and dutyNum !=''">
+                #{dutyNum},
+            </if>
+            <if test="introUrl != null and introUrl !=''">
+                #{introUrl},
             </if>
         </trim>
     </insert>
@@ -141,6 +153,12 @@
             </if>
             <if test="duty != null and duty !=''">
                 duty =#{duty},
+            </if>
+            <if test="dutyNum != null and dutyNum !=''">
+                duty_num = #{dutyNum},
+            </if>
+            <if test="introUrl != null and introUrl !=''">
+                instr_url = #{introUrl},
             </if>
         </trim>
     </update>

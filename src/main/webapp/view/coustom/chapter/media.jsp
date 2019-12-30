@@ -36,12 +36,9 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">是否发布</label>
+        <label class="layui-form-label layui-required">发布日期</label>
         <div class="layui-input-inline">
-            <select name="releaseDate" lay-verify="required" onchange="change_date(this)">
-                <option value="1" selected>是</option>
-                <option value="0">否</option>
-            </select>
+            <input type="text" name="releaseDate" class="layui-input" readonly autocomplete="off" lay-verify="required" id="createtime" />
         </div>
     </div>
     <div class="layui-form-item">
@@ -82,16 +79,25 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'layedit', 'upload'], function () {
+    }).use(['index', 'form', 'layedit', 'upload', 'laydate'], function () {
         var $ = layui.$,
             form = layui.form,
             layedit = layui.layedit,
-            upload = layui.upload;
+            upload = layui.upload,
+            laydate = layui.laydate;
 
         form.verify({
             path:[
                 /[\S]+/,
                 "封面不能为空"]
+        });
+
+        var start = laydate.render({
+            elem: '#createtime', //id为star的输入框
+            type: 'datetime',
+            istime: true,
+            istoday: false,
+            trigger: 'click',
         });
 
         layedit.set({

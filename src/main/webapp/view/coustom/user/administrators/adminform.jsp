@@ -35,13 +35,13 @@
             <input type="text" name="age" lay-verify="age" placeholder="请输入角色类型" autocomplete="off" class="layui-input">
         </div>
     </div>
-    <div class="layui-form-item" lay-filter="sex">
-        <label class="layui-form-label">选择性别</label>
-        <div class="layui-input-block">
-            <input type="radio" name="gender" value="男" title="男" checked>
-            <input type="radio" name="gender" value="女" title="女">
-        </div>
-    </div>
+<%--    <div class="layui-form-item" lay-filter="sex">--%>
+<%--        <label class="layui-form-label">选择性别</label>--%>
+<%--        <div class="layui-input-block">--%>
+<%--            <input type="radio" name="gender" value="男" title="男" checked>--%>
+<%--            <input type="radio" name="gender" value="女" title="女">--%>
+<%--        </div>--%>
+<%--    </div>--%>
     <div class="layui-form-item" lay-filter="sex">
         <label class="layui-form-label">选择状态</label>
         <div class="layui-input-block">

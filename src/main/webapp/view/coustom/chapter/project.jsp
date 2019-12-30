@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="layui-form-item layer-width">
-        <label class="layui-form-label layui-required">参与人</label>
+        <label class="layui-form-label layui-required">作者</label>
         <div class="layui-input-block">
             <input type="text" name="share_people" lay-verify="required" placeholder="请输入参与人" autocomplete="off"
                    class="layui-input">

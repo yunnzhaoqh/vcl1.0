@@ -135,48 +135,48 @@
                     <li data-name="user" class="layui-nav-item">
                         <a lay-href="/admin/project_list" lay-tips="用户" lay-direction="2">
                             <i class="layui-icon layui-icon-user"></i>
-                            <cite>publication</cite>
+                            <cite>Publication</cite>
                         </a>
                     </li>
                     <li data-name="user" class="layui-nav-item">
                         <a lay-href="/admin/media_list" lay-tips="用户" lay-direction="2">
                             <i class="layui-icon layui-icon-user"></i>
-                            <cite>media</cite>
+                            <cite>Media</cite>
                         </a>
                     </li>
                     <li data-name="user" class="layui-nav-item">
                         <a lay-href="/user/user" lay-tips="用户" lay-direction="2">
                             <i class="layui-icon layui-icon-user"></i>
-                            <cite>people</cite>
+                            <cite>People</cite>
                         </a>
                     </li>
                     <li data-name="user" class="layui-nav-item">
                         <a lay-href="/admin/activities_list" lay-tips="用户" lay-direction="2">
                             <i class="layui-icon layui-icon-user"></i>
-                            <cite>activities</cite>
+                            <cite>Activities</cite>
                         </a>
                     </li>
                     <li data-name="user" class="layui-nav-item">
                         <a href="javascript:;" lay-tips="应用" lay-direction="2">
                             <i class="layui-icon layui-icon-app"></i>
-                            <cite>education</cite>
+                            <cite>Education</cite>
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="summweCamp">
-                                <a lay-href="/admin/summweCamp">summer camp</a>
+                                <a lay-href="/admin/summweCamp">Summer Camp</a>
                             </dd>
                             <dd data-name="course">
-                                <a lay-href="/admin/course">courses</a>
+                                <a lay-href="/admin/course">Courses</a>
                             </dd>
                             <dd data-name="reference">
-                                <a lay-href="/admin/reference">reference</a>
+                                <a lay-href="/admin/reference">Reference</a>
                             </dd>
                         </dl>
                     </li>
                     <li data-name="user" class="layui-nav-item">
                         <a lay-href="/admin/banner_list" lay-tips="用户" lay-direction="2">
                             <i class="layui-icon layui-icon-user"></i>
-                            <cite>banner</cite>
+                            <cite>Banner</cite>
                         </a>
                     </li>
                     <li data-name="user" class="layui-nav-item">
@@ -188,6 +188,7 @@
                             <dd>
                                 <a lay-href="/user/administrators">后台管理员</a>
                             </dd>
+
                         </dl>
                     </li>
                 </ul>
