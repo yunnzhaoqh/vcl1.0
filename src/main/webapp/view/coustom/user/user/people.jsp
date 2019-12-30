@@ -67,7 +67,7 @@
     <div class="layui-form-item layer-width">
         <label class="layui-form-label">个人主页链接</label>
         <div class="layui-input-block">
-            <input type="text" name="introUrl" lay-verify="introUrl" placeholder="请输入等级" autocomplete="off"
+            <input type="text" name="introUrl" lay-verify="introUrl" placeholder="请输入个人主页链接" autocomplete="off"
                    class="layui-input">
         </div>
     </div>
