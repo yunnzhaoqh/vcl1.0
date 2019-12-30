@@ -52,11 +52,11 @@ public class MediaServiceImpl implements MediaService {
 	public void add(Media media) {
 		String date = DateUtil.getDate(DateUtil.DateFormat5);
 		media.setCreatetime(date);
-		if("1".equals(media.getReleaseDate())){
-			media.setReleaseDate(date);
-		}else{
-            media.setReleaseDate(date);
-		}
+//		if("1".equals(media.getReleaseDate())){
+//			media.setReleaseDate(date);
+//		}else{
+//            media.setReleaseDate(date);
+//		}
 		mediaMapper.insert(media);		
 	}
 

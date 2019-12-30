@@ -12,6 +12,7 @@ public class People {
   private String createtime;
   private Long status;
   private String duty;
+  private String dutyNum;
   private String phone;
   private String introUrl;
 
@@ -96,6 +97,13 @@ public class People {
     this.duty = duty;
   }
 
+  public String getDutyNum() {
+    return dutyNum;
+  }
+
+  public void setDutyNum(String dutyNum) {
+    this.dutyNum = dutyNum;
+  }
 
   public String getPhone() {
     return phone;

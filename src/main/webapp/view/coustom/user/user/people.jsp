@@ -18,6 +18,15 @@
             top: 5px;
             left: 15px;
         }
+        .layui-form-label{
+            width: 115px;
+        }
+        .layui-input-block {
+            margin-left: 145px;
+        }
+        .layui-form-item.layer-width{
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -32,55 +41,67 @@
                    class="layui-input">
         </div>
     </div>
-    <div class="layui-form-item layui-required" lay-filter="sex">
-        <label class="layui-form-label layui-required">选择性别</label>
+<%--    <div class="layui-form-item layui-required" lay-filter="sex">--%>
+<%--        <label class="layui-form-label layui-required">选择性别</label>--%>
+<%--        <div class="layui-input-inline">--%>
+<%--            <select name="gender" lay-verify="">--%>
+<%--                <option value="男">男</option>--%>
+<%--                <option value="女">女</option>--%>
+<%--            </select>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">职务</label>
         <div class="layui-input-inline">
-            <select name="gender" lay-verify="">
-                <option value="男">男</option>
-                <option value="女">女</option>
+            <input type="text" name="duty" lay-verify="required" placeholder="请输入职务" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">职务等级(排序)</label>
+        <div class="layui-input-inline">
+            <input type="text" name="dutyNum" lay-verify="number" placeholder="请输入等级" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layer-width">
+        <label class="layui-form-label">个人主页链接</label>
+        <div class="layui-input-block">
+            <input type="text" name="introUrl" lay-verify="introUrl" placeholder="请输入等级" autocomplete="off"
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">人员相片</label>
+        <div class="layui-input-inline">
+            <img src="" id="path" width="100%" height="100%" style="display: none;">
+            <input type="hidden" name="path" lay-verify="path" placeholder="请上传图片" autocomplete="off"
+                   class="layui-input">
+        </div>
+        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">员工类型</label>
+        <div class="layui-input-inline">
+            <select name="type" lay-verify="">
+                <option value="1">faculty & staff</option>
+                <option value="2">visiting professors</option>
+                <option value="3">students</option>
+                <option value="4">alumni</option>
             </select>
         </div>
     </div>
     <div class="layui-form-item">
-        <div class="layui-form-item">
-            <label class="layui-form-label">职务</label>
-            <div class="layui-input-inline">
-                <input type="text" name="duty" lay-verify="required" placeholder="请输入职务" autocomplete="off"
-                       class="layui-input">
-            </div>
+        <label class="layui-form-label layui-required">推荐home</label>
+        <div class="layui-input-inline">
+            <select name="status" lay-verify="required">
+                <option value="1">不推荐</option>
+                <option value="2">推荐</option>
+            </select>
         </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label layui-required">人员相片</label>
-            <div class="layui-input-inline">
-                <img src="" id="path" width="100%" height="100%" style="display: none;">
-                <input type="hidden" name="path" lay-verify="path" placeholder="请上传图片" autocomplete="off"
-                       class="layui-input">
-            </div>
-            <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label layui-required">员工类型</label>
-            <div class="layui-input-inline">
-                <select name="type" lay-verify="">
-                    <option value="1">faculty & staff</option>
-                    <option value="2">visiting professors</option>
-                    <option value="3">students</option>
-                    <option value="4">alumni</option>
-                </select>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label layui-required">推荐home</label>
-            <div class="layui-input-inline">
-                <select name="status" lay-verify="required">
-                    <option value="1">不推荐</option>
-                    <option value="2">推荐</option>
-                </select>
-            </div>
-        </div>
-        <div class="layui-form-item layui-hide">
-            <input type="button" lay-submit lay-filter="LAY-user-front-submit" id="LAY-user-front-submit" value="确认">
-        </div>
+    </div>
+    <div class="layui-form-item layui-hide">
+        <input type="button" lay-submit lay-filter="LAY-user-front-submit" id="LAY-user-front-submit" value="确认">
     </div>
 
     <script src="/resources/layuiadmin/layui/layui.js"></script>
@@ -109,7 +130,14 @@
             form.verify({
                 path: [
                     /[\S]+/,
-                    "人员相片不能为空"]
+                    "人员相片不能为空"],
+                introUrl: function (value) {
+                    if(!new RegExp('^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$').test(value)
+                        && new RegExp('[\S]+').test(value)){
+                        return' 请输入正确的网址';
+                    }
+                    return '';
+                }
             })
 
             upload.render({

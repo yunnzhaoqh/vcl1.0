@@ -19,13 +19,23 @@ layui.define(['table', 'form'], function (exports) {
         url: '/people/findPage',  //接口
         method: 'post',    //请求方式
         contentType: 'application/json',  //请求数据类型
+        cellMinWidth: 80,
         cols: [[    //数据首行的列名 field是数据变量名
             // {type: 'checkbox', fixed: 'left'}
-            , {field: 'name', title: '用户名',}
+            {field: 'name', title: '用户名',}
             // ,{field: 'avatar', title: '头像', width: 100, templet: '#imgTpl'}
             // ,{field: 'email', title: '邮箱'}
-            , {field: 'gender', title: '性别'}
+            // , {field: 'gender', title: '性别'}
             , {field: 'duty', title: '职务'}
+            , {field: 'dutyNum', title: '职务等级'}
+            , {
+                field: 'introUrl', title: '个人简介', templet: function (res) {
+                    if(res.introUrl){
+                        return '<a href="'+ res.introUrl +'" target="_blank style="font-size: 14px;">' + res.introUrl + '</a>';
+                    }
+                    return '';
+                }
+            }
             , {
                 field: 'type', title: '人员类型', templet: function (res) {
                     var type = res.type;
@@ -131,7 +141,7 @@ layui.define(['table', 'form'], function (exports) {
         limit: 15,    //设置分页数
         limits: [15, 30, 50, 100],   //自定义分页数
         cols: [[
-            , {field: 'login_name', title: '登录名'}
+            {field: 'login_name', title: '登录名'}
             , {field: 'name', title: '姓名'}
             , {field: 'gender', title: '性别'}
             , {field: 'age', title: '年龄'}

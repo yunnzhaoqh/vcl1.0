@@ -21,6 +21,12 @@
         .layui-form-item.layer-width{
             width: 68%;
         }
+        .layui-form-label{
+            width: 115px;
+        }
+        .layui-input-block {
+            margin-left: 145px;
+        }
     </style>
 </head>
 <body>
@@ -36,7 +42,14 @@
         </div>
     </div>
     <div class="layui-form-item layer-width">
-        <label class="layui-form-label layui-required">轮播图跳转链接</label>
+        <label class="layui-form-label layui-required">轮播图副标题</label>
+        <div class="layui-input-block">
+            <textarea name="bannerTitleIntro" lay-verify="required" placeholder="轮播图副标题"
+                      class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item layer-width">
+        <label class="layui-form-label">轮播图跳转链接</label>
         <div class="layui-input-block">
             <input type="text" name="bannerUrl" lay-verify="bannerUrl" placeholder="请输入链接" autocomplete="off"
                    class="layui-input">
@@ -46,30 +59,23 @@
         <label class="layui-form-label layui-required">轮播图模块</label>
         <div class="layui-input-inline">
             <select name="type" lay-verify="required">
-                <option value="1">home</option>
-                <option value="2">publication</option>
-                <option value="3">media</option>
-                <option value="4">people</option>
-                <option value="5">activitis</option>
-                <option value="6">education</option>
-                <option value="7">join us</option>
+                <option value="1">Home</option>
+                <option value="2">Publication</option>
+                <option value="3">Media</option>
+                <option value="4">People</option>
+                <option value="5">Activitis</option>
+                <option value="6">Education</option>
+                <option value="7">Join Us</option>
             </select>
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">封面</label>
+        <label class="layui-form-label layui-required">轮播图</label>
         <div class="layui-input-inline">
             <img src="" id="path" width="100%" height="100%" style="display: none">
             <input type="hidden" name="bannerImg" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-banner">上传图片</button>
-    </div>
-    <div class="layui-form-item layer-width">
-        <label class="layui-form-label layui-required">轮播图简介</label>
-        <div class="layui-input-block">
-            <textarea name="bannerTitleIntro" lay-verify="required" placeholder="轮播图简介"
-                      class="layui-textarea"></textarea>
-        </div>
+        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-banner">上传轮播图</button>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">推荐home</label>
@@ -104,7 +110,8 @@
                 /[\S]+/,
                 "请上传轮播图片"],
             bannerUrl: function (value) {
-                if(!new RegExp('^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$').test(value)){
+                if(!new RegExp('^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$').test(value)
+                    && new RegExp('[\S]+').test(value)){
                     return' 请输入正确的网址';
                 }
                 return '';

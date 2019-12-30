@@ -21,7 +21,7 @@
                 and title = #{title}
             </if>
             <if test="releaseDate != null and releaseDate !=''">
-                and RELEASe_DATE = #{releaseDate}
+                and release_date = #{releaseDate}
             </if>
             <if test="content != null and content !=''">
                 and content = #{content}
@@ -38,7 +38,7 @@
                 </otherwise>
             </choose>
         </where>
-        order by id desc
+        order by release_date desc,id desc
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Media">
