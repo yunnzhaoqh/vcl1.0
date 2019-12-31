@@ -392,16 +392,16 @@
                 <div class="index-title">Collaboration</div>
                 <h3>We collaborate with other fabulours research groups and have made a lot of achievements in the field of research</h3>
                 <div class="" id="container-left">
-                    <%--<div class="cell">--%>
-                        <%--<a href="">--%>
-                            <%--<img src="../resources/images/colla-1.png" alt="">--%>
-                        <%--</a>--%>
-                    <%--</div>--%>
-                    <%--<div class="cell">--%>
-                        <%--<a href="">--%>
-                            <%--<img src="../resources/images/colla-2.png" alt="">--%>
-                        <%--</a>--%>
-                    <%--</div>--%>
+                    <div class="cell">
+                        <a href="http://irc.cs.sdu.edu.cn">
+                            <img src="../resources/images/colla-1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="cell">
+                        <a href="http://fve.bfa.edu.cn/English.htm">
+                            <img src="../resources/images/colla-2.png" alt="">
+                        </a>
+                    </div>
                     <%--<div class="cell">--%>
                         <%--<a href="">--%>
                             <%--<img src="../resources/images/colla-2.png" alt="">--%>
@@ -416,8 +416,8 @@
                 <%--<div class="circle"></div>--%>
             </div>
             <div class="item-right" id="container-right">
-                <%--<div class="item active" style="background-image: url(../resources/images/temp/vcl-red_06.jpg);"></div>--%>
-                <%--<div class="item" style="background-image: url(../resources/images/temp/vcl-red_05.png);"></div>--%>
+                <div class="item active" style="background-image: url(../resources/images/temp/vcl-red_06.jpg);"></div>
+                <div class="item" style="background-image: url(../resources/images/temp/vcl-red_05.png);"></div>
             </div>
         </div>
     </section>
@@ -520,26 +520,26 @@
                             $('#wrapperContext').append(wrapperContext);
                             $("#wrapperContext").children(":first").addClass('active');
                         }
-                        if(collaboration){
-                             var leftHtml ='';
-                             var reightHtml ='';
-                            for (var i in collaboration) {
-                                console.log(collaboration[i])
-                               if(i<2){
-                                   leftHtml+='<div class="cell">\n' +
-                                       '                        <a href="">\n' +
-                                       '                            <img src="'+collaboration[i].icon+'" alt="">\n' +
-                                       '                        </a>\n' +
-                                       '                    </div>\n';
-                               }
-                                rightHtml+=' <div class="item " style="background-image: url('+collaboration[i].img+');"></div>\n';
-                            }
-                            $('#container-left').empty();
-                            $('#container-left').append(leftHtml);
-                            $('#container-right').empty();
-                            $('#container-right').append(rightHtml);
-                            $("#container-right").children(":first").addClass('active')
-                        }
+                        // if(collaboration){
+                        //      var leftHtml ='';
+                        //      var reightHtml ='';
+                        //     for (var i in collaboration) {
+                        //         console.log(collaboration[i])
+                        //        if(i<2){
+                        //            leftHtml+='<div class="cell">\n' +
+                        //                '                        <a href="http://fve.bfa.edu.cn/English.htm">\n' +
+                        //                '                            <img src="'+collaboration[i].icon+'" alt="">\n' +
+                        //                '                        </a>\n' +
+                        //                '                    </div>\n';
+                        //        }
+                        //         rightHtml+=' <div class="item " style="background-image: url('+collaboration[i].img+');"></div>\n';
+                        //     }
+                        //     $('#container-left').empty();
+                        //     $('#container-left').append(leftHtml);
+                        //     $('#container-right').empty();
+                        //     $('#container-right').append(rightHtml);
+                        //     $("#container-right").children(":first").addClass('active')
+                        // }
                         if(intro){
                           var introHtml='<img src="'+intro[0].img+'" style="width: 412px;height:372px;" alt="">\n' +
                                     '                <p class="p1">'+intro[0].title+'</p>\n' +

@@ -38,7 +38,7 @@
                 </otherwise>
             </choose>
         </where>
-        order by duty_num desc
+        order by duty_num
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="People">

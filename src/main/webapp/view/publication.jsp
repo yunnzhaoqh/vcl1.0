@@ -30,10 +30,10 @@
             <div class="content">
                 <h2>Visual Computing and Learning</h2>
                 <div class="icon-content">
-                    <div class="icon">
+                    <div class="icon" style="cursor:pointer">
                         <span class="icon-1" onclick="toBannerDetail('https://cfcs.pku.edu.cn/english/')" alt=""></span>
                     </div>
-                    <div class="icon">
+                    <div class="icon" style="cursor:pointer">
                         <span class="icon-2" onclick="toBannerDetail('http://english.pku.edu.cn/')" alt=""></span>
                     </div>
                 </div>
@@ -317,11 +317,18 @@
             $(oA).remove();
         }
         function yearclick(Year) {
+            $('.year').removeClass('active');
+            if(Year){
+                $('#public_left').find('.year').each(function () {
+                    if($(this).find('span').html() == Year){
+                        $(this).addClass('active');
+                    }
+                });
+            }else {
+                Year=null;
+                $("#public_left").children(":first").addClass('active');
+            }
 
-            $('#public_left').find('.year').each(function () {
-                $(this).removeClass('active');
-            });
-            $(this).addClass('active');
             $('#shareA').removeClass('active');
             $.ajax({
                 url: "/home/initPublication",
@@ -335,7 +342,7 @@
                     var projects =data.obj.projects;
                     for(var i in projects){
                         if(i<7){
-                            publicRight = '<div class="item">\n' +
+                            publicRight += '<div class="item">\n' +
                                 '                        <div class="cover" style="background-image: url('+projects[i].bg_img +');"></div>\n' +
                                 '                        <ul>\n' +
                                 '                            <li class="name">'+projects[i].main_title+'</li>\n' +
@@ -374,25 +381,29 @@
                     var banner =data.obj.banner;
 
 
-                    for(var i in projects){
-                        if(i<7){
-                            publicRight += '<div class="item">\n' +
-                                '                        <div class="cover" style="background-image: url('+projects[i].bg_img +');"></div>\n' +
-                                '                        <ul>\n' +
-                                '                            <li class="name">'+projects[i].main_title+'</li>\n' +
-                                '                            <li class="tips">'+projects[i].share_people+'</li>\n' +
-                                '                            <li class="size">'+projects[i].subtitle+'</li>\n' +
-                                '                            <li class="download">\n' +
-                                '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link more" >more</a>\n' +
-                                '                                <a href="'+projects[i].project_file+'" class="link download " style="display: none" download=""  >Download</a>\n' +
-                                '                                <a class="file pdf " href="'+projects[i].project_file+'" download=""></a>\n' +
-                                '                            </li>\n' +
-                                '                        </ul>\n' +
-                                '                    </div>'
-                        }
+                    // for(var i in projects){
+                    //     if(i<7){
+                    //         publicRight += '<div class="item">\n' +
+                    //             '                        <div class="cover" style="background-image: url('+projects[i].bg_img +');"></div>\n' +
+                    //             '                        <ul>\n' +
+                    //             '                            <li class="name">'+projects[i].main_title+'</li>\n' +
+                    //             '                            <li class="tips">'+projects[i].share_people+'</li>\n' +
+                    //             '                            <li class="size">'+projects[i].subtitle+'</li>\n' +
+                    //             '                            <li class="download">\n' +
+                    //             '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link more" >more</a>\n' +
+                    //             '                                <a href="'+projects[i].project_file+'" class="link download " style="display: none" download=""  >Download</a>\n' +
+                    //             '                                <a class="file pdf " href="'+projects[i].project_file+'" download=""></a>\n' +
+                    //             '                            </li>\n' +
+                    //             '                        </ul>\n' +
+                    //             '                    </div>'
+                    //     }
+                    //
+                    // }
 
-                    }
-
+                    // publicLeft+='    <div class="year" onclick="yearclick()">\n' +
+                    //     '                        <i></i>\n' +
+                    //     '                        <span>全部</span>\n' +
+                    //     '                    </div>';
                     for(var i in publicYear){
                             publicLeft+='    <div class="year" onclick="yearclick('+publicYear[i].year+')">\n' +
                                 '                        <i></i>\n' +
@@ -414,8 +425,10 @@
                     $('#public_left').empty();
                     $('#public_left').append(publicLeft);
                     $("#public_left").children(":first").addClass('active');
-                    $('#public_right').empty();
-                    $('#public_right').append(publicRight);
+                    // $('#public_right').empty();
+                    // $('#public_right').append(publicRight);
+
+                    yearclick(publicYear[0].year);
                 }
             })
         }
