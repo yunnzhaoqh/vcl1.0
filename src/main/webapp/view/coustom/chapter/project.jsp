@@ -286,7 +286,7 @@
             progress: function(n){
                 var percent = n + '%' //获取进度百分比
                 $('.progress_file').show();
-                element.progress('progress', percent); //可配合 layui 进度条元素使用
+                element.progress('progress_file', percent); //可配合 layui 进度条元素使用
                 if(percent == '100%'){
                     $('.progress_file').hide();
                 }
@@ -294,7 +294,7 @@
             done: function(res){
                 layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
                 $(this.item).prev("div").children("input").val(res.src);
-                $(this.item).prev("div").children("a").attr('href',res.src).show();
+                $(this.item).prev("div").children("a").attr('href',res.src).attr('download',res.fileName).show();
                 $('input[name=fileName]').val(res.fileName);
                 $('input[name=fileSize]').val(res.fileSize);
                 layer.msg(res.msg);
