@@ -32,7 +32,7 @@
                 and createtime = #{createtime}
             </if>
             <choose>
-                <when test="status != null and status != null">
+                <when test="status != null and status != ''">
                     and status = #{status}
                 </when>
                 <otherwise>

@@ -92,6 +92,7 @@
         <label class="layui-form-label layui-required">推荐home</label>
         <div class="layui-input-inline">
             <select name="status" lay-verify="required">
+                <option value="0">暂存（不在前端显示）</option>
                 <option value="1">不推荐</option>
                 <option value="2">推荐</option>
             </select>
@@ -106,6 +107,7 @@
 </div>
 
 <script src="/resources/layuiadmin/layui/layui.js"></script>
+<script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 <script>
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
@@ -114,7 +116,6 @@
     }).use(['index', 'form', 'layedit', 'table', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
-            layedit = layui.layedit,
             upload = layui.upload;
 
         form.verify({
@@ -123,15 +124,12 @@
                 "请上传封面"]
         });
 
-        layedit.set({
-            uploadImage: {
-                url: '/user/upload_content/project' //接口url
-                ,type: 'post' //默认post
-            }
-        });
-
-        var editindex = layedit.build('content', {
-            tool: ['strong', 'italic','underline','del','|','left','center','right','|','link','unlink','face','image','|','code']
+        var kindeditor = KindEditor.create('#content',{
+            width: '100%',
+            height: $(window).height() - 240,
+            resizeType: 0, // 不允许拖动
+            allowUpload: true,
+            uploadJson: '/user/kindupload/project',
         });
 
         $('#LAY-activities-close').click(function () {
@@ -167,14 +165,14 @@
                 $('#path').attr('src',data.bg_img).show();
                 $('.layui-btn-warm').attr('href',data.project_file).show();
                 if(data.content){
-                    layedit.setContent(editindex, data.content);
+                    kindeditor.html(data.content);
                 }
             }
         }
 
         form.on('submit(LAY-activities-submit)', function (data) {
             var field = data.field; //获取提交的字段
-            field.content = layedit.getContent(editindex);
+            field.content = kindeditor.html();
             var url = '/project/add';
             if(open_type === 'update'){
                 url = '/project/update';

@@ -46,8 +46,8 @@
                 and instr(CREATETIME,#{YEAR})>0
             </if>
             <choose>
-                <when test="status != null and status != null">
-                    and status = #{status}
+                <when test="status != null and status != ''">
+                    and status = #{status,jdbcType=BIGINT}
                 </when>
                 <otherwise>
                     and status <![CDATA[ <> ]]> -1
@@ -205,7 +205,7 @@
                 and createtime = #{createtime}
             </if>
             <choose>
-                <when test="status != null and status != null">
+                <when test="status != null and status != ''">
                     and status = #{status}
                 </when>
                 <otherwise>
@@ -242,7 +242,7 @@
                 and createtime = #{createtime}
             </if>
             <choose>
-                <when test="status != null and status != null">
+                <when test="status != null and status != ''">
                     and status = #{status}
                 </when>
                 <otherwise>

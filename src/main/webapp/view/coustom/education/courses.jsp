@@ -88,12 +88,13 @@
 </div>
 
 <script src="/resources/layuiadmin/layui/layui.js"></script>
+<script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 <script>
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form','layedit', 'laydate', 'upload'], function () {
+    }).use(['index', 'form', 'laydate', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
             laydate = layui.laydate,
@@ -124,9 +125,15 @@
                 };
             }
         });
-        var editindex = layedit.build('content', {
-            tool: ['strong', 'italic','underline','del','|','left','center','right','|','link','unlink','face','image','|','code']
+
+        var kindeditor = KindEditor.create('#content',{
+            width: '100%',
+            height: $(window).height() - 240,
+            resizeType: 0, // 不允许拖动
+            allowUpload: true,
+            uploadJson: '/user/kindupload/project',
         });
+
         var end = laydate.render( {
             elem: '#endtime',
             type: 'date',
@@ -154,9 +161,6 @@
                 }
                 $('select[name=peopleId]').append(html).val(value);
                 layui.form.render('select');
-                if(data.content){
-                    layedit.setContent(editindex, data.content);
-                }
             },'json');
         }
 
@@ -196,12 +200,15 @@
                 });
                 layui.form.render(this);
                 $('#path').attr('src',data.bg_img).show();
+                if(data.content){
+                    kindeditor.html(data.content);
+                }
             }
         }
 
         form.on('submit(LAY-courses-submit)', function (data) {
             var field = data.field; //获取提交的字段
-            field.content = layedit.getContent(editindex);
+            field.content = kindeditor.html();
             field.status=2;
             var url = '/courses/add';
             if(open_type === 'update'){

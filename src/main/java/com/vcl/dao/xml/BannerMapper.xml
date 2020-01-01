@@ -28,7 +28,7 @@
                 and type = #{type}
             </if>
             <choose>
-                <when test="status != null and status!=''">
+                <when test="status != null and status != ''">
                     and status = #{status}
                 </when>
                 <otherwise>

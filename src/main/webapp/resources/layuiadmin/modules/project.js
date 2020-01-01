@@ -48,6 +48,8 @@ layui.define(['table', 'form'], function (exports) {
                         return '推荐';
                     } else if (type == 1) {
                         return '不推荐';
+                    } else if (type == 0){
+                        return '暂存';
                     } else {
                         return '';
                     }
@@ -144,6 +146,8 @@ layui.define(['table', 'form'], function (exports) {
                         return '推荐';
                     } else if (type == 1) {
                         return '不推荐';
+                    } else if (type == 0){
+                        return '暂存';
                     } else {
                         return '';
                     }

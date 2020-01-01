@@ -87,16 +87,16 @@
 </div>
 
 <script src="/resources/layuiadmin/layui/layui.js"></script>
+<script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 <script>
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'laydate','layedit', 'upload'], function () {
+    }).use(['index', 'form', 'laydate', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
             laydate = layui.laydate,
-            layedit = layui.layedit,
             upload = layui.upload;
 
         form.verify({
@@ -104,9 +104,15 @@
                 /[\S]+/,
                 "请上传封面"]
         });
-        var editindex = layedit.build('intro', {
-            tool: ['strong', 'italic','underline','del','|','left','center','right','|','link','unlink','face','image','|','code']
+
+        var kindeditor = KindEditor.create('#intro',{
+            width: '100%',
+            height: $(window).height() - 240,
+            resizeType: 0, // 不允许拖动
+            allowUpload: true,
+            uploadJson: '/user/kindupload/project',
         });
+
         var start = laydate.render({
             elem: '#starttime', //id为star的输入框
             type: 'date',
@@ -174,7 +180,7 @@
                 layui.form.render('select');
                 $('#path').attr('src',data.bg_img).show();
                 if(data.intro){
-                    layedit.setContent(editindex, data.intro);
+                    kindeditor.html(data.intro);
                 }
                 // $('textarea[name=intro]').val(data.intro);
             }
@@ -182,7 +188,7 @@
 
         form.on('submit(LAY-summe_camp-submit)', function (data) {
             var field = data.field; //获取提交的字段
-            field.intro = layedit.getContent(editindex);
+            field.intro = kindeditor.html();
             field.status=2;
             var url = '/camp/add';
             if(open_type === 'update'){

@@ -109,6 +109,7 @@
 </div>
 
 <script src="/resources/layuiadmin/layui/layui.js"></script>
+<script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 <script>
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
@@ -125,10 +126,16 @@
             path:[
                 /[\S]+/,
                 "请上传封面"]
-        })
-        var editindex = layedit.build('intro', {
-            tool: ['strong', 'italic','underline','del','|','left','center','right','|','link','unlink','face','image','|','code']
         });
+
+        var kindeditor = KindEditor.create('#intro',{
+            width: '100%',
+            height: $(window).height() - 240,
+            resizeType: 0, // 不允许拖动
+            allowUpload: true,
+            uploadJson: '/user/kindupload/project',
+        });
+
         var start = laydate.render({
             elem: '#starttime', //id为star的输入框
             type: 'date',
@@ -180,20 +187,17 @@
                     $('select[name=peopleId]').val(value);
                 }
                 layui.form.render('select');
-                if(data.intro){
-                    layedit.setContent(editindex, data.intro);
-                }
             }, 'json');
         }
-
         $('#LAY-reference-close').click(function () {
+
             var index = parent.layer.getFrameIndex(window.name);
             parent.layer.close(index);
         });
-
         var open_type = parent.open_type;
 
         if(open_type === 'view'){
+
             $('#LAY-courses-submit').hide();
             init(1);
         }else if(open_type === 'update'){
@@ -201,8 +205,8 @@
         }else{
             init_people('');
         }
-
         function init(index){
+
             if(index == 1){
                 $('#layuiadmin-upload-img').hide();
                 $('#layuiadmin-upload-reference').hide();
@@ -229,13 +233,16 @@
                 if(data.reference){
                     $('.layui-btn-warm').attr('href',data.reference).show();
                 }
-                $('textarea[name=intro]').val(data.intro);
+                // $('textarea[name=intro]').val(data.intro);
+                if(data.intro){
+                    kindeditor.html(data.intro);
+                }
             }
         }
 
         form.on('submit(LAY-reference-submit)', function (data) {
             var field = data.field; //获取提交的字段
-            field.intro = layedit.getContent(editindex);
+            field.intro = kindeditor.html();
             field.status=2;
             var url = '/reference/add';
             if(open_type === 'update'){

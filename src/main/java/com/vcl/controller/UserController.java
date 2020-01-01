@@ -204,9 +204,9 @@ public class UserController {
      * @param multipartFile
      * @return
      */
-    @RequestMapping("/upload_content/{type}")
+    @RequestMapping("/kindupload/{type}")
     @ResponseBody
-    public Map upload_project_content(@RequestParam("file") MultipartFile multipartFile, @PathVariable(name = "type", required = false ) String type){
+    public Map kindupload(@RequestParam("imgFile") MultipartFile multipartFile, @PathVariable(name = "type", required = false ) String type){
         Map map = new HashMap();
         try {
             String prefix = FilenameUtils.getExtension(multipartFile.getOriginalFilename());
@@ -221,16 +221,16 @@ public class UserController {
                 newFile.mkdirs();
             }
             multipartFile.transferTo(newFile);
-            Map dataMap = new HashMap();
-            dataMap.put("src",resultpath);
-            dataMap.put("title", fileStr + "." + prefix);
-            map.put("code",0);
-            map.put("msg","上传成功");
-            map.put("data", dataMap);
+//            Map dataMap = new HashMap();
+//            dataMap.put("src",resultpath);
+//            dataMap.put("title", fileStr + "." + prefix);
+            map.put("error",0);
+            map.put("message","上传成功");
+            map.put("url", resultpath);
         }catch (Exception e){
             logger.error("错误：" + e.getMessage() + "项目文件上传");
-            map.put("code",1);
-            map.put("msg","出现错误");
+            map.put("error",1);
+            map.put("message","出现错误");
         }finally {
             return map;
         }

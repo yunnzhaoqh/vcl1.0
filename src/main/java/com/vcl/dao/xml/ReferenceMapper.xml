@@ -42,7 +42,7 @@
                 and instr(people.name,#{peopleName}) > 0
             </if>
             <choose>
-                <when test="status != null and status != null">
+                <when test="status != null and status != ''">
                     and reference.status = #{status}
                 </when>
                 <otherwise>
@@ -79,7 +79,7 @@
                 and instr(reference.CREATETIME,#{YEAR})>0
             </if>
             <choose>
-                <when test="status != null and status != null">
+                <when test="status != null and status != ''">
                     and reference.status = #{status}
                 </when>
                 <otherwise>

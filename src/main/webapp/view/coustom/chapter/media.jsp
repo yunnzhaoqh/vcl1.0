@@ -53,13 +53,14 @@
         <label class="layui-form-label layui-required">内容</label>
         <div class="layui-input-block">
             <textarea id="content" name="content" placeholder="文章内容"
-                      class="layui-textarea layui-hide" style="height: 150px;" onchange="text(this)"></textarea>
+                      class="layui-textarea" style="height: 150px;" onchange="text(this)"></textarea>
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">推荐home</label>
         <div class="layui-input-inline">
             <select name="status" lay-verify="required">
+                <option value="0">暂存（不在前端显示）</option>
                 <option value="1">不推荐</option>
                 <option value="2">推荐</option>
             </select>
@@ -74,6 +75,7 @@
 </div>
 
 <script src="/resources/layuiadmin/layui/layui.js"></script>
+<script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 <script>
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
@@ -82,7 +84,6 @@
     }).use(['index', 'form', 'layedit', 'upload', 'laydate'], function () {
         var $ = layui.$,
             form = layui.form,
-            layedit = layui.layedit,
             upload = layui.upload,
             laydate = layui.laydate;
 
@@ -100,15 +101,12 @@
             trigger: 'click',
         });
 
-        layedit.set({
-            uploadImage: {
-                url: '/user/upload_content/media' //接口url
-                ,type: 'post' //默认post
-            }
-        });
-
-        var editindex = layedit.build('content', {
-            tool: ['strong', 'italic','underline','del','|','left','center','right','|','link','unlink','face','image','|','code']
+        var kindeditor = KindEditor.create('#content',{
+            width: '100%',
+            height: $(window).height() - 240,
+            resizeType: 0, // 不允许拖动
+            allowUpload: true,
+            uploadJson: '/user/kindupload/project',
         });
 
         $('#LAY-media-close').click(function () {
@@ -122,7 +120,7 @@
             $('#LAY-media-submit').hide();
             init();
         }else if(open_type === 'update'){
-            init()
+            init();
         }
 
         function init(){
@@ -139,14 +137,14 @@
                 layui.form.render('select');
                 $('#path').attr('src',data.img).show();
                 if(data.content){
-                    layedit.setContent(editindex, data.content);
+                    kindeditor.html(data.content);
                 }
             }
         }
 
         form.on('submit(LAY-media-submit)', function (data) {
             var field = data.field; //获取提交的字段
-            field.content = layedit.getContent(editindex);
+            field.content = kindeditor.html();
             var url = '/media/add';
             if(open_type === 'update'){
                 url = '/media/update';
