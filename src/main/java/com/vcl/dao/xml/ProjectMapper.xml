@@ -93,6 +93,12 @@
             <if test="project_file != null and project_file !=''">
                 project_file ,
             </if>
+            <if test="fileName != null and fileName !=''">
+                file_name ,
+            </if>
+            <if test="fileSize != null and fileSize !=''">
+                file_size ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -128,6 +134,12 @@
             </if>
             <if test="project_file != null and project_file !=''">
                 #{project_file},
+            </if>
+            <if test="fileName != null and fileName !=''">
+                #{fileName},
+            </if>
+            <if test="fileSize != null and fileSize !=''">
+                #{fileSize},
             </if>
         </trim>
     </insert>
@@ -166,6 +178,12 @@
             </if>
             <if test="project_file != null and project_file !=''">
                 project_file =#{project_file},
+            </if>
+            <if test="fileSize != null and fileSize !=''">
+                file_size =#{fileSize},
+            </if>
+            <if test="fileName != null and fileName !=''">
+                file_name =#{fileName},
             </if>
         </trim>
     </update>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vcl.dao.mapper.ShareMapper">
+
+    <resultMap id="shareMap" type="Share">
+        <id column="id" property="id"/>
+        <result column="project_id" property="projecId"/>
+        <result column="path" property="paht"/>
+        <result column="file_name" property="fileName"/>
+        <result column="file_size" property="fileSize"/>
+        <result column="status" property="status"/>
+        <association property="project" javaType="Project">
+            <id column="project_id" property="id"/>
+            <result column="main_title" property="main_title"/>
+            <result column="subtitle" property="subtitle"/>
+            <result column="share_people" property="share_people"/>
+        </association>
+    </resultMap>
+
+    <select id="selectByExample" parameterType="java.util.Map" resultType="Share">
+        SELECT * FROM share
+        <where>
+            <if test="id != null and id !=''">
+            and id = #{id}
+            </if>
+            <if test="projecrId != null and projecrId !=''">
+                and projecr_id = #{projecrId}
+            </if>
+            <choose>
+                <when test="status != null and status != ''">
+                    and status = #{status}
+                </when>
+                <otherwise>
+                    and status <![CDATA[ <> ]]> -1
+                </otherwise>
+            </choose>
+        </where>
+        order by id desc
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="Share">
+        insert into  share
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="id != null and id !=''">
+                 id,
+            </if>
+            <if test="projecrId != null and projecrId !=''">
+                 project_id ,
+            </if>
+            <if test="path != null and path !=''">
+                path ,
+            </if>
+            <if test="fileName != null and fileName !=''">
+                 file_name ,
+            </if>
+            <if test="fileSize != null and fileSize !=''">
+                 file_size ,
+            </if>
+            <if test="status != null">
+                 status ,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="id != null and id !=''">
+                #{id},
+            </if>
+            <if test="projecrId != null and projecrId !=''">
+                #{projecrId} ,
+            </if>
+            <if test="path != null and path !=''">
+                #{path} ,
+            </if>
+            <if test="fileName != null and fileName !=''">
+                #{fileName} ,
+            </if>
+            <if test="fileSize != null and fileSize !=''">
+                #{fileSize} ,
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="Share">
+        update share
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{ID} ">
+            <if test="projecrId != null and projecrId !=''">
+                project_id = #{projecrId} ,
+            </if>
+            <if test="path != null and path !=''">
+                path = #{path} ,
+            </if>
+            <if test="fileName != null and fileName !=''">
+                file_name = #{fileName} ,
+            </if>
+            <if test="fileSize != null and fileSize !=''">
+                file_size = #{fileSize} ,
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </trim>
+    </update>
+
+    <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">
+        update share
+        <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
+            status = -1,
+        </trim>
+    </update>
+
+    <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultType="Share">
+       select * from share where id=#{id}
+    </select>
+</mapper>

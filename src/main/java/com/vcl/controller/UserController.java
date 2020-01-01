@@ -88,11 +88,11 @@ public class UserController {
                     resultpath += dirpath + "\\";
                     filepath+=resultpath;
                 }
-                if(!StringUtils.isEmpty(dirpath) && dirpath.indexOf("file") != -1){
-                    fileStr = originalName;
-                }else{
+//                if(!StringUtils.isEmpty(dirpath) && dirpath.indexOf("file") != -1){
+//                    fileStr = originalName;
+//                }else{
                     fileStr = UUID.randomUUID().toString() + "." + prefix;
-                }
+//                }
                 filepath += fileStr;
                 resultpath += fileStr;
                 filepath = filepath.replace("\\", "/");
@@ -105,6 +105,8 @@ public class UserController {
                 map.put("code", 0);
                 map.put("msg", "上传成功");
                 map.put("src", resultpath);
+                map.put("fileName", originalName);
+                map.put("fileSize", file.getSize());
             }
         } catch (Exception e) {
             logger.error("上传文件错误：" + e.getMessage() + "方法：user/upload_file");

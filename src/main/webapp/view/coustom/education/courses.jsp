@@ -62,6 +62,9 @@
             <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-courses">上传图片</button>
+        <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
+            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
+        </div>
     </div>
     <%--<div class="layui-form-item">--%>
         <%--<label class="layui-form-label layui-required">推荐home</label>--%>
@@ -94,12 +97,12 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'laydate', 'upload'], function () {
+    }).use(['index', 'form', 'laydate', 'element', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
             laydate = layui.laydate,
             upload = layui.upload,
-            layedit = layui.layedit;
+            element = layui.element;
 
         form.verify({
             path:[
@@ -241,6 +244,14 @@
             method: 'post',
             multiple:false,//支持多文件上传,
             acceptMime: 'image/*',
+            progress: function(n){
+                var percent = n + '%' //获取进度百分比
+                $('.layui-progress').show();
+                element.progress('progress', percent); //可配合 layui 进度条元素使用
+                if(percent == '100%'){
+                    $('.layui-progress').hide();
+                }
+            },
             before: function(obj){
                 this.data={"dirpath": 'courses\\bg_img'}//携带额外的数据
                 var index = layer.load(); //开始上传之后打开load层

@@ -17,6 +17,7 @@ String rootPath = pageContext.getServletContext().getRealPath("/") + "attached/"
 //根目录URL，可以指定绝对路径，比如 http://www.yoursite.com/attached/
 String rootUrl  = request.getContextPath() + "/attached/";
 //图片扩展名
+
 String[] fileTypes = new String[]{"gif", "jpg", "jpeg", "png", "bmp"};
 
 String dirName = request.getParameter("dir");

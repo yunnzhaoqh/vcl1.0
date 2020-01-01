@@ -28,6 +28,8 @@
 <div class="layui-form" lay-filter="layuiadmin-form-useradmin" id="layuiadmin-form-useradmin"
      style="padding: 20px 20px;">
     <input hidden name="id"/>
+    <input hidden name="fileName"/>
+    <input hidden name="fileSize"/>
     <div class="layui-form-item layer-width">
         <label class="layui-form-label layui-required">主标题</label>
         <div class="layui-input-block">
@@ -63,6 +65,9 @@
             <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-project">上传图片 </button><span>(建议尺寸：215px * 145px)</span>
+        <div class="layui-progress progress_img" lay-filter="progress_img" lay-showPercent="true" style="display: none;">
+            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
+        </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">项目文件</label>
@@ -71,6 +76,9 @@
             <a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-file">上传文件</button>
+        <div class="layui-progress progress_file" lay-filter="progress_file" lay-showPercent="true" style="display: none;">
+            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
+        </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">活动类型</label>
@@ -113,10 +121,11 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'layedit', 'table', 'upload'], function () {
+    }).use(['index', 'form', 'layedit', 'table', 'element', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
-            upload = layui.upload;
+            upload = layui.upload,
+            element = layui.element;
 
         form.verify({
             path:[
@@ -204,6 +213,14 @@
             method: 'post',
             multiple:false,//支持多文件上传,
             acceptMime: 'image/*',
+            progress: function(n){
+                var percent = n + '%' //获取进度百分比
+                $('.progress_img').show();
+                element.progress('progress_img', percent); //可配合 layui 进度条元素使用
+                if(percent == '100%'){
+                    $('.progress_img').hide();
+                }
+            },
             before: function(obj){
                 this.data={"dirpath": 'project\\bg_img'}//携带额外的数据
                 var index = layer.load(); //开始上传之后打开load层
@@ -229,6 +246,14 @@
             exts: 'pdf',
             method: 'post',
             multiple:false,//支持多文件s上传,
+            progress: function(n){
+                var percent = n + '%' //获取进度百分比
+                $('.progress_file').show();
+                element.progress('progress', percent); //可配合 layui 进度条元素使用
+                if(percent == '100%'){
+                    $('.progress_file').hide();
+                }
+            },
             before: function(obj){
                 this.data={"dirpath": 'project\\file'}//携带额外的数据
                 var index = layer.load(); //开始上传之后打开load层
@@ -238,6 +263,8 @@
                 layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
                 $(this.item).prev("div").children("input").val(res.src);
                 $(this.item).prev("div").children("a").attr('href',res.src).show();
+                $('input[name=fileName]').val(res.fileName);
+                $('input[name=fileSize]').val(res.fileSize);
                 layer.msg(res.msg);
             },
             error: function () {

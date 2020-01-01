@@ -14,6 +14,9 @@ public class Project {
   private long status;
   private String bg_img;
   private String project_file;
+  private String fileName;
+  private String fileSize;
+
 
   public String getFileName() {
     return fileName;
@@ -22,9 +25,6 @@ public class Project {
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
-
-  private String fileName;
-  private String fileSize;
 
   public String getFileSize() {
     return fileSize;

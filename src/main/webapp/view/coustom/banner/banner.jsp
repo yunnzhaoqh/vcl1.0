@@ -82,6 +82,9 @@
             <input type="hidden" name="bannerImg" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-banner">上传轮播图</button><span>建议尺寸：1600px * 690px</span>
+        <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
+            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
+        </div>
     </div>
 
     <div class="layui-form-item" id="bannerStatus">
@@ -107,10 +110,11 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'upload'], function () {
+    }).use(['index', 'form', 'element', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
-            upload = layui.upload;
+            upload = layui.upload,
+            element = layui.element;
         $('#type').val(parent.type);
         var type = parent.type;
         if(type !=1){
@@ -195,6 +199,14 @@
             method: 'post',
             multiple:false,//支持多文件上传,
             acceptMime: 'image/*',
+            progress: function(n){
+                var percent = n + '%' //获取进度百分比
+                $('.layui-progress').show();
+                element.progress('progress', percent); //可配合 layui 进度条元素使用
+                if(percent == '100%'){
+                    $('.layui-progress').hide();
+                }
+            },
             before: function(obj){
                 this.data={"dirpath": 'banner'}//携带额外的数据
                 var index = layer.load(); //开始上传之后打开load层

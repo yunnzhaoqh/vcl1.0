@@ -79,6 +79,9 @@
                    class="layui-input">
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button><span>建议尺寸：270px * 325px</span>
+        <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
+            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
+        </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">员工类型</label>
@@ -110,11 +113,11 @@
             base: '/resources/layuiadmin/' //静态资源所在路径
         }).extend({
             index: 'lib/index' //主入口模块
-        }).use(['index', 'form', 'upload'], function () {
+        }).use(['index', 'form', 'element', 'upload'], function () {
             var $ = layui.$
                 , form = layui.form
-                , upload = layui.upload
-                , autocomplete = layui.autocomplete;
+                , upload = layui.upload,
+                element = layui.element;
 
             if (parent.people) {
                 var data = parent.people;
@@ -123,7 +126,6 @@
                     $(this).val(data[name]);
                 });
                 $('select[name=type]').val(data.type);
-                $('select[name=status]').val(data.status);
                 layui.form.render('select');
                 $('#path').attr('src', data.path).show();
             }
@@ -149,6 +151,14 @@
                 method: 'post',
                 multiple: false,//支持多文件上传,
                 acceptMime: 'image/*',
+                progress: function(n){
+                    var percent = n + '%' //获取进度百分比
+                    $('.layui-progress').show();
+                    element.progress('progress', percent); //可配合 layui 进度条元素使用
+                    if(percent == '100%'){
+                        $('.layui-progress').hide();
+                    }
+                },
                 before: function (obj) {
                     this.data = {"dirpath": 'people'}//携带额外的数据
                     var index = layer.load(); //开始上传之后打开load层
