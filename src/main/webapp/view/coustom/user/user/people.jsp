@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">职务等级(排序)</label>
+        <label class="layui-form-label layui-required">显示顺序</label>
         <div class="layui-input-inline">
             <input type="text" name="dutyNum" lay-verify="number" placeholder="请输入等级" autocomplete="off"
                    class="layui-input">
@@ -78,7 +78,7 @@
             <input type="hidden" name="path" lay-verify="path" placeholder="请上传图片" autocomplete="off"
                    class="layui-input">
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button>
+        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button><span>建议尺寸：270px * 325px</span>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">员工类型</label>
@@ -123,6 +123,7 @@
                     $(this).val(data[name]);
                 });
                 $('select[name=type]').val(data.type);
+                $('select[name=status]').val(data.status);
                 layui.form.render('select');
                 $('#path').attr('src', data.path).show();
             }

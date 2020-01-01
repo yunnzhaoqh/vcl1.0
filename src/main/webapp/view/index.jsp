@@ -504,9 +504,9 @@
                             var wrapperContext = '';
                             for (var i in banner) {
                                 console.log(banner[i]);
-                                bannerHtml+=' <div class="swiper-slide">\n' +
-                                    '                    <a href="">\n' +
-                                    '                        <img src="'+banner[i].bannerImg+'" style="height:820.667px" href="" onclick="tourl(\''+banner[i].bannerUrl+'\')">\n' +
+                                bannerHtml+=' <div class="swiper-slide" onclick="tourl(\''+banner[i].bannerUrl+'\')">\n' +
+                                    '                    <a >\n' +
+                                    '                        <img src="'+banner[i].bannerImg+'" style="height:820.667px" >\n' +
                                     '                    </a>\n' +
                                     '                </div>';
                                 wrapperContext+='<div class="item">\n' +
@@ -605,7 +605,7 @@
                                             '                                    <span>'+media[i].releaseDate.split(',')[1]+'</span>\n' +
                                             '                                </div>\n' +
                                             '                                <div class="title">'+media[i].title+'</div>\n' +
-                                            '                                <div class="detail">\n'+media[i].content+
+                                            '                                <div class="detail" overflow="hidden">\n'+media[i].content+
                                             '                                </div>\n' +
                                             '                            </div>\n' +
                                             '                        </div>\n' +
@@ -625,7 +625,7 @@
                                             '                                    <span>'+media[i].releaseDate.split(',')[1]+'</span>\n' +
                                             '                                </div>\n' +
                                             '                                <div class="title">'+media[i].title+'</div>\n' +
-                                            '                                <div class="detail">\n'+media[i].content+
+                                            '                                <div class="detail" overflow="hidden">\n'+media[i].content+
                                             '                                </div>\n' +
                                             '                            </div>\n' +
                                             '                        </div>\n' +

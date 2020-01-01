@@ -22,7 +22,7 @@ layui.define(['table', 'form'], function (exports) {
         cellMinWidth: 80,
         cols: [[    //数据首行的列名 field是数据变量名
             // {type: 'checkbox', fixed: 'left'}
-            {field: 'name', title: '用户名',}
+            {field: 'name', title: '用户名'}
             // ,{field: 'avatar', title: '头像', width: 100, templet: '#imgTpl'}
             // ,{field: 'email', title: '邮箱'}
             // , {field: 'gender', title: '性别'}

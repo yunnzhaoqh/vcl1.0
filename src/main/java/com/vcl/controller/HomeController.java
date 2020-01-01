@@ -130,7 +130,7 @@ public class HomeController {
             for (Media media : mediaList) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
                 LocalDateTime date = LocalDateTime.parse( media.getReleaseDate(),formatter);
-                String forMatdate =date.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm:ss",Locale.ENGLISH));
+                String forMatdate =date.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss",Locale.ENGLISH));
                 String[] split = forMatdate.split(" ");
                 System.out.println(split[0]+","+split[1]+" "+split[2]);
                 media.setReleaseDate(split[0]+","+split[1]+" "+split[2]);
@@ -159,7 +159,7 @@ public class HomeController {
     @ResponseBody
     public Result initPublication(HttpServletRequest request){
         Map<String, Object> parameterMap = RequestUtil.getMap(request);
-        parameterMap.put("initSstatus",-1);
+//        parameterMap.put("initSstatus",-1);
         parameterMap.keySet();
         Result result = new Result();
         Map map = new HashMap();
@@ -190,7 +190,7 @@ public class HomeController {
         for (Media media : page.getData()) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
             LocalDateTime date = LocalDateTime.parse( media.getReleaseDate(),formatter);
-            String forMatdate =date.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm:ss",Locale.ENGLISH));
+            String forMatdate =date.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss",Locale.ENGLISH));
             String[] split = forMatdate.split(" ");
             System.out.println(split[0]+","+split[1]+" "+split[2]);
             media.setReleaseDate(split[0]+","+split[1]+" "+split[2]);
@@ -208,7 +208,7 @@ public class HomeController {
         for (Media media : page.getData()) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss",Locale.ENGLISH);
             LocalDateTime date = LocalDateTime.parse( media.getReleaseDate(),formatter);
-            String forMatdate =date.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm:ss",Locale.ENGLISH));
+            String forMatdate =date.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm:ss",Locale.ENGLISH));
             String[] split = forMatdate.split(" ");
             System.out.println(split[0]+","+split[1]+" "+split[2]);
             media.setReleaseDate(split[0]+","+split[1]+" "+split[2]);
@@ -232,7 +232,7 @@ public class HomeController {
         for (Project project : page.getData()) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm",Locale.ENGLISH);
             LocalDateTime date = LocalDateTime.parse( project.getCreatetime(),formatter);
-            String forMatdate =date.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm",Locale.ENGLISH));
+            String forMatdate =date.format(DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm",Locale.ENGLISH));
             String[] split = forMatdate.split(" ");
             System.out.println(split[0]+","+split[1]+" "+split[2]);
             project.setCreatetime(split[0]+","+split[1]+" "+split[2]);
@@ -289,7 +289,9 @@ public class HomeController {
     @ResponseBody
     public Media findMediaOne(@RequestBody Map map){
         Long id = Long.parseLong(map.get("id").toString());
-        return mediaService.findOne(id);
+        Media media = mediaService.findOne(id);
+        media.setReleaseDate(media.getReleaseDate().substring(0,10));
+        return media;
     }
     @RequestMapping("/findEducationOne")
     @ResponseBody

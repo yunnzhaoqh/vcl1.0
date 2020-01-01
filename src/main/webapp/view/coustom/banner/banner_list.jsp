@@ -105,9 +105,9 @@
             cols: [[
                 // {type:'checkbox'}
                 // ,{field:'id', title: 'ID', width:100, sort: true},
-                {field: 'bannerTitleContext', title: '轮播图标题', width: 100},
-                {field: 'bannerTitleIntro', title: '轮播图副标题', minWidth: 300},
-                {field: 'bannerUrl', title: '轮播图链接', minWidth: 100},
+                {field: 'bannerTitleContext', title: '轮播图标题'},
+                {field: 'bannerTitleIntro', title: '轮播图副标题'},
+                {field: 'bannerUrl', title: '轮播图链接'},
                 // {
                 //     field: 'type', title: '轮播图模块', templet: function (res) {
                 //         var type = res.type;
@@ -141,10 +141,10 @@
                         } else {
                             return '';
                         }
-                    }
+                    },width:100
                 },
             </c:if>
-                {field: 'createTime', title: '创建时间', sort: true,},
+                {field: 'createTime', title: '创建时间', sort: true,width:200},
                 {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
             ]],
             page: true,   //是否分页，传输到后台当前页数是page（变量名），数据条数是limit（变量名）

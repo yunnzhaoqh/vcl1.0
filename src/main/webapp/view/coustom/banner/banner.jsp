@@ -81,7 +81,7 @@
             <img src="" id="path" width="100%" height="100%" style="display: none">
             <input type="hidden" name="bannerImg" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-banner">上传轮播图</button>
+        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-banner">上传轮播图</button><span>建议尺寸：1600px * 690px</span>
     </div>
 
     <div class="layui-form-item" id="bannerStatus">

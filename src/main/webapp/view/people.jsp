@@ -487,7 +487,7 @@
                             '                                <p class="job">' + people[i].duty + '</p>\n' +
                             '                                <p class="name">' + people[i].name + '</p>\n' +
                             '                                <div class="link">\n' +
-                            '                                    <a href="">Homepage</a>\n' +
+                            '                                    <a href="'+people[i].introUrl+'">Homepage</a>\n' +
                             '                                </div>\n' +
                             '                            </div>\n'+
                             '                            </div>\n';

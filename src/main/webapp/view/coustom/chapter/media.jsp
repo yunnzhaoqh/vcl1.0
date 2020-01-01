@@ -47,7 +47,7 @@
             <img src="" id="path" width="100%" height="100%" style="display: none">
             <input type="hidden" name="img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-media">上传图片</button>
+        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-media">上传图片</button> <span>建议尺寸：480px * 360px</span>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">内容</label>

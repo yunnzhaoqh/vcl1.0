@@ -253,6 +253,6 @@
         order by createtime desc
     </select>
     <select id="findYears" parameterType="java.util.Map" resultType="java.util.Map">
-        select left(CREATETIME,4) year from project where TYPE=1 AND STATUS>1 group by left(CREATETIME,4) order by left(CREATETIME,4) desc;
+        select left(CREATETIME,4) year from project where TYPE=1 AND status <![CDATA[ <> ]]> -1 group by left(CREATETIME,4) order by left(CREATETIME,4) desc;
     </select>
 </mapper>

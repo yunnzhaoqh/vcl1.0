@@ -99,28 +99,28 @@
         update banner
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
             <if test="id != null and id !=''">
-                id = #{id},
+                id = #{id,jdbcType=INTEGER},
             </if>
             <if test="bannerImg != null and bannerImg !=''">
-                banner_img =#{bannerImg},
+                banner_img =#{bannerImg,jdbcType=VARCHAR},
             </if>
             <if test="bannerTitleContext != null and bannerTitleContext !=''">
-                banner_title_context=#{bannerTitleContext} ,
+                banner_title_context=#{bannerTitleContext,jdbcType=VARCHAR} ,
             </if>
             <if test="bannerTitleIntro != null and bannerTitleIntro !=''">
-                banner_title_intro=#{bannerTitleIntro} ,
+                banner_title_intro=#{bannerTitleIntro,jdbcType=VARCHAR} ,
             </if>
             <if test="createTime != null and createTime !=''">
-                create_time =#{createTime},
+                create_time =#{createTime,jdbcType=VARCHAR},
             </if>
-            <if test="bannerUrl != null and bannerUrl !=''">
-                banner_Url =#{bannerUrl},
-            </if>
+            <!--<if test="bannerUrl != null and bannerUrl !=''">-->
+                banner_Url =#{bannerUrl,jdbcType=VARCHAR},
+            <!--</if>-->
             <if test="type != null and type !=''">
-                type =#{type},
+                type =#{type,jdbcType=INTEGER},
             </if>
             <if test="status != null">
-                status =#{status},
+                status =#{status,jdbcType=INTEGER},
             </if>
         </trim>
     </update>
