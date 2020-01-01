@@ -95,6 +95,13 @@ public class HomeController {
         model.addAttribute("id",map.get("id"));
         return "project";
     }
+    @RequestMapping("/educationDetial")
+    public String educationDetial(HttpServletRequest request, Model model){
+        Map map = RequestUtil.getMap(request);
+        model.addAttribute("type",map.get("type"));
+        model.addAttribute("id",map.get("id"));
+        return "educationDetial";
+    }
     @RequestMapping("/publication")
     public String publication(){
         return "publication";
@@ -283,6 +290,35 @@ public class HomeController {
     public Media findMediaOne(@RequestBody Map map){
         Long id = Long.parseLong(map.get("id").toString());
         return mediaService.findOne(id);
+    }
+    @RequestMapping("/findEducationOne")
+    @ResponseBody
+    public EducationOne findEducationOne(@RequestBody Map map){
+        Long id = Long.parseLong(map.get("id").toString());
+        EducationOne educationOne = new EducationOne();
+        switch (map.get("type").toString())
+        {
+            case "summer":
+                SummweCamp campOne = campService.findOne(id);
+                educationOne.setContent(campOne.getIntro());
+                educationOne.setDate(campOne.getStarttime()+" - "+campOne.getEndtime());
+                educationOne.setName(campOne.getName());
+                break;
+            case "reference":
+                Reference referenceOne = referenceService.findOne(id);
+                educationOne.setContent(referenceOne.getIntro());
+                educationOne.setDate(referenceOne.getStarttime()+" - "+referenceOne.getEndtime());
+                educationOne.setName(referenceOne.getReferenceName());
+                break;
+            case "courses":
+                Courses coursesOne = coursesService.findOne(id);
+                educationOne.setContent(coursesOne.getContent());
+                educationOne.setDate(coursesOne.getStarttime()+" - "+coursesOne.getEndtime());
+                educationOne.setName(coursesOne.getCourseName());
+                break;
+
+        }
+        return educationOne;
     }
 
     @RequestMapping("/initJoinUs")

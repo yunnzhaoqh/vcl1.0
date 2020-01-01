@@ -108,6 +108,9 @@
             <if test="bg_img != null and bg_img !=''">
                 bg_img ,
             </if>
+            <if test="content != null and content !=''">
+                content ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -134,6 +137,9 @@
             </if>
             <if test="bg_img != null and bg_img !=''">
                 #{bg_img},
+            </if>
+            <if test="content != null and content !=''">
+                #{content},
             </if>
         </trim>
     </insert>
@@ -163,6 +169,9 @@
             </if>
             <if test="bg_img != null and bg_img !=''">
                 bg_img =#{bg_img},
+            </if>
+             <if test="content != null and content !=''">
+                 content =#{content},
             </if>
         </trim>
     </update>

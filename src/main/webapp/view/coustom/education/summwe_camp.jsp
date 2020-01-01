@@ -47,11 +47,18 @@
             <input name="endtime" class="layui-input" readonly lay-verify="required" id="endtime" />
         </div>
     </div>
-    <div class="layui-form-item layer-width">
+    <%--<div class="layui-form-item layer-width">--%>
+        <%--<label class="layui-form-label layui-required">夏令营简介</label>--%>
+        <%--<div class="layui-input-block">--%>
+                <%--<textarea name="intro" lay-verify="required" placeholder="夏令营简介"--%>
+                          <%--class="layui-textarea"></textarea>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+    <div class="layui-form-item">
         <label class="layui-form-label layui-required">夏令营简介</label>
         <div class="layui-input-block">
-                <textarea name="intro" lay-verify="required" placeholder="夏令营简介"
-                          class="layui-textarea"></textarea>
+            <textarea id="intro" name="intro" placeholder="夏令营简介"
+                      class="layui-textarea layui-hide" style="height: 150px;" onchange="text(this)"></textarea>
         </div>
     </div>
     <div class="layui-form-item">
@@ -62,15 +69,15 @@
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-summe_camp">上传图片</button>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">推荐home</label>
-        <div class="layui-input-inline">
-            <select name="status" lay-verify="required">
-                <option value="1">不推荐</option>
-                <option value="2">推荐</option>
-            </select>
-        </div>
-    </div>
+    <%--<div class="layui-form-item">--%>
+        <%--<label class="layui-form-label layui-required">推荐home</label>--%>
+        <%--<div class="layui-input-inline">--%>
+            <%--<select name="status" lay-verify="required">--%>
+                <%--<option value="1">不推荐</option>--%>
+                <%--<option value="2">推荐</option>--%>
+            <%--</select>--%>
+        <%--</div>--%>
+    <%--</div>--%>
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button type="submit" class="layui-btn" lay-submit lay-filter="LAY-summe_camp-submit" id="LAY-summe_camp-submit">确认</button>
@@ -85,10 +92,11 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'laydate', 'upload'], function () {
+    }).use(['index', 'form', 'laydate','layedit', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
             laydate = layui.laydate,
+            layedit = layui.layedit,
             upload = layui.upload;
 
         form.verify({
@@ -96,7 +104,9 @@
                 /[\S]+/,
                 "请上传封面"]
         });
-
+        var editindex = layedit.build('intro', {
+            tool: ['strong', 'italic','underline','del','|','left','center','right','|','link','unlink','face','image','|','code']
+        });
         var start = laydate.render({
             elem: '#starttime', //id为star的输入框
             type: 'date',
@@ -163,12 +173,17 @@
                 });
                 layui.form.render('select');
                 $('#path').attr('src',data.bg_img).show();
-                $('textarea[name=intro]').val(data.intro);
+                if(data.intro){
+                    layedit.setContent(editindex, data.intro);
+                }
+                // $('textarea[name=intro]').val(data.intro);
             }
         }
 
         form.on('submit(LAY-summe_camp-submit)', function (data) {
             var field = data.field; //获取提交的字段
+            field.intro = layedit.getContent(editindex);
+            field.status=2;
             var url = '/camp/add';
             if(open_type === 'update'){
                 url = '/camp/update';

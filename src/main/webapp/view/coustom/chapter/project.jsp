@@ -66,7 +66,7 @@
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-project">上传图片</button>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">项目文件</label>
+        <label class="layui-form-label">项目文件</label>
         <div class="layui-input-inline" style="width: auto;">
             <input type="hidden" name="project_file" lay-verify="file" placeholder="请上传文件" autocomplete="off" class="layui-input" >
             <a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>

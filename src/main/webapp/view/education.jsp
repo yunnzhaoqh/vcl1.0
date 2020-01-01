@@ -27,10 +27,10 @@
             <div class="content">
                 <h2>Visual Computing and Learning</h2>
                 <div class="icon-content">
-                    <div class="icon">
+                    <div class="icon" style="cursor:pointer">
                         <span class="icon-1" onclick="toBannerDetail('https://cfcs.pku.edu.cn/english/')" alt=""></span>
                     </div>
-                    <div class="icon">
+                    <div class="icon" style="cursor:pointer">
                         <span class="icon-2" onclick="toBannerDetail('http://english.pku.edu.cn/')" alt=""></span>
                     </div>
                 </div>
@@ -213,6 +213,40 @@
         </div>
     </section>
 
+    <section class="media-detail-container" style="display: none">
+        <div class="content">
+            <div class="opts">
+                <div class="media-breadcrumb">
+                    <a href="">home</a>
+                    <span>&gt;</span>
+                    <a href="">Education</a>
+                </div>
+                <span class="back">Back</span>
+            </div>
+
+            <div class="article" id="educationDetail">
+                <%--<h1>北京大学前沿计算研究中心一周年总结交流会欢乐举行</h1>--%>
+                <%--<h4>2019-01-18</h4>--%>
+                <%--<div class="con">--%>
+                <%--2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。--%>
+
+                <%--会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。--%>
+                <%--<p style="text-align: center;margin: 30px 0;">--%>
+                <%--<img src="/resources/images/temp/Media-details_03.png" alt="">--%>
+                <%--</p>--%>
+                <%--2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。--%>
+
+                <%--会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。--%>
+                <%--<p style="text-align: center;margin: 30px 0;">--%>
+                <%--<img src="/resources/images/temp/Media-details_03.png" alt="">--%>
+                <%--</p>--%>
+                <%--2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。--%>
+
+                <%--会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。--%>
+                <%--</div>--%>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="cover">
             <div class="content">
@@ -267,9 +301,39 @@
             //     scrollInertia: 600,
             //     autoDraggerLength: false
             // });
+            $('.media-detail-container .back').click(function(){
+                $('.education-container').show();
+                $('.media-detail-container').hide();
+            });
             initEducation();
 
         });
+        function educationDetail(id,type) {
+            $('.education-container').hide();
+            // console.log($(this).find('input').val());
+            getEducationDetail(id,type);
+            $('.media-detail-container').show();
+            window.scrollTo(0, 0);
+        }
+        function getEducationDetail(id,type) {
+            $.ajax({
+                url: '/home/findEducationOne',
+                data:JSON.stringify({"id":id,"type":type}),
+                async : true,
+                contentType: 'application/json;charset=utf-8',  //请求数据类型
+                dataType :'json',
+                type:'post'
+            }).done(function(data) {
+                console.log(data);
+                var educationDetail=
+                    '<h1>'+data.name+'</h1>\n' +
+                    '                <h4>'+data.date+'</h4>\n' +
+                    '                <div class="con">\n' +data.content+'</div>'
+                $('#educationDetail').empty();
+                $('#educationDetail').append(educationDetail);
+
+            });
+        }
         function initEducation() {
             $.ajax({
                 url: "/home/initBannerData",
@@ -296,25 +360,29 @@
                 var summer = data.obj.summer;
                 var courses = data.obj.courses;
                 var reference = data.obj.reference;
+                var type = '';
                 for(var i in summer){
-                    summerCampHtml+='<div class="row-item">\n' +
-                        '                            <a href="">\n' +
+                    type='summer'
+                    summerCampHtml+='<div class="row-item" onclick="educationDetail('+summer[i].id+',\'summer\')" >\n' +
+                        '                            <a >\n' +
                         '                                <div class="name">'+summer[i].name+'</div>\n' +
                         '                                <div class="tips">'+summer[i].starttime+' - '+summer[i].endtime+'</div>\n' +
                         '                            </a>\n' +
                         '                        </div>';
                 }
                 for(var i in courses){
-                    coursesHtml+=' <div class="row-item">\n' +
-                        '                            <a href="">\n' +
+                    type='courses'
+                    coursesHtml+=' <div class="row-item" onclick="educationDetail('+courses[i].id+',\'courses\')">\n' +
+                        '                            <a >\n' +
                         '                                <div class="name">'+courses[i].courseName+'</div>\n' +
                         '                                <div class="tips">'+courses[i].peopleName+'</div>\n' +
                         '                            </a>\n' +
                         '                        </div>';
                 }
                 for(var i in reference){
-                    referenceHtml+=' <div class="row-item">\n' +
-                        '                            <a href="">\n' +
+                    type='reference'
+                    referenceHtml+=' <div class="row-item" onclick="educationDetail('+courses[i].id+',\'reference\')">\n' +
+                        '                            <a >\n' +
                         '                                <div class="name">'+reference[i].referenceName+'</div>\n' +
                         '                                <div class="tips">'+reference[i].peopleName+'</div>\n' +
                         '                            </a>\n' +

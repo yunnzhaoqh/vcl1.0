@@ -1,7 +1,12 @@
 package com.vcl.controller;
 
+import com.vcl.utils.RequestUtil;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -93,12 +98,16 @@ public class AdminController {
     }
 
     @RequestMapping("/banner_list")
-    public String banner_list(){
+    public String banner_list(Model model, HttpServletRequest request){
+        Map map = RequestUtil.getMap(request);
+        model.addAttribute("type",map.get("type"));
         return "coustom/banner/banner_list";
     }
 
     @RequestMapping("/add_banner")
     public String add_banner(){
+//        Map map = RequestUtil.getMap(request);
+//        model.addAttribute("type",map.get("type"));
         return "coustom/banner/banner";
     }
 

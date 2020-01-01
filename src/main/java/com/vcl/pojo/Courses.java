@@ -12,6 +12,15 @@ public class Courses {
   private Long status;
   private String bg_img;
   private String peopleName;
+  private String content;
+
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
 
   public Long getId() {
     return id;
