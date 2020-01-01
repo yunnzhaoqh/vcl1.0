@@ -15,6 +15,9 @@
             <if test="banner_title_context != null and banner_title_context !=''">
                 and banner_title_context = #{banner_title_context}
             </if>
+            <if test="bannerTitleContext != null and bannerTitleContext !=''">
+                and instr(banner_title_context,#{bannerTitleContext})>0
+            </if>
             <if test="banner_title_intro != null and banner_title_intro !=''">
                 and banner_title_intro = #{banner_title_intro}
             </if>
@@ -25,7 +28,7 @@
                 and type = #{type}
             </if>
             <choose>
-                <when test="status != null and status != null">
+                <when test="status != null and status!=''">
                     and status = #{status}
                 </when>
                 <otherwise>

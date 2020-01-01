@@ -69,30 +69,37 @@
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-img">上传图片</button>
     </div>
+    <%--<div class="layui-form-item">--%>
+        <%--<label class="layui-form-label layui-required">项目文件</label>--%>
+        <%--<div class="layui-input-inline" style="width: auto;">--%>
+            <%--<input type="hidden" name="reference" lay-verify="path" placeholder="请上传文件" autocomplete="off" class="layui-input" >--%>
+            <%--<a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>--%>
+        <%--</div>--%>
+        <%--<button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-reference">上传文件</button>--%>
+    <%--</div>--%>
+    <%--<div class="layui-form-item layer-width">--%>
+        <%--<label class="layui-form-label layui-required">团队简介</label>--%>
+        <%--<div class="layui-input-block">--%>
+            <%--<textarea name="intro" lay-verify="required" placeholder="团队简介"--%>
+                      <%--class="layui-textarea"></textarea>--%>
+        <%--</div>--%>
+    <%--</div>--%>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">项目文件</label>
-        <div class="layui-input-inline" style="width: auto;">
-            <input type="hidden" name="reference" lay-verify="path" placeholder="请上传文件" autocomplete="off" class="layui-input" >
-            <a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>
-        </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-reference">上传文件</button>
-    </div>
-    <div class="layui-form-item layer-width">
         <label class="layui-form-label layui-required">团队简介</label>
         <div class="layui-input-block">
-            <textarea name="intro" lay-verify="required" placeholder="团队简介"
-                      class="layui-textarea"></textarea>
+            <textarea id="intro" name="intro" placeholder="团队简介"
+                      class="layui-textarea layui-hide" style="height: 150px;" onchange="text(this)"></textarea>
         </div>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">推荐home</label>
-        <div class="layui-input-inline">
-            <select name="status" lay-verify="required">
-                <option value="1">不推荐</option>
-                <option value="2">推荐</option>
-            </select>
-        </div>
-    </div>
+    <%--<div class="layui-form-item">--%>
+        <%--<label class="layui-form-label layui-required">推荐home</label>--%>
+        <%--<div class="layui-input-inline">--%>
+            <%--<select name="status" lay-verify="required">--%>
+                <%--<option value="1">不推荐</option>--%>
+                <%--<option value="2">推荐</option>--%>
+            <%--</select>--%>
+        <%--</div>--%>
+    <%--</div>--%>
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button type="submit" class="layui-btn" lay-submit lay-filter="LAY-reference-submit" id="LAY-reference-submit">确认</button>
@@ -107,10 +114,11 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'laydate', 'upload'], function () {
+    }).use(['index', 'form', 'laydate','layedit', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
             laydate = layui.laydate,
+            layedit = layui.layedit,
             upload = layui.upload;
 
         form.verify({
@@ -118,7 +126,9 @@
                 /[\S]+/,
                 "请上传封面"]
         })
-
+        var editindex = layedit.build('intro', {
+            tool: ['strong', 'italic','underline','del','|','left','center','right','|','link','unlink','face','image','|','code']
+        });
         var start = laydate.render({
             elem: '#starttime', //id为star的输入框
             type: 'date',
@@ -170,6 +180,9 @@
                     $('select[name=peopleId]').val(value);
                 }
                 layui.form.render('select');
+                if(data.intro){
+                    layedit.setContent(editindex, data.intro);
+                }
             }, 'json');
         }
 
@@ -222,6 +235,8 @@
 
         form.on('submit(LAY-reference-submit)', function (data) {
             var field = data.field; //获取提交的字段
+            field.intro = layedit.getContent(editindex);
+            field.status=2;
             var url = '/reference/add';
             if(open_type === 'update'){
                 url = '/reference/update';

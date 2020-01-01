@@ -63,13 +63,20 @@
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-courses">上传图片</button>
     </div>
+    <%--<div class="layui-form-item">--%>
+        <%--<label class="layui-form-label layui-required">推荐home</label>--%>
+        <%--<div class="layui-input-inline">--%>
+            <%--<select name="status" lay-verify="required">--%>
+                <%--<option value="1">不推荐</option>--%>
+                <%--<option value="2">推荐</option>--%>
+            <%--</select>--%>
+        <%--</div>--%>
+    <%--</div>--%>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">推荐home</label>
-        <div class="layui-input-inline">
-            <select name="status" lay-verify="required">
-                <option value="1">不推荐</option>
-                <option value="2">推荐</option>
-            </select>
+        <label class="layui-form-label layui-required">课程介绍</label>
+        <div class="layui-input-block">
+            <textarea id="content" name="content" placeholder="课程介绍"
+                      class="layui-textarea layui-hide" style="height: 150px;" onchange="text(this)"></textarea>
         </div>
     </div>
     <div class="layui-form-item">
@@ -86,11 +93,12 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'laydate', 'upload'], function () {
+    }).use(['index', 'form','layedit', 'laydate', 'upload'], function () {
         var $ = layui.$,
             form = layui.form,
             laydate = layui.laydate,
-            upload = layui.upload;
+            upload = layui.upload,
+            layedit = layui.layedit;
 
         form.verify({
             path:[
@@ -116,7 +124,9 @@
                 };
             }
         });
-
+        var editindex = layedit.build('content', {
+            tool: ['strong', 'italic','underline','del','|','left','center','right','|','link','unlink','face','image','|','code']
+        });
         var end = laydate.render( {
             elem: '#endtime',
             type: 'date',
@@ -144,6 +154,9 @@
                 }
                 $('select[name=peopleId]').append(html).val(value);
                 layui.form.render('select');
+                if(data.content){
+                    layedit.setContent(editindex, data.content);
+                }
             },'json');
         }
 
@@ -188,6 +201,8 @@
 
         form.on('submit(LAY-courses-submit)', function (data) {
             var field = data.field; //获取提交的字段
+            field.content = layedit.getContent(editindex);
+            field.status=2;
             var url = '/courses/add';
             if(open_type === 'update'){
                 url = '/courses/update';

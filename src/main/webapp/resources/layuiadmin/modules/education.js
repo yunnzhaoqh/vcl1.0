@@ -28,18 +28,6 @@ layui.define(['table', 'form'], function (exports) {
                     return '';
                 }
             },
-            {
-                field: 'status', title: '推荐home', templet: function (res) {
-                    var type = res.status;
-                    if (type == 2) {
-                        return '推荐';
-                    } else if (type == 1) {
-                        return '不推荐';
-                    } else {
-                        return '';
-                    }
-                }
-            },
             {field: 'createtime', title: '创建时间', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
         ]],
@@ -103,18 +91,7 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'starttime', title: '开始时间', sort: true,},
             {field: 'endtime', title: '结束时间', sort: true,},
             {field: 'intro', title: '活动简介', minWidth: 300, sort: true,},
-            {
-                field: 'status', title: '推荐home', templet: function (res) {
-                    var type = res.status;
-                    if (type == 2) {
-                        return '推荐';
-                    } else if (type == 1) {
-                        return '不推荐';
-                    } else {
-                        return '';
-                    }
-                }
-            },
+
             {field: 'createtime', title: '创建时间', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
         ]],
@@ -178,18 +155,7 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'peopleName', title: '指导员', width: 100},
             {field: 'starttime', title: '开始时间', sort: true,},
             {field: 'endtime', title: '结束时间', sort: true,},
-            {
-                field: 'status', title: '推荐home', templet: function (res) {
-                    var type = res.status;
-                    if (type == 2) {
-                        return '推荐';
-                    } else if (type == 1) {
-                        return '不推荐';
-                    } else {
-                        return '';
-                    }
-                }
-            },
+
             {field: 'createtime', title: '创建时间', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
         ]],

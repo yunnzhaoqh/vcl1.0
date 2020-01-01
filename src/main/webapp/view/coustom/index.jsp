@@ -174,10 +174,33 @@
                         </dl>
                     </li>
                     <li data-name="user" class="layui-nav-item">
-                        <a lay-href="/admin/banner_list" lay-tips="用户" lay-direction="2">
+                        <a lay-href="javascript:;" lay-tips="用户" lay-direction="2">
                             <i class="layui-icon layui-icon-user"></i>
                             <cite>Banner</cite>
                         </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="Home">
+                                <a lay-href="/admin/banner_list?type=1">Home</a>
+                            </dd>
+                            <dd data-name="Publication">
+                                <a lay-href="/admin/banner_list?type=2">Publication</a>
+                            </dd>
+                            <dd data-name="Media">
+                                <a lay-href="/admin/banner_list?type=3">Media</a>
+                            </dd>
+                            <dd data-name="People">
+                                <a lay-href="/admin/banner_list?type=4">People</a>
+                            </dd>
+                            <dd data-name="Activities">
+                                <a lay-href="/admin/banner_list?type=5">Activities</a>
+                            </dd>
+                            <dd data-name="Education">
+                                <a lay-href="/admin/banner_list?type=6">Education</a>
+                            </dd>
+                            <dd data-name="Join us">
+                                <a lay-href="/admin/banner_list?type=7">Join us</a>
+                            </dd>
+                        </dl>
                     </li>
                     <li data-name="user" class="layui-nav-item">
                         <a href="javascript:;" lay-tips="用户" lay-direction="2">

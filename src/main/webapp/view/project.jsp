@@ -210,7 +210,7 @@
                     '                        </ul>\n' +
                     '                    </a>\n' +
                     '                </div>\n' +
-                    '            </div>'
+                    '            </div>';
                 $('#projectContent').empty();
                 $('#projectContent').append(detailHtml);
             })

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +36,10 @@
 <div class="layui-form" lay-filter="layuiadmin-form-useradmin" id="layuiadmin-form-useradmin"
      style="padding: 20px 20px;">
     <input hidden name="id"/>
+    <input hidden name="type" id="type"/>
+    <c:if test="${type != 1}">
+        <input hidden name="status"  value="1"/>
+    </c:if>
     <div class="layui-form-item layer-width">
         <label class="layui-form-label layui-required">轮播图标题</label>
         <div class="layui-input-block">
@@ -55,20 +61,20 @@
                    class="layui-input">
         </div>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">轮播图模块</label>
-        <div class="layui-input-inline">
-            <select name="type" lay-verify="required">
-                <option value="1">Home</option>
-                <option value="2">Publication</option>
-                <option value="3">Media</option>
-                <option value="4">People</option>
-                <option value="5">Activitis</option>
-                <option value="6">Education</option>
-                <option value="7">Join Us</option>
-            </select>
-        </div>
-    </div>
+    <%--<div class="layui-form-item">--%>
+        <%--<label class="layui-form-label layui-required">轮播图模块</label>--%>
+        <%--<div class="layui-input-inline">--%>
+            <%--<select name="type" lay-verify="required">--%>
+                <%--<option value="1">Home</option>--%>
+                <%--<option value="2">Publication</option>--%>
+                <%--<option value="3">Media</option>--%>
+                <%--<option value="4">People</option>--%>
+                <%--<option value="5">Activitis</option>--%>
+                <%--<option value="6">Education</option>--%>
+                <%--<option value="7">Join Us</option>--%>
+            <%--</select>--%>
+        <%--</div>--%>
+    <%--</div>--%>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">轮播图</label>
         <div class="layui-input-inline">
@@ -77,7 +83,8 @@
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-banner">上传轮播图</button>
     </div>
-    <div class="layui-form-item">
+
+    <div class="layui-form-item" id="bannerStatus">
         <label class="layui-form-label layui-required">推荐home</label>
         <div class="layui-input-inline">
             <select name="status" lay-verify="required">
@@ -104,7 +111,11 @@
         var $ = layui.$,
             form = layui.form,
             upload = layui.upload;
-
+        $('#type').val(parent.type);
+        var type = parent.type;
+        if(type !=1){
+            $('#bannerStatus').hide();
+        }
         form.verify({
             path:[
                 /[\S]+/,
@@ -152,6 +163,7 @@
 
         form.on('submit(LAY-banner-submit)', function (data) {
             var field = data.field; //获取提交的字段
+            field.type=type;
             var url = '/banner/add';
             if(open_type === 'update'){
                 url = '/banner/update';
