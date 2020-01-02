@@ -118,17 +118,17 @@
                 <%--<p style="margin-top: 15px;">pages = {}, </p>--%>
                 <%--<p style="margin-top: 15px;">year = {2019},</p>--%>
             <%--</article>--%>
-            <%--<div class="download">--%>
-                <%--<p>Download</p>--%>
-                <%--<div>--%>
-                    <%--<a href="" class="item pdf">--%>
-                        <%--<ul>--%>
-                            <%--<li>ZZNet</li>--%>
-                            <%--<li>[16.68MB]</li>--%>
-                        <%--</ul>--%>
-                    <%--</a>--%>
-                <%--</div>--%>
-            <%--</div>--%>
+            <div class="download">
+                <p>Download</p>
+                <div>
+                    <a href="" class="item pdf">
+                        <ul>
+                            <li>ZZNet</li>
+                            <li>[16.68MB]</li>
+                        </ul>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -202,8 +202,9 @@
                     '            </article>\n' +
                     '            <div class="download">\n' +
                     '                <p>Download</p>\n' +
-                    '                <div>\n' +
-                    '                    <a href="'+data.project_file+'" download="" class="item pdf">\n' +
+                    '                <div>\n' ;
+                if(data.project_file){
+                    detailHtml+= '                    <a href="'+data.project_file+'" download="" class="item pdf">\n' +
                     '                        <ul>\n' +
                     '                            <li>'+data.fileName+'</li>\n' +
                     '                            <li>['+data.fileSize+']</li>\n' +
@@ -211,6 +212,7 @@
                     '                    </a>\n' +
                     '                </div>\n' +
                     '            </div>';
+                }
                 $('#projectContent').empty();
                 $('#projectContent').append(detailHtml);
             })

@@ -183,6 +183,22 @@
             </div>
         </div>
     </section>
+    <section class="media-detail-container">
+        <div class="content">
+            <div class="opts">
+                <div class="media-breadcrumb">
+                    <a href="/home/index">home</a>
+                    <span>&gt;</span>
+                    <a href="/home/activitirs">activitirs</a>
+                </div>
+                <span class="back">Back</span>
+            </div>
+
+            <div class="article project-container" id="activitirsDetail">
+            </div>
+        </div>
+    </section>
+
 
     <footer>
         <div class="cover">
@@ -236,6 +252,19 @@
     <script>
         var type = 2;
         $(function(){
+            var ido= ${id};
+            if(ido){
+                // console.log(12);
+                $('.activities-container').hide();
+                $('.media-detail-container').removeClass('active');
+                activitiesDetail(ido);
+            }
+            $('.media-detail-container .back').click(function(){
+                $('.activities-container').show();
+                $('.media-detail-container').removeClass('active');
+                initActivity(1,4);
+            });
+
             $('.tabs-header .item').click(function(){
                 var index = $(this).index();
                 type = index+2;
@@ -245,6 +274,46 @@
             });
             initActivity(1,4);
         });
+        function activitiesDetail(ido) {
+            $('.activities-container').hide();
+            // console.log($(this).find('input').val());
+            getactivitiesDetail(ido);
+            $('.media-detail-container').addClass('active');
+            window.scrollTo(0, 0);
+
+        }
+        function getactivitiesDetail(ido) {
+            $.ajax({
+                url: '/home/findOneProject',
+                data:JSON.stringify({"id":ido}),
+                async : true,
+                contentType: 'application/json;charset=utf-8',  //请求数据类型
+                dataType :'json',
+                type:'post'
+            }).done(function(data) {
+                var activitirsDetail=
+                    '<h1>'+data.main_title+'</h1>\n' +
+                    '                <h4>'+data.subtitle+'</h4>\n' +
+                    '                <div class="con">\n' +data.content+'</div>';
+                // if(data.project_file) {
+                //     publicationDetail +=
+                //         '            <div class="download">\n' +
+                //         '                <p>Download</p>\n' +
+                //         '                <div>\n' +
+                //         '                    <a href="' + data.project_file + '" download="" class="item pdf">\n' +
+                //         '                        <ul>\n' +
+                //         '                            <li>' + data.fileName + '</li>\n' +
+                //         '                            <li>[' + data.fileSize + ']</li>\n' +
+                //         '                        </ul>\n' +
+                //         '                    </a>\n' +
+                //         '                </div>\n' +
+                //         '            </div>';
+                // }
+                $('#activitirsDetail').empty();
+                $('#activitirsDetail').append(activitirsDetail);
+
+            });
+        }
         function initActivity(index,limit) {
             $.ajax({
                 url: "/home/initBannerData",
@@ -275,7 +344,7 @@
                             '                            <div class="cover">\n' +
                             '                                <span style="background-image: url('+activity[i].bg_img+');"></span>\n' +
                             '                            </div>\n' +
-                            '                            <a class="info" href="/home/project?type=activities&id='+activity[i].id+'" target="_blank">\n' +
+                            '                            <a class="info" href="/home/activities?type=activities&id='+activity[i].id+'" target="_blank">\n' +
                             '                                <div class="date">\n' +
                             '                                    <i>'+activity[i].createtime.split(',')[0]+'</i>\n' +
                             '                                    <span>'+activity[i].createtime.split(',')[1]+'</span>\n' +

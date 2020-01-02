@@ -217,9 +217,9 @@
         <div class="content">
             <div class="opts">
                 <div class="media-breadcrumb">
-                    <a href="">home</a>
+                    <a href="/home/index">home</a>
                     <span>&gt;</span>
-                    <a href="">Education</a>
+                    <a href="/home/education">Education</a>
                 </div>
                 <span class="back">Back</span>
             </div>

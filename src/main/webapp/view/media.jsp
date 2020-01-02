@@ -177,33 +177,14 @@
         <div class="content">
             <div class="opts">
                 <div class="media-breadcrumb">
-                    <a href="">home</a>
+                    <a href="/home/index">home</a>
                     <span>&gt;</span>
-                    <a href="">media</a>
+                    <a href="/home/media">media</a>
                 </div>
                 <span class="back">Back</span>
             </div>
 
             <div class="article" id="mediaDetail">
-                <%--<h1>北京大学前沿计算研究中心一周年总结交流会欢乐举行</h1>--%>
-                <%--<h4>2019-01-18</h4>--%>
-                <%--<div class="con">--%>
-                    <%--2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。--%>
-
-                    <%--会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。--%>
-                    <%--<p style="text-align: center;margin: 30px 0;">--%>
-                        <%--<img src="/resources/images/temp/Media-details_03.png" alt="">--%>
-                    <%--</p>--%>
-                    <%--2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。--%>
-
-                    <%--会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。--%>
-                    <%--<p style="text-align: center;margin: 30px 0;">--%>
-                        <%--<img src="/resources/images/temp/Media-details_03.png" alt="">--%>
-                    <%--</p>--%>
-                    <%--2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。--%>
-
-                    <%--会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。--%>
-                <%--</div>--%>
             </div>
         </div>
     </section>
@@ -261,7 +242,7 @@
         $(function(){
             var ido= ${id};
             if(ido){
-                console.log(12);
+                // console.log(12);
                 $('.media-container').addClass('active');
                 $('.media-detail-container').removeClass('active');
                 mediaDetail(ido);
@@ -347,7 +328,7 @@
                         var media =data.data;
 
                         for(var i in media){
-                            mediaHtml+= '<div class="item" onclick="mediaDetail('+media[i].id+')">\n' +
+                            mediaHtml+= '<a href="/home/media?id='+media[i].id+'"><div class="item" >\n' +
                              '                    <div class="cover">\n' +
                              '                        <img src="'+media[i].img+'" alt="">\n' +
                              '                    </div>\n' +
@@ -358,21 +339,8 @@
                              '                        </div>\n' +
                              '                        <div class="title">'+media[i].title+'</div>\n' +
                              '                    </div>\n' +
-                             '                </div>'
-                            // mediaHtml += '<div class="item">\n' +
-                            //     '<input type="hidden" name="mediaId" value="'+media[i].id+'" />' +
-                            //     '                    <div class="cover">\n' +
-                            //     '                        <img src="'+media[i].img+'" alt="">\n' +
-                            //     '                    </div>\n' +
-                            //     '                    <div class="info">\n' +
-                            //     '                        <div class="date">\n' +
-                            //     '                            <i>'+media[i].releaseDate.split(',')[0]+'</i>\n' +
-                            //     '                            <span>'+media[i].releaseDate.split(',')[1]+'</span>\n' +
-                            //     '                        </div>\n' +
-                            //     '                        <div class="title">'+media[i].title+'</div>\n' +
-                            //     '                    </div>\n' +
-                            //     '                </div>'
-
+                             '                </div>' +
+                                '</a>';
                         }
                         $('#mediaList').empty();
                         $('#mediaList').append(mediaHtml);

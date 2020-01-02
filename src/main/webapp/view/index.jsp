@@ -652,7 +652,7 @@
                                         '                                <p class="job">'+people[i].duty+'</p>\n' +
                                         '                                <p class="name">'+people[i].name+'</p>\n' +
                                         '                                <div class="link">\n' +
-                                        '                                    <a href="">Homepage</a>\n' +
+                                        '                                    <a href="'+people[i].introUrl+'">Homepage</a>\n' +
                                         '                                </div>\n' +
                                         '                            </div>\n' +
                                         '                        </div>';
@@ -668,7 +668,7 @@
                         for (var i in project) {
                             if(i<3){
                                 projectHtml+='<div class="item">\n' +
-                                    '                    <a href="/home/project?type=publication&id='+project[i].id+'" target="_blank">\n' +
+                                    '                    <a href="/home/publication?type=publication&id='+project[i].id+'" target="_blank">\n' +
                                     '                        <div class="img"><img src="'+project[i].bg_img+'" alt=""></div>\n' +
                                     '                        <div class="cover">\n' +
                                     '                            <h4>'+project[i].main_title+'</h4>\n' +

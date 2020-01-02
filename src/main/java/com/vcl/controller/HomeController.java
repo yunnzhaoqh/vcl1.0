@@ -55,7 +55,13 @@ public class HomeController {
         return "index";
     }
     @RequestMapping("/activities")
-    public String activities(){
+    public String activities(HttpServletRequest request,Model model){
+        Map map = RequestUtil.getMap(request);
+        if(map.get("id")!= null){
+            model.addAttribute("id",map.get("id"));
+        }else{
+            model.addAttribute("id",0);
+        }
         return "activities";
     }
     @RequestMapping("/education")
@@ -103,7 +109,17 @@ public class HomeController {
         return "educationDetial";
     }
     @RequestMapping("/publication")
-    public String publication(){
+    public String publication(HttpServletRequest request, Model model){
+        Map map = RequestUtil.getMap(request);
+        model.addAttribute("type",map.get("type"));
+//        model.addAttribute("id",map.get("id"));
+        if(map.get("id")!= null){
+            model.addAttribute("id",map.get("id"));
+            model.addAttribute("isshare",map.get("isshare"));
+        }else{
+            model.addAttribute("id",0);
+            model.addAttribute("isshare",0);
+        }
         return "publication";
     }
     @RequestMapping("/share")
@@ -164,7 +180,11 @@ public class HomeController {
         Result result = new Result();
         Map map = new HashMap();
 //        map.put("STATUS",1);
-        try {
+        try
+        {
+//            if(){
+//
+//            }
             List<Project> projects = projectService.findAll(parameterMap);
             List<Map> years = projectService.findYears();
             map.put("type",2);
@@ -259,7 +279,15 @@ public class HomeController {
     @ResponseBody
     public Project findOneProject(@RequestBody Map map){
         Long id = Long.parseLong(map.get("id").toString());
-        Project project = projectService.findOne(id);
+        Project project = new Project();
+        if(map.get("type")!= null && map.get("type")== "share" ){
+            System.out.println("这是share");
+            project = projectService.findOne(id);
+        }else {
+            System.out.println("这是publication");
+            project = projectService.findOne(id);
+        }
+
         String filePath = (FILE_UPLOAD_PATH+project.getProject_file()).replace("\\", "/");
         File file = new File(filePath);
 
@@ -276,12 +304,6 @@ public class HomeController {
             }else {
                 project.setFileSize("0 MB");
             }
-//
-//        }else{
-//
-//
-//        }
-
         return project;
     }
 

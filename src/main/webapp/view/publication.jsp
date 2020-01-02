@@ -1,5 +1,10 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ page isELIgnored="false" %>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -199,11 +204,45 @@
         </div>
     </div>
 </section>
-
 <div class="shape-1"></div>
 <div class="shape-2"></div>
 <div class="shape-3"></div>
 <div class="shape-4"></div>
+<section class="media-detail-container">
+    <div class="content">
+        <div class="opts">
+            <div class="media-breadcrumb">
+                <a href="/home/index">home</a>
+                <span>&gt;</span>
+                <a href="/home/publication">publication</a>
+            </div>
+            <span class="back">Back</span>
+        </div>
+
+        <div class="article project-container" id="publicationDetail">
+            <%--<h1>北京大学前沿计算研究中心一周年总结交流会欢乐举行</h1>--%>
+            <%--<h4>2019-01-18</h4>--%>
+            <%--<div class="con">--%>
+            <%--2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。--%>
+
+            <%--会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。--%>
+            <%--<p style="text-align: center;margin: 30px 0;">--%>
+            <%--<img src="/resources/images/temp/Media-details_03.png" alt="">--%>
+            <%--</p>--%>
+            <%--2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。--%>
+
+            <%--会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。--%>
+            <%--<p style="text-align: center;margin: 30px 0;">--%>
+            <%--<img src="/resources/images/temp/Media-details_03.png" alt="">--%>
+            <%--</p>--%>
+            <%--2019年1月16日，北京大学前沿计算研究中心举办了一周年总结交流会。中心主任John Hopcroft教授、联合主任高文教授、国际合作部严军副部长、信息科学技术学院二十余位图灵班科研导师，以及部分兄弟院校及工业界代表出席。总结会由中心新体制助理教授孔雨晴主持。--%>
+
+            <%--会上，John Hopcroft教授和高文教授分别致辞。Hopcroft教授对中心一年来取得的进步表示肯定，希望中心延揽国际优秀青年人才，不仅在科研上做出成绩，同时，在提升高校本科生教学方面，贡献自己的力量。高文教授对中心在跨学科交流，以及图灵班在教学改革方面取得的进步予以肯定，他欣喜地看到在座的众多年轻有为的图灵班科研导师，对中心及图灵班的发展寄予厚望。--%>
+            <%--</div>--%>
+        </div>
+    </div>
+</section>
+
 
 <footer>
     <div class="cover">
@@ -256,15 +295,28 @@
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
 <script>
     $(function () {
-        initpublication();
-        // $('.item-left .year').click(function () {
-        //     $(this).addClass('active').siblings().removeClass('active');
-        //     click(this.text());
-        // });
-        // $('.share').find('a').click(function(){
+        var ido= ${id};
+        var isshare= ${isshare};
+        if(ido){
+
+            // console.log(12);
+            $('.media-container').addClass('active');
+            $('.media-detail-container').removeClass('active');
+            publicationDetail(ido,isshare);
+        }else{
+            initpublication(isshare);
+        }
+        $('.media-detail-container .back').click(function(){
+            $('.publication-container').show();
+            $('.shape-1').show();
+            $('.shape-2').show();
+            $('.shape-3').show();
+            $('.shape-4').show();
+            $('.media-detail-container').removeClass('active');
+            initpublication(isshare);
+        });
+
         $('.download').each(function () {
-            // $(this).find('a').attr('href','Download');
-            // $(this).find('a').attr('download','Download');
             $(this).find('.link.more').removeClass('shareHide');
             $(this).find('.link.download').addClass('shareHide');
         });
@@ -282,9 +334,52 @@
 
         });
     });
+    function publicationDetail(id,isshare) {
+        $('.publication-container').hide();
+        $('.shape-1').hide();
+        $('.shape-2').hide();
+        $('.shape-3').hide();
+        $('.shape-4').hide();
+        // console.log($(this).find('input').val());
+        getpublicationDetail(id,isshare);
+        $('.media-detail-container').addClass('active');
+        window.scrollTo(0, 0);
+    }
+    function getpublicationDetail(id,isshare) {
+        $.ajax({
+            url: '/home/findOneProject',
+            data:JSON.stringify({"id":id,"type":1,"isshare":isshare}),
+            async : true,
+            contentType: 'application/json;charset=utf-8',  //请求数据类型
+            dataType :'json',
+            type:'post'
+        }).done(function(data) {
+            var publicationDetail=
+                '<h1>'+data.main_title+'</h1>\n' +
+                '                <h4>'+data.subtitle+'</h4>\n' +
+                '                <div class="con">\n' +data.content+'</div>';
+            if(data.project_file) {
+                publicationDetail +=
+                    '            <div class="download">\n' +
+                    '                <p>Download</p>\n' +
+                    '                <div>\n' +
+                    '                    <a href="' + data.project_file + '" download="" class="item pdf">\n' +
+                    '                        <ul>\n' +
+                    '                            <li>' + data.fileName + '</li>\n' +
+                    '                            <li>[' + data.fileSize + ']</li>\n' +
+                    '                        </ul>\n' +
+                    '                    </a>\n' +
+                    '                </div>\n' +
+                    '            </div>';
+            }
+            $('#publicationDetail').empty();
+            $('#publicationDetail').append(publicationDetail);
 
+        });
+    }
     function shareOnclick() {
         if ($('#shareA').hasClass('active')) {
+            initpublication(0);
             $('#shareA').removeClass('active');
             $('.download').each(function () {
                 $(this).find('.link.more').each(function () {
@@ -294,17 +389,12 @@
                     $(this).hide();
                 })
             });
-        } else {
-            $('#shareA').addClass('active');
-            $('.download').each(function () {
 
-                $(this).find('.link.more').each(function () {
-                    $(this).hide();
-                })
-                $(this).find('.link.download').each(function () {
-                    $(this).show();
-                })
-            });
+        } else {
+            initpublication(1);
+            $('#shareA').addClass('active');
+
+
         }
         if ($('.index-title').html() == 'Share Resource') {
             $('.index-title').html('Research Pulication');
@@ -322,7 +412,7 @@
         $(oA).remove();
     }
 
-    function yearclick(Year) {
+    function yearclick(Year,isshare) {
         $('.year').removeClass('active');
         if (Year) {
             $('#public_left').find('.year').each(function () {
@@ -334,11 +424,10 @@
             Year = null;
             $("#public_left").children(":first").addClass('active');
         }
-
-        $('#shareA').removeClass('active');
+        // $('#shareA').removeClass('active');
         $.ajax({
             url: "/home/initPublication",
-            data: {'YEAR': Year, 'type': 1, 'STATUS': 1},
+            data: {'YEAR': Year, 'type': 1, 'STATUS': 1,"isshare":isshare},
             // context: document.body,
             dataType: 'json',
             type: 'post'
@@ -348,22 +437,23 @@
                 var projects = data.obj.projects;
                 for (var i in projects) {
                     if (i < 7) {
-                        publicRight += '<div class="item">\n' +
+                        publicRight += ' <a href="/home/publication?isshare='+isshare+'&type=publication&id=' + projects[i].id + '">' +
+                            '<div class="item" >\n' +
                             '                        <div class="cover" style="background-image: url(' + projects[i].bg_img + ');"></div>\n' +
                             '                        <ul>\n' +
                             '                            <li class="name">' + projects[i].main_title + '</li>\n' +
                             '                            <li class="tips">' + projects[i].share_people + '</li>\n' +
                             '                            <li class="size">' + projects[i].subtitle + '</li>\n' +
                             '                            <li class="download">\n' +
-                            '                                <a href="/home/project?type=publication&id=' + projects[i].id + '" class="link more"  >more</a>\n';
+                            '                                <a class="link more"  >more</a>\n';
                         if (projects[i].project_file) {
                             publicRight += '                                <a href="' + projects[i].project_file + '" class="link download " style="display: none" download=""  >Download</a>\n' +
                                             '                                <a class="file pdf subtitle"  href="' + projects[i].project_file + '" download="" ></a>\n';
                          }
-                        publicRight +=
+                            publicRight +=
                             '                            </li>\n' +
                             '                        </ul>\n' +
-                            '                    </div>'
+                            '                    </div></a>'
                     }
                 }
                 $('#public_right').empty();
@@ -373,12 +463,12 @@
 
     }
 
-    function initpublication() {
+    function initpublication(isshare) {
         var myDate = new Date();
         var tYear = myDate.getFullYear();
         $.ajax({
             url: "/home/initPublication",
-            data: {'STATUS': 1, 'type': 1},
+            data: {'STATUS': 1, 'type': 1,"isshare":isshare},
             context: document.body,
             dataType: 'json',
             type: 'post'
@@ -391,31 +481,8 @@
                 var banner = data.obj.banner;
 
 
-                // for(var i in projects){
-                //     if(i<7){
-                //         publicRight += '<div class="item">\n' +
-                //             '                        <div class="cover" style="background-image: url('+projects[i].bg_img +');"></div>\n' +
-                //             '                        <ul>\n' +
-                //             '                            <li class="name">'+projects[i].main_title+'</li>\n' +
-                //             '                            <li class="tips">'+projects[i].share_people+'</li>\n' +
-                //             '                            <li class="size">'+projects[i].subtitle+'</li>\n' +
-                //             '                            <li class="download">\n' +
-                //             '                                <a href="/home/project?type=publication&id='+projects[i].id+'" class="link more" >more</a>\n' +
-                //             '                                <a href="'+projects[i].project_file+'" class="link download " style="display: none" download=""  >Download</a>\n' +
-                //             '                                <a class="file pdf " href="'+projects[i].project_file+'" download=""></a>\n' +
-                //             '                            </li>\n' +
-                //             '                        </ul>\n' +
-                //             '                    </div>'
-                //     }
-                //
-                // }
-
-                // publicLeft+='    <div class="year" onclick="yearclick()">\n' +
-                //     '                        <i></i>\n' +
-                //     '                        <span>全部</span>\n' +
-                //     '                    </div>';
                 for (var i in publicYear) {
-                    publicLeft += '    <div class="year" onclick="yearclick(' + publicYear[i].year + ')">\n' +
+                    publicLeft += '    <div class="year" onclick="yearclick(' + publicYear[i].year + ','+isshare+')">\n' +
                         '                        <i></i>\n' +
                         '                        <span>' + publicYear[i].year + '</span>\n' +
                         '                    </div>';
@@ -435,10 +502,19 @@
                 $('#public_left').empty();
                 $('#public_left').append(publicLeft);
                 $("#public_left").children(":first").addClass('active');
-                // $('#public_right').empty();
-                // $('#public_right').append(publicRight);
+                yearclick(publicYear[0].year,isshare);
+                if(isshare){
+                    $("#shareA").addClass('active');
+                    $('.download').each(function () {
 
-                yearclick(publicYear[0].year);
+                        $(this).find('.link.more').each(function () {
+                            $(this).hide();
+                        });
+                        $(this).find('.link.download').each(function () {
+                            $(this).show();
+                        })
+                    });
+                }
             }
         })
     }
