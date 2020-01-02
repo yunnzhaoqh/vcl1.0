@@ -20,12 +20,12 @@ layui.define(['table', 'form'], function(exports){
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
       ,{field: 'id', width: 100, title: '文章ID', sort: true}
-      ,{field: 'label', title: '文章标签', minWidth: 100}
+      ,{field: 'label', title: '文章标签'}
       ,{field: 'title', title: '文章标题'}
       ,{field: 'author', title: '作者'}
       ,{field: 'uploadtime', title: '上传时间', sort: true}
-      ,{field: 'status', title: '发布状态', templet: '#buttonTpl', minWidth: 80, align: 'center'}
-      ,{title: '操作', minWidth: 150, align: 'center', fixed: 'right', toolbar: '#table-content-list'}
+      ,{field: 'status', title: '发布状态', templet: '#buttonTpl', align: 'center'}
+      ,{title: '操作', align: 'center', fixed: 'right', toolbar: '#table-content-list'}
     ]]
     ,page: true
     ,limit: 10

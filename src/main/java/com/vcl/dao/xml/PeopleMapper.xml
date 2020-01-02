@@ -157,9 +157,9 @@
             <if test="dutyNum != null and dutyNum !=''">
                 duty_num = #{dutyNum},
             </if>
-            <if test="introUrl != null and introUrl !=''">
+            <!--<if test="introUrl != null and introUrl !=''">-->
                 intro_url = #{introUrl},
-            </if>
+          <!--  </if>-->
         </trim>
     </update>
     <update id="deleteByPrimaryKey"  parameterType="java.lang.Long">

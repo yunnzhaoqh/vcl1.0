@@ -15,7 +15,7 @@ layui.define(['table', 'form'], function (exports) {
         cols: [[
             // {type:'checkbox'}
             // ,{field:'id', title: 'ID', width:100, sort: true},
-            {field: 'title', title: '标题', width: 100},
+            {field: 'title', title: '标题'},
             {field: 'releaseDate', title: '发布日期', sort: true,},
             {
                 field: 'status', title: '推荐home', templet: function (res) {

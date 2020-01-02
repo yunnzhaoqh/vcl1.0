@@ -44,7 +44,7 @@ layui.define(['admin', 'table', 'util'], function(exports){
     ,page: true
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
-      ,{field: 'title', title: '标题内容', minWidth: 300, templet: tplTitle}
+      ,{field: 'title', title: '标题内容', minWidth: 400, templet: tplTitle}
       ,{field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>'}
     ]]
     ,skin: 'line'

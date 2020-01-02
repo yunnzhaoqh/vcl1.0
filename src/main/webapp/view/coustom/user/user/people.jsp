@@ -126,6 +126,7 @@
                     $(this).val(data[name]);
                 });
                 $('select[name=type]').val(data.type);
+                $('select[name=status]').val(data.status);
                 layui.form.render('select');
                 $('#path').attr('src', data.path).show();
             }

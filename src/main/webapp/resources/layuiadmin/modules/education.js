@@ -15,13 +15,13 @@ layui.define(['table', 'form'], function (exports) {
         cols: [[
             // {type:'checkbox'}
             // ,{field:'id', title: 'ID', width:100, sort: true},
-            {field: 'referenceName', title: '参考项目名称', width: 100},
+            {field: 'referenceName', title: '参考项目名称'},
             {field: 'peopleName', title: '指导员', width: 100},
-            {field: 'starttime', title: '开始时间', sort: true,},
-            {field: 'endtime', title: '结束时间', sort: true,},
-            {field: 'intro', title: '团队简介', minWidth: 300, sort: true,},
+            {field: 'starttime', title: '开始时间',width: 150, sort: true,},
+            {field: 'endtime', title: '结束时间',width: 150, sort: true,},
+            {field: 'intro', title: '团队简介', minWidth: 400, sort: true,},
             {
-                field: 'reference', title: '项目文件', minWicth: 200, sort: true, templet: function (res) {
+                field: 'reference', title: '项目文件', minWicth: 150, sort: true, templet: function (res) {
                     if (res.reference) {
                         return '<a download href="' + res.reference + '" class="layui-btn layui-btn-sm layui-btn-warm"">下载文件</a>';
                     }
@@ -87,10 +87,10 @@ layui.define(['table', 'form'], function (exports) {
         cols: [[
             // {type:'checkbox'}
             // ,{field:'id', title: 'ID', width:100, sort: true},
-            {field: 'name', title: '活动名称', width: 100},
+            {field: 'name', title: '活动名称'},
             {field: 'starttime', title: '开始时间', sort: true,},
             {field: 'endtime', title: '结束时间', sort: true,},
-            {field: 'intro', title: '活动简介', minWidth: 300, sort: true,},
+            {field: 'intro', title: '活动简介', minWidth: 400, sort: true,},
 
             {field: 'createtime', title: '创建时间', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
@@ -151,8 +151,8 @@ layui.define(['table', 'form'], function (exports) {
         cols: [[
             // {type:'checkbox'}
             // ,{field:'id', title: 'ID', width:100, sort: true},
-            {field: 'courseName', title: '课程名称', width: 100},
-            {field: 'peopleName', title: '指导员', width: 100},
+            {field: 'courseName', title: '课程名称'},
+            {field: 'peopleName', title: '指导员'},
             {field: 'starttime', title: '开始时间', sort: true,},
             {field: 'endtime', title: '结束时间', sort: true,},
 
