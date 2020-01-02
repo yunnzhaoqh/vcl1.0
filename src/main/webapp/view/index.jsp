@@ -472,7 +472,7 @@
     <script type="text/javascript" src="../resources/js/swiper.min.js"></script>
     <script type="text/javascript" src="../resources/layuiadmin/layui/layui.all.js"></script>
 
-    <script>
+    <script type="text/javascript">
         //初始化数据
        $(function () {
            initHomeData();

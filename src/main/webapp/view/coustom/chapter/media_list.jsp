@@ -30,6 +30,7 @@
                             <option value="">不限</option>
                             <option value="2">推荐</option>
                             <option value="1">不推荐</option>
+                            <option value="0">暂存</option>
                         </select>
                     </div>
                 </div>
@@ -61,7 +62,7 @@
 </div>
 
 <script src="/resources/layuiadmin/layui/layui.js"></script>
-<script>
+<script type="text/javascript">
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({

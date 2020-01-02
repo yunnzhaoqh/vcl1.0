@@ -57,7 +57,7 @@
   </div>
 
  <script src="..//resources/layuiadmin/layui/layui.js"></script>
-  <script>
+  <script type="text/javascript">
   layui.config({
     base: '..//resources/layuiadmin/' //静态资源所在路径
   }).extend({

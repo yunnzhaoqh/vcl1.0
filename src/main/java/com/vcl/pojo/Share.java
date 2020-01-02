@@ -3,13 +3,29 @@ package com.vcl.pojo;
 public class Share {
 
     private Long id;
-    private Long project_id;
-    private String path;
-    private String fileName;
-    private String fileSize;
-    private Integer status;
+    private String title;
+    private String releaseDate;
+    private String content;
+    private String createtime;
+    private long status;
+    private String img;
+    private String release_date;
 
-    private Project project;
+    public String getRelease_date() {
+        return release_date;
+    }
+
+    public void setRelease_date(String release_date) {
+        this.release_date = release_date;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public Long getId() {
         return id;
@@ -19,51 +35,47 @@ public class Share {
         this.id = id;
     }
 
-    public Long getProject_id() {
-        return project_id;
+
+    public String getTitle() {
+        return title;
     }
 
-    public void setProject_id(Long project_id) {
-        this.project_id = project_id;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getPath() {
-        return path;
+
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
-    public String getFileName() {
-        return fileName;
+
+    public String getContent() {
+        return content;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getFileSize() {
-        return fileSize;
+
+    public String getCreatetime() {
+        return createtime;
     }
 
-    public void setFileSize(String fileSize) {
-        this.fileSize = fileSize;
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
     }
 
-    public Integer getStatus() {
+    public long getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(long status) {
         this.status = status;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
     }
 }

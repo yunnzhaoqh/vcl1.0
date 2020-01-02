@@ -13,7 +13,7 @@ String htmlData = request.getParameter("content1") != null ? request.getParamete
 	<script charset="utf-8" src="../kindeditor.js"></script>
 	<script charset="utf-8" src="../lang/zh-CN.js"></script>
 	<script charset="utf-8" src="../plugins/code/prettify.js"></script>
-	<script>
+	<script type="text/javascript">
 		KindEditor.ready(function(K) {
 			var editor1 = K.create('textarea[name="content1"]', {
 				cssPath : '../plugins/code/prettify.css',
