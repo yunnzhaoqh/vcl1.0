@@ -381,14 +381,14 @@
         if ($('#shareA').hasClass('active')) {
             initpublication(0);
             $('#shareA').removeClass('active');
-            $('.download').each(function () {
-                $(this).find('.link.more').each(function () {
-                    $(this).show();
-                })
-                $(this).find('.link.download').each(function () {
-                    $(this).hide();
-                })
-            });
+            // $('.download').each(function () {
+            //     $(this).find('.link.more').each(function () {
+            //         $(this).show();
+            //     })
+            //     $(this).find('.link.download').each(function () {
+            //         $(this).hide();
+            //     })
+            // });
 
         } else {
             initpublication(1);
@@ -458,6 +458,18 @@
                 }
                 $('#public_right').empty();
                 $('#public_right').append(publicRight);
+                if(isshare){
+                    $("#shareA").addClass('active');
+                    $('.download').each(function () {
+
+                        $(this).find('.link.more').each(function () {
+                            $(this).hide();
+                        });
+                        $(this).find('.link.download').each(function () {
+                            $(this).show();
+                        })
+                    });
+                }
             }
         })
 
@@ -503,18 +515,7 @@
                 $('#public_left').append(publicLeft);
                 $("#public_left").children(":first").addClass('active');
                 yearclick(publicYear[0].year,isshare);
-                if(isshare){
-                    $("#shareA").addClass('active');
-                    $('.download').each(function () {
 
-                        $(this).find('.link.more').each(function () {
-                            $(this).hide();
-                        });
-                        $(this).find('.link.download').each(function () {
-                            $(this).show();
-                        })
-                    });
-                }
             }
         })
     }

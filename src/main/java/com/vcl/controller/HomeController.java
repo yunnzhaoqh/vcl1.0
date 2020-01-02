@@ -45,6 +45,8 @@ public class HomeController {
     private CoursesService coursesService;
     @Autowired
     private CampService campService;
+    @Autowired
+    private ShareService shareService;
 
     @Autowired
     private com.vcl.service.ReferenceService referenceService;
@@ -182,11 +184,21 @@ public class HomeController {
 //        map.put("STATUS",1);
         try
         {
-//            if(){
-//
-//            }
-            List<Project> projects = projectService.findAll(parameterMap);
-            List<Map> years = projectService.findYears();
+            List<Project> projects = new ArrayList<>();
+            List<Map> years = new ArrayList<>();
+
+            if(parameterMap.get("isshare")!= null && parameterMap.get("isshare").toString().equals("1")){
+                List<Share> all = shareService.findAll(parameterMap);
+                for (Share share : all) {
+                    Project project = new Project(share.getId(),share.getTitle(),share.getReleaseDate(),share.getReleaseDate(),share.getContent(),null);
+                    projects.add(project);
+                }
+                years = shareService.findYears();
+            }else {
+                projects = projectService.findAll(parameterMap);
+                years  = projectService.findYears();;
+            }
+
             map.put("type",2);
             List<Banner> banners = bannerService.findAll(map);
 
@@ -280,9 +292,10 @@ public class HomeController {
     public Project findOneProject(@RequestBody Map map){
         Long id = Long.parseLong(map.get("id").toString());
         Project project = new Project();
-        if(map.get("type")!= null && map.get("type")== "share" ){
+        if(map.get("isshare")!= null && map.get("isshare").toString().equals("1")){
             System.out.println("这是share");
-            project = projectService.findOne(id);
+            Share share = shareService.findOne(id);
+            project = new Project(share.getId(),share.getTitle(),share.getReleaseDate(),share.getReleaseDate(),share.getContent(),null);
         }else {
             System.out.println("这是publication");
             project = projectService.findOne(id);

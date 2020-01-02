@@ -67,4 +67,9 @@ public class ShareServiceImpl implements ShareService {
     public int delete_share(Long id) {
         return shareMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public List<Map> findYears() {
+        return shareMapper.findYears();
+    }
 }

@@ -17,6 +17,17 @@ public class Project {
   private String fileName;
   private String fileSize;
 
+  public Project() {
+  }
+
+  public Project(Long id,String main_title,String share_people, String subtitle, String content, String project_file) {
+    this.id = id;
+    this.main_title = main_title;
+    this.subtitle = subtitle;
+    this.content = content;
+    this.project_file = project_file;
+    this.share_people = share_people;
+  }
 
   public String getFileName() {
     return fileName;

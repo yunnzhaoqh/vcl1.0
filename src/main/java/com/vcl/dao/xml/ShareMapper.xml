@@ -126,4 +126,8 @@
     <select id="selectByPrimaryKey"  parameterType="java.lang.Long" resultMap="shareMap">
        select * from share WHERE id=#{id}
     </select>
+    <select id="findYears"  parameterType="java.util.Map" resultType="java.util.Map">
+       select left(CREATETIME,4) year from share where  status <![CDATA[ <> ]]> 0 group by left(CREATETIME,4) order by left(CREATETIME,4) desc;
+    </select>
+
 </mapper>
