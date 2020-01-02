@@ -437,15 +437,28 @@
                 var projects = data.obj.projects;
                 for (var i in projects) {
                     if (i < 7) {
-                        publicRight += ' <a href="/home/publication?isshare='+isshare+'&type=publication&id=' + projects[i].id + '">' +
-                            '<div class="item" >\n' +
-                            '                        <div class="cover" style="background-image: url(' + projects[i].bg_img + ');"></div>\n' +
-                            '                        <ul>\n' +
-                            '                            <li class="name">' + projects[i].main_title + '</li>\n' +
-                            '                            <li class="tips">' + projects[i].share_people + '</li>\n' +
-                            '                            <li class="size">' + projects[i].subtitle + '</li>\n' +
-                            '                            <li class="download">\n' +
-                            '                                <a class="link more"  >more</a>\n';
+                        if(isshare){
+                            publicRight += ' <a href="/home/publication?isshare='+isshare+'&type=publication&id=' + projects[i].id + '">' +
+                                '<div class="item" >\n' +
+                                '                        <div class="cover" style="background-image: url(' + projects[i].bg_img + ');"></div>\n' +
+                                '                        <ul>\n' +
+                                '                            <li class="name">' + projects[i].fileName + '</li>\n' +
+                                '                            <li class="tips">' + projects[i].main_title + '</li>\n' +
+                                '                            <li class="size">' + projects[i].fileSize + '</li>\n' +
+                                '                            <li class="download">\n' +
+                                '                                <a class="link more"  >more</a>\n';
+                        }else{
+                            publicRight += ' <a href="/home/publication?isshare='+isshare+'&type=publication&id=' + projects[i].id + '">' +
+                                '<div class="item" >\n' +
+                                '                        <div class="cover" style="background-image: url(' + projects[i].bg_img + ');"></div>\n' +
+                                '                        <ul>\n' +
+                                '                            <li class="name">' + projects[i].main_title + '</li>\n' +
+                                '                            <li class="tips">' + projects[i].share_people + '</li>\n' +
+                                '                            <li class="size">' + projects[i].subtitle + '</li>\n' +
+                                '                            <li class="download">\n' +
+                                '                                <a class="link more"  >more</a>\n';
+                        }
+
                         if (projects[i].project_file) {
                             publicRight += '                                <a href="' + projects[i].project_file + '" class="link download " style="display: none" download=""  >Download</a>\n' +
                                             '                                <a class="file pdf subtitle"  href="' + projects[i].project_file + '" download="" ></a>\n';

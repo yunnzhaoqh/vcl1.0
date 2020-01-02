@@ -191,6 +191,7 @@ public class HomeController {
                 List<Share> all = shareService.findAll(parameterMap);
                 for (Share share : all) {
                     Project project = new Project(share.getId(),share.getTitle(),share.getReleaseDate(),share.getReleaseDate(),share.getContent(),share.getShareFile());
+                    setFileInfo(project);
                     projects.add(project);
                 }
                 years = shareService.findYears();
@@ -300,26 +301,33 @@ public class HomeController {
             System.out.println("这是publication");
             project = projectService.findOne(id);
         }
+        setFileInfo(project);
 
+        return project;
+    }
+
+    /**
+     * 根据文件相对路径获取文件详细信息
+     * @param project
+     */
+    public void setFileInfo(Project project){
         String filePath = (FILE_UPLOAD_PATH+project.getProject_file()).replace("\\", "/");
         File file = new File(filePath);
 
 //        if (file.exists()){
-            final String[] units = new String[]{"B", "KB", "MB", "GB", "TB"};
-            int digitGroups = (int) (Math.log10(file.length()) / Math.log10(1024));
-            if(file.getName()!= null && project.getProject_file()!= null){
-                project.setFileName(file.getName());
-            }else {
-                project.setFileName("无文件");
-            }
-            if(file.length()>0){
-                project.setFileSize(new DecimalFormat("#,##0.#").format(file.length() / Math.pow(1024, digitGroups)) + " " + units[digitGroups]);
-            }else {
-                project.setFileSize("0 MB");
-            }
-        return project;
+        final String[] units = new String[]{"B", "KB", "MB", "GB", "TB"};
+        int digitGroups = (int) (Math.log10(file.length()) / Math.log10(1024));
+        if(file.getName()!= null && project.getProject_file()!= null){
+            project.setFileName(file.getName());
+        }else {
+            project.setFileName("无文件");
+        }
+        if(file.length()>0){
+            project.setFileSize(new DecimalFormat("#,##0.#").format(file.length() / Math.pow(1024, digitGroups)) + " " + units[digitGroups]);
+        }else {
+            project.setFileSize("0 MB");
+        }
     }
-
     @RequestMapping("/findMediaOne")
     @ResponseBody
     public Media findMediaOne(@RequestBody Map map){
