@@ -201,7 +201,7 @@
                 });
                 layui.form.render('select');
                 $('#path').attr('src',data.bg_img).show();
-                $('.layui-btn-warm').attr('href',data.project_file).show();
+                $('.layui-btn-warm').attr('href',data.project_file).attr('download',data.fileName).show();
                 if(data.content){
                     kindeditor.html(data.content);
                     // layedit.setContent(editindex, data.content);
