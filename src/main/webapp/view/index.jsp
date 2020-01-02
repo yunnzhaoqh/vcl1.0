@@ -669,7 +669,7 @@
                             if(i<3){
                                 projectHtml+='<div class="item">\n' +
                                     '                    <a href="/home/project?type=publication&id='+project[i].id+'" target="_blank">\n' +
-                                    '                        <img src="'+project[i].bg_img+'" alt="">\n' +
+                                    '                        <div class="img"><img src="'+project[i].bg_img+'" alt=""></div>\n' +
                                     '                        <div class="cover">\n' +
                                     '                            <h4>'+project[i].main_title+'</h4>\n' +
                                     '                            <h5>'+project[i].subtitle+'</h5>\n' +

@@ -134,7 +134,7 @@ public class HomeController {
                 String[] split = forMatdate.split(" ");
                 System.out.println(split[0]+","+split[1]+" "+split[2]);
                 media.setReleaseDate(split[0]+","+split[1]+" "+split[2]);
-
+                media.setContent(media.getContent().replaceAll("<img","<span"));
 //                mediaList.add(media);
             }
             List<People> peopleList = peopleService.findAll(map);
