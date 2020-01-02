@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>新增课程</title>
+    <title>add_share</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -29,62 +29,50 @@
      style="padding: 20px 20px;">
     <input hidden name="id"/>
     <div class="layui-form-item layer-width">
-        <label class="layui-form-label layui-required">夏令营名称</label>
+        <label class="layui-form-label layui-required">标题</label>
         <div class="layui-input-block">
-            <input type="text" name="name" lay-verify="required" placeholder="请输入夏令营名称" autocomplete="off"
+            <input type="text" name="title" lay-verify="required" placeholder="请输入标题" autocomplete="off"
                    class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">开始日期</label>
+        <label class="layui-form-label layui-required">发布日期</label>
         <div class="layui-input-inline">
-            <input name="starttime" class="layui-input" readonly lay-verify="required" id="starttime" />
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">结束日期</label>
-        <div class="layui-input-inline">
-            <input name="endtime" class="layui-input" readonly lay-verify="required" id="endtime" />
-        </div>
-    </div>
-    <%--<div class="layui-form-item layer-width">--%>
-        <%--<label class="layui-form-label layui-required">夏令营简介</label>--%>
-        <%--<div class="layui-input-block">--%>
-                <%--<textarea name="intro" lay-verify="required" placeholder="夏令营简介"--%>
-                          <%--class="layui-textarea"></textarea>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">夏令营简介</label>
-        <div class="layui-input-block">
-            <textarea id="intro" name="intro" placeholder="夏令营简介"
-                      class="layui-textarea layui-hide" style="height: 150px;" onchange="text(this)"></textarea>
+            <input type="text" name="releaseDate" class="layui-input" readonly autocomplete="off" lay-verify="required" id="createtime" />
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">封面</label>
         <div class="layui-input-inline">
             <img src="" id="path" width="100%" height="100%" style="display: none">
-            <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
+            <input type="hidden" name="img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-summe_camp">上传图片</button>
+        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-share">上传图片</button> <span>建议尺寸：480px * 360px</span>
         <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
             <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
         </div>
     </div>
-    <%--<div class="layui-form-item">--%>
-        <%--<label class="layui-form-label layui-required">推荐home</label>--%>
-        <%--<div class="layui-input-inline">--%>
-            <%--<select name="status" lay-verify="required">--%>
-                <%--<option value="1">不推荐</option>--%>
-                <%--<option value="2">推荐</option>--%>
-            <%--</select>--%>
-        <%--</div>--%>
-    <%--</div>--%>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">内容</label>
+        <div class="layui-input-block">
+            <textarea id="content" name="content" placeholder="文章内容"
+                      class="layui-textarea" style="height: 150px;" onchange="text(this)"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">推荐home</label>
+        <div class="layui-input-inline">
+            <select name="status" lay-verify="required">
+                <option value="0">暂存（不在前端显示）</option>
+                <option value="1">不推荐</option>
+                <option value="2">推荐</option>
+            </select>
+        </div>
+    </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button type="submit" class="layui-btn" lay-submit lay-filter="LAY-summe_camp-submit" id="LAY-summe_camp-submit">确认</button>
-            <button type="submit" class="layui-btn layui-btn-primary" lay-filter="LAY-summe_camp-close" id="LAY-summe_camp-close">取消</button>
+            <button type="submit" class="layui-btn" lay-submit lay-filter="LAY-share-submit" id="LAY-share-submit">确认</button>
+            <button type="submit" class="layui-btn layui-btn-primary" lay-filter="LAY-share-close" id="LAY-share-close">取消</button>
         </div>
     </div>
 </div>
@@ -96,20 +84,28 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'laydate', 'element', 'upload'], function () {
+    }).use(['index', 'form', 'layedit', 'upload', 'element', 'laydate'], function () {
         var $ = layui.$,
             form = layui.form,
-            laydate = layui.laydate,
             upload = layui.upload,
+            laydate = layui.laydate,
             element = layui.element;
 
         form.verify({
             path:[
                 /[\S]+/,
-                "请上传封面"]
+                "封面不能为空"]
         });
 
-        var kindeditor = KindEditor.create('#intro',{
+        var start = laydate.render({
+            elem: '#createtime', //id为star的输入框
+            type: 'datetime',
+            istime: true,
+            istoday: false,
+            trigger: 'click',
+        });
+
+        var kindeditor = KindEditor.create('#content',{
             width: '100%',
             height: $(window).height() - 240,
             resizeType: 0, // 不允许拖动
@@ -117,45 +113,7 @@
             uploadJson: '/user/kindupload/project',
         });
 
-        var start = laydate.render({
-            elem: '#starttime', //id为star的输入框
-            type: 'date',
-            min: '',
-            max: '2099-06-16 23:59:59', //最大日期
-            istime: true,
-            istoday: false,
-            done: function(value,date){
-                end.config.min ={
-                    year:date.year,
-                    month:date.month-1,
-                    date: date.date,
-                    hours: 0,
-                    minutes: 0,
-                    seconds : 0
-                };
-            }
-        });
-
-        var end = laydate.render( {
-            elem: '#endtime',
-            type: 'date',
-            min: '',
-            max: '2099-06-16 23:59:59', //最大日期
-            istime: true,
-            istoday: false,
-            done: function(value,date){
-                start.config.max ={
-                    year:date.year,
-                    month:date.month-1,
-                    date: date.date,
-                    hours: 0,
-                    minutes: 0,
-                    seconds : 0
-                };
-            }
-        });
-
-        $('#LAY-courses-close').click(function () {
+        $('#LAY-share-close').click(function () {
             var index = parent.layer.getFrameIndex(window.name);
             parent.layer.close(index);
         });
@@ -163,16 +121,15 @@
         var open_type = parent.open_type;
 
         if(open_type === 'view'){
-            $('#LAY-summe_camp-submit').hide();
-            $('#layuiadmin-upload-summe_camp').hide();
-            init(1);
+            $('#LAY-share-submit').hide();
+            init();
         }else if(open_type === 'update'){
-            init(2)
+            init();
         }
 
-        function init(index){
-            if(parent.summwe_camp){
-                var data = parent.summwe_camp;
+        function init(){
+            if(parent.share){
+                var data = parent.share;
                 $('#layuiadmin-form-useradmin input').each(function () {
                     var name = $(this).attr('name');
                     $(this).val(data[name]);
@@ -182,21 +139,19 @@
                     $(this).val(data[name]);
                 });
                 layui.form.render('select');
-                $('#path').attr('src',data.bg_img).show();
-                if(data.intro){
-                    kindeditor.html(data.intro);
+                $('#path').attr('src',data.img).show();
+                if(data.content){
+                    kindeditor.html(data.content);
                 }
-                // $('textarea[name=intro]').val(data.intro);
             }
         }
 
-        form.on('submit(LAY-summe_camp-submit)', function (data) {
+        form.on('submit(LAY-share-submit)', function (data) {
             var field = data.field; //获取提交的字段
-            field.intro = kindeditor.html();
-            field.status=2;
-            var url = '/camp/add';
+            field.content = kindeditor.html();
+            var url = '/share/add';
             if(open_type === 'update'){
-                url = '/camp/update';
+                url = '/share/update';
             }
 
             //提交 Ajax 成功后，静态更新表格中的数据
@@ -209,7 +164,7 @@
                 success: function (data) {
                     if(data.success){
                         var index = parent.layer.getFrameIndex(window.name);
-                        parent.layui.table.reload('LAY-summwe_camp-manage'); //数据刷新
+                        parent.layui.table.reload('LAY-share-manage'); //数据刷新
                         parent.layer.close(index);
                     }
                     parent.layer.msg(data.message);
@@ -218,7 +173,7 @@
         });
 
         upload.render({
-            elem: '#layuiadmin-upload-summe_camp',
+            elem: '#layuiadmin-upload-share',
             url: '/user/upload_file',
             auto:true,//是否自动上传
             accept: 'images',
@@ -234,7 +189,7 @@
                 }
             },
             before: function(obj){
-                this.data={"dirpath": 'summe_camp\\bg_img'}//携带额外的数据
+                this.data={"dirpath": 'media\\bg_img'}//携带额外的数据
                 var index = layer.load(); //开始上传之后打开load层
                 $("#hidden_tmp_index").val(index);//将load层的index隐藏到页面中
             },

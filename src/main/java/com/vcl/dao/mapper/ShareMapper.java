@@ -14,9 +14,9 @@ public interface ShareMapper {
 
     int insert(Share share);
 
-    int update(Share share);
+    int updateByPrimaryKey(Share share);
 
-    Share selectByPrimaryKey(@Param("id") Long id);
+    Share selectByPrimaryKey(Long id);
 
-    int deleteByPrimaryKey(@Param("id") Long id);
+    int deleteByPrimaryKey(Long id);
 }

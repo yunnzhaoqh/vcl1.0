@@ -295,7 +295,7 @@
 
     <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script>
+    <script type="text/javascript">
         $(function(){
             // $(".list").mCustomScrollbar({
             //     scrollInertia: 600,

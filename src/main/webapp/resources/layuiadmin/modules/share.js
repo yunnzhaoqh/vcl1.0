@@ -4,8 +4,8 @@ layui.define(['table', 'form'], function (exports) {
         form = layui.form;
 
     table.render({
-        elem: '#LAY-media-manage',
-        url: '/media/findPage',
+        elem: '#LAY-share-manage',
+        url: '/share/findPage',
         method: 'post',    //请求方式
         contentType: 'application/json',  //请求数据类型
         height: 'full-100',
@@ -41,11 +41,11 @@ layui.define(['table', 'form'], function (exports) {
     });
 
     //监听工具条
-    table.on('tool(LAY-media-manage)', function (obj) {
+    table.on('tool(LAY-share-manage)', function (obj) {
         var data = obj.data;
         if (obj.event === 'del') {
             layer.confirm('是否确认删除此文章', function (index) {
-                $.post('/media/delete_media', {id: data.id}, function (res) {
+                $.post('/share/delete_share', {id: data.id}, function (res) {
                     if (res.success) {
                         obj.del();
                         layer.close(index);
@@ -55,28 +55,28 @@ layui.define(['table', 'form'], function (exports) {
             });
         } else if (obj.event === 'edit') {
             var tr = $(obj.tr);
-            window.media = data;
+            window.share = data;
             window.open_type = 'update';
             layer.open({
                 type: 2
                 , title: '编辑文章'
-                , content: '/admin/add_media'
+                , content: '/admin/add_share'
                 , maxmin: true
                 , area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.75 + 'px']
             });
         } else if (obj.event === 'view') {
             var tr = $(obj.tr);
-            window.media = data;
+            window.share = data;
             window.open_type = 'view';
             layer.open({
                 type: 2
                 , title: '查看文章'
-                , content: '/admin/add_media'
+                , content: '/admin/add_share'
                 , maxmin: true
                 , area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.75 + 'px']
             });
         }
     });
 
-    exports('media', {})
+    exports('share', {})
 });

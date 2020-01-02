@@ -111,4 +111,13 @@ public class AdminController {
         return "coustom/banner/banner";
     }
 
+    @RequestMapping("/share_list")
+    public String share_list(){
+        return "/coustom/share/share_list";
+    }
+
+    @RequestMapping("/add_share")
+    public String add_share(){
+        return "coustom/share/share";
+    }
 }

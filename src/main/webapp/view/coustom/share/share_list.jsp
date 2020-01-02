@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>项目分享</title>
+    <title>share</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -20,19 +20,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">标题名</label>
                     <div class="layui-input-block">
-                        <input type="text" name="main_title" placeholder="请输入" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">副标题</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="subtitle" placeholder="请输入" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">作者</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="share_people" placeholder="请输入" autocomplete="off" class="layui-input">
+                        <input type="text" name="title" placeholder="请输入" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-inline">
@@ -42,11 +30,12 @@
                             <option value="">不限</option>
                             <option value="2">推荐</option>
                             <option value="1">不推荐</option>
+                            <option value="0">暂存</option>
                         </select>
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="LAY-chare-search">
+                    <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="LAY-share-search">
                         <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
                     </button>
                 </div>
@@ -59,8 +48,10 @@
                 <button class="layui-btn layuiadmin-btn-admin" data-type="add">添加</button>
             </div>
 
-            <table id="LAY-chare-manage" lay-filter="LAY-chare-manage"></table>
-            <script type="text/html" id="table-chare">
+            <table id="LAY-share-manage" lay-filter="LAY-share-manage"></table>
+            <script type="text/html" id="table-project">
+                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="view"><i
+                        class="layui-icon layui-icon-read"></i>查看</a>
                 <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i
                         class="layui-icon layui-icon-edit"></i>编辑</a>
                 <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i
@@ -71,22 +62,22 @@
 </div>
 
 <script src="/resources/layuiadmin/layui/layui.js"></script>
-<script>
+<script type="text/javascript">
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'chare', 'table', 'layedit'], function () {
+    }).use(['index', 'share', 'table'], function () {
         var $ = layui.$
             , form = layui.form
             , table = layui.table;
 
         //监听搜索
-        form.on('submit(LAY-chare-search)', function (data) {
+        form.on('submit(LAY-share-search)', function (data) {
             var field = data.field;
 
             //执行重载
-            table.reload('LAY-chare-manage', {
+            table.reload('LAY-share-manage', {
                 where: field
             });
         });
@@ -94,45 +85,17 @@
         //事件
         var active = {
             add: function () {
-                window.project = undefined;
+                window.media = undefined;
                 window.open_type = '';
                 layer.open({
                     type: 2
-                    , title: '添加项目'
-                    , content: '/admin/add_chare'
+                    , title: '新增share'
+                    , content: '/admin/add_share'
                     , area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.75 + 'px']
-                //     , btn: ['确定', '取消']
-                //     , yes: function (index, layero) {
-                //         var iframeWindow = window['layui-layer-iframe' + index]
-                //             , submitID = 'LAY-project-submit'
-                //             , submit = layero.find('iframe').contents().find('#' + submitID);
-                //
-                //         //监听提交
-                //         iframeWindow.layui.form.on('submit(' + submitID + ')', function (data) {
-                //             var field = data.field; //获取提交的字段
-                //
-                //             console.log(layedit.getContent(window.editindex));
-                //
-                //             //提交 Ajax 成功后，静态更新表格中的数据
-                //             // $.ajax({
-                //             //     url: '',
-                //             //     data: field,
-                //             //     dataType: 'json',
-                //             //     async: false,
-                //             //     type: 'post',
-                //             //     success: function (data) {
-                //             //
-                //             //     }
-                //             // });
-                //             // table.reload('LAY-user-front-submit'); //数据刷新
-                //             // layer.close(index); //关闭弹层
-                //         });
-                //
-                //         submit.trigger('click');
-                //     }
                 });
             }
         }
+
         $('.layui-btn.layuiadmin-btn-admin').on('click', function () {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';

@@ -74,7 +74,7 @@ layui.define(['table', 'form'], function (exports) {
                         obj.del();
                         layer.close(index);
                     }
-                    layer.msg(res.massage);
+                    layer.msg(res.message);
                 }, 'json');
             });
         } else if (obj.event === 'edit') {
@@ -173,7 +173,7 @@ layui.define(['table', 'form'], function (exports) {
                         obj.del();
                         layer.close(index);
                     }
-                    layer.msg(res.massage);
+                    layer.msg(res.message);
                 }, 'json');
             });
         } else if (obj.event === 'edit') {

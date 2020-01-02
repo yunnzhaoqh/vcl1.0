@@ -139,6 +139,12 @@
                         </a>
                     </li>
                     <li data-name="user" class="layui-nav-item">
+                        <a lay-href="/admin/share_list" lay-tips="用户" lay-direction="2">
+                            <i class="layui-icon layui-icon-user"></i>
+                            <cite>share</cite>
+                        </a>
+                    </li>
+                    <li data-name="user" class="layui-nav-item">
                         <a lay-href="/admin/media_list" lay-tips="用户" lay-direction="2">
                             <i class="layui-icon layui-icon-user"></i>
                             <cite>Media</cite>
@@ -255,7 +261,7 @@
 </div>
 
 <script src="/resources/layuiadmin/layui/layui.js"></script>
-<script>
+<script type="text/javascript">
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
