@@ -9,6 +9,9 @@
         <result column="createtime" property="createtime"/>
         <result column="status" property="status"/>
         <result column="img" property="img"/>
+        <result column="share_file" property="shareFile"/>
+        <result column="file_name" property="fileName"/>
+        <result column="file_size" property="fileSize"/>
     </resultMap>
 
     <select id="selectByExample" parameterType="java.util.Map" resultMap="shareMap">
@@ -65,6 +68,15 @@
             <if test="img != null and img !=''">
                 img ,
             </if>
+            <if test="shareFile != null and shareFile !=''">
+                share_file ,
+            </if>
+            <if test="fileName != null and fileName !=''">
+                file_name ,
+            </if>
+            <if test="fileSize != null and fileSize !=''">
+                file_size ,
+            </if>
         </trim>
         values
         <trim prefix="(" suffixOverrides="," suffix=")">
@@ -88,6 +100,15 @@
             </if>
             <if test="img != null and img !=''">
                 #{img},
+            </if>
+            <if test="shareFile != null and shareFile !=''">
+                #{shareFile},
+            </if>
+            <if test="fileName != null and fileName !=''">
+                #{fileName},
+            </if>
+            <if test="fileSize != null and fileSize !=''">
+                #{fileSize},
             </if>
         </trim>
     </insert>
@@ -114,6 +135,15 @@
             </if>
             <if test="img != null and img !=''">
                 img =#{img},
+            </if>
+            <if test="shareFile != null and shareFile !=''">
+                share_file =#{shareFile},
+            </if>
+            <if test="fileName != null and fileName !=''">
+                file_name =#{fileName},
+            </if>
+            <if test="fileSize != null and fileSize !=''">
+                file_size =#{fileSize},
             </if>
         </trim>
     </update>

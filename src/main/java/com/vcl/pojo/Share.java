@@ -10,6 +10,9 @@ public class Share {
     private long status;
     private String img;
     private String release_date;
+    private String shareFile;
+    private String fileName;
+    private String fileSize;
 
     public String getRelease_date() {
         return release_date;
@@ -77,5 +80,29 @@ public class Share {
 
     public void setStatus(long status) {
         this.status = status;
+    }
+
+    public String getShareFile() {
+        return shareFile;
+    }
+
+    public void setShareFile(String shareFile) {
+        this.shareFile = shareFile;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(String fileSize) {
+        this.fileSize = fileSize;
     }
 }
