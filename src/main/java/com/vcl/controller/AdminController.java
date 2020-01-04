@@ -120,4 +120,9 @@ public class AdminController {
     public String add_share(){
         return "coustom/share/share";
     }
+
+    @RequestMapping("/cropper")
+    public String cropper(){
+        return "/coustom/cropper/cropper";
+    }
 }

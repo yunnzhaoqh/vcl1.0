@@ -132,33 +132,33 @@
                     <%--                <dd><a lay-href="http://www.layui.com/admin/">layuiAdmin官网</a></dd>--%>
                     <%--              </dl>--%>
                     <%--            </li>--%>
-                    <li data-name="user" class="layui-nav-item">
-                        <a lay-href="/admin/project_list" lay-tips="用户" lay-direction="2">
-                            <i class="layui-icon layui-icon-user"></i>
+                    <li data-name="template" class="layui-nav-item">
+                        <a lay-href="/admin/project_list" lay-tips="Publication" lay-direction="2">
+                            <i class="layui-icon layui-icon-template"></i>
                             <cite>Publication</cite>
                         </a>
                     </li>
-                    <li data-name="user" class="layui-nav-item">
-                        <a lay-href="/admin/share_list" lay-tips="用户" lay-direction="2">
-                            <i class="layui-icon layui-icon-user"></i>
+                    <li data-name="share" class="layui-nav-item">
+                        <a lay-href="/admin/share_list" lay-tips="share" lay-direction="2">
+                            <i class="layui-icon layui-icon-share"></i>
                             <cite>share</cite>
                         </a>
                     </li>
-                    <li data-name="user" class="layui-nav-item">
-                        <a lay-href="/admin/media_list" lay-tips="用户" lay-direction="2">
-                            <i class="layui-icon layui-icon-user"></i>
+                    <li data-name="template" class="layui-nav-item">
+                        <a lay-href="/admin/media_list" lay-tips="Media" lay-direction="2">
+                            <i class="layui-icon layui-icon-template"></i>
                             <cite>Media</cite>
                         </a>
                     </li>
-                    <li data-name="user" class="layui-nav-item">
-                        <a lay-href="/user/user" lay-tips="用户" lay-direction="2">
-                            <i class="layui-icon layui-icon-user"></i>
+                    <li data-name="group" class="layui-nav-item">
+                        <a lay-href="/user/user" lay-tips="People" lay-direction="2">
+                            <i class="layui-icon layui-icon-group"></i>
                             <cite>People</cite>
                         </a>
                     </li>
-                    <li data-name="user" class="layui-nav-item">
-                        <a lay-href="/admin/activities_list" lay-tips="用户" lay-direction="2">
-                            <i class="layui-icon layui-icon-user"></i>
+                    <li data-name="Activities" class="layui-nav-item">
+                        <a lay-href="/admin/activities_list" lay-tips="Activities" lay-direction="2">
+                            <i class="layui-icon layui-icon-fire"></i>
                             <cite>Activities</cite>
                         </a>
                     </li>
@@ -179,9 +179,9 @@
                             </dd>
                         </dl>
                     </li>
-                    <li data-name="user" class="layui-nav-item">
-                        <a lay-href="javascript:;" lay-tips="用户" lay-direction="2">
-                            <i class="layui-icon layui-icon-user"></i>
+                    <li data-name="carousel" class="layui-nav-item">
+                        <a lay-href="javascript:;" lay-tips="Banner" lay-direction="2">
+                            <i class="layui-icon layui-icon-carousel"></i>
                             <cite>Banner</cite>
                         </a>
                         <dl class="layui-nav-child">
@@ -219,6 +219,12 @@
                             </dd>
 
                         </dl>
+                    </li>
+                    <li data-name="user" class="layui-nav-item">
+                        <a lay-href="/admin/cropper" href="javascript:;" lay-tips="用户" lay-direction="2">
+                            <i class="layui-icon layui-icon-user"></i>
+                            <cite>cropper</cite>
+                        </a>
                     </li>
                 </ul>
             </div>
