@@ -31,8 +31,11 @@
                 <when test="status != null and status != ''">
                     and status = #{status}
                 </when>
-                <otherwise>
+                <when test="status == ''">
                     and status <![CDATA[ <> ]]> -1
+                </when>
+                <otherwise>
+                    and status <![CDATA[ > ]]> 0
                 </otherwise>
             </choose>
         </where>

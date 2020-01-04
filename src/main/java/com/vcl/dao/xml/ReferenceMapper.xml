@@ -45,8 +45,11 @@
                 <when test="status != null and status != ''">
                     and reference.status = #{status}
                 </when>
-                <otherwise>
+                <when test="status == ''">
                     and reference.status <![CDATA[ <> ]]> -1
+                </when>
+                <otherwise>
+                    and reference.status <![CDATA[ > ]]> 0
                 </otherwise>
             </choose>
         </where>

@@ -47,10 +47,13 @@
             </if>
             <choose>
                 <when test="status != null and status != ''">
-                    and status = #{status,jdbcType=BIGINT}
+                    and status = #{status}
+                </when>
+                <when test="status == ''">
+                    and status <![CDATA[ <> ]]> -1
                 </when>
                 <otherwise>
-                    and status <![CDATA[ <> ]]> -1
+                    and status <![CDATA[ > ]]> 0
                 </otherwise>
             </choose>
         </where>
@@ -226,8 +229,11 @@
                 <when test="status != null and status != ''">
                     and status = #{status}
                 </when>
-                <otherwise>
+                <when test="status == ''">
                     and status <![CDATA[ <> ]]> -1
+                </when>
+                <otherwise>
+                    and status <![CDATA[ > ]]> 0
                 </otherwise>
             </choose>
         </where>
@@ -263,14 +269,18 @@
                 <when test="status != null and status != ''">
                     and status = #{status}
                 </when>
-                <otherwise>
+                <when test="status == ''">
                     and status <![CDATA[ <> ]]> -1
+                </when>
+                <otherwise>
+                    and status <![CDATA[ > ]]> 0
                 </otherwise>
             </choose>
         </where>
         order by createtime desc
     </select>
     <select id="findYears" parameterType="java.util.Map" resultType="java.util.Map">
-        select left(CREATETIME,4) year from project where TYPE=1 AND status <![CDATA[ <> ]]> -1 group by left(CREATETIME,4) order by left(CREATETIME,4) desc;
+--         select left(CREATETIME,4) year from project where TYPE=1 AND status <![CDATA[ <> ]]> -1 group by left(CREATETIME,4) order by left(CREATETIME,4) desc;
+        select left(CREATETIME,4) year from project where TYPE=1 and status <![CDATA[ > ]]> 0 group by left(CREATETIME,4) order by left(CREATETIME,4) desc;
     </select>
 </mapper>

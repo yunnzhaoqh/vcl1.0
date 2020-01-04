@@ -102,6 +102,9 @@
             cellMinWidth: 80,
             page: true,
             limit: 30,
+            where:{
+                status: ''
+            },
             cols: [[
                 // {type:'checkbox'}
                 // ,{field:'id', title: 'ID', width:100, sort: true},

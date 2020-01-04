@@ -20,6 +20,9 @@ layui.define(['table', 'form'], function (exports) {
         method: 'post',    //请求方式
         contentType: 'application/json',  //请求数据类型
         cellMinWidth: 80,
+        where: {
+            status: '',
+        },
         cols: [[    //数据首行的列名 field是数据变量名
             // {type: 'checkbox', fixed: 'left'}
             {field: 'name', title: '用户名'}
