@@ -468,7 +468,7 @@
 }
 .people-item {
   width: 270px;
-  /*height: 325px;*/
+  height: 325px;
   position: relative;
 }
 .people-item img {
@@ -496,9 +496,9 @@
 }
 .people-item .intro .link {
   height: 0;
-  -webkit-transition: all 0.25s;
-  -o-transition: all 0.25s;
-  transition: all 0.25s;
+  -webkit-transition: all 1.5s;
+  -o-transition: all 1.5s;
+  transition: all 1.5s;
   overflow: hidden;
 }
 .people-item .intro .link a {
@@ -711,9 +711,9 @@
   opacity: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: all 0.25s;
-  -o-transition: all 0.25s;
-  transition: all 0.25s;
+  -webkit-transition: all 1.5s;
+  -o-transition: all 1.5s;
+  transition: all 1.5s;
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;

@@ -454,11 +454,11 @@ footer .account .type {
   width: 100%;
   height: 100%;
   background-position: center;
-  background-size: 315px 145px;
+  background-size: 215px 145px;
   background-repeat: no-repeat;
-  -webkit-transition: all 0.25s;
-  -o-transition: all 0.25s;
-  transition: all 0.25s;
+  -webkit-transition: all 1.5s;
+  -o-transition: all 1.5s;
+  transition: all 1.5s;
 }
 .tabs .tabs-body .item .info {
   width: 100%;
@@ -866,9 +866,9 @@ footer .account .type {
   -webkit-transform-origin: 0% 0%;
   -ms-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
-  -webkit-transition: all 2s;
-  -o-transition: all 2s;
-  transition: all 2s;
+  -webkit-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  transition: all 0.25s;
 }
 .media-container .item:hover .cover img {
   -webkit-transform: scale(1.2) translateX(-50%) translateY(-50%);
