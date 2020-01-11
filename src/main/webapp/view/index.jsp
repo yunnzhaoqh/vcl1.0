@@ -118,7 +118,7 @@
     </section>
 
     <section class="index-intro-content">
-        <div class="content" style="max-width: 1400px;">
+        <div class="content">
             <div class="item-left" id="item-left">
                 <%--<img src="../resources/images/temp/vcl-red_03.png" alt="">--%>
                 <%--<p class="p1">We locate in the Jingyuan Jingyuan Courtyard 5.</p>--%>
