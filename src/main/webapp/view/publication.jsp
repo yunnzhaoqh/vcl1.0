@@ -446,7 +446,7 @@
                                 '                            <li class="tips">' + projects[i].main_title + '</li>\n' +
                                 '                            <li class="size">' + projects[i].fileSize + '</li>\n' +
                                 '                            <li class="download">\n' +
-                                '                                <a class="link more"  >more</a>\n';
+                                '                                <a class="link more" style="cursor:pointer" onclick="publicationDetail('+projects[i].id+','+isshare+')" >more</a>\n';
                         }else{
                             publicRight += ' <a href="/home/publication?isshare='+isshare+'&type=publication&id=' + projects[i].id + '">' +
                                 '<div class="item" >\n' +
@@ -456,12 +456,12 @@
                                 '                            <li class="tips">' + projects[i].share_people + '</li>\n' +
                                 '                            <li class="size">' + projects[i].subtitle + '</li>\n' +
                                 '                            <li class="download">\n' +
-                                '                                <a class="link more"  >more</a>\n';
+                                '                                <a class="link more" style="cursor:pointer" onclick="publicationDetail('+projects[i].id+','+isshare+')"  >more</a>\n';
                         }
 
                         if (projects[i].project_file) {
-                            publicRight += '                                <a href="' + projects[i].project_file + '" class="link download " style="display: none" download=""  >Download</a>\n' +
-                                            '                                <a class="file pdf subtitle"  href="' + projects[i].project_file + '" download="" ></a>\n';
+                            publicRight += '                                <a href="' + projects[i].project_file + '"  class="link download " style="display: none;cursor:pointer;"  download=""  >Download</a>\n' +
+                                            '                                <a class="file pdf subtitle"  href="' + projects[i].project_file + '" style="cursor:pointer;" download="" ></a>\n';
                          }
                             publicRight +=
                             '                            </li>\n' +

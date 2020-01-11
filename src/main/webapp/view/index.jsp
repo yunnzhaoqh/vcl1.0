@@ -506,7 +506,7 @@
                                 console.log(banner[i]);
                                 bannerHtml+=' <div class="swiper-slide" onclick="tourl(\''+banner[i].bannerUrl+'\')">\n' +
                                     '                    <a >\n' +
-                                    '                        <img src="'+banner[i].bannerImg+'" style="height:820.667px" >\n' +
+                                    '                        <img src="'+banner[i].bannerImg+'">\n' +
                                     '                    </a>\n' +
                                     '                </div>';
                                 wrapperContext+='<div class="item">\n' +
