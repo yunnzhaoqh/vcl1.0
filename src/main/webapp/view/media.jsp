@@ -92,7 +92,7 @@
     <section class="media-container active">
         <div class="content">
             <div class="index-title">Media</div>
-            <div class="items" id="mediaList">
+            <div class="items text-left" id="mediaList">
                 <%--<div class="item">--%>
                     <%--<div class="cover">--%>
                         <%--<img src="/resources/images/temp/activities_05.png" alt="">--%>

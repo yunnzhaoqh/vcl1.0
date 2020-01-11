@@ -417,7 +417,7 @@
             </div>
             <div class="item-right" id="container-right">
                 <div class="item active" style="background-image: url(../resources/images/temp/vcl-red_06.jpg);"></div>
-                <%--<div class="item" style="background-image: url(../resources/images/temp/vcl-red_05.png);"></div>--%>
+                <div class="item" style="background-image: url(../resources/images/temp/vcl-red_05.png);"></div>
             </div>
         </div>
     </section>
@@ -668,7 +668,7 @@
                         for (var i in project) {
                             if(i<3){
                                 projectHtml+='<div class="item">\n' +
-                                    '                    <a href="/home/publication?type=publication&id='+project[i].id+'" target="_blank">\n' +
+                                    '                    <a href="/home/publication?type=publication&isshare=0&id='+project[i].id+'" target="_blank">\n' +
                                     '                        <div class="img"><img src="'+project[i].bg_img+'" alt=""></div>\n' +
                                     '                        <div class="cover">\n' +
                                     '                            <h4>'+project[i].main_title+'</h4>\n' +
