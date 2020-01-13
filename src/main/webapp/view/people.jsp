@@ -454,13 +454,12 @@
             });
         });
 
-		setWidth();
 		window.onresize = function(){
 			setWidth();
 		}
 
 		function setWidth() {
-			$('.tabs-body .people-item').width(($('.tabs').width() - 120) / 4);
+			$('#peopleContent .people-item').width(($('.tabs').width() - 120) / 4);
 		}
         function toBannerDetail(url) {
             var oA=document.createElement("a");
@@ -496,6 +495,9 @@
 
                 $('#peopleContent').empty();
                 $('#peopleContent').append(peopleHtml);
+
+                setWidth();
+
                 var pageH = '  <div class="paginator">\n' +
                     '                            <ul class="pagination"></ul>\n' +
                     '                        </div>';

@@ -417,7 +417,7 @@
             </div>
             <div class="item-right" id="container-right">
                 <div class="item active" style="background-image: url(../resources/images/temp/vcl-red_06.jpg);"></div>
-                <div class="item" style="background-image: url(../resources/images/temp/vcl-red_05.png);"></div>
+                <div class="item" style="background-image: url(../resources/images/temp/vcl-red_07.jpg);"></div>
             </div>
         </div>
     </section>
