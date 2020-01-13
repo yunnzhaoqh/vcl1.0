@@ -205,6 +205,7 @@
                     '                <div>\n' ;
                 if(data.project_file){
                     detailHtml+= '                    <a href="'+data.project_file+'" download="" class="item pdf">\n' +
+                        '<span class="item pdf" ></span><span class="item zip" ></span><span class="item ppt" ></span>' +
                     '                        <ul>\n' +
                     '                            <li>'+data.fileName+'</li>\n' +
                     '                            <li>['+data.fileSize+']</li>\n' +

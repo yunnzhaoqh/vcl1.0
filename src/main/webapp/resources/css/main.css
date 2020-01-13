@@ -1063,11 +1063,23 @@ footer .account .type {
   background-repeat: no-repeat;
 }
 .project-container .download .item.pdf {
-  background-image: url(/resources/images/pdf-icon.jpg);
+  background-image: url(/resources/images/file-pdf-icon.png);
+}
+.project-container .download .item.zip {
+  background-image: url(/resources/images/file-zip-icon.png);
+}
+.project-container .download .item.ppt {
+  background-image: url(/resources/images/file-ppt-icon.png);
 }
 .project-container .download .item ul {
   color: #333;
   margin: 10px 0 0;
+}
+.project-container .download .item ul li:first-child{
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .publication-container {
   padding-top: 80px;
@@ -1244,15 +1256,21 @@ footer .account .type {
 .publication-container .item-right .item .download .file {
   display: inline-block;
   vertical-align: middle;
-  width: 27px;
-  height: 27px;
+  width: 34px;
+  height: 34px;
   margin-right: 10px;
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 .publication-container .item-right .item .download .file.pdf {
-  background-image: url(/resources/images/pdf-icon-2.png);
+  background-image: url(/resources/images/file-pdf-icon.png);
+}
+.publication-container .item-right .item .download .file.zip {
+  background-image: url(/resources/images/file-zip-icon.png);
+}
+.publication-container .item-right .item .download .file.ppt {
+  background-image: url(/resources/images/file-ppt-icon.png);
 }
 .shape-1 {
   position: absolute;
