@@ -81,6 +81,7 @@
             <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-project">上传图片</button><span>建议尺寸：500px * 280px</span>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="open_cropper">上传图片</button><span>建议尺寸：500px * 280px</span>--%>
         <div class="layui-progress progress_img" lay-filter="progress_img" lay-showPercent="true" style="display: none;">
             <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
         </div>
@@ -333,7 +334,14 @@
             }
         });
 
-
+        $('#open_cropper').click(function () {
+            layer.open({
+                type: 2
+                , title: '剪切图片'
+                , content: '/admin/cropper_img?width=500&height=280'
+                , area: [$(window).width() + 'px', $(window).height() + 'px']
+            });
+        });
     })
     function deleteFile(id,th) {
         $(th).parent().remove();
