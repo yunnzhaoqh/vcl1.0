@@ -1068,9 +1068,34 @@ footer .account .type {
 .project-container .download .item.zip {
   background-image: url(/resources/images/file-zip-icon.png);
 }
+.project-container .download .item.tar {
+  background-image: url(/resources/images/file-zip-icon.png);
+}
 .project-container .download .item.ppt {
   background-image: url(/resources/images/file-ppt-icon.png);
 }
+.project-container .download .item.jpg {
+  background-image: url(/resources/images/jpg.png);
+}
+.project-container .download .item.doc {
+  background-image: url(/resources/images/docx.png);
+}
+.project-container .download .item.docx {
+  background-image: url(/resources/images/docx.png);
+}
+.project-container .download .item.png {
+  background-image: url(/resources/images/jpg.png);
+}
+.project-container .download .item.xls {
+   background-image: url(/resources/images/excel.png);
+ }
+.project-container .download .item.xlsx {
+  background-image: url(/resources/images/excel.png);
+}
+.project-container .download .file.file {
+  background-image: url(/resources/images/file.png);
+}
+
 .project-container .download .item ul {
   color: #333;
   margin: 10px 0 0;
@@ -1272,6 +1297,29 @@ footer .account .type {
 .publication-container .item-right .item .download .file.ppt {
   background-image: url(/resources/images/file-ppt-icon.png);
 }
+.publication-container .item-right .item .download .file.tar {
+  background-image: url(/resources/images/file-zip-icon.png);
+}
+
+.publication-container .item-right .item .download .file.jpg {
+  background-image: url(/resources/images/jpg.png);
+}
+.publication-container .item-right .item .download .file.doc {
+  background-image: url(/resources/images/docx.png);
+}
+.publication-container .item-right .item .download .file.docx {
+  background-image: url(/resources/images/docx.png);
+}
+.publication-container .item-right .item .download .file.png {
+  background-image: url(/resources/images/jpg.png);
+}
+.publication-container .item-right .item .download .file.xls {
+  background-image: url(/resources/images/excel.png);
+}
+.publication-container .item-right .item .download .file.xlsx {
+  background-image: url(/resources/images/excel.png);
+}
+
 .shape-1 {
   position: absolute;
   left: 0;

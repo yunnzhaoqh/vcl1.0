@@ -10,6 +10,8 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="/resources/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/resources/font-awesome-4.7.0/css/font-awesome.min.css">
+    <%--<link rel="stylesheet" href="/resources/layuiadmin/layui/css/layui.css" media="all">--%>
     <style>
         .layui-form-label.layui-required:after {
             content: "*";
@@ -20,6 +22,19 @@
         }
         .layui-form-item.layer-width{
             width: 68%;
+        }
+
+        .delete_file
+        {
+            z-index:200;
+            -moz-border-radius:20px;
+            -webkit-border-radius:20px;
+            line-height:10px;
+            text-align:center;
+            font-weight:bold;
+            cursor:pointer;
+            font-size:10px;
+            display: none;
         }
     </style>
 </head>
@@ -73,8 +88,8 @@
     <div class="layui-form-item">
         <label class="layui-form-label">项目文件</label>
         <div class="layui-input-inline" style="width: auto;">
-            <input type="hidden" name="project_file" lay-verify="file" placeholder="请上传文件" autocomplete="off" class="layui-input" >
-            <a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>
+            <input type="hidden" name="project_file" id="project_file" lay-verify="file" autocomplete="off" class="layui-input" >
+            <%--<a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>--%>
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-file">上传文件</button>
         <div class="layui-progress progress_file" lay-filter="progress_file" lay-showPercent="true" style="display: none;">
@@ -121,10 +136,12 @@
         </div>
     </div>
 </div>
-
+<script src="/resources/js/jquery-3.4.1.min.js"></script>
 <script src="/resources/layuiadmin/layui/layui.js"></script>
 <script src="/resources/kindeditor/kindeditor-all-min.js"></script>
+
 <script type="text/javascript">
+    var imgSrcs='';
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
@@ -237,6 +254,15 @@
             });
         });
 
+        // $('#layuiadmin-upload-project').onclick(
+        //     // 500px * 280px
+        //     layer.open({
+        //         type: 2
+        //         , title: '添加项目'
+        //         , content: '/cropper/commonCropper?type=project&width=500px&height=280px'
+        //         , area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.75 + 'px']
+        //     })
+        // );
         upload.render({
             elem: '#layuiadmin-upload-project',
             url: '/user/upload_file',
@@ -275,7 +301,7 @@
             url: '/user/upload_file',
             auto:true,//是否自动上传
             accept: 'file',
-            exts: 'pdf',
+            // exts: 'pdf|docx|doc|',
             method: 'post',
             multiple:false,//支持多文件上传,
             before: function(obj){
@@ -293,8 +319,10 @@
             },
             done: function(res){
                 layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
-                $(this.item).prev("div").children("input").val(res.src);
-                $(this.item).prev("div").children("a").attr('href',res.src).attr('download',res.fileName).show();
+                imgSrcs+=res.src+','
+
+                $(this.item).prev("div").children("input").val(imgSrcs);
+                $(this.item).prev("div").append('<span><a download="" href="'+res.src+'" class="layui-btn layui-btn-warm">'+res.fileName+'</a><i class="fa fa-trash-o" onclick="deleteFile(\''+res.src+'\',this)"></i></span>');
                 $('input[name=fileName]').val(res.fileName);
                 $('input[name=fileSize]').val(res.fileSize);
                 layer.msg(res.msg);
@@ -304,7 +332,14 @@
                 layer.msg("上传失败，重新上传")
             }
         });
+
+
     })
+    function deleteFile(id,th) {
+        $(th).parent().remove();
+        imgSrcs = imgSrcs.toString().replace(id+',','');
+        $('#project_file').val(imgSrcs) ;
+    }
 </script>
 </body>
 </html>

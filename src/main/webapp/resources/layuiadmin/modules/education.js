@@ -23,14 +23,14 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'starttime', title: '开始时间',width: 150, sort: true,},
             {field: 'endtime', title: '结束时间',width: 150, sort: true,},
             {field: 'intro', title: '团队简介', minWidth: 400, sort: true,},
-            {
-                field: 'reference', title: '项目文件', minWicth: 150, sort: true, templet: function (res) {
-                    if (res.reference) {
-                        return '<a download href="' + res.reference + '" class="layui-btn layui-btn-sm layui-btn-warm"">下载文件</a>';
-                    }
-                    return '';
-                }
-            },
+            // {
+            //     field: 'reference', title: '项目文件', minWicth: 150, sort: true, templet: function (res) {
+            //         if (res.reference) {
+            //             return '<a download href="' + res.reference + '" class="layui-btn layui-btn-sm layui-btn-warm"">下载文件</a>';
+            //         }
+            //         return '';
+            //     }
+            // },
             {field: 'createtime', title: '创建时间', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
         ]],

@@ -359,17 +359,25 @@
                 '                <h4>'+data.subtitle+'</h4>\n' +
                 '                <div class="con">\n' +data.content+'</div>';
             if(data.project_file) {
-                publicationDetail +=
+                var fileHtml = "";
+                var filePaths = data.files;
+                for(var j in filePaths){
+                    fileHtml += '                                <a href="' + filePaths[j].project_file + '"  class="link download " style="display: none;cursor:pointer;"  download=""  >Download</a>\n' +
+                        '                                <a class="file '+ filePaths[j].project_file.split('\.')[1]+' subtitle"  href="' + filePaths[j].project_file + '" style="cursor:pointer;" download="" ></a>\n';
+                }
+                fileHtml +=
                     '            <div class="download">\n' +
                     '                <p>Download</p>\n' +
-                    '                <div>\n' +
-                    '                    <a href="' + data.project_file + '" download="" class="item pdf">\n' +
+                    '                <div>\n' ;
+                for(var j in filePaths){
+                    '                    <a href="' + filePaths[i]+ '" download="" class="item '+filePaths[j].split('\.')[1]+'">\n' +
                     '                        <ul>\n' +
-                    '                            <li>' + data.fileName + '</li>\n' +
-                    '                            <li>[' + data.fileSize + ']</li>\n' +
+                    '                            <li>' +  filePaths[i].fileName + '</li>\n' +
+                    '                            <li>[' +  filePaths[i].fileSize + ']</li>\n' +
                     '                        </ul>\n' +
-                    '                    </a>\n' +
-                    '                </div>\n' +
+                    '                    </a>\n' ;
+                }
+                fileHtml +=  '                </div>\n' +
                     '            </div>';
             }
             $('#publicationDetail').empty();
@@ -459,9 +467,14 @@
                                 '                                <a class="link more" style="cursor:pointer" onclick="publicationDetail('+projects[i].id+','+isshare+')"  >more</a>\n';
                         }
 
-                        if (projects[i].project_file) {
-                            publicRight += '                                <a href="' + projects[i].project_file + '"  class="link download " style="display: none;cursor:pointer;"  download=""  >Download</a>\n' +
-                                            '                                <a class="file pdf subtitle"  href="' + projects[i].project_file + '" style="cursor:pointer;" download="" ></a>\n';
+                        if (projects[i].files) {
+                            var fileHtml = "";
+                            var filePaths = projects[i].files;
+                            for(var j in filePaths){
+                                fileHtml += '                                <a href="' + filePaths[j].project_file + '"  class="link download " style="display: none;cursor:pointer;"  download=""  >Download</a>\n' +
+                                            '                                <a class="file '+ filePaths[j].project_file.split('\.')[1]+' subtitle"  href="' + filePaths[j].project_file + '" style="cursor:pointer;" download="" ></a>\n';
+                            }
+                            publicRight+=fileHtml
                          }
                             publicRight +=
                             '                            </li>\n' +

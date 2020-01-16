@@ -1,6 +1,9 @@
 package com.vcl.pojo;
 
 
+import java.util.List;
+import java.util.Map;
+
 public class Project {
 
   private Long id;
@@ -16,6 +19,15 @@ public class Project {
   private String project_file;
   private String fileName;
   private String fileSize;
+  private List<Map> files;
+
+  public List<Map> getFiles() {
+    return files;
+  }
+
+  public void setFiles(List<Map> files) {
+    this.files = files;
+  }
 
   public Project() {
   }

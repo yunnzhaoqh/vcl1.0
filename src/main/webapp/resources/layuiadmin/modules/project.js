@@ -36,15 +36,15 @@ layui.define(['table', 'form'], function (exports) {
                     }
                 }
             },
-            {
-                field: 'project_file', title: '项目文件', minWicth: 200, sort: true, templet: function (res) {
-                    if (res.project_file) {
-                        return '<a download="' + res.fileName + '" href="' + res.project_file +
-                            '" class="layui-btn layui-btn-sm layui-btn-warm"">下载文件</a>';
-                    }
-                    return '';
-                }
-            },
+            // {
+            //     field: 'project_file', title: '项目文件', minWicth: 200, sort: true, templet: function (res) {
+            //         if (res.project_file) {
+            //             return '<a download="' + res.fileName + '" href="' + res.project_file +
+            //                 '" class="layui-btn layui-btn-sm layui-btn-warm"">下载文件</a>';
+            //         }
+            //         return '';
+            //     }
+            // },
             {
                 field: 'status', title: '推荐home', templet: function (res) {
                     var type = res.status;
@@ -138,15 +138,15 @@ layui.define(['table', 'form'], function (exports) {
                     }
                 }
             },
-            {
-                field: 'project_file', title: '项目文件', minWicth: 200, sort: true, templet: function (res) {
-                    if (res.project_file) {
-                        return '<a download="' + res.fileName + '" href="' + res.project_file +
-                            '" class="layui-btn layui-btn-sm layui-btn-warm"">下载文件</a>';
-                    }
-                    return '';
-                }
-            },
+            // {
+            //     field: 'project_file', title: '项目文件', minWicth: 200, sort: true, templet: function (res) {
+            //         if (res.project_file) {
+            //             return '<a download="' + res.fileName + '" href="' + res.project_file +
+            //                 '" class="layui-btn layui-btn-sm layui-btn-warm"">下载文件</a>';
+            //         }
+            //         return '';
+            //     }
+            // },
             {
                 field: 'status', title: '推荐home', templet: function (res) {
                     var type = res.status;

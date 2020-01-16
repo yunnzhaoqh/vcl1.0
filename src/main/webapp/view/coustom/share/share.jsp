@@ -93,6 +93,7 @@
 <script src="/resources/layuiadmin/layui/layui.js"></script>
 <script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 <script type="text/javascript">
+    var imgSrcs='';
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
@@ -244,8 +245,11 @@
             },
             done: function(res){
                 layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
-                $(this.item).prev("div").children("input").val(res.src);
-                $(this.item).prev("div").children("a").attr('href',res.src).attr('download',res.fileName).show();
+                $(this.item).prev("div").children("input").val(imgSrcs);
+                $(this.item).prev("div").append('<span><a download="" href="'+res.src+'" class="layui-btn layui-btn-warm">'+res.fileName+'</a><i class="fa fa-trash-o" onclick="deleteFile(\''+res.src+'\',this)"></i></span>');
+
+                // $(this.item).prev("div").children("input").val(res.src);
+                // $(this.item).prev("div").children("a").attr('href',res.src).attr('download',res.fileName).show();
                 $('input[name=fileName]').val(res.fileName);
                 $('input[name=fileSize]').val(res.fileSize);
                 layer.msg(res.msg);
@@ -256,6 +260,11 @@
             }
         });
     })
+    function deleteFile(id,th) {
+        $(th).parent().remove();
+        imgSrcs = imgSrcs.toString().replace(id+',','');
+        $('#project_file').val(imgSrcs) ;
+    }
 </script>
 </body>
 </html>

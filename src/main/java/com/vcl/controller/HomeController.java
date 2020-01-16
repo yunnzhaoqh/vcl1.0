@@ -191,7 +191,6 @@ public class HomeController {
                 List<Share> all = shareService.findAll(parameterMap);
                 for (Share share : all) {
                     Project project = new Project(share.getId(),share.getTitle(),share.getReleaseDate(),share.getReleaseDate(),share.getContent(),share.getShareFile());
-                    setFileInfo(project);
                     projects.add(project);
                 }
                 years = shareService.findYears();
@@ -199,11 +198,15 @@ public class HomeController {
                 projects = projectService.findAll(parameterMap);
                 years  = projectService.findYears();;
             }
-
+            List<Project> projectList = new ArrayList<>();
+            for (Project project : projects) {
+//              Project project1 =
+                projectList.add(setFileInfo(project.getProject_file(),project));
+            }
             map.put("type",2);
             List<Banner> banners = bannerService.findAll(map);
 
-            map.put("projects",projects);
+            map.put("projects",projectList);
             map.put("publicYear",years);
             map.put("banner",banners);
             result.setSuccess(true);
@@ -294,39 +297,56 @@ public class HomeController {
         Long id = Long.parseLong(map.get("id").toString());
         Project project = new Project();
         if(map.get("isshare")!= null && map.get("isshare").toString().equals("1")){
-            System.out.println("这是share");
             Share share = shareService.findOne(id);
+            String shareFile = share.getShareFile();
             project = new Project(share.getId(),share.getTitle(),share.getReleaseDate(),share.getReleaseDate(),share.getContent(),share.getShareFile());
         }else {
-            System.out.println("这是publication");
             project = projectService.findOne(id);
         }
-        setFileInfo(project);
+       Project project1= setFileInfo(project.getProject_file(),project);
 
-        return project;
+        return project1;
     }
 
     /**
      * 根据文件相对路径获取文件详细信息
      * @param project
      */
-    public void setFileInfo(Project project){
-        String filePath = (FILE_UPLOAD_PATH+project.getProject_file()).replace("\\", "/");
-        File file = new File(filePath);
+    public Project setFileInfo(String  filePaths, Project project){
+        List<Map> mapList = new ArrayList<>();
+        if(filePaths!= null){
+            String[] filePath = filePaths.split(",");
 
+            for (String s : filePath) {
+                s = (FILE_UPLOAD_PATH+s).replace("\\", "/");
+                File file = new File(s);
+                Map map = new HashMap();
 //        if (file.exists()){
-        final String[] units = new String[]{"B", "KB", "MB", "GB", "TB"};
-        int digitGroups = (int) (Math.log10(file.length()) / Math.log10(1024));
-        if(file.getName()!= null && project.getProject_file()!= null){
-            project.setFileName(file.getName());
-        }else {
-            project.setFileName("无文件");
+                map.put("project_file",s);
+                final String[] units = new String[]{"B", "KB", "MB", "GB", "TB"};
+                int digitGroups = (int) (Math.log10(file.length()) / Math.log10(1024));
+                if(file.getName()!= null){
+                    map.put("fileName",file.getName());
+                }else {
+
+                }
+                if(file.length()>0){
+                    map.put("fileSize",new DecimalFormat("#,##0.#").format(file.length() / Math.pow(1024, digitGroups)) + " " + units[digitGroups]);
+                }else {
+                    map.put("fileSize","0 MB");
+                }
+                mapList.add(map);
+            }
+        }else{
+            Map map = new HashMap();
+            map.put("project_file","");
+            map.put("fileName","无文件");
+            map.put("fileSize","0 MB");
+            mapList.add(map);
         }
-        if(file.length()>0){
-            project.setFileSize(new DecimalFormat("#,##0.#").format(file.length() / Math.pow(1024, digitGroups)) + " " + units[digitGroups]);
-        }else {
-            project.setFileSize("0 MB");
-        }
+        project.setFiles(mapList);
+        return project;
+
     }
     @RequestMapping("/findMediaOne")
     @ResponseBody
