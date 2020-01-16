@@ -125,4 +125,9 @@ public class AdminController {
     public String cropper(){
         return "/coustom/cropper/cropper";
     }
+
+    @RequestMapping("/cropper_img")
+    public String cropper_img(){
+        return "/coustom/cropper/cropper_img";
+    }
 }
