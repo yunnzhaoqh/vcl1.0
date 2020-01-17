@@ -336,10 +336,10 @@
 
         $('#open_cropper').click(function () {
             layer.open({
-                type: 2
-                , title: '剪切图片'
-                , content: '/admin/cropper_img?width=500&height=280'
-                , area: [$(window).width() + 'px', $(window).height() + 'px']
+                type: 2,
+                title: '剪切图片',
+                content: '/admin/cropper_img/#/width=500/height=280',
+                area: [$(window).width() + 'px', $(window).height() + 'px'],
             });
         });
     })
