@@ -97,7 +97,7 @@
                     type: 2
                     , title: '添加项目'
                     , content: '/admin/add_project'
-                    , area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.75 + 'px']
+                    , area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.85 + 'px']
                 //     , btn: ['确定', '取消']
                 //     , yes: function (index, layero) {
                 //         var iframeWindow = window['layui-layer-iframe' + index]
