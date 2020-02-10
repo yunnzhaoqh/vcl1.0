@@ -108,7 +108,7 @@
 <%--        </div>--%>
 <%--    </div>--%>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">开始日期</label>
+        <label class="layui-form-label layui-required">发布日期</label>
         <div class="layui-input-inline">
             <input type="text" name="createtime" class="layui-input" readonly autocomplete="off" lay-verify="required" id="createtime" />
         </div>

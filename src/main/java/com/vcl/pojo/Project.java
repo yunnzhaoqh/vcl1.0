@@ -32,13 +32,15 @@ public class Project {
   public Project() {
   }
 
-  public Project(Long id,String main_title,String share_people, String subtitle, String content, String project_file) {
+  public Project(Long id,String main_title,String share_people, String subtitle, String content,String fileName, String fileSize,String project_file) {
     this.id = id;
     this.main_title = main_title;
     this.subtitle = subtitle;
     this.content = content;
     this.project_file = project_file;
     this.share_people = share_people;
+    this.fileName = fileName;
+    this.fileSize = fileSize;
   }
 
   public String getFileName() {

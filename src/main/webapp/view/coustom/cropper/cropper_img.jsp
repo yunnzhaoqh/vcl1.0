@@ -285,37 +285,111 @@
         var $ = layui.$,
             router = layui.router();
         // cropper图片裁剪
+        var URL = window.URL || window.webkitURL;
         $('[data-toggle="tooltip"]').tooltip();
 
-        $('#inputImage').change(function () {
-            $('#img-container').cropper({
-                aspectRatio : 1 / 1,// 默认比例
-                preview : '.img-preview',// 预览视图
-                guides : false, // 裁剪框的虚线(九宫格)
-                autoCropArea : 0.5, // 0-1之间的数值，定义自动剪裁区域的大小，默认0.8
-                movable : true, // 是否允许移动图片
-                dragCrop : false, // 是否允许移除当前的剪裁框，并通过拖动来新建一个剪裁框区域
-                movable : false, // 是否允许移动剪裁框
-                resizable : false, // 是否允许改变裁剪框的大小
-                zoomable : true, // 是否允许缩放图片大小
-                mouseWheelZoom : true, // 是否允许通过鼠标滚轮来缩放图片
-                touchDragZoom : true, // 是否允许通过触摸移动来缩放图片
-                rotatable : true, // 是否允许旋转图片
-                crop : function(e) {
-                    // 输出结果数据裁剪图像。
-                    var data = e.detail;
+        var cropper;
+        var options;
 
-                    console.log(e.type);
-                    dataX.value = Math.round(data.x);
-                    dataY.value = Math.round(data.y);
-                    dataHeight.value = Math.round(data.height);
-                    dataWidth.value = Math.round(data.width);
-                    dataRotate.value = typeof data.rotate !== 'undefined' ? data.rotate : '';
-                    dataScaleX.value = typeof data.scaleX !== 'undefined' ? data.scaleX : '';
-                    dataScaleY.value = typeof data.scaleY !== 'undefined' ? data.scaleY : '';
+        // $('#inputImage').change(function () {
+            // $('#img-container').cropper({
+            //     aspectRatio : 1 / 1,// 默认比例
+            //     preview : '.img-preview',// 预览视图
+            //     guides : false, // 裁剪框的虚线(九宫格)
+            //     autoCropArea : 0.5, // 0-1之间的数值，定义自动剪裁区域的大小，默认0.8
+            //     movable : true, // 是否允许移动图片
+            //     dragCrop : false, // 是否允许移除当前的剪裁框，并通过拖动来新建一个剪裁框区域
+            //     movable : false, // 是否允许移动剪裁框
+            //     resizable : false, // 是否允许改变裁剪框的大小
+            //     zoomable : true, // 是否允许缩放图片大小
+            //     mouseWheelZoom : true, // 是否允许通过鼠标滚轮来缩放图片
+            //     touchDragZoom : true, // 是否允许通过触摸移动来缩放图片
+            //     rotatable : true, // 是否允许旋转图片
+            //     crop : function(e) {
+            //         // 输出结果数据裁剪图像。
+            //         var data = e.detail;
+            //
+            //         console.log(e.type);
+            //         dataX.value = Math.round(data.x);
+            //         dataY.value = Math.round(data.y);
+            //         dataHeight.value = Math.round(data.height);
+            //         dataWidth.value = Math.round(data.width);
+            //         dataRotate.value = typeof data.rotate !== 'undefined' ? data.rotate : '';
+            //         dataScaleX.value = typeof data.scaleX !== 'undefined' ? data.scaleX : '';
+            //         dataScaleY.value = typeof data.scaleY !== 'undefined' ? data.scaleY : '';
+            //     }
+            // });
+        // });
+
+        if(URL){
+            $('#inputImage').change(function () {
+                options = {
+                    aspectRatio: 1 / 1,
+                    preview: '.img-preview',
+                    preview : '.img-preview',// 预览视图
+                    guides : false, // 裁剪框的虚线(九宫格)
+                    autoCropArea : 0.5, // 0-1之间的数值，定义自动剪裁区域的大小，默认0.8
+                    movable : true, // 是否允许移动图片
+                    dragCrop : false, // 是否允许移除当前的剪裁框，并通过拖动来新建一个剪裁框区域
+                    movable : false, // 是否允许移动剪裁框
+                    resizable : false, // 是否允许改变裁剪框的大小
+                    zoomable : true, // 是否允许缩放图片大小
+                    mouseWheelZoom : true, // 是否允许通过鼠标滚轮来缩放图片
+                    touchDragZoom : true, // 是否允许通过触摸移动来缩放图片
+                    rotatable : true, // 是否允许旋转图片
+                    ready: function (e) {
+                        console.log(e.type);
+                    },
+                    cropstart: function (e) {
+                        console.log(e.type, e.detail.action);
+                    },
+                    cropmove: function (e) {
+                        console.log(e.type, e.detail.action);
+                    },
+                    cropend: function (e) {
+                        console.log(e.type, e.detail.action);
+                    },
+                    crop: function (e) {
+                        var data = e.detail;
+
+                        console.log(e.type);
+                        dataX.value = Math.round(data.x);
+                        dataY.value = Math.round(data.y);
+                        dataHeight.value = Math.round(data.height);
+                        dataWidth.value = Math.round(data.width);
+                        dataRotate.value = typeof data.rotate !== 'undefined' ? data.rotate : '';
+                        dataScaleX.value = typeof data.scaleX !== 'undefined' ? data.scaleX : '';
+                        dataScaleY.value = typeof data.scaleY !== 'undefined' ? data.scaleY : '';
+                    },
+                    zoom: function (e) {
+                        console.log(e.type, e.detail.ratio);
+                    }
+                };
+                cropper = new Cropper(image, options);
+                var files = this.files;
+                var file;
+
+                if (cropper && files && files.length) {
+                    file = files[0];
+
+                    if (/^image\/\w+/.test(file.type)) {
+                        // uploadedImageType = file.type;
+                        // uploadedImageName = file.name;
+                        //
+                        // if (uploadedImageURL) {
+                        //     URL.revokeObjectURL(uploadedImageURL);
+                        // }
+                        //
+                        // image.src = uploadedImageURL = URL.createObjectURL(file);
+                        cropper.destroy();
+                        cropper = new Cropper(image, options);
+                        $('#inputImage').val(null);
+                    } else {
+                        window.alert('Please choose an image file.');
+                    }
                 }
             });
-        });
+        }
     });
 </script>
 </body>

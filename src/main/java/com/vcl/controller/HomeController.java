@@ -190,7 +190,8 @@ public class HomeController {
             if(parameterMap.get("isshare")!= null && parameterMap.get("isshare").toString().equals("1")){
                 List<Share> all = shareService.findAll(parameterMap);
                 for (Share share : all) {
-                    Project project = new Project(share.getId(),share.getTitle(),share.getReleaseDate(),share.getReleaseDate(),share.getContent(),share.getShareFile());
+                    Project project = new Project(share.getId(),share.getTitle(),share.getReleaseDate(),share.getReleaseDate(),share.getContent(),share.getFileName(),share.getFileSize(),share.getShareFile());
+                    project.setBg_img(share.getImg());
                     projects.add(project);
                 }
                 years = shareService.findYears();
@@ -299,7 +300,7 @@ public class HomeController {
         if(map.get("isshare")!= null && map.get("isshare").toString().equals("1")){
             Share share = shareService.findOne(id);
             String shareFile = share.getShareFile();
-            project = new Project(share.getId(),share.getTitle(),share.getReleaseDate(),share.getReleaseDate(),share.getContent(),share.getShareFile());
+            project = new Project(share.getId(),share.getTitle(),share.getReleaseDate(),share.getReleaseDate(),share.getContent(),share.getFileName(),share.getFileSize(),share.getShareFile());
         }else {
             project = projectService.findOne(id);
         }

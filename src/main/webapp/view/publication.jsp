@@ -362,24 +362,25 @@
                 var fileHtml = "";
                 var filePaths = data.files;
                 for(var j in filePaths){
-                    fileHtml += '                                <a href="' + filePaths[j].project_file + '"  class="link download " style="display: none;cursor:pointer;"  download=""  >Download</a>\n' +
-                        '                                <a class="file '+ filePaths[j].project_file.split('\.')[1]+' subtitle"  href="' + filePaths[j].project_file + '" style="cursor:pointer;" download="" ></a>\n';
+                    fileHtml += '                                <a href="' + data.project_file + '"  class="link download " style="display: none;cursor:pointer;"  download=""  >Download</a>\n' +
+                        '                                <a class="file '+ data.project_file.split('\.')[1]+' subtitle"  href="' + data.project_file + '" style="cursor:pointer;" download="" ></a>\n';
                 }
                 fileHtml +=
                     '            <div class="download">\n' +
                     '                <p>Download</p>\n' +
                     '                <div>\n' ;
                 for(var j in filePaths){
-                    '                    <a href="' + filePaths[i]+ '" download="" class="item '+filePaths[j].split('\.')[1]+'">\n' +
+                fileHtml +='                    <a href="' + data.project_file + '" download="" class="item '+filePaths[j].fileName.split('\.')[1]+'">\n' +
                     '                        <ul>\n' +
-                    '                            <li>' +  filePaths[i].fileName + '</li>\n' +
-                    '                            <li>[' +  filePaths[i].fileSize + ']</li>\n' +
+                    '                            <li>' +  filePaths[j].fileName + '</li>\n' +
+                    '                            <li>[' +  filePaths[j].fileSize + ']</li>\n' +
                     '                        </ul>\n' +
                     '                    </a>\n' ;
                 }
                 fileHtml +=  '                </div>\n' +
                     '            </div>';
             }
+            publicationDetail +=fileHtml;
             $('#publicationDetail').empty();
             $('#publicationDetail').append(publicationDetail);
 
@@ -467,12 +468,12 @@
                                 '                                <a class="link more" style="cursor:pointer" onclick="publicationDetail('+projects[i].id+','+isshare+')"  >more</a>\n';
                         }
 
-                        if (projects[i].files) {
+                        if (projects[i].files && projects[i].project_file) {
                             var fileHtml = "";
                             var filePaths = projects[i].files;
                             for(var j in filePaths){
-                                fileHtml += '                                <a href="' + filePaths[j].project_file + '"  class="link download " style="display: none;cursor:pointer;"  download=""  >Download</a>\n' +
-                                            '                                <a class="file '+ filePaths[j].project_file.split('\.')[1]+' subtitle"  href="' + filePaths[j].project_file + '" style="cursor:pointer;" download="" ></a>\n';
+                                fileHtml += '                                <a href="' + projects[i].project_file + '"  class="link download " style="display: none;cursor:pointer;"  download=""  >Download</a>\n' +
+                                            '                                <a class="file '+ projects[i].project_file.split('\.')[1]+' subtitle"  href="' + projects[i].project_file + '" style="cursor:pointer;" download="" ></a>\n';
                             }
                             publicRight+=fileHtml
                          }
