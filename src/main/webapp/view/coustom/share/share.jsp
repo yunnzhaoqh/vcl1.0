@@ -10,6 +10,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="/resources/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/resources/font-awesome-4.7.0/css/font-awesome.min.css">
     <style>
         .layui-form-label.layui-required:after {
             content: "*";
@@ -88,11 +89,13 @@
         </div>
     </div>
 </div>
-
+<script src="/resources/js/jquery-3.4.1.min.js"></script>
 <script src="/resources/layuiadmin/layui/layui.js"></script>
 <script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 <script type="text/javascript">
-    var fileSrcs='';
+    var fileSrcs = '';
+    var fileNames = '';
+    var fileSizes = '';
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
@@ -105,7 +108,7 @@
             element = layui.element;
 
         form.verify({
-            path:[
+            path: [
                 /[\S]+/,
                 "封面不能为空"]
         });
@@ -118,7 +121,7 @@
             trigger: 'click',
         });
 
-        var kindeditor = KindEditor.create('#content',{
+        var kindeditor = KindEditor.create('#content', {
             width: '100%',
             height: $(window).height() - 240,
             resizeType: 0, // 不允许拖动
@@ -133,17 +136,17 @@
 
         var open_type = parent.open_type;
 
-        if(open_type === 'view'){
+        if (open_type === 'view') {
             $('#LAY-share-submit').hide();
             $('#layuiadmin-upload-share').hide();
             $('#layuiadmin-upload-file').hide();
-            init();
-        }else if(open_type === 'update'){
-            init();
+            init(1);
+        } else if (open_type === 'update') {
+            init(2);
         }
 
-        function init(){
-            if(parent.share){
+        function init(index) {
+            if (parent.share) {
                 var data = parent.share;
                 $('#layuiadmin-form-useradmin input').each(function () {
                     var name = $(this).attr('name');
@@ -154,9 +157,26 @@
                     $(this).val(data[name]);
                 });
                 layui.form.render('select');
-                $('#path').attr('src',data.img).show();
-                $('.layui-btn-warm').attr('href',data.shareFile).attr('download',data.fileName).show();
-                if(data.content){
+                $('#path').attr('src', data.img).show();
+                if (data.shareFile) {
+                    fileSrcs = data.shareFile;
+                    fileNames = data.fileName;
+                    fileSizes = data.fileSize;
+                    var files = data.shareFile.split(',');
+                    var names = data.fileName.split(',');
+                    $('#layuiadmin-upload-file').prev("div").children("input").val(fileSrcs);
+                    for (var i = 0; i < files.length; i++) {
+                        if (files[i]) {
+                            $('#layuiadmin-upload-file').prev("div").append(
+                                '<span>' +
+                                '   <a download="" href="' + files[i] + '" class="layui-btn layui-btn-warm">' + names[i] + '</a>' +
+                                (index == 2 ? '<i class="fa fa-trash-o" onclick="deleteFile(\'' + files[i] + '\',this)"></i>' : '') +
+                                '</span>'
+                            );
+                        }
+                    }
+                }
+                if (data.content) {
                     kindeditor.html(data.content);
                 }
             }
@@ -166,7 +186,7 @@
             var field = data.field; //获取提交的字段
             field.content = kindeditor.html();
             var url = '/share/add';
-            if(open_type === 'update'){
+            if (open_type === 'update') {
                 url = '/share/update';
             }
 
@@ -178,7 +198,7 @@
                 async: false,
                 type: 'post',
                 success: function (data) {
-                    if(data.success){
+                    if (data.success) {
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layui.table.reload('LAY-share-manage'); //数据刷新
                         parent.layer.close(index);
@@ -191,28 +211,28 @@
         upload.render({
             elem: '#layuiadmin-upload-share',
             url: '/user/upload_file',
-            auto:true,//是否自动上传
+            auto: true,//是否自动上传
             accept: 'images',
             method: 'post',
-            multiple:false,//支持多文件上传,
+            multiple: false,//支持多文件上传,
             acceptMime: 'image/*',
-            progress: function(n){
+            progress: function (n) {
                 var percent = n + '%' //获取进度百分比
                 $('.layui-progress').show();
                 element.progress('progress', percent); //可配合 layui 进度条元素使用
-                if(percent == '100%'){
+                if (percent == '100%') {
                     $('.layui-progress').hide();
                 }
             },
-            before: function(obj){
-                this.data={"dirpath": 'share\\bg_img'}//携带额外的数据
+            before: function (obj) {
+                this.data = {"dirpath": 'share\\bg_img'}//携带额外的数据
                 var index = layer.load(); //开始上传之后打开load层
                 $("#hidden_tmp_index").val(index);//将load层的index隐藏到页面中
             },
-            done: function(res){
+            done: function (res) {
                 layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
                 $(this.item).prev("div").children("input").val(res.src);
-                $('#path').attr('src',res.src).show();
+                $('#path').attr('src', res.src).show();
                 layer.msg(res.msg);
             },
             error: function () {
@@ -224,34 +244,36 @@
         upload.render({
             elem: '#layuiadmin-upload-file',
             url: '/user/upload_file',
-            auto:true,//是否自动上传
+            auto: true,//是否自动上传
             accept: 'file',
             // exts: 'pdf',
             method: 'post',
-            multiple:false,//支持多文件上传,
-            before: function(obj){
-                this.data={"dirpath": 'share\\file'}//携带额外的数据
+            multiple: false,//支持多文件上传,
+            before: function (obj) {
+                this.data = {"dirpath": 'share\\file'}//携带额外的数据
                 var index = layer.load(); //开始上传之后打开load层
                 $("#hidden_tmp_index").val(index);//将load层的index隐藏到页面中
             },
-            progress: function(n){
+            progress: function (n) {
                 var percent = n + '%' //获取进度百分比
                 $('.progress_file').show();
                 element.progress('progress_file', percent); //可配合 layui 进度条元素使用
-                if(percent == '100%'){
+                if (percent == '100%') {
                     $('.progress_file').hide();
                 }
             },
-            done: function(res){
+            done: function (res) {
                 layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
-                fileSrcs +=res.src;
+                fileSrcs += res.src + ',';
+                fileNames += res.fileName + ',';
+                fileSizes += res.fileSize + ',';
                 $(this.item).prev("div").children("input").val(fileSrcs);
-                $(this.item).prev("div").append('<span><a download="" href="'+res.src+'" class="layui-btn layui-btn-warm">'+res.fileName+'</a><i class="fa fa-trash-o" onclick="deleteFile(\''+res.src+'\',this)"></i></span>');
+                $(this.item).prev("div").append('<span><a download="' + res.fileName + '" href="' + res.src + '" class="layui-btn layui-btn-warm">' + res.fileName + '</a><i class="fa fa-trash-o" onclick="deleteFile(\'' + res.src + '\',this)"></i></span>');
 
                 // $(this.item).prev("div").children("input").val(res.src);
                 // $(this.item).prev("div").children("a").attr('href',res.src).attr('download',res.fileName).show();
-                $('input[name=fileName]').val(res.fileName);
-                $('input[name=fileSize]').val(res.fileSize);
+                $('input[name=fileName]').val(fileNames);
+                $('input[name=fileSize]').val(fileSizes);
                 layer.msg(res.msg);
             },
             error: function () {
@@ -259,11 +281,24 @@
                 layer.msg("上传失败，重新上传")
             }
         });
-    })
-    function deleteFile(id,th) {
+    });
+
+    function deleteFile(id, th) {
         $(th).parent().remove();
-        fileSrcs = fileSrcs.toString().replace(id+',','');
-        $('#project_file').val(fileSrcs) ;
+        // fileSrcs = fileSrcs.toString().replace(id+',','');
+        var files = fileSrcs.split(',');
+        var names = fileNames.split(',');
+        var sizes = fileSizes.split(',');
+        var index = files.findIndex(item => item === id);
+        files.splice(index, 1);
+        names.splice(index, 1);
+        sizes.splice(index, 1);
+        fileSrcs = files.join(',');
+        fileNames = names.join(',');
+        fileSizes = sizes.join(',');
+        $('#project_file').val(fileSrcs);
+        $('input[name=fileName]').val(fileNames);
+        $('input[name=fileSize]').val(fileSizes);
     }
 </script>
 </body>

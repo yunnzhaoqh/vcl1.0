@@ -180,7 +180,7 @@
                         </dl>
                     </li>
                     <li data-name="carousel" class="layui-nav-item">
-                        <a lay-href="javascript:;" lay-tips="Banner" lay-direction="2">
+                        <a href="javascript:;" lay-tips="应用" lay-direction="2">
                             <i class="layui-icon layui-icon-carousel"></i>
                             <cite>Banner</cite>
                         </a>

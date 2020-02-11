@@ -90,7 +90,7 @@
         <label class="layui-form-label">项目文件</label>
         <div class="layui-input-inline" style="width: auto;">
             <input type="hidden" name="project_file" id="project_file" lay-verify="file" autocomplete="off" class="layui-input" >
-            <%--<a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>--%>
+<%--            <a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>--%>
         </div>
         <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-file">上传文件</button>
         <div class="layui-progress progress_file" lay-filter="progress_file" lay-showPercent="true" style="display: none;">
@@ -142,7 +142,9 @@
 <script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 
 <script type="text/javascript">
-    var imgSrcs='';
+    var fileSrcs='';
+    var fileNames = '';
+    var fileSizes = '';
     layui.config({
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
@@ -219,7 +221,25 @@
                 });
                 layui.form.render('select');
                 $('#path').attr('src',data.bg_img).show();
-                $('.layui-btn-warm').attr('href',data.project_file).attr('download',data.fileName).show();
+                // $('.layui-btn-warm').attr('href',data.project_file).attr('download',data.fileName).show();
+                if(data.project_file){
+                    fileSrcs = data.project_file;
+                    fileNames = data.fileName;
+                    fileSizes = data.fileSize;
+                    var files = data.project_file.split(',');
+                    var names = data.fileName.split(',');
+                    $('#layuiadmin-upload-file').prev("div").children("input").val(fileSrcs);
+                    for(var i = 0; i < files.length; i++){
+                        if(files[i]){
+                            $('#layuiadmin-upload-file').prev("div").append(
+                                '<span>' +
+                                '   <a download="" href="'+ files[i] + '" class="layui-btn layui-btn-warm">'+ names[i] + '</a>' +
+                                (index == 2 ? '<i class="fa fa-trash-o" onclick="deleteFile(\''+files[i]+'\',this)"></i>' : '') +
+                                '</span>'
+                            );
+                        }
+                    }
+                }
                 if(data.content){
                     kindeditor.html(data.content);
                     // layedit.setContent(editindex, data.content);
@@ -320,12 +340,14 @@
             },
             done: function(res){
                 layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
-                imgSrcs+=res.src+','
+                fileSrcs+=res.src+',';
+                fileNames += res.fileName + ',';
+                fileSizes += res.fileSize + ',';
 
-                $(this.item).prev("div").children("input").val(imgSrcs);
-                $(this.item).prev("div").append('<span><a download="" href="'+res.src+'" class="layui-btn layui-btn-warm">'+res.fileName+'</a><i class="fa fa-trash-o" onclick="deleteFile(\''+res.src+'\',this)"></i></span>');
-                $('input[name=fileName]').val(res.fileName);
-                $('input[name=fileSize]').val(res.fileSize);
+                $(this.item).prev("div").children("input").val(fileSrcs);
+                $(this.item).prev("div").append('<span><a download="'+res.fileName+'" href="'+res.src+'" class="layui-btn layui-btn-warm">'+res.fileName+'</a><i class="fa fa-trash-o" onclick="deleteFile(\''+res.src+'\',this)"></i></span>');
+                $('input[name=fileName]').val(fileNames);
+                $('input[name=fileSize]').val(fileSizes);
                 layer.msg(res.msg);
             },
             error: function () {
@@ -345,8 +367,20 @@
     })
     function deleteFile(id,th) {
         $(th).parent().remove();
-        imgSrcs = imgSrcs.toString().replace(id+',','');
-        $('#project_file').val(imgSrcs) ;
+        // fileSrcs = fileSrcs.toString().replace(id+',','');
+        var files = fileSrcs.split(',');
+        var names = fileNames.split(',');
+        var sizes = fileSizes.split(',');
+        var index = files.findIndex(item => item === id);
+        files.splice(index,1);
+        names.splice(index,1);
+        sizes.splice(index,1);
+        fileSrcs = files.join(',');
+        fileNames = names.join(',');
+        fileSizes = sizes.join(',');
+        $('#project_file').val(fileSrcs) ;
+        $('input[name=fileName]').val(fileNames);
+        $('input[name=fileSize]').val(fileSizes);
     }
 </script>
 </body>
