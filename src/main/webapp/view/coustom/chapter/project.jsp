@@ -80,8 +80,8 @@
             <img src="" id="path" width="100%" height="100%" style="display: none">
             <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-project">上传图片</button><span>建议尺寸：500px * 280px</span>
-<%--        <button style="float: left;" type="button" class="layui-btn" id="open_cropper">上传图片</button><span>建议尺寸：500px * 280px</span>--%>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-project">上传图片</button><span>建议尺寸：500px * 280px</span>--%>
+        <button style="float: left;" type="button" class="layui-btn" id="open_cropper">上传图片</button><span>建议尺寸：500px * 280px</span>
         <div class="layui-progress progress_img" lay-filter="progress_img" lay-showPercent="true" style="display: none;">
             <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
         </div>
@@ -199,6 +199,7 @@
 
         if(open_type === 'view'){
             $('#LAY-project-submit').hide();
+            $('#open_cropper').hide();
             init(1);
         }else if(open_type === 'update'){
             init(2)
@@ -208,6 +209,7 @@
             if(index == 1){
                 $('#layuiadmin-upload-project').hide();
                 $('#layuiadmin-upload-file').hide();
+                $('#open_cropper').hide();
             }
             if(parent.project){
                 var data = parent.project;
@@ -360,7 +362,7 @@
             layer.open({
                 type: 2,
                 title: '剪切图片',
-                content: '/admin/cropper_img/#/width=500/height=280',
+                content: '/admin/cropper_img/#/width=500/height=280/type=project',
                 area: [$(window).width() + 'px', $(window).height() + 'px'],
             });
         });

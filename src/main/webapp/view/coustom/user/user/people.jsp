@@ -78,7 +78,8 @@
             <input type="hidden" name="path" lay-verify="path" placeholder="请上传图片" autocomplete="off"
                    class="layui-input">
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button><span>建议尺寸：270px * 325px</span>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-useradmin">上传图片</button><span>建议尺寸：270px * 325px</span>--%>
+        <button style="float: left;" type="button" class="layui-btn" id="open_cropper">上传图片</button><span>建议尺寸：270px * 325px</span>
         <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
             <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
         </div>
@@ -106,7 +107,7 @@
     <div class="layui-form-item layui-hide">
         <input type="button" lay-submit lay-filter="LAY-user-front-submit" id="LAY-user-front-submit" value="确认">
     </div>
-
+    <script src="/resources/js/jquery-3.4.1.min.js"></script>
     <script src="/resources/layuiadmin/layui/layui.js"></script>
     <script type="text/javascript">
         layui.config({
@@ -175,6 +176,15 @@
                     layer.close(layer.index);
                     layer.msg("上传失败，重新上传")
                 }
+            });
+
+            $('#open_cropper').click(function () {
+                layer.open({
+                    type: 2,
+                    title: '剪切图片',
+                    content: '/admin/cropper_img/#/width=480/height=360/type=media',
+                    area: [$(window).width() + 'px', $(window).height() + 'px'],
+                });
             });
         })
     </script>

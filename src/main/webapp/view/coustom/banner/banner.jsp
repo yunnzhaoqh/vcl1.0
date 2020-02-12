@@ -81,7 +81,8 @@
             <img src="" id="path" width="100%" height="100%" style="display: none">
             <input type="hidden" name="bannerImg" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-banner">上传轮播图</button><span>建议尺寸：1600px * 690px</span>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-banner">上传轮播图</button><span>建议尺寸：1600px * 690px</span>--%>
+        <button style="float: left;" type="button" class="layui-btn" id="open_cropper">上传图片</button><span>建议尺寸：1600px * 690px</span>
         <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
             <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
         </div>
@@ -103,7 +104,7 @@
         </div>
     </div>
 </div>
-
+<script src="/resources/js/jquery-3.4.1.min.js"></script>
 <script src="/resources/layuiadmin/layui/layui.js"></script>
 <script type="text/javascript">
     layui.config({
@@ -143,6 +144,7 @@
         if(open_type === 'view'){
             $('#LAY-banner-submit').hide();
             $('#layuiadmin-upload-banner').hide();
+            $('#open_cropper').hide();
             init();
         }else if(open_type === 'update'){
             init()
@@ -222,6 +224,15 @@
                 layer.close(layer.index);
                 layer.msg("上传失败，重新上传")
             }
+        });
+
+        $('#open_cropper').click(function () {
+            layer.open({
+                type: 2,
+                title: '剪切图片',
+                content: '/admin/cropper_img/#/width=1600/height=960/type=banner',
+                area: [$(window).width() + 'px', $(window).height() + 'px'],
+            });
         });
     })
 </script>

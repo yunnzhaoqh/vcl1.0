@@ -5,6 +5,7 @@ import com.vcl.pojo.Result;
 import com.vcl.pojo.User;
 import com.vcl.service.UserService;
 import com.vcl.utils.RequestUtil;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,10 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -235,6 +234,62 @@ public class UserController {
             map.put("message","出现错误");
         }finally {
             return map;
+        }
+
+    }
+
+    /**
+     * project 截图上传base64转为图片
+     * @return
+     */
+    @RequestMapping("/uploadbase64")
+    @ResponseBody
+    public Map base64Upload(HttpServletRequest request){
+        Map map = RequestUtil.getMap(request);
+        Map resultMap = new HashMap();
+        if(StringUtils.isEmpty(map.get("filetype")) || map.get("filetype").toString().indexOf("image") < 0){
+            resultMap.put("code","-1");
+            resultMap.put("message","图片格式不正确");
+            return resultMap;
+        }
+        if(StringUtils.isEmpty(map.get("filecode"))){
+            resultMap.put("code","-1");
+            resultMap.put("message","上传图片不能为空");
+            return resultMap;
+        }
+        OutputStream out = null;
+        Base64.Decoder decoder = Base64.getDecoder();
+        byte[] filecode = decoder.decode(map.get("filecode").toString().substring(map.get("filecode").toString().indexOf(',') + 1));
+        for (int i = 0; i < filecode.length; ++i) {
+            if (filecode[i] < 0) {// 调整异常数据
+                filecode[i] += 256;
+            }
+        }
+        String resultpath = "\\upload\\" + map.get("dirpath") + "\\";
+        String filepath = FILE_UPLOAD_PATH + resultpath;
+        File newFile = new File(filepath);
+        if(!newFile.exists()){
+            newFile.mkdirs();
+        }
+        try {
+            String prefix =FilenameUtils.getExtension(map.get("filename").toString());
+            String fileStr = UUID.randomUUID().toString();
+            out = new FileOutputStream(filepath + fileStr + "." + prefix);
+            out.write(filecode);
+            resultMap.put("code",0);
+            resultMap.put("src", resultpath + fileStr + "." + prefix);
+            resultMap.put("message","上传成功");
+            if(out != null){
+                out.flush();
+                out.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            resultMap.put("code",-2);
+            resultMap.put("message","上传失败");
+        } finally {
+
+            return resultMap;
         }
 
     }

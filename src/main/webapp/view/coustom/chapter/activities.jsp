@@ -64,7 +64,8 @@
             <img src="" id="path" width="100%" height="100%" style="display: none">
             <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-project">上传图片 </button><span>(建议尺寸：215px * 145px)</span>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-project">上传图片 </button><span>(建议尺寸：215px * 145px)</span>--%>
+        <button style="float: left;" type="button" class="layui-btn" id="open_cropper">上传图片</button><span>建议尺寸：215px * 145px</span>
         <div class="layui-progress progress_img" lay-filter="progress_img" lay-showPercent="true" style="display: none;">
             <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
         </div>
@@ -113,7 +114,7 @@
         </div>
     </div>
 </div>
-
+<script src="/resources/js/jquery-3.4.1.min.js"></script>
 <script src="/resources/layuiadmin/layui/layui.js"></script>
 <script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 <script type="text/javascript">
@@ -151,6 +152,7 @@
 
         if(open_type === 'view'){
             $('#LAY-activities-submit').hide();
+            $('#open_cropper').hide();
             init(1);
         }else if(open_type === 'update'){
             init(2)
@@ -160,6 +162,7 @@
             if(index == 1){
                 $('#layuiadmin-upload-project').hide();
                 $('#layuiadmin-upload-file').hide();
+                $('#open_cropper').hide();
             }
             if(parent.project){
                 var data = parent.project;
@@ -275,6 +278,15 @@
                 layer.close(layer.index);
                 layer.msg("上传失败，重新上传")
             }
+        });
+
+        $('#open_cropper').click(function () {
+            layer.open({
+                type: 2,
+                title: '剪切图片',
+                content: '/admin/cropper_img/#/width=215/height=145/type=activities',
+                area: [$(window).width() + 'px', $(window).height() + 'px'],
+            });
         });
     })
     function deleteFile(id,th) {

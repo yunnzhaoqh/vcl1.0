@@ -72,12 +72,12 @@
                         </button>
                     </div>
                     <div class="btn-group btn-group-crop">
-                        <button type="button" class="btn btn-success" data-method="getCroppedCanvas"
+                        <button type="button" id="upload_image" class="btn btn-success" data-method="getCroppedCanvas"
                                 data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
-                    <span class="docs-tooltip" data-toggle="tooltip"
-                          title="确认上传">
-                      确认上传
-                    </span>
+                            <span class="docs-tooltip" data-toggle="tooltip"
+                                  title="确认上传">
+                              确认上传
+                            </span>
                         </button>
                     </div>
 
@@ -118,7 +118,7 @@
                     <span class="input-group-prepend">
                         <label class="input-group-text" for="dataWidth">截图宽度</label>
                     </span>
-                    <input type="text" class="form-control" id="dataWidth" placeholder="实际宽度">
+                    <input type="text" class="form-control" id="dataWidth" placeholder="实际宽度" readonly>
                     <span class="input-group-append">
                     <span class="input-group-text">px</span>
                 </span>
@@ -127,7 +127,7 @@
                     <span class="input-group-prepend">
                         <label class="input-group-text" for="dataHeight">截图高度</label>
                     </span>
-                    <input type="text" class="form-control" id="dataHeight" placeholder="实际高度">
+                    <input type="text" class="form-control" id="dataHeight" placeholder="实际高度" readonly>
                     <span class="input-group-append">
                         <span class="input-group-text">px</span>
                     </span>
@@ -136,16 +136,22 @@
                     <span class="input-group-prepend">
                       <label class="input-group-text" for="dataRotate">旋转幅度</label>
                     </span>
-                    <input type="text" class="form-control" id="dataRotate" placeholder="旋转幅度">
+                    <input type="text" class="form-control" id="dataRotate" placeholder="旋转幅度" readonly>
                     <span class="input-group-append">
                         <span class="input-group-text">deg</span>
+                    </span>
+                </div>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-prepend">
+                      <label class="input-group-text" for="dataRotate">调整图片位置，直接截图即可</label>
                     </span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="/resources/js/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+<%--<script src="/resources/js/jquery-3.4.1.min.js"></script>--%>
+<%--<script src="/resources/js/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>--%>
 <script src="/resources/js/bootstrap.bundle.js"></script>
 <script src="/resources/cropper/cropper.js"></script>
 <script src="/resources/layuiadmin/layui/layui.js"></script>
@@ -158,13 +164,11 @@
         var $ = layui.$,
             router = layui.router();
         // cropper图片裁剪
-        var cropper;
         var options;
+        var cropper;
         var Cropper = window.Cropper;
         var URL = window.URL || window.webkitURL;
         var image = $('.img-container img')[0];
-        var download = $('#download');
-        var actions = $('#actions');
         var dataHeight = $('#dataHeight');
         var dataWidth = $('#dataWidth');
         var dataRotate = $('#dataRotate');
@@ -174,7 +178,7 @@
         var uploadedImageURL;
         var width = router.search.width;
         var height = router.search.height;
-        $('[data-toggle="tooltip"]').tooltip();
+        // $('[data-toggle="tooltip"]').tooltip();
 
         if(URL){
             $('#inputImage').change(function () {
@@ -192,6 +196,7 @@
                         console.log(e.type);
                         //设置裁剪框大小
                         cropper.setCropBoxData({width: width + 'px',height: height + 'px'});
+                        // cropper.setData({width: width,height: height});
                     },
                     cropstart: function (e) {
                         console.log(e.type, e.detail.action);
@@ -270,7 +275,45 @@
                 cropper.enable();
             }
         });
+
+        $('.btn-success').click(function () {
+            if(cropper){
+                var filecode = cropper.getCroppedCanvas(
+                    {
+                        width: width,
+                        height: height,
+                        minWidth: width,
+                        minHeight: height,
+                        maxWidth: width,
+                        maxHeight: height,
+                        fillColor: '#fff',
+                        imageSmoothingEnabled: false,
+                        imageSmoothingQuality: 'high',
+                    }
+                ).toDataURL(uploadedImageType);
+                console.log(filecode);
+                $.ajax({
+                    url: '/user/uploadbase64',
+                    data: {filecode: filecode, dirpath: router.search.type + '\\bg_img', filename: uploadedImageName, filetype: uploadedImageType},
+                    dataType :'json',
+                    type:'post',
+                    success: function (data) {
+                        if(data.code == 0){
+                            parent.$('#open_cropper').prev('div').children('input').val(data.src);
+                            parent.$('#path').attr('src',data.src).show();
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                            parent.layer.msg(data.message);
+                        }else{
+                            layer.msg(data.message);
+                        }
+                    }
+                });
+            }
+        });
     });
+
+
 </script>
 </body>
 </html>

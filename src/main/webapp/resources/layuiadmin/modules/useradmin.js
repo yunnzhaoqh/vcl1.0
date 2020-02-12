@@ -97,7 +97,7 @@ layui.define(['table', 'form'], function (exports) {
                 , title: '编辑用户'
                 , content: '/people/add_people'
                 , maxmin: true
-                , area: ['500px', '450px']
+                , area: [$(window).width() * 0.75 + 'px', $(window).height() * 0.75 + 'px']
                 , btn: ['确定', '取消']
                 , yes: function (index, layero) {
                     var iframeWindow = window['layui-layer-iframe' + index]

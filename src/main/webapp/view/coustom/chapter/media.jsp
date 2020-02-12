@@ -47,7 +47,8 @@
             <img src="" id="path" width="100%" height="100%" style="display: none">
             <input type="hidden" name="img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
         </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-media">上传图片</button> <span>建议尺寸：480px * 360px</span>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-media">上传图片</button> <span>建议尺寸：480px * 360px</span>--%>
+        <button style="float: left;" type="button" class="layui-btn" id="open_cropper">上传图片</button><span>建议尺寸：480px * 360px</span>
         <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
             <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
         </div>
@@ -76,7 +77,7 @@
         </div>
     </div>
 </div>
-
+<script src="/resources/js/jquery-3.4.1.min.js"></script>
 <script src="/resources/layuiadmin/layui/layui.js"></script>
 <script src="/resources/kindeditor/kindeditor-all-min.js"></script>
 <script type="text/javascript">
@@ -122,6 +123,7 @@
 
         if(open_type === 'view'){
             $('#LAY-media-submit').hide();
+            $('#open_cropper').hide();
             init();
         }else if(open_type === 'update'){
             init();
@@ -203,6 +205,15 @@
                 layer.close(layer.index);
                 layer.msg("上传失败，重新上传")
             }
+        });
+
+        $('#open_cropper').click(function () {
+            layer.open({
+                type: 2,
+                title: '剪切图片',
+                content: '/admin/cropper_img/#/width=480/height=360/type=media',
+                area: [$(window).width() + 'px', $(window).height() + 'px'],
+            });
         });
     })
 </script>
