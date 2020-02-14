@@ -29,16 +29,16 @@
                         <input type="text" name="peopleName" placeholder="请输入" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">推荐home</label>
-                    <div class="layui-input-block">
-                        <select name="status">
-                            <option value="">不限</option>
-                            <option value="2">推荐</option>
-                            <option value="1">不推荐</option>
-                        </select>
-                    </div>
-                </div>
+<%--                <div class="layui-inline">--%>
+<%--                    <label class="layui-form-label">推荐home</label>--%>
+<%--                    <div class="layui-input-block">--%>
+<%--                        <select name="status">--%>
+<%--                            <option value="">不限</option>--%>
+<%--                            <option value="2">推荐</option>--%>
+<%--                            <option value="1">不推荐</option>--%>
+<%--                        </select>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
                 <div class="layui-inline">
                     <button class="layui-btn layuiadmin-btn-admin" lay-submit lay-filter="LAY-courses-search">
                         <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>

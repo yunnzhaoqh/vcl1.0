@@ -38,9 +38,11 @@
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">指导教授</label>
         <div class="layui-input-inline">
-            <select name="peopleId" lay-verify="required" lay-verify="">
+            <input type="text" name="peopleName" lay-verify="required" placeholder="请输入指导教授" autocomplete="off"
+                   class="layui-input">
+<%--            <select name="peopleId" lay-verify="required" lay-verify="">--%>
 
-            </select>
+<%--            </select>--%>
         </div>
     </div>
     <div class="layui-form-item">
@@ -49,23 +51,23 @@
             <input name="starttime" class="layui-input" readonly lay-verify="required" id="starttime" />
         </div>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">结束日期</label>
-        <div class="layui-input-inline">
-            <input name="endtime" class="layui-input" readonly lay-verify="required" id="endtime" />
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">封面</label>
-        <div class="layui-input-inline">
-            <img src="" id="path" width="100%" height="100%" style="display: none">
-            <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
-        </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-courses">上传图片</button>
-        <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
-            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
-        </div>
-    </div>
+<%--    <div class="layui-form-item">--%>
+<%--        <label class="layui-form-label layui-required">结束日期</label>--%>
+<%--        <div class="layui-input-inline">--%>
+<%--            <input name="endtime" class="layui-input" readonly lay-verify="required" id="endtime" />--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--    <div class="layui-form-item">--%>
+<%--        <label class="layui-form-label layui-required">封面</label>--%>
+<%--        <div class="layui-input-inline">--%>
+<%--            <img src="" id="path" width="100%" height="100%" style="display: none">--%>
+<%--            <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >--%>
+<%--        </div>--%>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-courses">上传图片</button>--%>
+<%--        <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">--%>
+<%--            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
     <%--<div class="layui-form-item">--%>
         <%--<label class="layui-form-label layui-required">推荐home</label>--%>
         <%--<div class="layui-input-inline">--%>
@@ -104,11 +106,11 @@
             upload = layui.upload,
             element = layui.element;
 
-        form.verify({
-            path:[
-                /[\S]+/,
-                "请上传封面"]
-        })
+        // form.verify({
+        //     path:[
+        //         /[\S]+/,
+        //         "请上传封面"]
+        // })
 
         var start = laydate.render({
             elem: '#starttime', //id为star的输入框
@@ -156,16 +158,16 @@
             }
         });
 
-        function init_people(value){
-            $.post('/people/query_professor',{},function (data) {
-                var html = '';
-                for(var i = 0; i < data.length; i++){
-                    html += '<option value="'+ data[i].id +'">'+ data[i].name +'</option>'
-                }
-                $('select[name=peopleId]').append(html).val(value);
-                layui.form.render('select');
-            },'json');
-        }
+        // function init_people(value){
+        //     $.post('/people/query_professor',{},function (data) {
+        //         var html = '';
+        //         for(var i = 0; i < data.length; i++){
+        //             html += '<option value="'+ data[i].id +'">'+ data[i].name +'</option>'
+        //         }
+        //         $('select[name=peopleId]').append(html).val(value);
+        //         layui.form.render('select');
+        //     },'json');
+        // }
 
         $('#LAY-courses-close').click(function () {
             var index = parent.layer.getFrameIndex(window.name);
@@ -180,8 +182,8 @@
             init(1);
         }else if(open_type === 'update'){
             init(2)
-        }else{
-            init_people('');
+        // }else{
+        //     init_people('');
         }
 
         function init(index){
@@ -194,15 +196,15 @@
                     var name = $(this).attr('name');
                     $(this).val(data[name]);
                 });
-                $('#layuiadmin-form-useradmin select').each(function () {
-                    var name = $(this).attr('name');
-                    $(this).val(data[name]);
-                    if(name == 'peopleId'){
-                        init_people(data[name]);
-                    }
-                });
+                // $('#layuiadmin-form-useradmin select').each(function () {
+                //     var name = $(this).attr('name');
+                //     $(this).val(data[name]);
+                //     if(name == 'peopleId'){
+                //         init_people(data[name]);
+                //     }
+                // });
                 layui.form.render(this);
-                $('#path').attr('src',data.bg_img).show();
+                // $('#path').attr('src',data.bg_img).show();
                 if(data.content){
                     kindeditor.html(data.content);
                 }

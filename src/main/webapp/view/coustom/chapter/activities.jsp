@@ -44,13 +44,20 @@
                    class="layui-input">
         </div>
     </div>
-    <div class="layui-form-item layer-width">
-        <label class="layui-form-label layui-required">作者</label>
-        <div class="layui-input-block">
-            <input type="text" name="share_people" lay-verify="required" placeholder="请输入作者" autocomplete="off"
-                   class="layui-input">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-required">发布日期</label>
+        <div class="layui-input-inline">
+            <input name="createtime" class="layui-input" readonly lay-verify="required" id="createtime" />
         </div>
     </div>
+<%--    <div class="layui-form-item layer-width">--%>
+<%--        <label class="layui-form-label layui-required">作者</label>--%>
+<%--        <div class="layui-input-block">--%>
+<%--            <input type="text" name="share_people" lay-verify="required" placeholder="请输入作者" autocomplete="off"--%>
+<%--                   class="layui-input">--%>
+<%--        </div>--%>
+<%--    </div>--%>
 <%--    <div class="layui-form-item layer-width">--%>
 <%--        <label class="layui-form-label layui-required">参与学校</label>--%>
 <%--        <div class="layui-input-block">--%>
@@ -70,17 +77,17 @@
             <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
         </div>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">项目文件</label>
-        <div class="layui-input-inline" style="width: auto;">
-            <input type="hidden" name="project_file" lay-verify="file" placeholder="请上传文件" autocomplete="off" class="layui-input" >
-            <a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>
-        </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-file">上传文件</button>
-        <div class="layui-progress progress_file" lay-filter="progress_file" lay-showPercent="true" style="display: none;">
-            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
-        </div>
-    </div>
+<%--    <div class="layui-form-item">--%>
+<%--        <label class="layui-form-label layui-required">项目文件</label>--%>
+<%--        <div class="layui-input-inline" style="width: auto;">--%>
+<%--            <input type="hidden" name="project_file" lay-verify="file" placeholder="请上传文件" autocomplete="off" class="layui-input" >--%>
+<%--            <a download="" href="" class="layui-btn layui-btn-warm" style="display: none;">下载文件</a>--%>
+<%--        </div>--%>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-file">上传文件</button>--%>
+<%--        <div class="layui-progress progress_file" lay-filter="progress_file" lay-showPercent="true" style="display: none;">--%>
+<%--            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">活动类型</label>
         <div class="layui-input-inline">
@@ -98,13 +105,16 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">推荐home</label>
-        <div class="layui-input-inline">
-            <select name="status" lay-verify="required">
-                <option value="0">暂存（不在前端显示）</option>
-                <option value="1">不推荐</option>
-                <option value="2">推荐</option>
-            </select>
+        <label class="layui-form-label layui-required">发布状态</label>
+        <div class="layui-input-block">
+<%--            <select name="status" lay-verify="required">--%>
+<%--                <option value="0">暂存（不在前端显示）</option>--%>
+<%--                <option value="1">不推荐</option>--%>
+<%--                <option value="2">推荐</option>--%>
+<%--            </select>--%>
+            <input type="radio" name="status" value="0" title="暂存（不在前端显示）" checked>
+            <input type="radio" name="status" value="1" title="不推荐">
+            <input type="radio" name="status" value="2" title="推荐">
         </div>
     </div>
     <div class="layui-form-item">
@@ -123,16 +133,28 @@
         base: '/resources/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
-    }).use(['index', 'form', 'layedit', 'table', 'element', 'upload'], function () {
+    }).use(['index', 'form', 'layedit', 'table', 'element', 'upload', 'laydate'], function () {
         var $ = layui.$,
             form = layui.form,
             upload = layui.upload,
-            element = layui.element;
+            element = layui.element,
+            laydate = layui.laydate;
 
         form.verify({
             path:[
                 /[\S]+/,
                 "请上传封面"]
+        });
+
+        var start = laydate.render({
+            elem: '#createtime', //id为star的输入框
+            type: 'date',
+            min: '',
+            max: '2099-06-16 23:59:59', //最大日期
+            istime: true,
+            istoday: false,
+            done: function(value,date){
+            }
         });
 
         var kindeditor = KindEditor.create('#content',{
@@ -168,18 +190,22 @@
                 var data = parent.project;
                 $('#layuiadmin-form-useradmin input').each(function () {
                     var name = $(this).attr('name');
+                    if(name == 'status'){
+                        $("input[name='status'][value="+data[name]+"]").attr("checked",true);
+                        return true;
+                    }
                     $(this).val(data[name]);
                 });
                 $('#layuiadmin-form-useradmin select').each(function () {
                     var name = $(this).attr('name');
                     $(this).val(data[name]);
                 });
-                layui.form.render('select');
                 $('#path').attr('src',data.bg_img).show();
-                $('.layui-btn-warm').attr('href',data.project_file).show();
+                // $('.layui-btn-warm').attr('href',data.project_file).show();
                 if(data.content){
                     kindeditor.html(data.content);
                 }
+                form.render();
             }
         }
 

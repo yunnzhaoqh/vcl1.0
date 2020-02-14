@@ -44,9 +44,8 @@
     <div class="layui-form-item">
         <label class="layui-form-label layui-required">指导教授</label>
         <div class="layui-input-inline">
-            <select name="peopleId" lay-verify="required">
-
-            </select>
+            <input type="text" name="peopleName" lay-verify="required" placeholder="请输入指导教授" autocomplete="off"
+                   class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
@@ -55,23 +54,23 @@
             <input type="text" name="starttime" class="layui-input" readonly autocomplete="off" lay-verify="required" id="starttime" />
         </div>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">结束日期</label>
-        <div class="layui-input-inline">
-            <input type="text" name="endtime" class="layui-input" readonly autocomplete="off" lay-verify="required" id="endtime" />
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">封面</label>
-        <div class="layui-input-inline">
-            <img src="" id="path" width="100%" height="100%" style="display: none">
-            <input type="hidden" name="bgImg" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
-        </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-img">上传图片</button>
-        <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
-            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
-        </div>
-    </div>
+<%--    <div class="layui-form-item">--%>
+<%--        <label class="layui-form-label layui-required">结束日期</label>--%>
+<%--        <div class="layui-input-inline">--%>
+<%--            <input type="text" name="endtime" class="layui-input" readonly autocomplete="off" lay-verify="required" id="endtime" />--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--    <div class="layui-form-item">--%>
+<%--        <label class="layui-form-label layui-required">封面</label>--%>
+<%--        <div class="layui-input-inline">--%>
+<%--            <img src="" id="path" width="100%" height="100%" style="display: none">--%>
+<%--            <input type="hidden" name="bgImg" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >--%>
+<%--        </div>--%>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-img">上传图片</button>--%>
+<%--        <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">--%>
+<%--            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
     <%--<div class="layui-form-item">--%>
         <%--<label class="layui-form-label layui-required">项目文件</label>--%>
         <%--<div class="layui-input-inline" style="width: auto;">--%>
@@ -125,12 +124,12 @@
             laydate = layui.laydate,
             upload = layui.upload,
             element = layui.element;
-
-        form.verify({
-            path:[
-                /[\S]+/,
-                "请上传封面"]
-        });
+        //
+        // form.verify({
+        //     path:[
+        //         /[\S]+/,
+        //         "请上传封面"]
+        // });
 
         var kindeditor = KindEditor.create('#intro',{
             width: '100%',
@@ -180,19 +179,19 @@
             }
         });
 
-        function init_people(value) {
-            $.post('/people/query_professor', {}, function (data) {
-                var html = '';
-                for (var i = 0; i < data.length; i++) {
-                    html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
-                }
-                $('select[name=peopleId]').append(html);
-                if(value){
-                    $('select[name=peopleId]').val(value);
-                }
-                layui.form.render('select');
-            }, 'json');
-        }
+        // function init_people(value) {
+        //     $.post('/people/query_professor', {}, function (data) {
+        //         var html = '';
+        //         for (var i = 0; i < data.length; i++) {
+        //             html += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+        //         }
+        //         $('select[name=peopleId]').append(html);
+        //         if(value){
+        //             $('select[name=peopleId]').val(value);
+        //         }
+        //         layui.form.render('select');
+        //     }, 'json');
+        // }
         $('#LAY-reference-close').click(function () {
 
             var index = parent.layer.getFrameIndex(window.name);
@@ -206,8 +205,8 @@
             init(1);
         }else if(open_type === 'update'){
             init(2)
-        }else{
-            init_people('');
+        // }else{
+        //     init_people('');
         }
         function init(index){
 
@@ -223,17 +222,17 @@
                     var name = $(this).attr('name');
                     $(this).val(data[name]);
                 });
-                $('#layuiadmin-form-useradmin select').each(function () {
-                    var name = $(this).attr('name');
-                    $(this).val(data[name]);
-                    if(name == 'peopleId'){
-                        init_people(data[name]);
-                    }
-                });
+                // $('#layuiadmin-form-useradmin select').each(function () {
+                //     var name = $(this).attr('name');
+                //     $(this).val(data[name]);
+                //     if(name == 'peopleId'){
+                //         init_people(data[name]);
+                //     }
+                // });
                 layui.form.render('select');
-                if(data.bgImg){
-                    $('#path').attr('src',data.bgImg).show();
-                }
+                // if(data.bgImg){
+                //     $('#path').attr('src',data.bgImg).show();
+                // }
                 if(data.reference){
                     $('.layui-btn-warm').attr('href',data.reference).show();
                 }

@@ -4,7 +4,7 @@
 
     <resultMap id="referenceMap" type="Reference">
         <id column="id" property="id"/>
-        <result column="people_id" property="peopleId"/>
+        <result column="people_name" property="peopleName"/>
         <result column="reference_name" property="referenceName"/>
         <result column="starttime" property="starttime"/>
         <result column="endtime" property="endtime"/>
@@ -17,8 +17,8 @@
     </resultMap>
 
     <select id="query_reference" parameterType="java.util.Map" resultMap="referenceMap">
-        select reference.*, people.name peopleName from reference
-        left join people on people.id = reference.people_id
+        select reference.* from reference
+        <!--left join people on people.id = reference.people_id-->
         <where>
             <if test="id != null and id !=''">
                 and reference.id = #{id}
@@ -39,7 +39,8 @@
                 and reference.createtime = #{createtime}
             </if>
             <if test="peopleName != null and peopleName !=''">
-                and instr(people.name,#{peopleName}) > 0
+                and instr(reference.name,#{peopleName}) > 0
+                <!--and instr(reference.name,#{peopleName}) > 0-->
             </if>
             <choose>
                 <when test="status != null and status != ''">
@@ -63,8 +64,8 @@
             <if test="ID != null and ID !=''">
             and reference.ID = #{ID}
             </if>
-            <if test="PEOPLE_ID != null and PEOPLE_ID !=''">
-                and reference.PEOPLE_ID = #{PEOPLE_ID}
+            <if test="peopleName != null and peopleName !=''">
+                and reference.PEOPLE_NAME = #{peopleName}
             </if>
             <if test="REFERENCE_NAME != null and REFERENCE_NAME !=''">
                 and reference.REFERENCE_NAME = #{REFERENCE_NAME}
@@ -99,8 +100,8 @@
             <if test="id != null and id !=''">
                  id,
             </if>
-            <if test="peopleId != null and peopleId !=''">
-                 people_id ,
+            <if test="peopleName != null and peopleName !=''">
+                people_name ,
             </if>
             <if test="referenceName != null and referenceName !=''">
                  reference_name ,
@@ -132,8 +133,8 @@
             <if test="id != null and id !=''">
                 #{id},
             </if>
-            <if test="peopleId != null and peopleId !=''">
-                #{peopleId} ,
+            <if test="peopleName != null and peopleName !=''">
+                #{peopleName} ,
             </if>
             <if test="referenceName != null and referenceName !=''">
                 #{referenceName} ,
@@ -164,8 +165,8 @@
     <update id="updateByPrimaryKey" parameterType="Reference">
         update reference
         <trim  prefix="set " suffixOverrides="," suffix=" where id = #{id} ">
-            <if test="peopleId != null and peopleId !=''">
-                people_id =#{peopleId},
+            <if test="peopleName != null and peopleName !=''">
+                people_name =#{peopleName},
             </if>
             <if test="referenceName != null and referenceName !=''">
                 reference_name=#{referenceName} ,

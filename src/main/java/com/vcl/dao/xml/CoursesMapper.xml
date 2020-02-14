@@ -4,7 +4,7 @@
 
     <resultMap id="coursesMap" type="Courses">
         <id column="id" property="id"/>
-        <result column="people_id" property="peopleId"/>
+        <result column="people_name" property="peopleName"/>
         <result column="course_name" property="courseName"/>
         <result column="starttime" property="starttime"/>
         <result column="endtime" property="endtime"/>
@@ -15,8 +15,8 @@
     </resultMap>
 
     <select id="query_courses" parameterType="java.util.Map" resultMap="coursesMap">
-        select people.name peopleName, courses.* from courses
-        left join people on people.id = courses.people_id
+        select courses.* from courses
+        <!--left join people on people.id = courses.people_id-->
         <where>
             <if test="id != null and id !=''">
                 and id = #{id}
@@ -37,7 +37,8 @@
                 and createtime = #{createtime}
             </if>
             <if test="peopleName != null and peopleName !=''">
-                and instr(people.name,#{peopleName}) > 0
+                <!--and instr(people.name,#{peopleName}) > 0-->
+                and instr(courses.name,#{peopleName}) > 0
             </if>
             <choose>
                 <when test="status != null and status != ''">
@@ -62,8 +63,8 @@
             <if test="id != null and id !=''">
             and cou.id = #{id}
             </if>
-            <if test="peopleId != null and peopleId !=''">
-                and cou.people_id = #{peopleId}
+            <if test="peopleName != null and peopleName !=''">
+                and cou.people_name = #{peopleName}
             </if>
             <if test="courseName != null and courseName !=''">
                 and cou.course_name = #{courseName}
@@ -90,8 +91,8 @@
             <if test="id != null and id !=''">
                  id,
             </if>
-            <if test="peopleId != null and peopleId !=''">
-                 people_id ,
+            <if test="peopleName != null and peopleName !=''">
+                 people_name ,
             </if>
             <if test="courseName != null and courseName !=''">
                  course_name ,
@@ -120,8 +121,8 @@
             <if test="id != null and id !=''">
                 #{id},
             </if>
-            <if test="peopleId != null and peopleId !=''">
-                #{peopleId} ,
+            <if test="peopleName != null and peopleName !=''">
+                #{peopleName} ,
             </if>
             <if test="courseName != null and courseName !=''">
                 #{courseName} ,
@@ -152,8 +153,8 @@
             <if test="id != null and id !=''">
                 id = #{id},
             </if>
-            <if test="peopleId != null and peopleId !=''">
-                people_id =#{peopleId},
+            <if test="peopleName != null and peopleName !=''">
+                people_name =#{peopleName},
             </if>
             <if test="courseName != null and courseName !=''">
                 course_name=#{courseName} ,

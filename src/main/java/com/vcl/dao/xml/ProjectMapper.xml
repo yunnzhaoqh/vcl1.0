@@ -9,7 +9,6 @@
         <result column="share_shcool" property="share_shcool"/>
         <result column="content" property="content" />
         <result column="type" property="type"/>
-        <result column="type" property="type" />
         <result column="status" property="status" />
         <result column="bg_img" property="bg_img" />
         <result column="project_file" property="project_file" />

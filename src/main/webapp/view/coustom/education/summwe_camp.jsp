@@ -61,17 +61,17 @@
                       class="layui-textarea layui-hide" style="height: 150px;" onchange="text(this)"></textarea>
         </div>
     </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label layui-required">封面</label>
-        <div class="layui-input-inline">
-            <img src="" id="path" width="100%" height="100%" style="display: none">
-            <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >
-        </div>
-        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-summe_camp">上传图片</button>
-        <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">
-            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>
-        </div>
-    </div>
+<%--    <div class="layui-form-item">--%>
+<%--        <label class="layui-form-label layui-required">封面</label>--%>
+<%--        <div class="layui-input-inline">--%>
+<%--            <img src="" id="path" width="100%" height="100%" style="display: none">--%>
+<%--            <input type="hidden" name="bg_img" lay-verify="path" placeholder="请上传封面" autocomplete="off" class="layui-input" >--%>
+<%--        </div>--%>
+<%--        <button style="float: left;" type="button" class="layui-btn" id="layuiadmin-upload-summe_camp">上传图片</button>--%>
+<%--        <div class="layui-progress" lay-filter="progress" lay-showPercent="true" style="display: none;">--%>
+<%--            <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"></div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
     <%--<div class="layui-form-item">--%>
         <%--<label class="layui-form-label layui-required">推荐home</label>--%>
         <%--<div class="layui-input-inline">--%>
@@ -103,11 +103,11 @@
             upload = layui.upload,
             element = layui.element;
 
-        form.verify({
-            path:[
-                /[\S]+/,
-                "请上传封面"]
-        });
+        // form.verify({
+        //     path:[
+        //         /[\S]+/,
+        //         "请上传封面"]
+        // });
 
         var kindeditor = KindEditor.create('#intro',{
             width: '100%',
@@ -182,7 +182,7 @@
                     $(this).val(data[name]);
                 });
                 layui.form.render('select');
-                $('#path').attr('src',data.bg_img).show();
+                // $('#path').attr('src',data.bg_img).show();
                 if(data.intro){
                     kindeditor.html(data.intro);
                 }

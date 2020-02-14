@@ -21,7 +21,7 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'referenceName', title: '参考项目名称'},
             {field: 'peopleName', title: '指导员', width: 100},
             {field: 'starttime', title: '开始时间',width: 150, sort: true,},
-            {field: 'endtime', title: '结束时间',width: 150, sort: true,},
+            // {field: 'endtime', title: '结束时间',width: 150, sort: true,},
             {field: 'intro', title: '团队简介', minWidth: 400, sort: true,},
             // {
             //     field: 'reference', title: '项目文件', minWicth: 150, sort: true, templet: function (res) {
@@ -163,7 +163,7 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'courseName', title: '课程名称'},
             {field: 'peopleName', title: '指导员'},
             {field: 'starttime', title: '开始时间', sort: true,},
-            {field: 'endtime', title: '结束时间', sort: true,},
+            // {field: 'endtime', title: '结束时间', sort: true,},
 
             {field: 'createtime', title: '创建时间', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}

@@ -21,7 +21,7 @@ layui.define(['table', 'form'], function (exports) {
             {field: 'title', title: '标题'},
             {field: 'releaseDate', title: '发布日期', sort: true,},
             {
-                field: 'status', title: '推荐home', templet: function (res) {
+                field: 'status', title: '发布状态', templet: function (res) {
                     var type = res.status;
                     if (type == 2) {
                         return '推荐';

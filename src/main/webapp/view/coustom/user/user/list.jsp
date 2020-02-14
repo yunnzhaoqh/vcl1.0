@@ -35,18 +35,18 @@
                 <%--              <input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">--%>
                 <%--            </div>--%>
                 <%--          </div>--%>
+<%--                <div class="layui-inline">--%>
+<%--                    <label class="layui-form-label">性别</label>--%>
+<%--                    <div class="layui-input-block">--%>
+<%--                        <select name="gender">--%>
+<%--                            <option value="">不限</option>--%>
+<%--                            <option value="男">男</option>--%>
+<%--                            <option value="女">女</option>--%>
+<%--                        </select>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
                 <div class="layui-inline">
-                    <label class="layui-form-label">性别</label>
-                    <div class="layui-input-block">
-                        <select name="gender">
-                            <option value="">不限</option>
-                            <option value="男">男</option>
-                            <option value="女">女</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">推荐home</label>
+                    <label class="layui-form-label">发布状态</label>
                     <div class="layui-input-block">
                         <select name="status">
                             <option value="">不限</option>

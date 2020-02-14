@@ -30,7 +30,7 @@ layui.define(['table', 'form'], function (exports) {
             //     }
             // },
             {
-                field: 'status', title: '推荐home', templet: function (res) {
+                field: 'status', title: '发布状态', templet: function (res) {
                     var type = res.status;
                     if (type == 2) {
                         return '推荐';

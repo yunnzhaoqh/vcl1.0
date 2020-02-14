@@ -37,9 +37,9 @@
      style="padding: 20px 20px;">
     <input hidden name="id"/>
     <input hidden name="type" id="type"/>
-    <c:if test="${type != 1}">
-        <input hidden name="status"  value="1"/>
-    </c:if>
+<%--    <c:if test="${type != 1}">--%>
+<%--        <input hidden name="status"  value="1"/>--%>
+<%--    </c:if>--%>
     <div class="layui-form-item layer-width">
         <label class="layui-form-label layui-required">轮播图标题</label>
         <div class="layui-input-block">
@@ -89,12 +89,14 @@
     </div>
 
     <div class="layui-form-item" id="bannerStatus">
-        <label class="layui-form-label layui-required">推荐home</label>
-        <div class="layui-input-inline">
-            <select name="status" lay-verify="required">
-                <option value="1">不推荐</option>
-                <option value="2">推荐</option>
-            </select>
+        <label class="layui-form-label layui-required">发布状态</label>
+        <div class="layui-input-block">
+            <input type="radio" name="status" value="1" title="不推荐" checked>
+            <input type="radio" name="status" value="2" title="推荐">
+<%--            <select name="status" lay-verify="required">--%>
+<%--                <option value="1">不推荐</option>--%>
+<%--                <option value="2">推荐</option>--%>
+<%--            </select>--%>
         </div>
     </div>
     <div class="layui-form-item">
@@ -155,21 +157,29 @@
                 var data = parent.banner;
                 $('#layuiadmin-form-useradmin input').each(function () {
                     var name = $(this).attr('name');
+                    if(name == 'status'){
+                        $("input[name='status'][value="+data[name]+"]").attr("checked",true);
+                        return true;
+                    }
                     $(this).val(data[name]);
                 });
                 $('#layuiadmin-form-useradmin select').each(function () {
                     var name = $(this).attr('name');
                     $(this).val(data[name]);
                 });
-                layui.form.render('select');
                 $('#path').attr('src',data.bannerImg).show();
                 $('textarea[name=bannerTitleIntro]').val(data.bannerTitleIntro);
+                form.render();
             }
         }
 
         form.on('submit(LAY-banner-submit)', function (data) {
             var field = data.field; //获取提交的字段
             field.type=type;
+            field.status = $('input[name=status]:checked').val();
+            if(type != 1){
+                field.status = 1;
+            }
             var url = '/banner/add';
             if(open_type === 'update'){
                 url = '/banner/update';

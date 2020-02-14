@@ -30,9 +30,9 @@ layui.define(['table', 'form'], function (exports) {
             // ,{field: 'email', title: '邮箱'}
             // , {field: 'gender', title: '性别'}
             , {field: 'duty', title: '职务'}
-            , {field: 'dutyNum', title: '职务等级'}
+            , {field: 'dutyNum', title: '显示顺序'}
             , {
-                field: 'introUrl', title: '个人简介', templet: function (res) {
+                field: 'introUrl', title: '主页地址', templet: function (res) {
                     if(res.introUrl){
                         return '<a href="'+ res.introUrl +'" target="_blank style="font-size: 14px;">' + res.introUrl + '</a>';
                     }
@@ -57,7 +57,7 @@ layui.define(['table', 'form'], function (exports) {
             }
             , {field: 'createtime', title: '创建时间', sort: true}
             , {
-                field: 'status', title: '推荐home', templet: function (res) {
+                field: 'status', title: '发布状态', templet: function (res) {
                     var type = res.status;
                     if (type == 2) {
                         return '推荐';

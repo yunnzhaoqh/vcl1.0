@@ -28,7 +28,7 @@
                 </div>
             <c:if test="${type == 1}">
                 <div class="layui-inline">
-                    <label class="layui-form-label">推荐home</label>
+                    <label class="layui-form-label">发布状态</label>
                     <div class="layui-input-block">
                         <select name="status">
                             <option value="">不限</option>
@@ -135,7 +135,7 @@
                 // },
             <c:if test="${type == 1}">
                 {
-                    field: 'status', title: '推荐home', templet: function (res) {
+                    field: 'status', title: '发布状态', templet: function (res) {
                         var type = res.status;
                         if (type == 2) {
                             return '推荐';

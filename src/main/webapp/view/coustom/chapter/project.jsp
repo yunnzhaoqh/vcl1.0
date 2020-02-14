@@ -121,13 +121,16 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label layui-required">推荐home</label>
-        <div class="layui-input-inline">
-            <select name="status" lay-verify="required">
-                <option value="0">暂存（不在前端显示）</option>
-                <option value="1">不推荐</option>
-                <option value="2">推荐</option>
-            </select>
+        <label class="layui-form-label layui-required">发布状态</label>
+        <div class="layui-input-block">
+<%--            <select name="status" lay-verify="required">--%>
+<%--                <option value="0">暂存（不在前端显示）</option>--%>
+<%--                <option value="1">不推荐</option>--%>
+<%--                <option value="2">推荐</option>--%>
+<%--            </select>--%>
+            <input type="radio" name="status" value="0" title="暂存（不在前端显示）" checked>
+            <input type="radio" name="status" value="1" title="不推荐">
+            <input type="radio" name="status" value="2" title="推荐">
         </div>
     </div>
     <div class="layui-form-item">
@@ -215,15 +218,17 @@
                 var data = parent.project;
                 $('#layuiadmin-form-useradmin input').each(function () {
                     var name = $(this).attr('name');
+                    if(name == 'status'){
+                        $("input[name='status'][value="+data[name]+"]").attr("checked",true);
+                        return true;
+                    }
                     $(this).val(data[name]);
                 });
                 $('#layuiadmin-form-useradmin select').each(function () {
                     var name = $(this).attr('name');
                     $(this).val(data[name]);
                 });
-                layui.form.render('select');
                 $('#path').attr('src',data.bg_img).show();
-                // $('.layui-btn-warm').attr('href',data.project_file).attr('download',data.fileName).show();
                 if(data.project_file){
                     fileSrcs = data.project_file;
                     fileNames = data.fileName;
@@ -246,6 +251,8 @@
                     kindeditor.html(data.content);
                     // layedit.setContent(editindex, data.content);
                 }
+                // $('.layui-btn-warm').attr('href',data.project_file).attr('download',data.fileName).show();
+                form.render();
             }
         }
 

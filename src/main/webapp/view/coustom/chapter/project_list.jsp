@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="layui-inline">
-                    <label class="layui-form-label">推荐home</label>
+                    <label class="layui-form-label">发布状态</label>
                     <div class="layui-input-block">
                         <select name="status">
                             <option value="">不限</option>

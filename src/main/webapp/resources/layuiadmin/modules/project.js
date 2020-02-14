@@ -46,7 +46,7 @@ layui.define(['table', 'form'], function (exports) {
             //     }
             // },
             {
-                field: 'status', title: '推荐home', templet: function (res) {
+                field: 'status', title: '发布状态', templet: function (res) {
                     var type = res.status;
                     if (type == 2) {
                         return '推荐';
@@ -59,7 +59,7 @@ layui.define(['table', 'form'], function (exports) {
                     }
                 }
             },
-            {field: 'createtime', title: '创建时间', sort: true,},
+            {field: 'createtime', title: '发布日期', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
         ]],
         limit: 15,    //设置分页数
@@ -122,7 +122,7 @@ layui.define(['table', 'form'], function (exports) {
             // ,{field:'id', title: 'ID', width:100, sort: true},
             {field: 'main_title', title: '主标题', width: 100},
             {field: 'subtitle', title: '副标题', width: 100, sort: true},
-            {field: 'share_people', title: '作者', minWidth: 150},
+            // {field: 'share_people', title: '作者', minWidth: 150},
             // {field: 'share_shcool', title: '参与学校', sort: true,},
             {
                 field: 'type', title: '类型', sort: true, templet: function (res) {
@@ -148,7 +148,7 @@ layui.define(['table', 'form'], function (exports) {
             //     }
             // },
             {
-                field: 'status', title: '推荐home', templet: function (res) {
+                field: 'status', title: '发布状态', templet: function (res) {
                     var type = res.status;
                     if (type == 2) {
                         return '推荐';
@@ -161,7 +161,7 @@ layui.define(['table', 'form'], function (exports) {
                     }
                 }
             },
-            {field: 'createtime', title: '创建时间', sort: true,},
+            {field: 'createtime', title: '发布日期', sort: true,},
             {title: '操作', width: 220, align: 'center', fixed: 'right', toolbar: '#table-project'}
         ]],
         limit: 15,    //设置分页数
